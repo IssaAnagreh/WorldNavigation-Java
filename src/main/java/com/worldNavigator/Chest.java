@@ -25,8 +25,10 @@ public class Chest extends Openable implements ItemsContainer {
         setIs_locked(chest.get("is_locked").equals("true"));
         JSONObject content = (JSONObject) chest.get("content");
         if (chest.get("existed").equals("true")) {
-            JSONArray keys_names = (JSONArray) content.get("keys");
-            if (keys_names != null) keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
+            if (content.get("keys") != null) {
+                JSONArray keys_names = (JSONArray) content.get("keys");
+                if (keys_names != null) keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
+            }
             if (content.get("golds") != null) this.golds = (long) content.get("golds");
             if (content.get("flashLight") != null) this.flashLight = (long) content.get("flashLight");
         }

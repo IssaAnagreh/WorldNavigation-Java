@@ -3,26 +3,26 @@ package com.worldNavigator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Painting implements ItemsContainer {
-    private JSONArray keys;
+    public List<Key> keys = new ArrayList<Key>();
     private int golds;
     private JSONObject content;
     public String location;
-    public static Key key;
-    private String keyName;
     public String name;
 
     public Painting(JSONObject painting) {
         this.content = (JSONObject) painting.get("content");
         if (painting.get("existed") == "true") {
-            this.keys = (JSONArray) this.content.get("keys");
-            this.keyName = (String) painting.get("key");
-            if (this.keyName != null) {
-                key = new Key(this.keyName);
+            if (this.content.get("keys") != null) {
+                JSONArray keys_names = (JSONArray) content.get("keys");
+                System.out.println("keys_names: "+keys_names);
+                if (keys_names != null) keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
             }
-            this.golds = (int) this.content.get("golds");
+            if (this.content.get("golds") != null) this.golds = (int) this.content.get("golds");
             this.location = (String) painting.get("location");
         }
     }

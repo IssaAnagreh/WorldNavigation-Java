@@ -45,7 +45,6 @@ public class Wall {
     public String check_item_by_location(String location) {
         for (String key : this.items.keySet()) {
             ItemsContainer location_item = (ItemsContainer) this.items.get(key);
-            System.out.println();
             if (location_item != null) if (location_item.getLocation().equals(location))
                 return "This location has: " + location_item.getName();
         }

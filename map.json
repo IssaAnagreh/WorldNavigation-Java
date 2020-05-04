@@ -151,7 +151,8 @@
               "content": {
                 "keys": [
                   "key-room_2-door_1"
-                ]
+                ],
+                "golds": 1
               },
               "location": "e2"
             },
