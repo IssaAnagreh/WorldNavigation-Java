@@ -9,17 +9,18 @@ import java.util.List;
 
 public class Painting implements ItemsContainer {
     public List<Key> keys = new ArrayList<Key>();
-    private int golds;
+    private long golds;
     private JSONObject content;
     public String location;
     public String name;
+    private boolean taken;
 
     public Painting(JSONObject painting) {
         this.content = (JSONObject) painting.get("content");
-        if (painting.get("existed") == "true") {
+        this.name = "Painting";
+        if (painting.get("existed").equals("true")) {
             if (this.content.get("keys") != null) {
                 JSONArray keys_names = (JSONArray) content.get("keys");
-                System.out.println("keys_names: "+keys_names);
                 if (keys_names != null) keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
             }
             if (this.content.get("golds") != null) this.golds = (int) this.content.get("golds");
@@ -37,6 +38,17 @@ public class Painting implements ItemsContainer {
 
     public HashMap check_content(String location) {
         HashMap<String, Object> content = new HashMap<String, Object>();
+        if (this.taken) {
+            System.out.println("This painting is empty now");
+        } else {
+            if (location.equals(this.location)) {
+                content.put("keys", this.keys);
+                content.put("golds", this.golds);
+                this.taken = true;
+            } else {
+                System.out.println("You must be in the same location of this painting");
+            }
+        }
         return content;
     }
 
@@ -56,6 +68,6 @@ public class Painting implements ItemsContainer {
 
     @Override
     public String toString() {
-        return "Mirror, Location: " + this.location;
+        return "Painting, Location: " + this.location;
     }
 }

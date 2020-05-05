@@ -150,7 +150,6 @@ public class PlayerController {
         Room room = this.rooms.get(this.roomIndex);
         if (room.lit) {
             Wall wall = room.walls.get(this.orientation);
-            System.out.println("wall.painting "+ wall.painting);
             System.out.println(wall.check_items_location());
         } else {
             System.out.println("Dark");

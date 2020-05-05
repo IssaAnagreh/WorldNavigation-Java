@@ -10,7 +10,8 @@ import java.util.List;
 public class Mirror implements ItemsContainer {
     public List<Key> keys = new ArrayList<Key>();
     private long flashLight;
-    private long golds;    private JSONObject content;
+    private long golds;
+    private JSONObject content;
     public String location;
     public String name = "Mirror";
     private boolean taken;
