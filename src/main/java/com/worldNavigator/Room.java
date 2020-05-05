@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class Room {
     public HashMap<String, Wall> walls = new HashMap<String, Wall>();
     public String roomName;
+    public Boolean lit;
 
     public Room(JSONObject room) {
         this.roomName = (String) room.get("name");
@@ -21,6 +22,7 @@ public class Room {
         walls.put("s", south_wall);
         walls.put("w", west_wall);
 
+        this.lit = Boolean.parseBoolean(room.get("lit").toString());
     }
 
 

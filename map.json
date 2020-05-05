@@ -8,6 +8,7 @@
         "room": {
           "name": "room_1",
           "lit": "true",
+          "switch": "true",
           "n_wall": {
             "door": {
               "existed": "true",
@@ -162,7 +163,29 @@
             "seller": {
               "existed": "true",
               "name": "room_2-seller",
-              "location": "e4"
+              "location": "e4",
+              "content": {
+                "keys": [
+                  {
+                    "name": "key-room_4-door_1",
+                    "cost": 10
+                  }
+                ],
+                "flashLights": [
+                  {
+                    "#": "#1",
+                    "cost": 5
+                  },
+                  {
+                    "#": "#2",
+                    "cost": 8
+                  }
+                ]
+              },
+              "selling": {
+                "keys": 7,
+                "flashLights": 2
+              }
             }
           },
           "s_wall": {
@@ -314,7 +337,7 @@
       {
         "room": {
           "name": "room_4",
-          "lit": "true",
+          "lit": "false",
           "n_wall": {
             "door": {
               "existed": "true",
@@ -414,7 +437,7 @@
       {
         "room": {
           "name": "room_5",
-          "lit": "true",
+          "lit": "false",
           "n_wall": {
             "door": {
               "existed": "true",

@@ -16,7 +16,7 @@ public class Door extends Openable implements ItemsContainer {
         if (door.get("key") != null) {
             setKey(new Key((String) door.get("key")));
         }
-        setIs_locked(door.get("is_locked").equals("true"));
+        initIs_locked(door.get("is_locked").equals("true"));
         this.nextRoom = (String) door.get("to");
         this.location = (String) door.get("location");
     }
@@ -29,6 +29,7 @@ public class Door extends Openable implements ItemsContainer {
         if (getIs_locked()) {
             return "";
         } else {
+            if (nextRoom.equals("")) System.out.println("This door opens to nothing");
             return nextRoom;
         }
     }
@@ -41,6 +42,11 @@ public class Door extends Openable implements ItemsContainer {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getDetails() {
+        return name + " in " + location;
     }
 
     @Override

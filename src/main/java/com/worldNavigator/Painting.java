@@ -50,6 +50,11 @@ public class Painting implements ItemsContainer {
     }
 
     @Override
+    public String getDetails() {
+        return name + " in " + location;
+    }
+
+    @Override
     public String toString() {
         return "Mirror, Location: " + this.location;
     }

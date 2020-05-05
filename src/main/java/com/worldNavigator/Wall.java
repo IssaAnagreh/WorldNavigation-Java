@@ -8,14 +8,12 @@ import java.util.List;
 
 public class Wall {
     public HashMap<String, Object> items = new HashMap<String, Object>();
-    public HashMap<String, Object> items_location = new HashMap<String, Object>();
     public String name;
-    public Door door;
+    private Door door;
     public Chest chest;
     public Mirror mirror;
     public Painting painting;
     public Seller seller;
-    public ItemsContainer items_container;
 
     public Wall(String name, JSONObject wall) {
         this.name = name;
@@ -43,8 +41,8 @@ public class Wall {
     }
 
     public String check_item_by_location(String location) {
-        for (String key : this.items.keySet()) {
-            ItemsContainer location_item = (ItemsContainer) this.items.get(key);
+        for (String item : this.items.keySet()) {
+            ItemsContainer location_item = (ItemsContainer) this.items.get(item);
             if (location_item != null) if (location_item.getLocation().equals(location))
                 return "This location has: " + location_item.getName();
         }
@@ -59,13 +57,25 @@ public class Wall {
         return temp_items.toString();
     }
 
+
+    public String check_items_location() {
+        List<String> temp_items = new ArrayList();
+        for (Object item : this.items.keySet()) {
+            ItemsContainer location_item = (ItemsContainer) this.items.get(item);
+            if (this.items.get(item) != null) temp_items.add(location_item.getDetails());
+        }
+        return temp_items.toString();
+    }
+
     public HashMap acquire_items(String location) {
         for (String item : this.items.keySet()) {
             Object location_item = this.items.get(item);
             if (location_item != null) if (((ItemsContainer) location_item).getLocation().equals(location)) {
-                HashMap acquire_items = ((ItemsContainer) location_item).check_content(location);
-                if (acquire_items.size() > 0) System.out.println("New items are acquired " + acquire_items);
-                return acquire_items;
+                if (!((ItemsContainer) location_item).getName().equals("Seller")){
+                    HashMap acquire_items = ((ItemsContainer) location_item).check_content(location);
+                    if (acquire_items.size() > 0) System.out.println("New items are acquired " + acquire_items);
+                    return acquire_items;
+                }
             }
         }
         return new HashMap<String, Object>();
@@ -85,6 +95,6 @@ public class Wall {
 
     @Override
     public String toString() {
-        return "Wall name: " + this.name + ", items: " + check_items();
+        return "Wall name: " + this.name + ", items: " + check_items_location();
     }
 }

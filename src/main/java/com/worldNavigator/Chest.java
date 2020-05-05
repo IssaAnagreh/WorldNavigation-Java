@@ -22,15 +22,15 @@ public class Chest extends Openable implements ItemsContainer {
         if (chest.get("key") != null) {
             setKey(new Key((String) chest.get("key")));
         }
-        setIs_locked(chest.get("is_locked").equals("true"));
+        initIs_locked(chest.get("is_locked").equals("true"));
         JSONObject content = (JSONObject) chest.get("content");
         if (chest.get("existed").equals("true")) {
             if (content.get("keys") != null) {
                 JSONArray keys_names = (JSONArray) content.get("keys");
                 if (keys_names != null) keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
             }
-            if (content.get("golds") != null) this.golds = (long) content.get("golds");
             if (content.get("flashLight") != null) this.flashLight = (long) content.get("flashLight");
+            if (content.get("golds") != null) this.golds = (long) content.get("golds");
         }
         this.location = (String) chest.get("location");
     }
@@ -55,7 +55,7 @@ public class Chest extends Openable implements ItemsContainer {
                     content.put("golds", this.golds);
                     this.taken = true;
                 } else {
-                    System.out.println("You must find the key for this chest");
+                    System.out.println("You must use the key or find it for this chest");
                 }
             } else {
                 System.out.println("You must be in the same location of this chest");
@@ -67,6 +67,11 @@ public class Chest extends Openable implements ItemsContainer {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getDetails() {
+        return name + " in " + location;
     }
 
     @Override

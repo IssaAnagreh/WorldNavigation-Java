@@ -15,11 +15,11 @@ public class Key implements KeyChecker {
 
     public Boolean unlock(Openable openable){
         if (openable != null) if (this.name.equals(openable.getKey())) {
-            System.out.println("Object is open now");
-            return this.name.equals(openable.getKey());
+            return false;
+        } else {
+            return true;
         }
-        System.out.println("Keys are used for locked chests and doors");
-        return false;
+        return true;
     }
 
     @Override

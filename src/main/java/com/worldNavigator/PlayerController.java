@@ -12,10 +12,10 @@ public class PlayerController {
     public MapFactory mapFactory;
     public List<Room> rooms;
     public int flashLights;
-    public int roomIndex = 0;
-    public int golds = 0;
-    public String orientation = "w";
-    public String location = "a4";
+    public int roomIndex = 2;
+    public int golds = 10;
+    public String orientation = "n";
+    public String location = "c1";
     static BufferedReader br;
     public List<Key> keys = new ArrayList<Key>();
 
@@ -132,14 +132,29 @@ public class PlayerController {
 
     public void nextRoom_move() {
         Move new_location = new Move(this.location, this.orientation, MoveParam.forward, true);
-        System.out.println("You are in: " + new_location.toString() + " in room number: " + roomIndex);
+        System.out.println("You are in: " + new_location.toString() + " in room number: " + roomIndex + 1);
         this.location = new_location.toString();
+    }
+
+    public void wall() {
+        Room room = this.rooms.get(this.roomIndex);
+        if (room.lit) {
+            Wall wall = room.walls.get(this.orientation);
+            System.out.println(wall.toString());
+        } else {
+            System.out.println("Dark");
+        }
     }
 
     public void look() {
         Room room = this.rooms.get(this.roomIndex);
-        Wall wall = room.walls.get(this.orientation);
-        System.out.println(wall.toString());
+        if (room.lit) {
+            Wall wall = room.walls.get(this.orientation);
+            System.out.println("wall.painting "+ wall.painting);
+            System.out.println(wall.check_items_location());
+        } else {
+            System.out.println("Dark");
+        }
     }
 
     public void check_room() {
@@ -147,7 +162,7 @@ public class PlayerController {
         System.out.println(room.toString());
     }
 
-    public void check_item() {
+    public void check() {
         Room room = this.rooms.get(this.roomIndex);
         Wall wall = room.walls.get(this.orientation);
         System.out.println(wall.check_item_by_location(this.location));
@@ -163,22 +178,30 @@ public class PlayerController {
     }
 
     public void use_key() {
+        String print = "";
         if (this.keys.size() > 0) {
             Room room = this.rooms.get(this.roomIndex);
             Wall wall = room.walls.get(this.orientation);
             Openable openable = (Openable) wall.getItem(this.location);
             if (openable != null) {
+                boolean locked = true;
                 for (Key keyItem : this.keys) {
-                    System.out.println("Using Key: " + keyItem);
-                    openable.setIs_locked(keyItem.unlock(openable));
+                    locked = !locked ? false : keyItem.unlock(openable);
+                    openable.setIs_locked(locked);
+                }
+                if (!locked) {
+                    print = "Object is open now";
+                } else {
+                    print = "Look for a suitable key";
                 }
             } else {
-                System.out.println("Keys are used for locked chests and doors");
+                print = "Keys are used for locked chests and doors";
             }
 
         } else {
-            System.out.println("You have no keys");
+            print = "You have no keys";
         }
+        System.out.println(print);
     }
 
 
@@ -193,11 +216,12 @@ public class PlayerController {
             if (location_item != null) if (((ItemsContainer) location_item).getLocation().equals(location)) {
                 boolean opened = false;
                 for (Room room_candidate : this.rooms) {
-                    if (room_candidate.roomName.equals(door.getNextRoom())) {
-                        System.out.println("Opened");
+                    String nextRoom = door.getNextRoom();
+                    if (room_candidate.roomName.equals(nextRoom)) {
                         this.roomIndex = this.rooms.indexOf(room_candidate.roomName.equals(door.getNextRoom()) ? room_candidate : -1);
                         nextRoom_move();
                         opened = true;
+                        System.out.println("Opened");
                     }
                 }
                 if (!opened) System.out.println("The door is locked or no doors to be opened");
@@ -213,6 +237,114 @@ public class PlayerController {
         this.location = loc;
     }
 
+    public void seller_buy(Seller seller) {
+        HashMap bought = seller.buy(this.golds);
+        if (bought.size() > 0) {
+            String kind = bought.get("kind").toString();
+            if (kind.equals("out of bounds")) {
+                System.out.println("Choose an existed item's index");
+                seller_buy(seller);
+            } else {
+                this.golds = (int) bought.get("golds");
+                switch (kind) {
+                    case "Keys":
+                        this.keys.add(((Key) bought.get("item")));
+                        break;
+                    case "FlashLights":
+                        this.flashLights += 1;
+                        break;
+                    default:
+                        System.out.println("Kind is not standard");
+                        break;
+                }
+                System.out.println("Item successfully bought");
+                System.out.println("Your Items: ");
+                myItems();
+                seller_buy(seller);
+            }
+        } else {
+        }
+    }
+
+    public void seller_sell(Seller seller) {
+        System.out.println("Items and values this seller is willing to buy: ");
+        System.out.println(seller.selling);
+        System.out.println("Enter the type of the item you want to sell: " + seller.selling.keySet() + " or type quit to cancel");
+        Scanner sc1 = new Scanner(System.in);
+        String type = sc1.next();
+        if (type.equals("quit")) {
+            trade();
+        } else {
+            if (type.equals("keys")) {
+                if (this.keys.size() > 0) {
+                    System.out.println("Enter the name of the item you want to sell: " + this.keys);
+                    Scanner sc2 = new Scanner(System.in);
+                    String item = sc2.next();
+                    for (Key key : this.keys) {
+                        System.out.println(key.toString().equals(item));
+                        if (key.toString().equals(item)) {
+                            this.keys.remove(key);
+                            break;
+                        }
+                    }
+                    this.golds = seller.sell(this.golds, type);
+                } else {
+                    System.out.println("You dont have keys to sell");
+                    seller_sell(seller);
+                }
+            } else if (type.equals("flashLights")) {
+                if (this.flashLights > 0) {
+                    this.flashLights--;
+                    this.golds = seller.sell(this.golds, type);
+                    System.out.println("Your Items: ");
+                    myItems();
+                } else {
+                    System.out.println("You dont have keys to sell");
+                    seller_sell(seller);
+                }
+            } else {
+                System.out.println("Choose a correct type");
+                seller_sell(seller);
+            }
+        }
+    }
+
+    public void seller_list(Seller seller) {
+        System.out.println(seller.contents);
+    }
+
+    public void trade() {
+        Room room = this.rooms.get(this.roomIndex);
+        Wall wall = room.walls.get(this.orientation);
+        Seller seller = (Seller) wall.items.get("seller");
+
+        if (seller != null) {
+            System.out.println("This seller has: " + seller.check_content(this.location));
+            System.out.println("You can use buy, sell, list or finish commands");
+            Scanner sc = new Scanner(System.in);
+            String command = sc.nextLine();
+            switch (command) {
+                case "buy":
+                    seller_buy(seller);
+                    break;
+                case "sell":
+                    seller_sell(seller);
+                    break;
+                case "list":
+                    seller_list(seller);
+                    break;
+                case "finish":
+                    System.out.println("You quited trading");
+                    break;
+                default:
+                    trade();
+                    break;
+            }
+        } else {
+            System.out.println("No sellers in this orientation");
+        }
+    }
+
     private void use_method(String command) throws IOException {
         switch (command) {
             case "room":
@@ -223,6 +355,9 @@ public class PlayerController {
                 break;
             case "location":
                 myLocation();
+                break;
+            case "wall":
+                wall();
                 break;
             case "look":
                 look();
@@ -240,11 +375,8 @@ public class PlayerController {
                 move(MoveParam.backward);
                 break;
             case "check":
-                check_item();
+                check();
                 acquire_items();
-                break;
-            case "checkItem":
-                check_item();
                 break;
             case "myItems":
                 myItems();
@@ -257,6 +389,9 @@ public class PlayerController {
                 break;
             case "open":
                 open();
+                break;
+            case "trade":
+                trade();
                 break;
             case "quit":
                 endGame();

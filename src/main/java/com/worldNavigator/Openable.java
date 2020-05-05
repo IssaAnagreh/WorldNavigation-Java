@@ -10,8 +10,12 @@ public class Openable {
         return is_locked;
     }
 
-    public void setIs_locked(Boolean is_locked) {
+    public void initIs_locked(Boolean is_locked) {
         this.is_locked = is_locked;
+    }
+
+    public void setIs_locked(Boolean is_locked) {
+        this.is_locked = !this.is_locked ? false : is_locked;
     }
 
     public String getKey() {

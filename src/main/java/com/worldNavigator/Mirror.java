@@ -12,7 +12,7 @@ public class Mirror implements ItemsContainer {
     private long flashLight;
     private long golds;    private JSONObject content;
     public String location;
-    public String name;
+    public String name = "Mirror";
     private boolean taken;
 
     public Mirror(JSONObject mirror) {
@@ -25,7 +25,6 @@ public class Mirror implements ItemsContainer {
             if (content.get("golds") != null) this.golds = (long) content.get("golds");
             if (content.get("flashLight") != null) this.flashLight = (long) content.get("flashLight");
             this.location = (String) mirror.get("location");
-            this.name = "Mirror";
         }
     }
 
@@ -55,6 +54,11 @@ public class Mirror implements ItemsContainer {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getDetails() {
+        return "You see a silhouette of you because of a " + name + " in " + location;
     }
 
     @Override
