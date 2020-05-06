@@ -12,7 +12,7 @@ public class Door extends Openable implements ItemsContainer {
 
     public Door(JSONObject door) {
         this.name = (String) door.get("name");
-        this.golden = door.get("golden") == "true";
+        this.golden = door.get("golden").equals("true");
         if (door.get("key") != null) {
             setKey(new Key((String) door.get("key")));
         }
@@ -29,6 +29,10 @@ public class Door extends Openable implements ItemsContainer {
         if (getIs_locked()) {
             return "";
         } else {
+            if (this.getGolden()) {
+                System.out.println("CONGRATULATIONS! YOU WON THE GAME");
+                System.exit(1);
+            };
             if (nextRoom.equals("")) System.out.println("This door opens to nothing");
             return nextRoom;
         }
@@ -47,6 +51,10 @@ public class Door extends Openable implements ItemsContainer {
     @Override
     public String getDetails() {
         return name + " in " + location;
+    }
+
+    public Boolean getGolden() {
+        return golden;
     }
 
     @Override

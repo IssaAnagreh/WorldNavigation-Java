@@ -49,22 +49,14 @@ public class Wall {
         return "Nothing in this location";
     }
 
-    public String check_items() {
-        List<String> temp_items = new ArrayList();
-        for (Object key : this.items.keySet()) {
-            if (this.items.get(key) != null) temp_items.add(this.items.get(key).toString());
-        }
-        return temp_items.toString();
-    }
-
-
-    public String check_items_location() {
+    public String check_ite
+    qms_location() {
         List<String> temp_items = new ArrayList();
         for (Object item : this.items.keySet()) {
             ItemsContainer location_item = (ItemsContainer) this.items.get(item);
             if (this.items.get(item) != null) temp_items.add(location_item.getDetails());
         }
-        return temp_items.toString();
+        return temp_items.size() > 0 ? temp_items.toString() : "Nothing to look at";
     }
 
     public HashMap acquire_items(String location) {

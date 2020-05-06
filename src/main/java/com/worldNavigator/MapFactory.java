@@ -18,6 +18,7 @@ public class MapFactory extends Observable {
     public long end_time;
     public long golds_increment = -1;
     public static boolean playing = false;
+    private int room_counter = 0;
 
     @SuppressWarnings("unchecked")
     public MapFactory(String mapName) {
@@ -57,7 +58,10 @@ public class MapFactory extends Observable {
         //Get room object within list
         JSONObject roomObject = null;
         if (room != null) roomObject = (JSONObject) room.get("room");
-        if (roomObject != null) rooms.add(new Room(roomObject));
+        if (roomObject != null) {
+            rooms.add(new Room(roomObject, room_counter));
+            this.room_counter++;
+        };
     }
 
     public void notify_observers(String msg) {

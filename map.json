@@ -1,13 +1,13 @@
 [
   {
     "name": "Khareeta",
-    "end_time": 600,
+    "end_time": 3600,
     "golds_increment": 5,
     "rooms": [
       {
         "room": {
           "name": "room_1",
-          "lit": "true",
+          "lit": "false",
           "switch": "true",
           "n_wall": {
             "door": {
@@ -118,6 +118,7 @@
         "room": {
           "name": "room_2",
           "lit": "true",
+          "switch": "false",
           "n_wall": {
             "door": {
               "existed": "false"
@@ -240,6 +241,7 @@
         "room": {
           "name": "room_3",
           "lit": "true",
+          "switch": "true",
           "n_wall": {
             "door": {
               "existed": "false"
@@ -338,6 +340,7 @@
         "room": {
           "name": "room_4",
           "lit": "false",
+          "switch": "false",
           "n_wall": {
             "door": {
               "existed": "true",
@@ -438,6 +441,7 @@
         "room": {
           "name": "room_5",
           "lit": "false",
+          "switch": "false",
           "n_wall": {
             "door": {
               "existed": "true",

@@ -11,13 +11,14 @@ import java.util.*;
 public class PlayerController {
     public MapFactory mapFactory;
     public List<Room> rooms;
-    public int flashLights;
-    public int roomIndex = 2;
+    public int flashLights = 1;
+    public int roomIndex = 4;
     public int golds = 10;
-    public String orientation = "n";
-    public String location = "c1";
+    public String orientation = "e";
+    public String location = "e3";
     static BufferedReader br;
     public List<Key> keys = new ArrayList<Key>();
+    public GameTimer timer;
 
     public PlayerController(MapFactory map) {
         this.mapFactory = map;
@@ -43,15 +44,15 @@ public class PlayerController {
         // start game timer
         long start = System.currentTimeMillis();
         long end = start + (1000 * end_time);
-        new GameTimer((int) end_time);
-
+        GameTimer gameTimer = new GameTimer((int) end_time);
+        this.timer = gameTimer;
         // read player console
         br = new BufferedReader(new InputStreamReader(System.in));
 
         while (mapFactory.playing) {
             System.out.print("Enter your next command: ");
             String command = br.readLine();
-            if (mapFactory.playing) use_method(command);
+            if (mapFactory.playing) use_method(command.trim());
         }
 
         // game is finished
@@ -132,7 +133,8 @@ public class PlayerController {
 
     public void nextRoom_move() {
         Move new_location = new Move(this.location, this.orientation, MoveParam.forward, true);
-        System.out.println("You are in: " + new_location.toString() + " in room number: " + roomIndex + 1);
+        int index = this.roomIndex + 1;
+        System.out.println("You are in: " + new_location.toString() + " in room number: " + index);
         this.location = new_location.toString();
     }
 
@@ -183,15 +185,19 @@ public class PlayerController {
             Wall wall = room.walls.get(this.orientation);
             Openable openable = (Openable) wall.getItem(this.location);
             if (openable != null) {
-                boolean locked = true;
-                for (Key keyItem : this.keys) {
-                    locked = !locked ? false : keyItem.unlock(openable);
-                    openable.setIs_locked(locked);
-                }
-                if (!locked) {
-                    print = "Object is open now";
+                if (openable.getIs_locked()) {
+                    boolean locked = true;
+                    for (Key keyItem : this.keys) {
+                        locked = !locked ? false : keyItem.unlock(openable);
+                        openable.setIs_locked(locked);
+                    }
+                    if (!locked) {
+                        print = "Object is open now";
+                    } else {
+                        print = "Look for a suitable key";
+                    }
                 } else {
-                    print = "Look for a suitable key";
+                    print = "Object is already open";
                 }
             } else {
                 print = "Keys are used for locked chests and doors";
@@ -344,6 +350,48 @@ public class PlayerController {
         }
     }
 
+    public void switchLights() {
+        Room room = this.rooms.get(this.roomIndex);
+        room.switchLights();
+    }
+
+    public void flashLight() {
+        Room room = this.rooms.get(this.roomIndex);
+        if (this.flashLights > 0) {
+            this.flashLights = room.useFlashLight(this.flashLights);
+        } else {
+            System.out.println("You have no flashLights");
+        }
+    }
+
+
+    public void time() {
+        this.timer.getRemaining_time();
+    }
+
+    public void commands() {
+        List<String> commands = new ArrayList<>();
+        commands.add("room");
+        commands.add("orientation");
+        commands.add("location");
+        commands.add("wall");
+        commands.add("look");
+        commands.add("left");
+        commands.add("right");
+        commands.add("forward");
+        commands.add("backward");
+        commands.add("check");
+        commands.add("myItems");
+        commands.add("useKey");
+        commands.add("open");
+        commands.add("trade");
+        commands.add("switchLight");
+        commands.add("flashLight");
+        commands.add("time");
+        commands.add("quit");
+        System.out.println("Commands you can use: " + commands);
+    }
+
     private void use_method(String command) throws IOException {
         switch (command) {
             case "room":
@@ -351,8 +399,16 @@ public class PlayerController {
                 break;
             case "orientation":
                 myOrientation();
+                System.out.println("You can use <o> as a shortcut command");
+                break;
+            case "o":
+                myOrientation();
                 break;
             case "location":
+                myLocation();
+                System.out.println("You can use <loc> as a shortcut command");
+                break;
+            case "loc":
                 myLocation();
                 break;
             case "wall":
@@ -363,24 +419,53 @@ public class PlayerController {
                 break;
             case "left":
                 left();
+                System.out.println("You can use <l> as a shortcut command");
+                break;
+            case "l":
+                left();
                 break;
             case "right":
+                right();
+                System.out.println("You can use <r> as a shortcut command");
+                break;
+            case "r":
                 right();
                 break;
             case "forward":
                 move(MoveParam.forward);
+                System.out.println("You can use <f> as a shortcut command");
+                break;
+            case "f":
+                move(MoveParam.forward);
                 break;
             case "backward":
+                move(MoveParam.backward);
+                System.out.println("You can use <b> as a shortcut command");
+                break;
+            case "b":
                 move(MoveParam.backward);
                 break;
             case "check":
                 check();
                 acquire_items();
+                System.out.println("You can use <c> as a shortcut command");
+                break;
+            case "c":
+                check();
+                acquire_items();
                 break;
             case "myItems":
                 myItems();
+                System.out.println("You can use <items> as a shortcut command");
+                break;
+            case "items":
+                myItems();
                 break;
             case "useKey":
+                use_key();
+                System.out.println("You can use <key> as a shortcut command");
+                break;
+            case "key":
                 use_key();
                 break;
             case "setloc":
@@ -391,6 +476,26 @@ public class PlayerController {
                 break;
             case "trade":
                 trade();
+                break;
+            case "switchLight":
+                switchLights();
+                System.out.println("You can use <light> as a shortcut command");
+                break;
+            case "light":
+                switchLights();
+                break;
+            case "flashLight":
+                flashLight();
+                System.out.println("You can use <flash> as a shortcut command");
+                break;
+            case "flash":
+                flashLight();
+                break;
+            case "commands":
+                commands();
+                break;
+            case "time":
+                time();
                 break;
             case "quit":
                 endGame();

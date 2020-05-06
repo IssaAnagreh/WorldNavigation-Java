@@ -8,8 +8,10 @@ public class Room {
     public HashMap<String, Wall> walls = new HashMap<String, Wall>();
     public String roomName;
     public Boolean lit;
+    public Boolean lightSwitch;
+    public final int room_number;
 
-    public Room(JSONObject room) {
+    public Room(JSONObject room, int room_counter) {
         this.roomName = (String) room.get("name");
 
         Wall north_wall = new Wall("north_wall", (JSONObject) room.get("n_wall"));
@@ -23,8 +25,32 @@ public class Room {
         walls.put("w", west_wall);
 
         this.lit = Boolean.parseBoolean(room.get("lit").toString());
+        this.lightSwitch = (room.get("switch") != null) && Boolean.parseBoolean(room.get("switch").toString());
+        this.room_number = room_counter;
     }
 
+    public void switchLights() {
+        if (this.lightSwitch) {
+            this.lit = !this.lit;
+            if (lit) {
+                System.out.println("Room is lit now");
+            } else {
+                System.out.println("Room is dark now");
+            }
+        } else {
+            System.out.println("This room has now lights switch, use a flash light");
+        }
+    }
+
+    public int useFlashLight(int flashLights) {
+        if (!this.lit) {
+            this.lit = true;
+            System.out.println("Room is lit now");
+            return --flashLights;
+        } else {
+            return flashLights;
+        }
+    }
 
     @Override
     public String toString() {
