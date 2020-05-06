@@ -49,8 +49,7 @@ public class Wall {
         return "Nothing in this location";
     }
 
-    public String check_ite
-    qms_location() {
+    public String check_items_location() {
         List<String> temp_items = new ArrayList();
         for (Object item : this.items.keySet()) {
             ItemsContainer location_item = (ItemsContainer) this.items.get(item);
