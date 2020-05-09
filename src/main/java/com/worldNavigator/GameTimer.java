@@ -10,11 +10,13 @@ public class GameTimer extends PlayerController {
     private int time = 0;
     public int seconds;
     public int remaining_time;
+    private final int milli_in_sec = 1000;
+    private final int sec_in_min = 60;
 
     public GameTimer(int seconds) {
         timer = new Timer();
-        timer.schedule(new FinishTask(), 1000*seconds);
-        timer.schedule(new RemindTask(), 0, 1000);
+        timer.schedule(new FinishTask(), milli_in_sec*seconds);
+        timer.schedule(new RemindTask(), 0, milli_in_sec);
         System.out.println("This game will end in " + seconds + " seconds");
         this.seconds = seconds;
     }
@@ -25,8 +27,7 @@ public class GameTimer extends PlayerController {
 
     class RemindTask extends TimerTask {
         public void run() {
-            time += 5;
-            int new_remaining_time = (seconds/60) - (++time/60);
+            int new_remaining_time = (seconds/sec_in_min) - (++time/sec_in_min);
             if (remaining_time != new_remaining_time) {
                 remaining_time = new_remaining_time;
             }
@@ -38,11 +39,7 @@ public class GameTimer extends PlayerController {
             System.out.println("Time's up!");
             timer.cancel(); //Terminate the timer thread
             System.exit(1);
-            try {
-                endGame();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            quit();
         }
     }
 }

@@ -4,10 +4,10 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class PlayerViewer implements Observer {
-    public final PlayerController playerController;
+    public final PlayerControllerInterface playerController;
     public final String name;
 
-    public PlayerViewer(PlayerController playerController, String name) {
+    public PlayerViewer(PlayerControllerInterface playerController, String name) {
         this.playerController = playerController;
         this.name = name;
         this.playerController.subscribe(this);
@@ -15,8 +15,8 @@ public class PlayerViewer implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        MapFactory mapFactory = (MapFactory) o;
+        PlayerModel playerModel = (PlayerModel) o;
         String msg = (String) arg;
-        System.out.println(name + " has been notified from " + mapFactory.name + " that: " + msg );
+        System.out.println(msg);
     }
 }

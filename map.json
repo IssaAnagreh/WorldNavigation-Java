@@ -1,6 +1,7 @@
 [
   {
     "name": "Khareeta",
+    "file": "map.json",
     "end_time": 3600,
     "golds_increment": 5,
     "rooms": [

@@ -8,8 +8,8 @@ public class Main {
         Maps maps = new Maps();
         maps.addMap("map.json");
 
-        PlayerController player = new PlayerController(maps.maps.get(0));
-        PlayerViewer playerViewer = new PlayerViewer(player, "Isa");
-        player.startGame();
+        Menu menu = new Menu(maps);
+        menu.start();
+        menu.add_command("isa");
     }
 }

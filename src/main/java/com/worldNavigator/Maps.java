@@ -6,8 +6,9 @@ import java.util.List;
 public class Maps {
     public List<MapFactory> maps = new ArrayList();
 
-    public List<MapFactory> getMaps() {
-        return maps;
+    public MapFactory generate(String json) {
+        MapFactory khareeta = new MapFactory(json);
+        return khareeta;
     }
 
     public void addMap(String json) {
@@ -17,5 +18,9 @@ public class Maps {
 
     public void removeMap(MapFactory map) {
         maps.remove(map);
+    }
+
+    public void replace(MapFactory map, int index) {
+        this.maps.set(index, map);
     }
 }

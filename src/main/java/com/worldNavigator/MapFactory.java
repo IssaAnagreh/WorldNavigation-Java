@@ -12,16 +12,19 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class MapFactory extends Observable {
+public class MapFactory {
     public String name;
     public List<Room> rooms = new ArrayList();
     public long end_time;
     public long golds_increment = -1;
     public static boolean playing = false;
     private int room_counter = 0;
+    public final String mapName;
 
     @SuppressWarnings("unchecked")
     public MapFactory(String mapName) {
+        this.mapName = mapName;
+
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
 
@@ -64,31 +67,8 @@ public class MapFactory extends Observable {
         };
     }
 
-    public void notify_observers(String msg) {
-        this.setChanged();
-        notifyObservers(msg);
-    }
-
     @Override
     public String toString() {
         return name;
     }
 }
-
-
-////Get room object within list
-//JSONObject roomObject = (JSONObject) room.get("room");
-//System.out.println(roomObject.get("name"));
-//JSONArray doors = (JSONArray) roomObject.get("n_wall").get("door").get("name");
-//JSONObject n_wall = (JSONObject) roomObject.get("n_wall");
-//JSONObject n_door = (JSONObject) n_wall.get("door");
-//System.out.println("north door: " + n_door.get("existed"));
-//if (n_door.get("existed").equals("true")) System.out.println("north door: " + n_door.get("name"));
-//doors.forEach( emp -> System.out.println(emp) );
-
-
-//Door door = new Door();
-//
-//KeyChecker key = new Key(door.toString());
-//
-//System.out.println(door.accept(key));
