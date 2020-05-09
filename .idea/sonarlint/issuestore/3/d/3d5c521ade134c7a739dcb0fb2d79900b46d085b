@@ -1,0 +1,31 @@
+
+ˆ
+java:S1319"mThe type of the "walls" object should be an interface such as "Map" rather than the implementation "HashMap".(²äÇ°üÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê€Øà
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·¡µÕùÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôú ä
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ƒÚ¾ùÿÿÿÿ
+e	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÁ¬F
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+E
+java:S5411!"*Use the primitive boolean expression here.(ÜÿË¦øÿÿÿÿ
+@
+java:S5411#"*Use the primitive boolean expression here.(Ÿñƒ
+@
+java:S5411."*Use the primitive boolean expression here.(¾„È
+l
+java:S1104"QMake walls a static final constant or non-public and provide accessors if needed.(²äÇ°üÿÿÿÿ
+o
+java:S1104	"TMake roomName a static final constant or non-public and provide accessors if needed.(µ­”éùÿÿÿÿ
+j
+java:S1104
+"OMake lit a static final constant or non-public and provide accessors if needed.(úª­·ıÿÿÿÿ
+m
+java:S1104"WMake lightSwitch a static final constant or non-public and provide accessors if needed.(ö´¸—
+k	java:S116"VRename this field "room_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•’ü™
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(²äÇ°üÿÿÿÿ
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(ıú©ğüÿÿÿÿ
+N	java:S106&"9Replace this use of System.out or System.err by a logger.(©ÕÓÀ
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(¬Î¡Äøÿÿÿÿ
+S	java:S1060"9Replace this use of System.out or System.err by a logger.(ıú©ğüÿÿÿÿ

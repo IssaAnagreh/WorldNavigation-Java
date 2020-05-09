@@ -1,0 +1,24 @@
+
+q	java:S116"URename this field "sec_in_min" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±˜éÿ8ÂÏû¯Ÿ.
+>
+java:S1170"!Make this final field static too.(¸¨»…8ş ø¯Ÿ.
+Z	java:S106'"9Replace this use of System.out or System.err by a logger.(Ÿí´åÿÿÿÿÿ8ÂÏû¯Ÿ.
+i
+java:S1104"SMake seconds a static final constant or non-public and provide accessors if needed.(¸ÒóÆ
+n	java:S116"YRename this field "remaining_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë¬äŸ
+s	java:S116"WRename this field "milli_in_sec" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸¨»…8Èù¯Ÿ.
+>
+java:S1170"!Make this final field static too.(±˜éÿ8°£û¯Ÿ.
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­İ¶œşÿÿÿÿ8ÂÏû¯Ÿ.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+m
+java:S1104	"RMake cancel a static final constant or non-public and provide accessors if needed.(ÂÔÄÌùÿÿÿÿ
+p
+java:S1104"ZMake remaining_time a static final constant or non-public and provide accessors if needed.(Ë¬äŸ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(“†Öªşÿÿÿÿ8ÂÏû¯Ÿ.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(—¨â›ûÿÿÿÿ8ÂÏû¯Ÿ.
+h
+java:S2184"FCast one of the operands of this multiplication operation to a "long".(‘¼ååûÿÿÿÿ8¯©ù¯Ÿ.
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8¡¶Ú¯Ÿ.
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Ğ
