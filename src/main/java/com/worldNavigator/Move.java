@@ -3,18 +3,18 @@ package com.worldNavigator;
 public class Move {
     private String new_location;
 
-    public Move(String location, String orientation, PlayerController.MoveParam move) {
-        if (move == PlayerController.MoveParam.forward) {
+    public Move(String location, String orientation, PlayerControllerMaster.MoveParam move) {
+        if (move == PlayerControllerMaster.MoveParam.forward) {
             forward(location, orientation);
-        } else if (move == PlayerController.MoveParam.backward) {
+        } else if (move == PlayerControllerMaster.MoveParam.backward) {
             backward(location, orientation);
         } else {
             System.out.println("wrong movement input, user 'forward' or 'backward'");
         }
     }
 
-    public Move(String location, String orientation, PlayerController.MoveParam move, boolean nextRoom) {
-        if (move == PlayerController.MoveParam.forward) {
+    public Move(String location, String orientation, PlayerControllerMaster.MoveParam move, boolean nextRoom) {
+        if (move == PlayerControllerMaster.MoveParam.forward) {
             forward_nextRoom(location, orientation);
         }
     }

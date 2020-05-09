@@ -1,15 +1,42 @@
 package com.worldNavigator;
 
 import java.io.IOException;
+import java.util.*;
 
-public class CustomPlayerController implements PlayerControllerInterface {
+public class PlayerControllerMaster implements PlayerControllerInterface {
     PlayerModel playerModel;
+    private ArrayList<String> commands = new ArrayList<>();
 
-    public CustomPlayerController(PlayerModel playerModel) {
-        this.playerModel = playerModel;
-    }
-
-    public CustomPlayerController() {
+    public PlayerControllerMaster() {
+        commands.add("room");
+        commands.add("orientation");
+        commands.add("o");
+        commands.add("location");
+        commands.add("loc");
+        commands.add("wall");
+        commands.add("look");
+        commands.add("left");
+        commands.add("l");
+        commands.add("right");
+        commands.add("r");
+        commands.add("forward");
+        commands.add("f");
+        commands.add("backward");
+        commands.add("b");
+        commands.add("check");
+        commands.add("c");
+        commands.add("myItems");
+        commands.add("items");
+        commands.add("useKey");
+        commands.add("key");
+        commands.add("open");
+        commands.add("trade");
+        commands.add("switchLight");
+        commands.add("switch");
+        commands.add("flashLight");
+        commands.add("flash");
+        commands.add("time");
+        commands.add("quit");
     }
 
     public void subscribe(PlayerViewer playerViewer) {
@@ -51,7 +78,7 @@ public class CustomPlayerController implements PlayerControllerInterface {
         forward, backward;
     }
 
-    public void move(PlayerController.MoveParam move) {
+    public void move(PlayerControllerMaster.MoveParam move) {
         this.playerModel.move(move);
     }
 
@@ -104,6 +131,10 @@ public class CustomPlayerController implements PlayerControllerInterface {
         this.playerModel.timer.getRemaining_time();
     }
 
+    public void commands() {
+        System.out.println(this.commands);
+    }
+
     public void restart() {
         try {
             this.playerModel.menu.restart();
@@ -116,12 +147,8 @@ public class CustomPlayerController implements PlayerControllerInterface {
         this.playerModel.menu.quit();
     }
 
-    public void commands() {
-        this.playerModel.get_command();
-    }
 
     public void use_method(String command) {
-        command = this.playerModel.use_command(command);
         switch (command) {
             case "room":
                 room();
@@ -161,18 +188,18 @@ public class CustomPlayerController implements PlayerControllerInterface {
                 rotateRight();
                 break;
             case "forward":
-                move(PlayerController.MoveParam.forward);
+                move(PlayerControllerMaster.MoveParam.forward);
                 System.out.println("You can use <f> as a shortcut command");
                 break;
             case "f":
-                move(PlayerController.MoveParam.forward);
+                move(PlayerControllerMaster.MoveParam.forward);
                 break;
             case "backward":
-                move(PlayerController.MoveParam.backward);
+                move(PlayerControllerMaster.MoveParam.backward);
                 System.out.println("You can use <b> as a shortcut command");
                 break;
             case "b":
-                move(PlayerController.MoveParam.backward);
+                move(PlayerControllerMaster.MoveParam.backward);
                 break;
             case "check":
                 check();

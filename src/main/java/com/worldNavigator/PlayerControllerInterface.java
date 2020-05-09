@@ -21,7 +21,7 @@ public interface PlayerControllerInterface {
         forward, backward;
     }
 
-    void move(PlayerController.MoveParam move);
+    void move(PlayerControllerMaster.MoveParam move);
 
     void wall();
 

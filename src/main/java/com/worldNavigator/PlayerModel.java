@@ -1,7 +1,6 @@
 package com.worldNavigator;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
@@ -20,6 +19,7 @@ public class PlayerModel extends Observable {
     public GameTimer timer;
     public Menu menu;
     public boolean playing;
+    public HashMap<String, Object> items = new HashMap<String, Object>();
 
     public PlayerModel(MapFactory map, Menu menu) {
         this.map = map;
@@ -49,7 +49,8 @@ public class PlayerModel extends Observable {
 
     public void wall() {
         if (this.room.lit) {
-            Wall wall = this.room.walls.get(this.orientation);
+            this.wall = this.room.walls.get(this.orientation);
+            this.items = this.wall.items;
             System.out.println(wall.toString());
         } else {
             System.out.println("Dark");
@@ -62,14 +63,14 @@ public class PlayerModel extends Observable {
         System.out.println("flashLights: " + this.flashLights);
     }
 
-    public void move(PlayerController.MoveParam move) {
+    public void move(PlayerControllerMaster.MoveParam move) {
         Move new_location = new Move(this.location, this.orientation, move);
         this.location = new_location.toString();
         System.out.println(this.location);
     }
 
     public void nextRoom_move() {
-        Move new_location = new Move(this.location, this.orientation, PlayerController.MoveParam.forward, true);
+        Move new_location = new Move(this.location, this.orientation, PlayerControllerMaster.MoveParam.forward, true);
         int index = this.roomIndex + 1;
         System.out.println("You are in: " + new_location.toString() + " in room number: " + index);
         this.location = new_location.toString();
@@ -97,14 +98,14 @@ public class PlayerModel extends Observable {
     public void look() {
         if (room.lit) {
             Wall wall = this.room.walls.get(this.orientation);
-            System.out.println(wall.check_items_location());
+            System.out.println(wall.check_items());
         } else {
             System.out.println("Dark");
         }
     }
 
     public void check() {
-        System.out.println(wall.check_item_by_location(this.location));
+        System.out.println(this.wall.check_item_by_location(this.location));
     }
 
     public void acquire_items() {
@@ -148,7 +149,7 @@ public class PlayerModel extends Observable {
         if (door == null) {
             System.out.println("No doors to be opened");
         } else {
-            if (((ItemsContainer) door).getLocation().equals(this.location)) {
+            if (((ContainerItems) door).getLocation().equals(this.location)) {
                 boolean opened = false;
                 for (Room room_candidate : this.rooms) {
                     String nextRoom = door.getNextRoom();
@@ -291,16 +292,5 @@ public class PlayerModel extends Observable {
         } else {
             System.out.println("You have no flashLights");
         }
-    }
-
-    public ArrayList get_command() {
-        return this.menu.get_commands();
-    }
-
-    public String use_command(String command) {
-        if (this.menu.get_commands().contains(command)) {
-            return command;
-        }
-        return "";
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Painting implements ItemsContainer {
+public class Painting implements ContainerItems {
     public List<Key> keys = new ArrayList<Key>();
     private long golds;
     private JSONObject content;

@@ -2,14 +2,12 @@ package com.worldNavigator;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONValue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
-public class Chest extends Openable implements ItemsContainer {
+public class Chest extends Openable implements ContainerItems {
     public String name;
     public List<Key> keys = new ArrayList<Key>();
     private long flashLight;

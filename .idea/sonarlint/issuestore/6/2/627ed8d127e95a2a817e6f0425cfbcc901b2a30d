@@ -1,31 +1,31 @@
 
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(”ÑŞÿÿÿÿÿ8âÒ¯Ÿ.
-i	java:S116	"TRename this field "map_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›†Ûå
+N
+java:S1481#"1Remove this unused "playerViewer" local variable.(¡ÔÒ˜8âÒ¯Ÿ.
+
+java:S13198"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(†·‚Ù8‡‰´®Ÿ.
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºúĞÚ8âÒ¯Ÿ.
+j	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†·‚Ù8âÒ¯Ÿ.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+L
+java:S37408"/Provide the parametrized type for this generic.(†·‚Ù8‡‰´®Ÿ.
+k	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şåæòøÿÿÿÿ
+j	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µí±8âÒ¯Ÿ.
+y
+java:S1104"WMake playerModel a static final constant or non-public and provide accessors if needed.(Ø§ÆĞıÿÿÿÿ8âÒ¯Ÿ.
+]
+java:S1854#"@Remove this useless assignment to local variable "playerViewer".(¡ÔÒ˜8âÒ¯Ÿ.
+q
+java:S1104"TMake commands a static final constant or non-public and provide accessors if needed.(Ê˜®‘8¥Şµ®Ÿ.
+k
+java:S1104	"UMake map_index a static final constant or non-public and provide accessors if needed.(›†Ûå
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ªƒÁá8âÒ¯Ÿ.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(óƒÍÀ8âÒ¯Ÿ.
+o	java:S100<"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÌäßıÿÿÿÿ8âÒ¯Ÿ.
 g
 java:S1104
 "RMake player a static final constant or non-public and provide accessors if needed.(èÀÑ
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºúĞÚ8âÒ¯Ÿ.
-L
-java:S37408"/Provide the parametrized type for this generic.(†·‚Ù8‡‰´®Ÿ.
-j	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µí±8âÒ¯Ÿ.
 e	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä÷¡e
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(”ÑŞÿÿÿÿÿ8âÒ¯Ÿ.
+i	java:S116	"TRename this field "map_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›†Ûå
 k
 java:S1104"PMake maps a static final constant or non-public and provide accessors if needed.(¯‰ïüÿÿÿÿ
-q
-java:S1104"TMake commands a static final constant or non-public and provide accessors if needed.(Ê˜®‘8¥Şµ®Ÿ.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(ªƒÁá8âÒ¯Ÿ.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(óƒÍÀ8âÒ¯Ÿ.
-]
-java:S1854#"@Remove this useless assignment to local variable "playerViewer".(¡ÔÒ˜8âÒ¯Ÿ.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-k
-java:S1104	"UMake map_index a static final constant or non-public and provide accessors if needed.(›†Ûå
-k	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şåæòøÿÿÿÿ
-
-java:S13198"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(†·‚Ù8‡‰´®Ÿ.
-y
-java:S1104"WMake playerModel a static final constant or non-public and provide accessors if needed.(Ø§ÆĞıÿÿÿÿ8âÒ¯Ÿ.
-j	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†·‚Ù8âÒ¯Ÿ.
-o	java:S100<"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÌäßıÿÿÿÿ8âÒ¯Ÿ.
-N
-java:S1481#"1Remove this unused "playerViewer" local variable.(¡ÔÒ˜8âÒ¯Ÿ.

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Mirror implements ItemsContainer {
+public class Mirror implements ContainerItems {
     public List<Key> keys = new ArrayList<Key>();
     private long flashLight;
     private long golds;

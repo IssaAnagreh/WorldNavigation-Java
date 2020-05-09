@@ -1,35 +1,32 @@
 
-T	java:S106¤"9Replace this use of System.out or System.err by a logger.(Ê²£¤ÿÿÿÿÿ
-N	java:S1061"9Replace this use of System.out or System.err by a logger.(Ş‚’²
-c	java:S100T"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àºğ§
 T	java:S106«"9Replace this use of System.out or System.err by a logger.(¹«ïıÿÿÿÿ
-T	java:S106‰"9Replace this use of System.out or System.err by a logger.(ùÚç´ùÿÿÿÿ
-T	java:S106"9Replace this use of System.out or System.err by a logger.(‹£ß¾ùÿÿÿÿ
-O	java:S106º"9Replace this use of System.out or System.err by a logger.(€şò
-P
-java:S1128"3Remove this unused import 'java.io.BufferedReader'.(€é²Å8‘›«Ÿ.
-R
-java:S2209"5Change this instance-reference to a static reference.(­ìÛ—8ºû™«Ÿ.
-Q
-java:S1128"6Remove this unused import 'org.json.simple.JSONArray'.(àĞ›¢şÿÿÿÿ
-O	java:S106²"9Replace this use of System.out or System.err by a logger.(¹½Ï
 T	java:S106"9Replace this use of System.out or System.err by a logger.(ÜÕ¿üÿÿÿÿ
-N	java:S106I"9Replace this use of System.out or System.err by a logger.(ãŸÅô
-S	java:S1065"9Replace this use of System.out or System.err by a logger.(”àÅ±şÿÿÿÿ
-c	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—´€™
+T	java:S106¤"9Replace this use of System.out or System.err by a logger.(Ê²£¤ÿÿÿÿÿ
+O	java:S106²"9Replace this use of System.out or System.err by a logger.(¹½Ï
+O	java:S106Â"9Replace this use of System.out or System.err by a logger.(‘­ÙÑ
+S
+java:S1128"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉ8‘›«Ÿ.
 T	java:S106É"9Replace this use of System.out or System.err by a logger.(òÒ’şÿÿÿÿ
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–©‚Çùÿÿÿÿ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8ºû™«Ÿ.
+O	java:S106º"9Replace this use of System.out or System.err by a logger.(€şò
+O	java:S106Ù"9Replace this use of System.out or System.err by a logger.(¥¢±ñ
+O	java:S106à"9Replace this use of System.out or System.err by a logger.(µïúÃ
 ^
 java:S1479ƒ"BReduce the number of non-empty switch cases from 33 to at most 30.(¸ìù«üÿÿÿÿ
 t	java:S1159"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ
-t	java:S1159"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ
-O	java:S106Ù"9Replace this use of System.out or System.err by a logger.(¥¢±ñ
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8ºû™«Ÿ.
-O	java:S106à"9Replace this use of System.out or System.err by a logger.(µïúÃ
-O	java:S106ò"9Replace this use of System.out or System.err by a logger.(º€Ù¯
-S
-java:S1128"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉ8‘›«Ÿ.
-O	java:S106Â"9Replace this use of System.out or System.err by a logger.(‘­ÙÑ
+P
+java:S1128"3Remove this unused import 'java.io.BufferedReader'.(€é²Å8‘›«Ÿ.
+Q
+java:S1128"6Remove this unused import 'org.json.simple.JSONArray'.(àĞ›¢şÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(‹£ß¾ùÿÿÿÿ
+N	java:S106I"9Replace this use of System.out or System.err by a logger.(ãŸÅô
 E
 java:S1148u"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ç“Å¯Ÿ.
+T	java:S106‰"9Replace this use of System.out or System.err by a logger.(ùÚç´ùÿÿÿÿ
+N	java:S1061"9Replace this use of System.out or System.err by a logger.(Ş‚’²
+t	java:S1159"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ
+R
+java:S2209"5Change this instance-reference to a static reference.(­ìÛ—8ºû™«Ÿ.
+S	java:S1065"9Replace this use of System.out or System.err by a logger.(”àÅ±şÿÿÿÿ
+O	java:S106ò"9Replace this use of System.out or System.err by a logger.(º€Ù¯

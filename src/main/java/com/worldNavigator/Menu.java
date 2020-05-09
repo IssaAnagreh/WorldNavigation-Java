@@ -9,10 +9,8 @@ public class Menu {
     public int map_index;
     public PlayerControllerInterface player;
     public PlayerModel playerModel;
-    public Commands commands;
 
     public Menu(Maps maps) {
-        this.commands = new Commands();
         this.maps = maps;
         this.map_chooser();
     }
@@ -51,21 +49,5 @@ public class Menu {
 
     public void quit() {
         System.exit(1);
-    }
-
-    public ArrayList get_commands() {
-        return this.commands.getCommands();
-    }
-
-    public void add_command(String command) {
-        this.commands.addCommand(command);
-        this.player = new CustomPlayerController(this.playerModel);
-    }
-
-    public String use_command(String command) {
-        if (this.commands.getCommands().contains(command)) {
-            return command;
-        }
-        return "";
     }
 }

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class Seller implements ItemsContainer {
+public class Seller implements ContainerItems {
     public String location;
     public String name = "Seller";
     public List<HashMap> keys = new ArrayList<>();

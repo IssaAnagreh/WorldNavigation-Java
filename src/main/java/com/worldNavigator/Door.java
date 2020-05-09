@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 
-public class Door extends Openable implements ItemsContainer {
+public class Door extends Openable implements ContainerItems {
     public final String name;
     private final Boolean golden;
     private final String nextRoom;
