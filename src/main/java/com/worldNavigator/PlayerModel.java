@@ -149,7 +149,7 @@ public class PlayerModel extends Observable {
         if (door == null) {
             System.out.println("No doors to be opened");
         } else {
-            if (((ContainerItems) door).getLocation().equals(this.location)) {
+            if (((Item) door).getLocation().equals(this.location)) {
                 boolean opened = false;
                 for (Room room_candidate : this.rooms) {
                     String nextRoom = door.getNextRoom();

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Painting implements ContainerItems {
+public class Painting implements ContainerItems, Item, Checkable {
     public List<Key> keys = new ArrayList<Key>();
     private long golds;
     private JSONObject content;
@@ -52,6 +52,7 @@ public class Painting implements ContainerItems {
         return content;
     }
 
+    @Override
     public String getLocation() {
         return location;
     }

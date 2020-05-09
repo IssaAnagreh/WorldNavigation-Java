@@ -19,7 +19,7 @@ public class Wall extends ItemsFactory {
     public String check_items() {
         List<String> temp_items = new ArrayList();
         for (Object item : this.items.keySet()) {
-            ContainerItems location_item = (ContainerItems) this.items.get(item);
+            Item location_item = (Item) this.items.get(item);
             if (this.items.get(item) != null) temp_items.add(location_item.getDetails());
         }
         return temp_items.size() > 0 ? temp_items.toString() : "Nothing to look at";

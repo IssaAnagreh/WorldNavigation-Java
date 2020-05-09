@@ -7,9 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Mirror implements ContainerItems {
+public class Mirror implements ContainerItems, Item, Checkable {
     public List<Key> keys = new ArrayList<Key>();
-    private long flashLight;
     private long golds;
     private JSONObject content;
     public String location;
@@ -24,7 +23,6 @@ public class Mirror implements ContainerItems {
                 if (keys_names != null) keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
             }
             if (content.get("golds") != null) this.golds = (long) content.get("golds");
-            if (content.get("flashLight") != null) this.flashLight = (long) content.get("flashLight");
             this.location = (String) mirror.get("location");
         }
     }

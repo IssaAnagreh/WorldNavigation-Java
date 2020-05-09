@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Chest extends Openable implements ContainerItems {
+public class Chest extends Openable implements ContainerItems, Item, Checkable {
     public String name;
     public List<Key> keys = new ArrayList<Key>();
     private long flashLight;

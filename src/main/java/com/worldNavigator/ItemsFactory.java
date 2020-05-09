@@ -6,40 +6,39 @@ import java.util.*;
 
 public class ItemsFactory {
     public HashMap<String, Object> items = new HashMap<String, Object>();
-    private Door door;
-    public Chest chest;
-    public Mirror mirror;
-    public Painting painting;
-    public Seller seller;
 
     public ItemsFactory(JSONObject wall) {
-        if ((((JSONObject) wall.get("door")).get("existed")).equals("true"))
-            door = new Door((JSONObject) wall.get("door"));
+        Object door = wall.get("door");
+        if (door != null) if ((((JSONObject) door).get("existed")).equals("true"))
+            items.put("door", new Door((JSONObject) door));
 
-        if ((((JSONObject) wall.get("chest")).get("existed")).equals("true"))
-            chest = new Chest((JSONObject) wall.get("chest"));
+        Object chest = wall.get("chest");
+        if (chest != null)
+            if ((((JSONObject) chest).get("existed")).equals("true"))
+                items.put("chest", new Chest((JSONObject) chest));
 
-        if ((((JSONObject) wall.get("mirror")).get("existed")).equals("true"))
-            mirror = new Mirror((JSONObject) wall.get("mirror"));
+        Object mirror = wall.get("mirror");
+        if (mirror != null)
+            if ((((JSONObject) mirror).get("existed")).equals("true"))
+                items.put("mirror", new Mirror((JSONObject) mirror));
 
-        if ((((JSONObject) wall.get("painting")).get("existed")).equals("true"))
-            painting = new Painting((JSONObject) wall.get("painting"));
+        Object painting = wall.get("painting");
+        if (painting != null)
+            if ((((JSONObject) painting).get("existed")).equals("true"))
+                items.put("painting", new Painting((JSONObject) painting));
 
-        if ((((JSONObject) wall.get("seller")).get("existed")).equals("true"))
-            seller = new Seller((JSONObject) wall.get("seller"));
-
-        items.put("door", door);
-        items.put("chest", chest);
-        items.put("mirror", mirror);
-        items.put("painting", painting);
-        items.put("seller", seller);
+        Object seller = wall.get("seller");
+        if (seller != null)
+            if ((((JSONObject) seller).get("existed")).equals("true"))
+                items.put("seller", new Seller((JSONObject) seller));
     }
 
     public String check_item_by_location(String location) {
         for (String item : this.items.keySet()) {
-            ContainerItems location_item = (ContainerItems) this.items.get(item);
-            if (location_item != null) if (location_item.getLocation().equals(location))
-                return "This location has: " + location_item.getName();
+            Item location_item = (Item) this.items.get(item);
+            if (location_item != null)
+                if (location_item.getLocation().equals(location))
+                    return "This location has: " + location_item.getName();
         }
         return "Nothing in this location";
     }
@@ -47,13 +46,14 @@ public class ItemsFactory {
     public HashMap acquire_items(String location) {
         for (String item : this.items.keySet()) {
             Object location_item = this.items.get(item);
-            if (location_item != null) if (((ContainerItems) location_item).getLocation().equals(location)) {
-                if (!((ContainerItems) location_item).getName().equals("Seller")){
-                    HashMap acquire_items = ((ContainerItems) location_item).check_content(location);
-                    if (acquire_items.size() > 0) System.out.println("New items are acquired " + acquire_items);
-                    return acquire_items;
+            if (location_item != null)
+                if (((Item) location_item).getLocation().equals(location)) {
+                    if (location_item instanceof Checkable) {
+                        HashMap acquire_items = ((ContainerItems) location_item).check_content(location);
+                        if (acquire_items.size() > 0) System.out.println("New items are acquired " + acquire_items);
+                        return acquire_items;
+                    }
                 }
-            }
         }
         return new HashMap<String, Object>();
     }
@@ -62,9 +62,10 @@ public class ItemsFactory {
     public Object getItem(String location) {
         for (String item : this.items.keySet()) {
             Object location_item = this.items.get(item);
-            if (location_item != null) if (((ContainerItems) location_item).getLocation().equals(location)) {
-                return location_item;
-            }
+            if (location_item != null)
+                if (((Item) location_item).getLocation().equals(location)) {
+                    return location_item;
+                }
         }
         System.out.println("No such element in this location");
         return null;
