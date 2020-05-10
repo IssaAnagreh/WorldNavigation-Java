@@ -10,6 +10,5 @@ public class Main {
 
         Menu menu = new Menu(maps);
         menu.start();
-//        menu.add_command("isa", new PlayerController());
     }
 }

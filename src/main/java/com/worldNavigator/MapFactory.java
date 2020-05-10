@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 
@@ -20,6 +21,12 @@ public class MapFactory {
     public static boolean playing = false;
     private int room_counter = 0;
     public final String mapName;
+    public int golds;
+    public int flashLights;
+    public ArrayList keys;
+    public String location;
+    public String orientation;
+    public int roomIndex;
 
     @SuppressWarnings("unchecked")
     public MapFactory(String mapName) {
@@ -50,6 +57,13 @@ public class MapFactory {
             name = (String) map.get("name");
             end_time = (long) map.get("end_time");
             golds_increment = (long) map.get("golds_increment");
+            this.golds = Integer.parseInt(((HashMap) map.get("player")).get("golds").toString());
+            this.flashLights = Integer.parseInt(((HashMap) map.get("player")).get("flashLights").toString());
+            this.keys = new ArrayList();
+            this.location = ((HashMap) map.get("player")).get("location").toString();
+            this.orientation = ((HashMap) map.get("player")).get("orientation").toString();
+            this.roomIndex = Integer.parseInt(((HashMap) map.get("player")).get("roomIndex").toString());
+
             JSONArray rooms = (JSONArray) map.get("rooms");
             rooms.forEach(room -> parseRoomObject((JSONObject) room));
         } else {

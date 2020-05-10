@@ -6,6 +6,7 @@ import java.util.*;
 public class PlayerControllerMaster implements PlayerControllerInterface {
     PlayerModel playerModel;
     private ArrayList<String> commands = new ArrayList<>();
+    private boolean hint = true;
 
     public PlayerControllerMaster() {
         commands.add("room");
@@ -36,6 +37,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         commands.add("flashLight");
         commands.add("flash");
         commands.add("time");
+        commands.add("hints");
         commands.add("quit");
     }
 
@@ -67,11 +69,11 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     }
 
     public void myLocation() {
-        System.out.println(this.playerModel.location);
+        this.playerModel.notify_player(this.playerModel.location);
     }
 
     public void myOrientation() {
-        System.out.println(this.playerModel.orientation);
+        this.playerModel.notify_player(this.playerModel.orientation);
     }
 
     public enum MoveParam {
@@ -91,7 +93,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     }
 
     public void room() {
-        System.out.println(this.playerModel.room.toString());
+        this.playerModel.notify_player(this.playerModel.room.toString());
     }
 
     public void check() {
@@ -132,7 +134,12 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     }
 
     public void commands() {
-        System.out.println(this.commands);
+        this.playerModel.notify_player(this.commands.toString());
+    }
+
+    public void switchHints() {
+        this.hint = !this.hint;
+        this.playerModel.notify_player("Hints are " + (this.hint ? "on" : "off"));
     }
 
     public void restart() {
@@ -147,22 +154,22 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         this.playerModel.menu.quit();
     }
 
-
     public void use_method(String command) {
+        String hint = ", use <hints> command to stop these hints";
         switch (command) {
             case "room":
                 room();
                 break;
             case "orientation":
                 myOrientation();
-                System.out.println("You can use <o> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <o> as a shortcut command" + hint);
                 break;
             case "o":
                 myOrientation();
                 break;
             case "location":
                 myLocation();
-                System.out.println("You can use <loc> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <loc> as a shortcut command" + hint);
                 break;
             case "loc":
                 myLocation();
@@ -175,28 +182,28 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
                 break;
             case "left":
                 rotateLeft();
-                System.out.println("You can use <l> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <l> as a shortcut command" + hint);
                 break;
             case "l":
                 rotateLeft();
                 break;
             case "right":
                 rotateRight();
-                System.out.println("You can use <r> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <r> as a shortcut command" + hint);
                 break;
             case "r":
                 rotateRight();
                 break;
             case "forward":
                 move(PlayerControllerMaster.MoveParam.forward);
-                System.out.println("You can use <f> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <f> as a shortcut command" + hint);
                 break;
             case "f":
                 move(PlayerControllerMaster.MoveParam.forward);
                 break;
             case "backward":
                 move(PlayerControllerMaster.MoveParam.backward);
-                System.out.println("You can use <b> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <b> as a shortcut command" + hint);
                 break;
             case "b":
                 move(PlayerControllerMaster.MoveParam.backward);
@@ -204,7 +211,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
             case "check":
                 check();
                 acquire_items();
-                System.out.println("You can use <c> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <c> as a shortcut command" + hint);
                 break;
             case "c":
                 check();
@@ -212,14 +219,14 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
                 break;
             case "myItems":
                 myItems();
-                System.out.println("You can use <items> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <items> as a shortcut command" + hint);
                 break;
             case "items":
                 myItems();
                 break;
             case "useKey":
                 use_key();
-                System.out.println("You can use <key> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <key> as a shortcut command" + hint);
                 break;
             case "key":
                 use_key();
@@ -235,20 +242,23 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
                 break;
             case "switchLight":
                 switchLights();
-                System.out.println("You can use <light> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <light> as a shortcut command" + hint);
                 break;
             case "light":
                 switchLights();
                 break;
             case "flashLight":
                 flashLight();
-                System.out.println("You can use <flash> as a shortcut command");
+                if (this.hint) this.playerModel.notify_player("You can use <flash> as a shortcut command" + hint);
                 break;
             case "flash":
                 flashLight();
                 break;
             case "commands":
                 commands();
+                break;
+            case "hints":
+                switchHints();
                 break;
             case "time":
                 time();
@@ -260,7 +270,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
                 quit();
                 break;
             default:
-                System.out.println("You should use a valid command");
+                this.playerModel.notify_player("You should use a valid command");
                 break;
         }
     }

@@ -5,26 +5,32 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class PlayerModel extends Observable {
-    public MapFactory map;
-    public List<Room> rooms;
+    private final MapFactory map;
+    private List<Room> rooms;
     public Room room;
-    public Wall wall;
-    public int flashLights = 1;
-    public int roomIndex = 1;
-    public int golds = 10;
-    public String orientation = "e";
-    public String location = "e4";
+    private Wall wall;
+    private int flashLights;
+    private int roomIndex;
+    public int golds;
+    public String orientation;
+    public String location;
     static BufferedReader br;
-    public List<Key> keys = new ArrayList<Key>();
+    public List<Key> keys;
     public GameTimer timer;
     public Menu menu;
     public boolean playing;
-    public HashMap<String, Object> items = new HashMap<String, Object>();
+    public HashMap<String, Object> items = new HashMap();
 
     public PlayerModel(MapFactory map, Menu menu) {
         this.map = map;
         this.rooms = map.rooms;
         this.menu = menu;
+        this.flashLights = map.flashLights;
+        this.golds = map.golds;
+        this.keys = map.keys;
+        this.location = map.location;
+        this.orientation = map.orientation;
+        this.roomIndex = map.roomIndex;
         this.room = this.rooms.get(this.roomIndex);
         this.wall = this.room.walls.get(this.orientation);
     }
@@ -51,28 +57,28 @@ public class PlayerModel extends Observable {
         if (this.room.lit) {
             this.wall = this.room.walls.get(this.orientation);
             this.items = this.wall.items;
-            System.out.println(wall.toString());
+            notify_player(wall.toString());
         } else {
-            System.out.println("Dark");
+            notify_player("Dark");
         }
     }
 
     public void myItems() {
-        System.out.println("keys: " + this.keys);
-        System.out.println("golds: " + this.golds);
-        System.out.println("flashLights: " + this.flashLights);
+        notify_player("keys: " + this.keys);
+        notify_player("golds: " + this.golds);
+        notify_player("flashLights: " + this.flashLights);
     }
 
     public void move(PlayerControllerMaster.MoveParam move) {
         Move new_location = new Move(this.location, this.orientation, move);
         this.location = new_location.toString();
-        System.out.println(this.location);
+        notify_player(this.location);
     }
 
     public void nextRoom_move() {
         Move new_location = new Move(this.location, this.orientation, PlayerControllerMaster.MoveParam.forward, true);
         int index = this.roomIndex + 1;
-        System.out.println("You are in: " + new_location.toString() + " in room number: " + index);
+        notify_player("You are in: " + new_location.toString() + " in room number: " + index);
         this.location = new_location.toString();
         this.room = this.rooms.get(this.roomIndex);
         this.wall = this.room.walls.get(this.orientation);
@@ -89,24 +95,24 @@ public class PlayerModel extends Observable {
     }
 
     public void myLocation() {
-        System.out.println(this.location);
+        notify_player(this.location);
     }
 
     public void myOrientation() {
-        System.out.println(this.orientation);
+        notify_player(this.orientation);
     }
 
     public void look() {
         if (room.lit) {
             Wall wall = this.room.walls.get(this.orientation);
-            System.out.println(wall.check_items());
+            notify_player(wall.check_items());
         } else {
-            System.out.println("Dark");
+            notify_player("Dark");
         }
     }
 
     public void check() {
-        System.out.println(this.wall.itemsFactory.check_item_by_location(this.location));
+        notify_player(this.wall.itemsFactory.check_item_by_location(this.location));
     }
 
     public void acquire_items() {
@@ -142,13 +148,13 @@ public class PlayerModel extends Observable {
         } else {
             print = "You have no keys";
         }
-        System.out.println(print);
+        notify_player(print);
     }
 
     public void open() {
         Door door = (Door) this.wall.items.get("door");
         if (door == null) {
-            System.out.println("No doors to be opened");
+            notify_player("No doors to be opened");
         } else {
             if (((Item) door).getLocation().equals(this.location)) {
                 boolean opened = false;
@@ -158,16 +164,16 @@ public class PlayerModel extends Observable {
                         this.roomIndex = this.rooms.indexOf(room_candidate);
                         this.nextRoom_move();
                         opened = true;
-                        System.out.println("Opened");
+                        notify_player("Opened");
                     }
                 }
                 if (nextRoom.equals("")) {
-                    System.out.println("This door opens to nothing");
+                    notify_player("This door opens to nothing");
                     return;
                 }
-                if (!opened && nextRoom.equals("locked")) System.out.println("The door is locked or no doors to be opened");
+                if (!opened && nextRoom.equals("locked")) notify_player("The door is locked or no doors to be opened");
             } else {
-                System.out.println("No doors to be opened");
+                notify_player("No doors to be opened");
             }
         }
     }
@@ -181,8 +187,8 @@ public class PlayerModel extends Observable {
         Seller seller = (Seller) this.wall.items.get("seller");
 
         if (seller != null) {
-            System.out.println("This seller has: " + seller.check_content(this.location));
-            System.out.println("You can use buy, sell, list or finish commands");
+            notify_player("This seller has: " + seller.check_content(this.location));
+            notify_player("You can use buy, sell, list or finish commands");
             Scanner sc = new Scanner(System.in);
             String command = sc.nextLine();
             switch (command) {
@@ -196,19 +202,19 @@ public class PlayerModel extends Observable {
                     seller_list(seller);
                     break;
                 case "finish":
-                    System.out.println("You quited trading");
+                    notify_player("You quited trading");
                     break;
                 default:
                     trade();
                     break;
             }
         } else {
-            System.out.println("No sellers in this orientation");
+            notify_player("No sellers in this orientation");
         }
     }
 
     public void seller_list(Seller seller) {
-        System.out.println(seller.contents);
+        notify_player(seller.contents.toString());
     }
 
     public void seller_buy(Seller seller) {
@@ -216,10 +222,10 @@ public class PlayerModel extends Observable {
         if (bought.size() > 0) {
             String kind = bought.get("kind").toString();
             if (kind.equals("out of bounds")) {
-                System.out.println("Choose an existed item's index");
+                notify_player("Choose an existed item's index");
                 seller_buy(seller);
             } else {
-                System.out.println("bought "+bought);
+                notify_player("bought "+bought);
                 this.golds = (int) bought.get("golds");
                 switch (kind) {
                     case "keys":
@@ -229,11 +235,11 @@ public class PlayerModel extends Observable {
                         this.flashLights += 1;
                         break;
                     default:
-                        System.out.println("Kind is not standard");
+                        notify_player("Kind is not standard");
                         break;
                 }
-                System.out.println("Item successfully bought");
-                System.out.println("Your Items: ");
+                notify_player("Item successfully bought");
+                notify_player("Your Items: ");
                 myItems();
                 seller_buy(seller);
             }
@@ -242,9 +248,9 @@ public class PlayerModel extends Observable {
     }
 
     public void seller_sell(Seller seller) {
-        System.out.println("Items and values this seller is willing to buy: ");
-        System.out.println(seller.selling);
-        System.out.println("Enter the type of the item you want to sell: " + seller.selling.keySet() + " or type quit to cancel");
+        notify_player("Items and values this seller is willing to buy: ");
+        notify_player(seller.selling.toString());
+        notify_player("Enter the type of the item you want to sell: " + seller.selling.keySet() + " or type quit to cancel");
         Scanner sc1 = new Scanner(System.in);
         String type = sc1.next();
         if (type.equals("quit")) {
@@ -252,11 +258,10 @@ public class PlayerModel extends Observable {
         } else {
             if (type.equals("keys")) {
                 if (this.keys.size() > 0) {
-                    System.out.println("Enter the name of the item you want to sell: " + this.keys);
+                    notify_player("Enter the name of the item you want to sell: " + this.keys);
                     Scanner sc2 = new Scanner(System.in);
                     String item = sc2.next();
                     for (Key key : this.keys) {
-                        System.out.println(key.toString().equals(item));
                         if (key.toString().equals(item)) {
                             this.keys.remove(key);
                             break;
@@ -264,21 +269,21 @@ public class PlayerModel extends Observable {
                     }
                     this.golds = seller.sell(this.golds, type);
                 } else {
-                    System.out.println("You dont have keys to sell");
+                    notify_player("You dont have keys to sell");
                     seller_sell(seller);
                 }
             } else if (type.equals("flashLights")) {
                 if (this.flashLights > 0) {
                     this.flashLights--;
                     this.golds = seller.sell(this.golds, type);
-                    System.out.println("Your Items: ");
+                    notify_player("Your Items: ");
                     myItems();
                 } else {
-                    System.out.println("You dont have flashLights to sell");
+                    notify_player("You dont have flashLights to sell");
                     seller_sell(seller);
                 }
             } else {
-                System.out.println("Choose a correct type");
+                notify_player("Choose a correct type");
                 seller_sell(seller);
             }
         }
@@ -290,13 +295,13 @@ public class PlayerModel extends Observable {
 
     public void flashLight() {
         if (this.room.lit) {
-            System.out.println("You dont need to light a lit room");
+            notify_player("You don't need to light a lit room");
             return;
         }
         if (this.flashLights > 0) {
             this.flashLights = this.room.useFlashLight(this.flashLights);
         } else {
-            System.out.println("You have no flashLights");
+            notify_player("You have no flashLights");
         }
     }
 }

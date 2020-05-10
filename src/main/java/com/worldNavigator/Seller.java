@@ -38,8 +38,6 @@ public class Seller implements ContainerItems, Item {
         HashMap content = new HashMap<>();
         if (location.equals(this.location)) {
             content = this.contents;
-        } else {
-            System.out.println("You must be in the same location of this seller");
         }
         return content;
     }
