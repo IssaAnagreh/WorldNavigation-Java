@@ -6,14 +6,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Wall extends ItemsFactory {
+public class Wall {
     public String name;
-    public HashMap<String, Object> items;
+    public ItemsFactory itemsFactory;
+    public HashMap<String, Object> items = new HashMap<String, Object>();
 
     public Wall(String name, JSONObject wall) {
-        super(wall);
         this.name = name;
-        this.items = super.items;
+        this.itemsFactory = new ItemsFactory(wall);
+        this.items = this.itemsFactory.items;
     }
 
     public String check_items() {

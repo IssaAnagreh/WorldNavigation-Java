@@ -1,32 +1,67 @@
 
-T	java:S106«"9Replace this use of System.out or System.err by a logger.(¹«ïıÿÿÿÿ
-T	java:S106"9Replace this use of System.out or System.err by a logger.(ÜÕ¿üÿÿÿÿ
-T	java:S106¤"9Replace this use of System.out or System.err by a logger.(Ê²£¤ÿÿÿÿÿ
-O	java:S106²"9Replace this use of System.out or System.err by a logger.(¹½Ï
-O	java:S106Â"9Replace this use of System.out or System.err by a logger.(‘­ÙÑ
+^	java:S125Ê"<This block of commented-out lines of code should be removed.(ÆÚ‚şÿÿÿÿ8ñÎŸ.
+X	java:S125*"<This block of commented-out lines of code should be removed.(©™·Š8ñÎŸ.
+X	java:S125&"<This block of commented-out lines of code should be removed.(ŞÂö‹8ñÎŸ.
+^	java:S125Æ"<This block of commented-out lines of code should be removed.(ÆÚ‚şÿÿÿÿ8ñÎŸ.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+^	java:S125¯"<This block of commented-out lines of code should be removed.(Ğ©¿³øÿÿÿÿ8ñÎŸ.
+]	java:S125{"<This block of commented-out lines of code should be removed.(¶Ûá¿ûÿÿÿÿ8ñÎŸ.
+Y	java:S125—"<This block of commented-out lines of code should be removed.(ÑÀ¢“8ñÎŸ.
+Y	java:S125¬"<This block of commented-out lines of code should be removed.(¾Ş˜Ô8ñÎŸ.
+^	java:S125á"<This block of commented-out lines of code should be removed.(Ãéåÿÿÿÿÿ8ñÎŸ.
+X	java:S125"<This block of commented-out lines of code should be removed.(ˆÆŸ‚8ñÎŸ.
+]	java:S125."<This block of commented-out lines of code should be removed.(ìûÿöşÿÿÿÿ8ñÎŸ.
+]	java:S1252"<This block of commented-out lines of code should be removed.(ÚØ¿€úÿÿÿÿ8ñÎŸ.
+W	java:S125"<This block of commented-out lines of code should be removed.(Ğ½²c8ñÎŸ.
+Y	java:S125¨"<This block of commented-out lines of code should be removed.(¾Ş˜Ô8ñÎŸ.
+^	java:S125ç"<This block of commented-out lines of code should be removed.(ì›·úÿÿÿÿ8ñÎŸ.
+]	java:S125>"<This block of commented-out lines of code should be removed.(ıË—Ûùÿÿÿÿ8ñÎŸ.
+]	java:S1256"<This block of commented-out lines of code should be removed.(ö¡­ûÿÿÿÿ8ñÎŸ.
+X	java:S125^"<This block of commented-out lines of code should be removed.(Ú¸Î8ñÎŸ.
+]	java:S125R"<This block of commented-out lines of code should be removed.(ˆÙ¾Òøÿÿÿÿ8ñÎŸ.
+Y	java:S125¡"<This block of commented-out lines of code should be removed.(‡É“†8ñÎŸ.
 S
 java:S1128"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉ8‘›«Ÿ.
-T	java:S106É"9Replace this use of System.out or System.err by a logger.(òÒ’şÿÿÿÿ
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8ºû™«Ÿ.
-O	java:S106º"9Replace this use of System.out or System.err by a logger.(€şò
-O	java:S106Ù"9Replace this use of System.out or System.err by a logger.(¥¢±ñ
-O	java:S106à"9Replace this use of System.out or System.err by a logger.(µïúÃ
-^
-java:S1479ƒ"BReduce the number of non-empty switch cases from 33 to at most 30.(¸ìù«üÿÿÿÿ
-t	java:S1159"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ
+Y	java:S125"<This block of commented-out lines of code should be removed.(Òˆ˜Ù8ñÎŸ.
+^	java:S125Ğ"<This block of commented-out lines of code should be removed.(ùŸÌÿÿÿÿÿ8ñÎŸ.
+]	java:S125w"<This block of commented-out lines of code should be removed.(ÔˆÍ•ÿÿÿÿÿ8ñÎŸ.
+]	java:S125V"<This block of commented-out lines of code should be removed.(Ãí§úÿÿÿÿ8ñÎŸ.
+]	java:S125b"<This block of commented-out lines of code should be removed.(Û÷Š‡øÿÿÿÿ8ñÎŸ.
+Y	java:S125ƒ"<This block of commented-out lines of code should be removed.(Â€‚8ñÎŸ.
+X	java:S125J"<This block of commented-out lines of code should be removed.(°Š™¬8ñÎŸ.
+^	java:S125"<This block of commented-out lines of code should be removed.(…±‚Ùúÿÿÿÿ8ñÎŸ.
+Y	java:S125š"<This block of commented-out lines of code should be removed.(Òˆ˜Ù8ñÎŸ.
+Y	java:S125¿"<This block of commented-out lines of code should be removed.( îÌ¥8ñÎŸ.
+^	java:S125Ö"<This block of commented-out lines of code should be removed.(Ó–Óïûÿÿÿÿ8ñÎŸ.
+Y	java:S125¥"<This block of commented-out lines of code should be removed.(‡É“†8ñÎŸ.
+]	java:S125:"<This block of commented-out lines of code should be removed.(ìÓîŸøÿÿÿÿ8ñÎŸ.
+Y	java:S125ä"<This block of commented-out lines of code should be removed.(•şÙ›8ñÎŸ.
+]	java:S125"<This block of commented-out lines of code should be removed.(û–•Öüÿÿÿÿ8ñÎŸ.
+^	java:S125Ó"<This block of commented-out lines of code should be removed.(¿Õ˜Êıÿÿÿÿ8ñÎŸ.
+Y	java:S125”"<This block of commented-out lines of code should be removed.(ì‘Š„8ñÎŸ.
+Y	java:S125¶"<This block of commented-out lines of code should be removed.(ˆò»ñ8ñÎŸ.
+^	java:S125‘"<This block of commented-out lines of code should be removed.(…±‚Ùúÿÿÿÿ8ñÎŸ.
+Y	java:S125í"<This block of commented-out lines of code should be removed.(õõØÇ8ñÎŸ.
+^	java:S125İ"<This block of commented-out lines of code should be removed.(Ãéåÿÿÿÿÿ8ñÎŸ.
+W	java:S125F"<This block of commented-out lines of code should be removed.(ã›İB8ñÎŸ.
+X	java:S125N"<This block of commented-out lines of code should be removed.(Õ×Äõ8ñÎŸ.
+Y	java:S125»"<This block of commented-out lines of code should be removed.(ˆò»ñ8ñÎŸ.
+X	java:S125o"<This block of commented-out lines of code should be removed.(ËÍƒ8ñÎŸ.
+Y	java:S125Í"<This block of commented-out lines of code should be removed.(ëîÌÍ8ñÎŸ.
+^	java:S125Ú"<This block of commented-out lines of code should be removed.(Ó–Óïûÿÿÿÿ8ñÎŸ.
 P
 java:S1128"3Remove this unused import 'java.io.BufferedReader'.(€é²Å8‘›«Ÿ.
+]	java:S125Z"<This block of commented-out lines of code should be removed.(¡²³½úÿÿÿÿ8ñÎŸ.
+^	java:S125ê"<This block of commented-out lines of code should be removed.(ÇÉ–”úÿÿÿÿ8ñÎŸ.
+^	java:S125³"<This block of commented-out lines of code should be removed.(Ğ©¿³øÿÿÿÿ8ñÎŸ.
+Y	java:S125ğ"<This block of commented-out lines of code should be removed.(¦…—8ñÎŸ.
+]	java:S125k"<This block of commented-out lines of code should be removed.(Ÿ€ßßúÿÿÿÿ8ñÎŸ.
 Q
 java:S1128"6Remove this unused import 'org.json.simple.JSONArray'.(àĞ›¢şÿÿÿÿ
-T	java:S106"9Replace this use of System.out or System.err by a logger.(‹£ß¾ùÿÿÿÿ
-N	java:S106I"9Replace this use of System.out or System.err by a logger.(ãŸÅô
-E
-java:S1148u"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ç“Å¯Ÿ.
-T	java:S106‰"9Replace this use of System.out or System.err by a logger.(ùÚç´ùÿÿÿÿ
-N	java:S1061"9Replace this use of System.out or System.err by a logger.(Ş‚’²
-t	java:S1159"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ
-R
-java:S2209"5Change this instance-reference to a static reference.(­ìÛ—8ºû™«Ÿ.
-S	java:S1065"9Replace this use of System.out or System.err by a logger.(”àÅ±şÿÿÿÿ
-O	java:S106ò"9Replace this use of System.out or System.err by a logger.(º€Ù¯
+]	java:S125""<This block of commented-out lines of code should be removed.( âõÊøÿÿÿÿ8ñÎŸ.
+^	java:S125†"<This block of commented-out lines of code should be removed.(ä§’øÿÿÿÿ8ñÎŸ.
+X	java:S125"<This block of commented-out lines of code should be removed.(á¬ëØ8ñÎŸ.
+^	java:S125Š"<This block of commented-out lines of code should be removed.(ä§’øÿÿÿÿ8ñÎŸ.
+]	java:S125f"<This block of commented-out lines of code should be removed.(™ê–ğıÿÿÿÿ8ñÎŸ.
+X	java:S125B"<This block of commented-out lines of code should be removed.(€µƒä8ñÎŸ.
+Y	java:S125Ã"<This block of commented-out lines of code should be removed.( îÌ¥8ñÎŸ.

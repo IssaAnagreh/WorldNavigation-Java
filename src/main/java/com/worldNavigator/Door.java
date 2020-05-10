@@ -23,13 +23,12 @@ public class Door extends Openable implements Item {
 
     public String getNextRoom() {
         if (getIs_locked()) {
-            return "";
+            return "locked";
         } else {
             if (this.getGolden()) {
                 System.out.println("CONGRATULATIONS! YOU WON THE GAME");
                 System.exit(1);
             };
-            if (nextRoom.equals("")) System.out.println("This door opens to nothing");
             return nextRoom;
         }
     }

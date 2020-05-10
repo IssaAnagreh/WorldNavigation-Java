@@ -9,8 +9,9 @@ public class ItemsFactory {
 
     public ItemsFactory(JSONObject wall) {
         Object door = wall.get("door");
-        if (door != null) if ((((JSONObject) door).get("existed")).equals("true"))
-            items.put("door", new Door((JSONObject) door));
+        if (door != null)
+            if ((((JSONObject) door).get("existed")).equals("true"))
+                items.put("door", new Door((JSONObject) door));
 
         Object chest = wall.get("chest");
         if (chest != null)

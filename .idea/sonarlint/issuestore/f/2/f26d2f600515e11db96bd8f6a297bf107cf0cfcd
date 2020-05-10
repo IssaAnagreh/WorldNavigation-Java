@@ -1,0 +1,22 @@
+
+V
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ò¼Òúÿÿÿÿ8§ÌúØŸ.
+
+java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(’æ˜Šøÿÿÿÿ8îœúØŸ.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»‰ÅÍ8ÀïÿÏŸ.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü°¢8…êÑĞŸ.
+u
+java:S1104"XMake itemsFactory a static final constant or non-public and provide accessors if needed.(Œ‰²8ş•óØŸ.
+[
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(Ï¹É°8ÀïÿÏŸ.
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éäÊ¾üÿÿÿÿ8ÀïÿÏŸ.
+m
+java:S1104
+"PMake name a static final constant or non-public and provide accessors if needed.( şÍ¾8ÀïÿÏŸ.
+s
+java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(’æ˜Šøÿÿÿÿ8îœúØŸ.
+L
+java:S3740"/Provide the parametrized type for this generic.(»‰ÅÍ8ÀïÿÏŸ.
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;8ÀïÿÏŸ.
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(’æ˜Šøÿÿÿÿ8îœúØŸ.

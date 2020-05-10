@@ -9,11 +9,9 @@ import java.util.List;
 
 public class Chest extends Openable implements ContainerItems, Item, Checkable {
     public String name;
-    public List<Key> keys = new ArrayList<Key>();
-    private long flashLight;
-    private long golds;
     public String location;
     private boolean taken;
+    private ContentManager contents;
 
     public Chest(JSONObject chest) {
         this.name = (String) chest.get("name");
@@ -21,20 +19,13 @@ public class Chest extends Openable implements ContainerItems, Item, Checkable {
             setKey(new Key((String) chest.get("key")));
         }
         initIs_locked(chest.get("is_locked").equals("true"));
-        JSONObject content = (JSONObject) chest.get("content");
-        if (chest.get("existed").equals("true")) {
-            if (content.get("keys") != null) {
-                JSONArray keys_names = (JSONArray) content.get("keys");
-                if (keys_names != null) keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
-            }
-            if (content.get("flashLight") != null) this.flashLight = (long) content.get("flashLight");
-            if (content.get("golds") != null) this.golds = (long) content.get("golds");
-        }
-        this.location = (String) chest.get("location");
-    }
 
-    public long getGolds() {
-        return golds;
+        if (chest.get("existed").equals("true")) {
+            this.contents = new ContentManager();
+            this.contents.addItem(chest);
+        }
+
+        this.location = (String) chest.get("location");
     }
 
     public String getLocation() {
@@ -42,21 +33,17 @@ public class Chest extends Openable implements ContainerItems, Item, Checkable {
     }
 
     public HashMap check_content(String location) {
-        HashMap<String, Object> content = new HashMap<String, Object>();
+        HashMap content = new HashMap<String, Object>();
         if (this.taken) {
             System.out.println("This chest is empty now");
         } else {
             if (location.equals(this.location)) {
                 if (!getIs_locked()) {
-                    content.put("keys", this.keys);
-                    content.put("flashLight", this.flashLight);
-                    content.put("golds", this.golds);
                     this.taken = true;
+                    content = this.contents.getContents();
                 } else {
                     System.out.println("You must use the key or find it for this chest");
                 }
-            } else {
-                System.out.println("You must be in the same location of this chest");
             }
         }
         return content;

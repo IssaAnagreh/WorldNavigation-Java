@@ -11,43 +11,23 @@ import java.util.Scanner;
 public class Seller implements ContainerItems, Item {
     public String location;
     public String name = "Seller";
-    public List<HashMap> keys = new ArrayList<>();
-    public List<HashMap> flashLights = new ArrayList<>();
-    HashMap<String, List> contents = new HashMap<>();
     HashMap<String, Integer> selling = new HashMap<>();
+    public HashMap<String, ArrayList> contents;
 
     public Seller(JSONObject seller) {
+        this.location = (String) seller.get("location");
         if (seller.get("existed").equals("true")) {
-            this.location = (String) seller.get("location");
-            JSONObject content = (JSONObject) seller.get("content");
-            if (content.get("keys") != null) {
-                JSONArray temp_keys = (JSONArray) content.get("keys");
-                if (temp_keys != null) temp_keys.forEach(emp -> {
-                    JSONObject key = (JSONObject) emp;
-                    HashMap<Key, String> selling_key = new HashMap<>();
-                    selling_key.put(new Key(key.get("name").toString()), key.get("cost").toString());
-                    this.keys.add(selling_key);
-                });
-            }
-            if (content.get("flashLights") != null) {
-                JSONArray temp_flashLights = (JSONArray) content.get("flashLights");
-                if (temp_flashLights != null) temp_flashLights.forEach(emp -> {
-                    JSONObject flashLight = (JSONObject) emp;
-                    HashMap<String, String> selling_flashLight = new HashMap<>();
-                    selling_flashLight.put(flashLight.get("#").toString(), flashLight.get("cost").toString());
-                    this.flashLights.add(selling_flashLight);
-                });
-            }
+            ContentManager contentManager = new ContentManager();
+            contentManager.addSellingItem(seller);
+            this.contents = contentManager.getContents();
         }
+
         if (seller.get("selling") != null) {
             JSONObject temp_selling = (JSONObject) seller.get("selling");
-            for(Object item_name: temp_selling.keySet()){
+            for (Object item_name : temp_selling.keySet()) {
                 this.selling.put(item_name.toString(), Integer.parseInt(temp_selling.get(item_name).toString()));
             }
         }
-
-        contents.put("Keys", this.keys);
-        contents.put("FlashLights", this.flashLights);
     }
 
     public String getLocation() {
@@ -55,7 +35,7 @@ public class Seller implements ContainerItems, Item {
     }
 
     public HashMap check_content(String location) {
-        HashMap<String, List> content = new HashMap<>();
+        HashMap content = new HashMap<>();
         if (location.equals(this.location)) {
             content = this.contents;
         } else {
@@ -71,8 +51,9 @@ public class Seller implements ContainerItems, Item {
         List categories = new ArrayList();
         System.out.println("Items ready to be sold:");
         System.out.println(-1 + ": " + "Quit");
-        for (String category: this.contents.keySet()) {
-            for (Object item: this.contents.get(category)) {
+        System.out.println(this.contents.toString());
+        for (Object category : this.contents.keySet()) {
+            for (Object item : this.contents.get(category)) {
                 System.out.println(counter + ": " + category + " " + item);
                 categories.add(category);
                 categories.add(item);
@@ -94,14 +75,14 @@ public class Seller implements ContainerItems, Item {
                     return output;
                 }
 
-                List category = this.contents.get(category_name);
+                Object category = this.contents.get(category_name);
                 if (category != null) {
                     HashMap item = (HashMap) categories.get((index * 2) + 1);
                     if (item != null) {
                         for (Object item_name : item.keySet()) {
-                            output.put("item", item_name);
-                            if (gold - Integer.parseInt((String) item.get(item_name)) >= 0) {
-                                output.put("golds", gold - Integer.parseInt((String) item.get(item_name)));
+                            output.put("item", item.get("name"));
+                            if (gold - Integer.parseInt(item.get(item_name).toString()) >= 0) {
+                                output.put("golds", gold - Integer.parseInt(item.get(item_name).toString()));
                                 return output;
                             } else {
                                 System.out.println("Return when you have enough gold");
@@ -128,14 +109,13 @@ public class Seller implements ContainerItems, Item {
     }
 
     public int sell(int golds, String type) {
-        System.out.println("Types: ");
-        for(String category: this.selling.keySet()) {
+        for (String category : this.selling.keySet()) {
             System.out.println(category);
         }
 
         int output = golds;
         if (this.selling.get(type) != null) {
-            output = golds+this.selling.get(type);
+            output = golds + this.selling.get(type);
         } else {
             System.out.println("This item is not in the list");
         }

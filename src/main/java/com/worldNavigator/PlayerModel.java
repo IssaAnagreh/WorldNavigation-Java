@@ -10,10 +10,10 @@ public class PlayerModel extends Observable {
     public Room room;
     public Wall wall;
     public int flashLights = 1;
-    public int roomIndex = 0;
+    public int roomIndex = 1;
     public int golds = 10;
-    public String orientation = "n";
-    public String location = "c3";
+    public String orientation = "e";
+    public String location = "e4";
     static BufferedReader br;
     public List<Key> keys = new ArrayList<Key>();
     public GameTimer timer;
@@ -25,7 +25,7 @@ public class PlayerModel extends Observable {
         this.map = map;
         this.rooms = map.rooms;
         this.menu = menu;
-        this.room = this.rooms.get(0);
+        this.room = this.rooms.get(this.roomIndex);
         this.wall = this.room.walls.get(this.orientation);
     }
 
@@ -75,6 +75,7 @@ public class PlayerModel extends Observable {
         System.out.println("You are in: " + new_location.toString() + " in room number: " + index);
         this.location = new_location.toString();
         this.room = this.rooms.get(this.roomIndex);
+        this.wall = this.room.walls.get(this.orientation);
     }
 
     public void rotateLeft() {
@@ -105,11 +106,11 @@ public class PlayerModel extends Observable {
     }
 
     public void check() {
-        System.out.println(this.wall.check_item_by_location(this.location));
+        System.out.println(this.wall.itemsFactory.check_item_by_location(this.location));
     }
 
     public void acquire_items() {
-        HashMap<String, Object> items = this.wall.acquire_items(this.location);
+        HashMap<String, Object> items = this.wall.itemsFactory.acquire_items(this.location);
         if (items.get("keys") != null) ((List) items.get("keys")).forEach(emp -> this.keys.add((Key) emp));
         if (items.get("golds") != null) this.golds += (long) items.get("golds");
         if (items.get("flashLight") != null) this.flashLights += (long) items.get("flashLight");
@@ -118,7 +119,7 @@ public class PlayerModel extends Observable {
     public void use_key() {
         String print = "";
         if (this.keys.size() > 0) {
-            Openable openable = (Openable) this.wall.getItem(this.location);
+            Openable openable = (Openable) this.wall.itemsFactory.getItem(this.location);
             if (openable != null) {
                 if (openable.getIs_locked()) {
                     boolean locked = true;
@@ -151,16 +152,20 @@ public class PlayerModel extends Observable {
         } else {
             if (((Item) door).getLocation().equals(this.location)) {
                 boolean opened = false;
+                String nextRoom = door.getNextRoom();
                 for (Room room_candidate : this.rooms) {
-                    String nextRoom = door.getNextRoom();
                     if (room_candidate.roomName.equals(nextRoom)) {
-                        this.roomIndex = this.rooms.indexOf(room_candidate.roomName.equals(door.getNextRoom()) ? room_candidate : -1);
+                        this.roomIndex = this.rooms.indexOf(room_candidate);
                         this.nextRoom_move();
                         opened = true;
                         System.out.println("Opened");
                     }
                 }
-                if (!opened) System.out.println("The door is locked or no doors to be opened");
+                if (nextRoom.equals("")) {
+                    System.out.println("This door opens to nothing");
+                    return;
+                }
+                if (!opened && nextRoom.equals("locked")) System.out.println("The door is locked or no doors to be opened");
             } else {
                 System.out.println("No doors to be opened");
             }
@@ -214,12 +219,13 @@ public class PlayerModel extends Observable {
                 System.out.println("Choose an existed item's index");
                 seller_buy(seller);
             } else {
+                System.out.println("bought "+bought);
                 this.golds = (int) bought.get("golds");
                 switch (kind) {
-                    case "Keys":
+                    case "keys":
                         this.keys.add(((Key) bought.get("item")));
                         break;
-                    case "FlashLights":
+                    case "flashLights":
                         this.flashLights += 1;
                         break;
                     default:
@@ -268,7 +274,7 @@ public class PlayerModel extends Observable {
                     System.out.println("Your Items: ");
                     myItems();
                 } else {
-                    System.out.println("You dont have keys to sell");
+                    System.out.println("You dont have flashLights to sell");
                     seller_sell(seller);
                 }
             } else {
