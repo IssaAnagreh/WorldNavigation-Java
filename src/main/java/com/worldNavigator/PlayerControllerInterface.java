@@ -51,6 +51,8 @@ public interface PlayerControllerInterface {
 
     void quit();
 
+    String getType();
+
     void commands();
 
     void use_method(String command);

@@ -44,6 +44,17 @@ public class ItemsFactory {
         return "Nothing in this location";
     }
 
+    public String getType(String location) {
+        ArrayList output = new ArrayList();
+        for (String item : this.items.keySet()) {
+            Item location_item = (Item) this.items.get(item);
+            if (location_item != null)
+                if (location_item.getLocation().equals(location))
+                    return location_item.getType();
+        }
+        return "Nothing in this location";
+    }
+
     public HashMap acquire_items(String location) {
         for (String item : this.items.keySet()) {
             Object location_item = this.items.get(item);

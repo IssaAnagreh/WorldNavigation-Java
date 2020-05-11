@@ -54,6 +54,10 @@ public class Chest extends Openable implements ContainerItems, Item, Checkable {
         return name;
     }
 
+    public String getType() {
+        return "chest";
+    }
+
     @Override
     public String getDetails() {
         return name + " in " + location;

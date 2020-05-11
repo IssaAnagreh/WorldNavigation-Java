@@ -131,6 +131,10 @@ public class Seller implements ContainerItems, Item {
         return name;
     }
 
+    public String getType() {
+        return "seller";
+    }
+
     @Override
     public String getDetails() {
         return name + " in " + location;

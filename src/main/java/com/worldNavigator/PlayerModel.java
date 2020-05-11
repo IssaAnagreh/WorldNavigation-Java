@@ -115,6 +115,10 @@ public class PlayerModel extends Observable {
         notify_player(this.wall.itemsFactory.check_item_by_location(this.location));
     }
 
+    public String getType() {
+        return this.wall.itemsFactory.getType(this.location);
+    }
+
     public void acquire_items() {
         HashMap<String, Object> items = this.wall.itemsFactory.acquire_items(this.location);
         if (items.get("keys") != null) ((List) items.get("keys")).forEach(emp -> this.keys.add((Key) emp));
@@ -159,6 +163,10 @@ public class PlayerModel extends Observable {
             if (((Item) door).getLocation().equals(this.location)) {
                 boolean opened = false;
                 String nextRoom = door.getNextRoom();
+                if (nextRoom.contentEquals("golden")) {
+                    notify_player("CONGRATULATIONS! YOU WON THE GAME");
+                    System.exit(1);
+                }
                 for (Room room_candidate : this.rooms) {
                     if (room_candidate.roomName.equals(nextRoom)) {
                         this.roomIndex = this.rooms.indexOf(room_candidate);

@@ -6,6 +6,11 @@ import java.util.*;
 public class PlayerControllerMaster implements PlayerControllerInterface {
     PlayerModel playerModel;
     private ArrayList<String> commands = new ArrayList<>();
+    private ArrayList<String> door_commands = new ArrayList<>();
+    private ArrayList<String> chest_commands = new ArrayList<>();
+    private ArrayList<String> mirror_commands = new ArrayList<>();
+    private ArrayList<String> painting_commands = new ArrayList<>();
+    private ArrayList<String> seller_commands = new ArrayList<>();
     private boolean hint = true;
 
     public PlayerControllerMaster() {
@@ -25,13 +30,20 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         commands.add("backward");
         commands.add("b");
         commands.add("check");
+        chest_commands.add("check");
+        mirror_commands.add("check");
+        painting_commands.add("check");
         commands.add("c");
         commands.add("myItems");
         commands.add("items");
         commands.add("useKey");
+        chest_commands.add("useKey");
+        door_commands.add("useKey");
         commands.add("key");
         commands.add("open");
+        door_commands.add("open");
         commands.add("trade");
+        seller_commands.add("trade");
         commands.add("switchLight");
         commands.add("switch");
         commands.add("flashLight");
@@ -100,6 +112,10 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         this.playerModel.check();
     }
 
+    public String getType() {
+        return this.playerModel.getType();
+    }
+
     public void acquire_items() {
         this.playerModel.acquire_items();
     }
@@ -134,7 +150,27 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     }
 
     public void commands() {
-        this.playerModel.notify_player(this.commands.toString());
+        String type = this.getType();
+        switch (type+"") {
+            case "door":
+                System.out.println("here");
+                this.playerModel.notify_player(this.door_commands.toString());
+                break;
+            case "seller":
+                this.playerModel.notify_player(this.seller_commands.toString());
+                break;
+            case "mirror":
+                this.playerModel.notify_player(this.mirror_commands.toString());
+                break;
+            case "painting":
+                this.playerModel.notify_player(this.painting_commands.toString());
+                break;
+            case "chest":
+                this.playerModel.notify_player(this.chest_commands.toString());
+                break;
+            default:
+                this.playerModel.notify_player(this.commands.toString());
+        }
     }
 
     public void switchHints() {

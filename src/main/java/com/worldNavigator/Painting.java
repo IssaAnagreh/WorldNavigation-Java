@@ -44,6 +44,10 @@ public class Painting implements ContainerItems, Item, Checkable {
         return name;
     }
 
+    public String getType() {
+        return "painting";
+    }
+
     @Override
     public String getDetails() {
         return name + " in " + location;

@@ -46,6 +46,10 @@ public class Mirror implements ContainerItems, Item, Checkable {
         return name;
     }
 
+    public String getType() {
+        return "mirror";
+    }
+
     @Override
     public String getDetails() {
         return "You see a silhouette of you because of a " + name + " in " + location;

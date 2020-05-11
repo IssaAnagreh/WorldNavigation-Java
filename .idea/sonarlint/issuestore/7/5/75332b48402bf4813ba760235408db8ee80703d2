@@ -1,129 +1,76 @@
 
-[	java:S106’"9Replace this use of System.out or System.err by a logger.(×ÃŸŞıÿÿÿÿ8˜Åá¬Ÿ.
-L
-java:S5411d"*Use the primitive boolean expression here.(±Æı·şÿÿÿÿ8ÜËË«Ÿ.
-[	java:S106ª"9Replace this use of System.out or System.err by a logger.(¸˜†–úÿÿÿÿ8ÅğË¬Ÿ.
-Z	java:S106h"9Replace this use of System.out or System.err by a logger.(Ã—–µúÿÿÿÿ8ÜËË«Ÿ.
-[	java:S106¸"9Replace this use of System.out or System.err by a logger.(µ­‘ úÿÿÿÿ8ÓÉã¬Ÿ.
-j	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—´€™8úÄÅ¬Ÿ.
-V	java:S106ÿ"9Replace this use of System.out or System.err by a logger.(üŞ­¼8˜Åá¬Ÿ.
-V	java:S106õ"9Replace this use of System.out or System.err by a logger.(á¿¯8˜Åá¬Ÿ.
-o
-java:S3776w"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(àºğ§8¦ÕÈ¬Ÿ.
-F	java:S108ğ")Either remove or fill this block of code.(å¥‡8ÁÇÙ¬Ÿ.
-[	java:S106«"9Replace this use of System.out or System.err by a logger.(‹ïË…úÿÿÿÿ8§×í¬Ÿ.
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(’æ˜Šøÿÿÿÿ8¡ƒáÏŸ.
-Z	java:S106="9Replace this use of System.out or System.err by a logger.(ÅÆöÿÿÿÿÿ8àÄ®«Ÿ.
-[	java:S106÷"9Replace this use of System.out or System.err by a logger.(³¿éûÿÿÿÿ8˜Åá¬Ÿ.
-r
-java:S1104"WMake flashLights a static final constant or non-public and provide accessors if needed.(¥°›œûÿÿÿÿ
-Z	java:S106`"9Replace this use of System.out or System.err by a logger.(å£¹Áÿÿÿÿÿ8’£İ«Ÿ.
-g
-java:S1104	"QMake rooms a static final constant or non-public and provide accessors if needed.(²Ğíâ
-m
-java:S1104"WMake orientation a static final constant or non-public and provide accessors if needed.(ÒİæŸ
-U	java:S106\"9Replace this use of System.out or System.err by a logger.(²üÁ®8’£İ«Ÿ.
-m	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş†±8ß÷µ«Ÿ.
-U	java:S106K"9Replace this use of System.out or System.err by a logger.(ÈÊ·¹8„Ïº«Ÿ.
-V	java:S106‹"9Replace this use of System.out or System.err by a logger.(Šùú¯8˜Åá¬Ÿ.
-i	java:S100H"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­‚¼8„Ïº«Ÿ.
-R
-java:S3740×"/Provide the parametrized type for this generic.(Ğñ†íÿÿÿÿÿ8ÁÇÙ¬Ÿ.
-[	java:S106ì"9Replace this use of System.out or System.err by a logger.(×ÃŸŞıÿÿÿÿ8ÁÇÙ¬Ÿ.
-f
-java:S1104"PMake menu a static final constant or non-public and provide accessors if needed.(İ‘‰ì
-[	java:S106Ç"9Replace this use of System.out or System.err by a logger.(€ÙéÉÿÿÿÿÿ8ÓÉã¬Ÿ.
-[	java:S106‘"9Replace this use of System.out or System.err by a logger.(ñÂíÃÿÿÿÿÿ8¦ÕÈ¬Ÿ.
-V	java:S106™"9Replace this use of System.out or System.err by a logger.(·®Ğù8˜Åá¬Ÿ.
-t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ëğËÏÿÿÿÿÿ
-Z	java:S106m"9Replace this use of System.out or System.err by a logger.(ÑØˆÒÿÿÿÿÿ8µÛÙ«Ÿ.
-Y
-java:S1854+"7Remove this useless assignment to local variable "end".(ÆÊõçÿÿÿÿÿ8œ›«Ÿ.
-J
-java:S1481+"(Remove this unused "end" local variable.(ÆÊõçÿÿÿÿÿ8œ›«Ÿ.
-Z	java:S106f"9Replace this use of System.out or System.err by a logger.(ª‰¨¨şÿÿÿÿ8ÜËË«Ÿ.
-K
-java:S1125")Remove the literal "false" boolean value.(Û™úæıÿÿÿÿ8¦ÕÈ¬Ÿ.
-o
-java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(ºèøìÿÿÿÿÿ
-[
-java:S1117q"9Rename "items" which hides the field declared at line 22.(ãÂš½øÿÿÿÿ8¡ƒáÏŸ.
-|
-java:S18452"`Rename method "wall" to prevent any misunderstanding/clash with field "wall" defined on line 11.(«õ›p8„€æ«Ÿ.
-[	java:S106ë"9Replace this use of System.out or System.err by a logger.(¯‘š‰úÿÿÿÿ8ÁÇÙ¬Ÿ.
-g
-java:S1104"QMake golds a static final constant or non-public and provide accessors if needed.(è´õ¸
-u
-java:S3776ô"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(‹¿ÅÙşÿÿÿÿ8˜Åá¬Ÿ.
-\
-java:S1155ş">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8«¤â¬Ÿ.
-i
-java:S1104"SMake playing a static final constant or non-public and provide accessors if needed.(šÓ•˜
-p	java:S100ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¿ÅÙşÿÿÿÿ8˜Åá¬Ÿ.
-V	java:S106Ş"9Replace this use of System.out or System.err by a logger.(«Š„Ò8Êß£àŸ.
-V	java:S106¨"9Replace this use of System.out or System.err by a logger.(Ùó¬¹8ÅğË¬Ÿ.
-u
-java:S3776”"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(”ª…Œÿÿÿÿÿ8 …áÙŸ.
-l
-java:S1104"QMake timer a static final constant or non-public and provide accessors if needed.(ØÄ×¤ûÿÿÿÿ
-[	java:S106Ó"9Replace this use of System.out or System.err by a logger.(´Úøïÿÿÿÿÿ8­ÜÄàŸ.
-k	java:S100Ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø±É8ÁÇÙ¬Ÿ.
-V	java:S106¥"9Replace this use of System.out or System.err by a logger.(¯™Œë8ïî¯Ÿ.
-j
-java:S1104"OMake map a static final constant or non-public and provide accessors if needed.(·ëôŸıÿÿÿÿ
-
-java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(’æ˜Šøÿÿÿÿ8¡ƒáÏŸ.
-s
-java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(’æ˜Šøÿÿÿÿ8¡ƒáÏŸ.
-W
-java:S2209/"5Change this instance-reference to a static reference.(ÍÎ‰¯øÿÿÿÿ8ÕÑ›«Ÿ.
-j	java:S100w"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àºğ§8¦ÕÈ¬Ÿ.
-V	java:S106Î"9Replace this use of System.out or System.err by a logger.(‹¡Ş”8ÓÉã¬Ÿ.
 p
-java:S1104"UMake roomIndex a static final constant or non-public and provide accessors if needed.(‘ Ô§üÿÿÿÿ
-V	java:S106¡"9Replace this use of System.out or System.err by a logger.(×À£î8ÅğË¬Ÿ.
+java:S1104"SMake playing a static final constant or non-public and provide accessors if needed.(šÓ•˜8ƒÎÆ† .
+R
+java:S3740å"/Provide the parametrized type for this generic.(Ğñ†íÿÿÿÿÿ8ÿëé… .
 G
-java:S54113"*Use the primitive boolean expression here.(åêúì8„€æ«Ÿ.
-V	java:S106•"9Replace this use of System.out or System.err by a logger.(Öáö€8˜Åá¬Ÿ.
-Z	java:S106>"9Replace this use of System.out or System.err by a logger.(‚‹¿ùÿÿÿÿ8àÄ®«Ÿ.
-Z	java:S1068"9Replace this use of System.out or System.err by a logger.(Ã—–µúÿÿÿÿ8„€æ«Ÿ.
-m	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¯†û8œ›«Ÿ.
-V	java:S106¹"9Replace this use of System.out or System.err by a logger.(û§ì‡8ÓÉã¬Ÿ.
-m
-java:S1104
-"PMake room a static final constant or non-public and provide accessors if needed.(ïşÌ»8µÀÀ«Ÿ.
-U	java:S1066"9Replace this use of System.out or System.err by a logger.(Á×·8„€æ«Ÿ.
+java:S54119"*Use the primitive boolean expression here.(åêúì8ÿëé… .
 [
-java:S1155y">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8“¦É¬Ÿ.
-J
-java:S1905™"'Remove this unnecessary cast to "Item".(¢ÏÆ®ıÿÿÿÿ8ÚÓêĞŸ.
-[	java:S106—"9Replace this use of System.out or System.err by a logger.(¸˜†–úÿÿÿÿ8ÅğË¬Ÿ.
-U	java:S106E"9Replace this use of System.out or System.err by a logger.(²üÁ®8ß÷µ«Ÿ.
-U	java:S106?"9Replace this use of System.out or System.err by a logger.(©õµ8àÄ®«Ÿ.
-V	java:S106ƒ"9Replace this use of System.out or System.err by a logger.(ÿßŞµ8˜Åá¬Ÿ.
-G
-java:S5411|"*Use the primitive boolean expression here.(–·ä8¦ÕÈ¬Ÿ.
-X
-java:S2696/"6Make the enclosing method "static" or remove this set.(ÍÎ‰¯øÿÿÿÿ8ÕÑ›«Ÿ.
+java:S1117{"9Rename "items" which hides the field declared at line 22.(ãÂš½øÿÿÿÿ8áïÅ† .
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-[	java:S106è"9Replace this use of System.out or System.err by a logger.(üÛ‹üıÿÿÿÿ8ÁÇÙ¬Ÿ.
-k
-java:S1104"PMake keys a static final constant or non-public and provide accessors if needed.(ëğËÏÿÿÿÿÿ
-U
-java:S1117e"8Rename "wall" which hides the field declared at line 11.(ŠŸÍ8‡Ô«Ÿ.
-H
-java:S5411¤"*Use the primitive boolean expression here.(åêúì8ÓÂî¯Ÿ.
-r
-java:S1104"PMake wall a static final constant or non-public and provide accessors if needed.(îÇì¾şÿÿÿÿ8‡Ô«Ÿ.
-h
-java:S1192s"FDefine a constant instead of duplicating this literal "golds" 3 times.(„Ìµ„ıÿÿÿÿ8ÁÇÙ¬Ÿ.
-[	java:S106ö"9Replace this use of System.out or System.err by a logger.(îîÑÃøÿÿÿÿ8˜Åá¬Ÿ.
-c	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªª£€
+m	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş†±8ÿëé… .
 M
 java:S1874"2Remove this use of "Observable"; it is deprecated.(ÀŠ¡ùÿÿÿÿ
-r	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ÂÕÅÿÿÿÿÿ8„Ïº«Ÿ.
-V	java:S106¥"9Replace this use of System.out or System.err by a logger.(¨“ú8”ğáÙŸ.
-V	java:S106Û"9Replace this use of System.out or System.err by a logger.(ÃÄ¯8ÁÇÙ¬Ÿ.
-p	java:S100Ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éãòâşÿÿÿÿ8†Íå¬Ÿ.
+\
+java:S1155Œ">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8ÿëé… .
+m
+java:S1104
+"PMake room a static final constant or non-public and provide accessors if needed.(ïşÌ»8¸‘É† .
+W
+java:S22095"5Change this instance-reference to a static reference.(ÍÎ‰¯øÿÿÿÿ8ÿëé… .
+L
+java:S5411j"*Use the primitive boolean expression here.(±Æı·şÿÿÿÿ8ÿëé… .
+m
+java:S1104"PMake menu a static final constant or non-public and provide accessors if needed.(İ‘‰ì8ÓüÈ† .
+J
+java:S14811"(Remove this unused "end" local variable.(ÆÊõçÿÿÿÿÿ8ÿëé… .
+J
+java:S1905£"'Remove this unnecessary cast to "Item".(¢ÏÆ®ıÿÿÿÿ8ÿëé… .
+u
+java:S3776‚"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(‹¿ÅÙşÿÿÿÿ8ÿëé… .
+U
+java:S1117k"8Rename "wall" which hides the field declared at line 11.(ŠŸÍ8ÿëé… .
+Š
+java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(¤Ÿû8ÓüÈ† .
+r
+java:S1104"PMake keys a static final constant or non-public and provide accessors if needed.(®âÄÒüÿÿÿÿ8ÓüÈ† .
+j	java:S100z"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—´€™8ÿëé… .
+X
+java:S26965"6Make the enclosing method "static" or remove this set.(ÍÎ‰¯øÿÿÿÿ8ÿëé… .
+p	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¿ÅÙşÿÿÿÿ8ÿëé… .
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àºğ§8ÿëé… .
+h
+java:S1192}"FDefine a constant instead of duplicating this literal "golds" 3 times.(„Ìµ„ıÿÿÿÿ8ÿëé… .
+m	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¯†û8ÿëé… .
+Y
+java:S18541"7Remove this useless assignment to local variable "end".(ÆÊõçÿÿÿÿÿ8ÿëé… .
+L
+java:S3740"/Provide the parametrized type for this generic.(¤Ÿû8áïÅ† .
+k	java:S100ä"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø±É8ÿëé… .
+t
+java:S1104"WMake orientation a static final constant or non-public and provide accessors if needed.(ÓÜç²8¸‘É† .
+s
+java:S1104"QMake timer a static final constant or non-public and provide accessors if needed.(ØÄ×¤ûÿÿÿÿ8ÓüÈ† .
+F	java:S108ş")Either remove or fill this block of code.(å¥‡8ÿëé… .
+H
+java:S5411±"*Use the primitive boolean expression here.(åêúì8ÿëé… .
+H
+java:S5411†"*Use the primitive boolean expression here.(–·ä8ÿëé… .
+r	java:S117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ÂÕÅÿÿÿÿÿ8ÿëé… .
+j	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªª£€8ÿëé… .
+L
+java:S1125‰")Remove the literal "false" boolean value.(Û™úæıÿÿÿÿ8ÿëé… .
+s
+java:S1104"QMake golds a static final constant or non-public and provide accessors if needed.(Õ¾ûËÿÿÿÿÿ8¸‘É† .
+v
+java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ8¸‘É† .
+p
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(àºğ§8ÿëé… .
+\
+java:S1155ƒ">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8ÿëé… .
+u
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(”ª…Œÿÿÿÿÿ8ÿëé… .
+p	java:S100à"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éãòâşÿÿÿÿ8ÿëé… .
+n
+java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(¤Ÿû8ÓüÈ† .
+i	java:S100N"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­‚¼8ÿëé… .

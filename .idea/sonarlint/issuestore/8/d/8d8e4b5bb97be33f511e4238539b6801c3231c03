@@ -1,15 +1,17 @@
 
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ú¤¶ÖŸ.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+S	java:S106"9Replace this use of System.out or System.err by a logger.(±›ÿåùÿÿÿÿ
 L
 java:S3740"/Provide the parametrized type for this generic.(—ˆáû8›»ÖŸ.
+k
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.(Ñ™¬‘ùÿÿÿÿ
+V
+java:S34002"9Remove this method and declare a constant for this value.(‘­„‰8¸¢øˆ .
+o
+java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ
 X
 java:S1128"6Remove this unused import 'org.json.simple.JSONArray'.(àĞ›¢şÿÿÿÿ8ÍêµÖŸ.
 M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ú¤¶ÖŸ.
-M
 java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ú¤¶ÖŸ.
-o
-java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ
-k
-java:S1104"PMake name a static final constant or non-public and provide accessors if needed.(Ñ™¬‘ùÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(±›ÿåùÿÿÿÿ

@@ -1,27 +1,24 @@
 
-Z	java:S106J"9Replace this use of System.out or System.err by a logger.(”àÅ±şÿÿÿÿ8§À—ÎŸ.
-V	java:S106î"9Replace this use of System.out or System.err by a logger.(¥¢±ñ8§À—ÎŸ.
-[	java:S106"9Replace this use of System.out or System.err by a logger.(ùÚç´ùÿÿÿÿ8§À—ÎŸ.
-V	java:S106õ"9Replace this use of System.out or System.err by a logger.(µïúÃ8§À—ÎŸ.
-e
-java:S1479˜"BReduce the number of non-empty switch cases from 33 to at most 30.(¸ìù«üÿÿÿÿ8§À—ÎŸ.
-V	java:S106‡"9Replace this use of System.out or System.err by a logger.(º€Ù¯8§À—ÎŸ.
-U	java:S106F"9Replace this use of System.out or System.err by a logger.(Ş‚’²8§À—ÎŸ.
 F
-java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§À—ÎŸ.
-Z	java:S1063"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8§À—ÎŸ.
-U	java:S106^"9Replace this use of System.out or System.err by a logger.(ãŸÅô8§À—ÎŸ.
-[	java:S106Ş"9Replace this use of System.out or System.err by a logger.(òÒ’şÿÿÿÿ8§À—ÎŸ.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-[	java:S106²"9Replace this use of System.out or System.err by a logger.(ÜÕ¿üÿÿÿÿ8§À—ÎŸ.
-V	java:S106‡"9Replace this use of System.out or System.err by a logger.(øÃ²È8¯‚¡ÏŸ.
-[	java:S106À"9Replace this use of System.out or System.err by a logger.(¹«ïıÿÿÿÿ8§À—ÎŸ.
-V	java:S106×"9Replace this use of System.out or System.err by a logger.(‘­ÙÑ8§À—ÎŸ.
-[	java:S106¥"9Replace this use of System.out or System.err by a logger.(‹£ß¾ùÿÿÿÿ8§À—ÎŸ.
-{	java:S115N"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8§À—ÎŸ.
-V	java:S106Ï"9Replace this use of System.out or System.err by a logger.(€şò8§À—ÎŸ.
-V	java:S106Ç"9Replace this use of System.out or System.err by a logger.(¹½Ï8§À—ÎŸ.
+java:S1148¦"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§À—ÎŸ.
 R
-java:S22094"5Change this instance-reference to a static reference.(­ìÛ—8íú»ĞŸ.
-[	java:S106¹"9Replace this use of System.out or System.err by a logger.(Ê²£¤ÿÿÿÿÿ8§À—ÎŸ.
-{	java:S115N"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8§À—ÎŸ.
+java:S22096"5Change this instance-reference to a static reference.(­ìÛ—8íú»ĞŸ.
+e
+java:S1479°"BReduce the number of non-empty switch cases from 34 to at most 30.(¸ìù«üÿÿÿÿ8§À—ÎŸ.
+{	java:S115P"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8§À—ÎŸ.
+{	java:S115P"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8§À—ÎŸ.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+Z	java:S1065"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8§À—ÎŸ.
+Z
+java:S1117¯"7Rename "hint" which hides the field declared at line 9.(¼Ê×úÿÿÿÿ8é„õ† .
+u
+java:S3776®"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(–©‚Çùÿÿÿÿ8ä€† .
+l
+java:S1871•"IThis case's code block is the same as the block for the case on line 143.(»âÂşÿÿÿÿ8ŞÄ†™ .
+l
+java:S1871—"IThis case's code block is the same as the block for the case on line 143.(‚ş“èşÿÿÿÿ8ŞÄ†™ .
+l
+java:S1871‘"IThis case's code block is the same as the block for the case on line 143.(ëáÕñşÿÿÿÿ8ŞÄ†™ .
+l
+java:S1871“"IThis case's code block is the same as the block for the case on line 143.(ñµâãûÿÿÿÿ8ŞÄ†™ .
+?	java:S131""Add a default case to this switch.(ÜŸ•8ŞÄ†™ .

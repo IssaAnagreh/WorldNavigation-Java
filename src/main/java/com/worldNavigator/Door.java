@@ -26,10 +26,9 @@ public class Door extends Openable implements Item {
             return "locked";
         } else {
             if (this.getGolden()) {
-                System.out.println("CONGRATULATIONS! YOU WON THE GAME");
-                System.exit(1);
+                return "golden";
             };
-            return nextRoom;
+            return this.nextRoom;
         }
     }
 
@@ -37,7 +36,7 @@ public class Door extends Openable implements Item {
         return name + " in " + location;
     }
 
-    public Boolean getGolden() {
+    private Boolean getGolden() {
         return golden;
     }
 
@@ -47,6 +46,10 @@ public class Door extends Openable implements Item {
 
     public String getName() {
         return name;
+    }
+
+    public String getType() {
+        return "door";
     }
 
     @Override
