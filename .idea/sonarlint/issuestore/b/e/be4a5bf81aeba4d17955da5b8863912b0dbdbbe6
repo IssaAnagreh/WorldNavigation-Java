@@ -1,14 +1,14 @@
 
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ£Âàûÿÿÿÿ
 I
 java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
-h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ£Âàûÿÿÿÿ
-n	java:S116"TRename this field "is_locked" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á©ûáùÿÿÿÿ
 c	java:S100	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÑø
-E
-java:S5411"*Use the primitive boolean expression here.(‹¨™ÿÿÿÿÿ
-h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”şˆøÿÿÿÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”şˆøÿÿÿÿ
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
 D
 java:S1125")Remove the literal "false" boolean value.(‹¨™ÿÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”şˆøÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”şˆøÿÿÿÿ
+E
+java:S5411"*Use the primitive boolean expression here.(‹¨™ÿÿÿÿÿ
+n	java:S116"TRename this field "is_locked" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á©ûáùÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ£Âàûÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ£Âàûÿÿÿÿ

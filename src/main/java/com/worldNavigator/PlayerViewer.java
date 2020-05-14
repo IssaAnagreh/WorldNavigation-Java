@@ -5,7 +5,7 @@ import java.util.Observer;
 
 public class PlayerViewer implements Observer {
     public final PlayerControllerInterface playerController;
-    public final String name;
+    private String name;
 
     public PlayerViewer(PlayerControllerInterface playerController, String name) {
         this.playerController = playerController;
@@ -18,5 +18,13 @@ public class PlayerViewer implements Observer {
         PlayerModel playerModel = (PlayerModel) o;
         String msg = (String) arg;
         System.out.println(msg);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

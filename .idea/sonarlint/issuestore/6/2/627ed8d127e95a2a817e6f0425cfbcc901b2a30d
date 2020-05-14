@@ -1,24 +1,24 @@
 
+y
+java:S1104"WMake playerModel a static final constant or non-public and provide accessors if needed.(Ø§ÆĞıÿÿÿÿ8âÒ¯Ÿ.
+i	java:S116	"TRename this field "map_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›†Ûå
 Z	java:S106"9Replace this use of System.out or System.err by a logger.(”ÑŞÿÿÿÿÿ8âÒ¯Ÿ.
-k
-java:S1104	"UMake map_index a static final constant or non-public and provide accessors if needed.(›†Ûå
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºúĞÚ8âÒ¯Ÿ.
+]
+java:S1854!"@Remove this useless assignment to local variable "playerViewer".(¡ÔÒ˜8âÒ¯Ÿ.
 M
 java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8™òÏŸ.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(óƒÍÀ8âÒ¯Ÿ.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ªƒÁá8âÒ¯Ÿ.
 N
 java:S1481!"1Remove this unused "playerViewer" local variable.(¡ÔÒ˜8âÒ¯Ÿ.
-k
-java:S1104"PMake maps a static final constant or non-public and provide accessors if needed.(¯‰ïüÿÿÿÿ
-e	java:S117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä÷¡e
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºúĞÚ8âÒ¯Ÿ.
-k	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şåæòøÿÿÿÿ
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-i	java:S116	"TRename this field "map_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›†Ûå
 g
 java:S1104
 "RMake player a static final constant or non-public and provide accessors if needed.(èÀÑ
-y
-java:S1104"WMake playerModel a static final constant or non-public and provide accessors if needed.(Ø§ÆĞıÿÿÿÿ8âÒ¯Ÿ.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(ªƒÁá8âÒ¯Ÿ.
-]
-java:S1854!"@Remove this useless assignment to local variable "playerViewer".(¡ÔÒ˜8âÒ¯Ÿ.
+e	java:S117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä÷¡e
+k
+java:S1104	"UMake map_index a static final constant or non-public and provide accessors if needed.(›†Ûå
+U	java:S106"9Replace this use of System.out or System.err by a logger.(óƒÍÀ8âÒ¯Ÿ.
+k
+java:S1104"PMake maps a static final constant or non-public and provide accessors if needed.(¯‰ïüÿÿÿÿ
+k	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şåæòøÿÿÿÿ

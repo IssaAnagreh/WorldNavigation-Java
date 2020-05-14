@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    public Maps maps;
-    public int map_index;
-    public PlayerControllerInterface player;
-    public PlayerModel playerModel;
+    private Maps maps;
+    private int map_index;
+    private PlayerControllerInterface player;
+    private PlayerModel playerModel;
 
-    public Menu(Maps maps) {
+    public void setMaps(Maps maps) {
         this.maps = maps;
         this.map_chooser();
     }

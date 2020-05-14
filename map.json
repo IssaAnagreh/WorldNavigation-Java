@@ -3,7 +3,6 @@
     "name": "Khareeta",
     "file": "map.json",
     "end_time": 3600,
-    "golds_increment": 5,
     "player": {
       "golds": 10,
       "flashLights": 0,

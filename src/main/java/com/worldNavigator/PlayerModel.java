@@ -54,7 +54,7 @@ public class PlayerModel extends Observable {
     }
 
     public void wall() {
-        if (this.room.lit) {
+        if (this.room.isLit) {
             this.wall = this.room.walls.get(this.orientation);
             this.items = this.wall.items;
             notify_player(wall.toString());
@@ -70,13 +70,15 @@ public class PlayerModel extends Observable {
     }
 
     public void move(PlayerControllerMaster.MoveParam move) {
-        Move new_location = new Move(this.location, this.orientation, move);
+        Transition new_location = new Transition();
+        new_location.move(this.location, this.orientation, move);
         this.location = new_location.toString();
         notify_player(this.location);
     }
 
     public void nextRoom_move() {
-        Move new_location = new Move(this.location, this.orientation, PlayerControllerMaster.MoveParam.forward, true);
+        Transition new_location = new Transition();
+        new_location.openNextRoom(this.location, this.orientation, PlayerControllerMaster.MoveParam.forward);
         int index = this.roomIndex + 1;
         notify_player("You are in: " + new_location.toString() + " in room number: " + index);
         this.location = new_location.toString();
@@ -103,7 +105,7 @@ public class PlayerModel extends Observable {
     }
 
     public void look() {
-        if (room.lit) {
+        if (room.isLit) {
             Wall wall = this.room.walls.get(this.orientation);
             notify_player(wall.check_items());
         } else {
@@ -132,12 +134,12 @@ public class PlayerModel extends Observable {
             Openable openable = (Openable) this.wall.itemsFactory.getItem(this.location);
             if (openable != null) {
                 if (openable.getIs_locked()) {
-                    boolean locked = true;
+                    boolean isLocked = true;
                     for (Key keyItem : this.keys) {
-                        locked = !locked ? false : keyItem.unlock(openable);
-                        openable.setIs_locked(locked);
+                        isLocked = !isLocked ? false : keyItem.unlock(openable);
+                        openable.setIs_locked(isLocked);
                     }
-                    if (!locked) {
+                    if (!isLocked) {
                         print = "Object is open now";
                     } else {
                         print = "Look for a suitable key";
@@ -161,17 +163,17 @@ public class PlayerModel extends Observable {
             notify_player("No doors to be opened");
         } else {
             if (((Item) door).getLocation().equals(this.location)) {
-                boolean opened = false;
+                boolean isOpened = false;
                 String nextRoom = door.getNextRoom();
                 if (nextRoom.contentEquals("golden")) {
                     notify_player("CONGRATULATIONS! YOU WON THE GAME");
                     System.exit(1);
                 }
                 for (Room room_candidate : this.rooms) {
-                    if (room_candidate.roomName.equals(nextRoom)) {
+                    if (room_candidate.ROOM_NAME.equals(nextRoom)) {
                         this.roomIndex = this.rooms.indexOf(room_candidate);
                         this.nextRoom_move();
-                        opened = true;
+                        isOpened = true;
                         notify_player("Opened");
                     }
                 }
@@ -179,7 +181,7 @@ public class PlayerModel extends Observable {
                     notify_player("This door opens to nothing");
                     return;
                 }
-                if (!opened && nextRoom.equals("locked")) notify_player("The door is locked or no doors to be opened");
+                if (!isOpened && nextRoom.equals("locked")) notify_player("The door is locked or no doors to be opened");
             } else {
                 notify_player("No doors to be opened");
             }
@@ -302,7 +304,7 @@ public class PlayerModel extends Observable {
     }
 
     public void flashLight() {
-        if (this.room.lit) {
+        if (this.room.isLit) {
             notify_player("You don't need to light a lit room");
             return;
         }

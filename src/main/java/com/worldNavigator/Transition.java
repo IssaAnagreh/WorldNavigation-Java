@@ -1,9 +1,9 @@
 package com.worldNavigator;
 
-public class Move {
+public class Transition {
     private String new_location;
 
-    public Move(String location, String orientation, PlayerControllerMaster.MoveParam move) {
+    public void move(String location, String orientation, PlayerControllerMaster.MoveParam move) {
         if (move == PlayerControllerMaster.MoveParam.forward) {
             forward(location, orientation);
         } else if (move == PlayerControllerMaster.MoveParam.backward) {
@@ -13,7 +13,7 @@ public class Move {
         }
     }
 
-    public Move(String location, String orientation, PlayerControllerMaster.MoveParam move, boolean nextRoom) {
+    public void openNextRoom(String location, String orientation, PlayerControllerMaster.MoveParam move) {
         if (move == PlayerControllerMaster.MoveParam.forward) {
             forward_nextRoom(location, orientation);
         }

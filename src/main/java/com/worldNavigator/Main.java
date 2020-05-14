@@ -8,7 +8,8 @@ public class Main {
         Maps maps = new Maps();
         maps.addMap("map.json");
 
-        Menu menu = new Menu(maps);
+        Menu menu = new Menu();
+        menu.setMaps(maps);
         menu.start();
     }
 }

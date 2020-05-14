@@ -1,61 +1,61 @@
 
-
-java:S1319:"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ïùÔÌıÿÿÿÿ8ŠÀÂÔŸ.
-l	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äõß8ŠÀÂÔŸ.
-W
-java:S18540":Remove this useless assignment to local variable "output".(˜şïÚ8£ú›˜ .
-m	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü°¢8¢»˜ .
-V
-java:S2864&"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ŠÀÂÔŸ.
-L
-java:S37400"/Provide the parametrized type for this generic.(˜şïÚ8£ú›˜ .
-Z	java:S106R"9Replace this use of System.out or System.err by a logger.(şŒ’ûÿÿÿÿ8ŠÀÂÔŸ.
-K
-java:S3740@"/Provide the parametrized type for this generic.(Äõß8ŠÀÂÔŸ.
-L
-java:S1066?"/Merge this if statement with the enclosing one.(Ôíƒ³8ŠÀÂÔŸ.
-o	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÑÍâùÿÿÿÿ8ŠÀÂÔŸ.
-L
-java:S10664"/Merge this if statement with the enclosing one.(üòıû8ìÎğ˜ .
-L
-java:S1066"/Merge this if statement with the enclosing one.(ÚÊÉ¥8§´ÔŸ.
-Q
-java:S1066"/Merge this if statement with the enclosing one.(æ–³Éıÿÿÿÿ8§´ÔŸ.
-m	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü°¢8ŠÀÂÔŸ.
-m	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™–òû8ŠÀÂÔŸ.
-L
-java:S1066!"/Merge this if statement with the enclosing one.(”æ¢ş8ŠÀÂÔŸ.
-U	java:S106A"9Replace this use of System.out or System.err by a logger.(ÔÔéÿ8ŠÀÂÔŸ.
-m	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™–òû8ŠÀÂÔŸ.
-L
-java:S1066"/Merge this if statement with the enclosing one.(‹ÔÁ8§´ÔŸ.
-V
-java:S28641"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8¢»˜ .
-o	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïùÔÌıÿÿÿÿ8ŠÀÂÔŸ.
-L
-java:S37400"/Provide the parametrized type for this generic.(˜şïÚ8£ú›˜ .
-L
-java:S1066)"/Merge this if statement with the enclosing one.(üòıû8ŠÀÂÔŸ.
-
-java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(’æ˜Šøÿÿÿÿ8ë¨ÇÏŸ.
-Q
-java:S1066>"/Merge this if statement with the enclosing one.(ı¶şóùÿÿÿÿ8¾òÉÏŸ.
-V
-java:S2864;"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ŠÀÂÔŸ.
 Q
 java:S3740:"/Provide the parametrized type for this generic.(ïùÔÌıÿÿÿÿ8ŠÀÂÔŸ.
-e
-java:S1192"HDefine a constant instead of duplicating this literal "existed" 5 times.(ÚÊÉ¥8†¦ÂÏŸ.
+L
+java:S37400"/Provide the parametrized type for this generic.(˜şïÚ8£ú›˜ .
+L
+java:S1066"/Merge this if statement with the enclosing one.(ÚÊÉ¥8§´ÔŸ.
+L
+java:S1066?"/Merge this if statement with the enclosing one.(Ôíƒ³8ŠÀÂÔŸ.
+L
+java:S1066"/Merge this if statement with the enclosing one.(äÇÊĞ8§´ÔŸ.
 Q
 java:S1066N"/Merge this if statement with the enclosing one.(ı¶şóùÿÿÿÿ8ŠÀÂÔŸ.
-H
-java:S14810"+Remove this unused "output" local variable.(˜şïÚ8£ú›˜ .
+m	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼—ğİ8ŠÀÂÔŸ.
+m	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™–òû8ŠÀÂÔŸ.
+
+java:S1319:"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ïùÔÌıÿÿÿÿ8ŠÀÂÔŸ.
+V
+java:S2864&"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ŠÀÂÔŸ.
+V
+java:S28641"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8¢»˜ .
 V
 java:S2864K"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ŠÀÂÔŸ.
 L
-java:S1066"/Merge this if statement with the enclosing one.(äÇÊĞ8§´ÔŸ.
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(’æ˜Šøÿÿÿÿ8ë¨ÇÏŸ.
+java:S1066)"/Merge this if statement with the enclosing one.(üòıû8ŠÀÂÔŸ.
+H
+java:S14810"+Remove this unused "output" local variable.(˜şïÚ8£ú›˜ .
+L
+java:S10664"/Merge this if statement with the enclosing one.(üòıû8ìÎğ˜ .
+V
+java:S2864;"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ŠÀÂÔŸ.
+
+java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(’æ˜Šøÿÿÿÿ8ë¨ÇÏŸ.
+m	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü°¢8¢»˜ .
+L
+java:S37400"/Provide the parametrized type for this generic.(˜şïÚ8£ú›˜ .
+Z	java:S106R"9Replace this use of System.out or System.err by a logger.(şŒ’ûÿÿÿÿ8ŠÀÂÔŸ.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
 s
 java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(’æ˜Šøÿÿÿÿ8ë¨ÇÏŸ.
+Q
+java:S1066"/Merge this if statement with the enclosing one.(æ–³Éıÿÿÿÿ8§´ÔŸ.
+U	java:S106A"9Replace this use of System.out or System.err by a logger.(ÔÔéÿ8ŠÀÂÔŸ.
+e
+java:S1192"HDefine a constant instead of duplicating this literal "existed" 5 times.(ÚÊÉ¥8†¦ÂÏŸ.
+o	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÑÍâùÿÿÿÿ8ŠÀÂÔŸ.
+Q
+java:S1066>"/Merge this if statement with the enclosing one.(ı¶şóùÿÿÿÿ8¾òÉÏŸ.
+m	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™–òû8ŠÀÂÔŸ.
+m	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü°¢8ŠÀÂÔŸ.
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(’æ˜Šøÿÿÿÿ8ë¨ÇÏŸ.
+L
+java:S1066"/Merge this if statement with the enclosing one.(‹ÔÁ8§´ÔŸ.
+W
+java:S18540":Remove this useless assignment to local variable "output".(˜şïÚ8£ú›˜ .
+o	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïùÔÌıÿÿÿÿ8ŠÀÂÔŸ.
+L
+java:S3740@"/Provide the parametrized type for this generic.(¼—ğİ8ŠÀÂÔŸ.
+L
+java:S1066!"/Merge this if statement with the enclosing one.(”æ¢ş8ŠÀÂÔŸ.

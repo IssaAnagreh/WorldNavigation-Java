@@ -14,11 +14,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class MapFactory {
-    public String name;
+    private String name;
     public List<Room> rooms = new ArrayList();
     public long end_time;
-    public long golds_increment = -1;
-    public static boolean playing = false;
     private int room_counter = 0;
     public final String mapName;
     public int golds;
@@ -56,7 +54,6 @@ public class MapFactory {
             //Get map object within list
             name = (String) map.get("name");
             end_time = (long) map.get("end_time");
-            golds_increment = (long) map.get("golds_increment");
             this.golds = Integer.parseInt(((HashMap) map.get("player")).get("golds").toString());
             this.flashLights = Integer.parseInt(((HashMap) map.get("player")).get("flashLights").toString());
             this.keys = new ArrayList();

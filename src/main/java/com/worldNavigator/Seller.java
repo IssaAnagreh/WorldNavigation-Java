@@ -8,14 +8,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class Seller implements ContainerItems, Item {
-    public String location;
-    public String name = "Seller";
+public class Seller implements Item {
+    public String LOCATION;
+    public final String NAME = "Seller";
     HashMap<String, Integer> selling = new HashMap<>();
     public HashMap<String, ArrayList> contents;
 
     public Seller(JSONObject seller) {
-        this.location = (String) seller.get("location");
+        this.LOCATION = (String) seller.get("location");
         if (seller.get("existed").equals("true")) {
             ContentManager contentManager = new ContentManager();
             contentManager.addSellingItem(seller);
@@ -31,12 +31,12 @@ public class Seller implements ContainerItems, Item {
     }
 
     public String getLocation() {
-        return location;
+        return this.LOCATION;
     }
 
     public HashMap check_content(String location) {
         HashMap content = new HashMap<>();
-        if (location.equals(this.location)) {
+        if (location.equals(this.LOCATION)) {
             content = this.contents;
         }
         return content;
@@ -128,7 +128,7 @@ public class Seller implements ContainerItems, Item {
 
     @Override
     public String getName() {
-        return name;
+        return this.NAME;
     }
 
     public String getType() {
@@ -137,11 +137,11 @@ public class Seller implements ContainerItems, Item {
 
     @Override
     public String getDetails() {
-        return name + " in " + location;
+        return this.NAME + " in " + this.LOCATION;
     }
 
     @Override
     public String toString() {
-        return "Seller, Location: " + this.location;
+        return "Seller, Location: " + this.LOCATION;
     }
 }

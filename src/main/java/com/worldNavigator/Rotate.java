@@ -1,53 +1,53 @@
 package com.worldNavigator;
 
 public class Rotate {
-    String orientation;
+    String ORIENTATION;
 
     public Rotate(String orientation) {
-        this.orientation = orientation;
+        this.ORIENTATION = orientation;
     }
 
     public String left() {
-        switch (this.orientation) {
+        switch (this.ORIENTATION) {
             case "n":
-                this.orientation = "w";
+                this.ORIENTATION = "w";
                 break;
             case "e":
-                this.orientation = "n";
+                this.ORIENTATION = "n";
                 break;
             case "s":
-                this.orientation = "e";
+                this.ORIENTATION = "e";
                 break;
             case "w":
-                this.orientation = "s";
+                this.ORIENTATION = "s";
                 break;
             default:
                 System.out.println("Semething went wrong while rotating");
                 break;
         }
-        System.out.println(this.orientation);
-        return this.orientation;
+        System.out.println(this.ORIENTATION);
+        return this.ORIENTATION;
     }
 
     public String right() {
-        switch (this.orientation) {
+        switch (this.ORIENTATION) {
             case "n":
-                this.orientation = "e";
+                this.ORIENTATION = "e";
                 break;
             case "e":
-                this.orientation = "s";
+                this.ORIENTATION = "s";
                 break;
             case "s":
-                this.orientation = "w";
+                this.ORIENTATION = "w";
                 break;
             case "w":
-                this.orientation = "n";
+                this.ORIENTATION = "n";
                 break;
             default:
                 System.out.println("Semething went wrong while rotating");
                 break;
         }
-        System.out.println(this.orientation);
-        return this.orientation;
+        System.out.println(this.ORIENTATION);
+        return this.ORIENTATION;
     }
 }

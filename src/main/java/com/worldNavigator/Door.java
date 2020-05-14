@@ -5,20 +5,20 @@ import org.json.simple.JSONObject;
 import java.util.HashMap;
 
 public class Door extends Openable implements Item {
-    public final String name;
-    private final Boolean golden;
-    private final String nextRoom;
-    public String location;
+    public final String NAME;
+    private final Boolean IS_GOLDEN;
+    private final String NEXT_ROOM;
+    private final String LOCATION;
 
     public Door(JSONObject door) {
-        this.name = (String) door.get("name");
-        this.golden = door.get("golden").equals("true");
+        this.NAME = (String) door.get("name");
+        this.IS_GOLDEN = door.get("golden").equals("true");
         if (door.get("key") != null) {
             setKey(new Key((String) door.get("key")));
         }
         initIs_locked(door.get("is_locked").equals("true"));
-        this.nextRoom = (String) door.get("to");
-        this.location = (String) door.get("location");
+        this.NEXT_ROOM = (String) door.get("to");
+        this.LOCATION = (String) door.get("location");
     }
 
     public String getNextRoom() {
@@ -28,24 +28,24 @@ public class Door extends Openable implements Item {
             if (this.getGolden()) {
                 return "golden";
             };
-            return this.nextRoom;
+            return this.NEXT_ROOM;
         }
     }
 
     public String getDetails() {
-        return name + " in " + location;
+        return this.NAME + " in " + this.LOCATION;
     }
 
     private Boolean getGolden() {
-        return golden;
+        return this.IS_GOLDEN;
     }
 
     public String getLocation() {
-        return location;
+        return this.LOCATION;
     }
 
     public String getName() {
-        return name;
+        return this.NAME;
     }
 
     public String getType() {

@@ -7,12 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Wall {
-    public String name;
+    public final String NAME;
     public ItemsFactory itemsFactory;
     public HashMap<String, Object> items = new HashMap<String, Object>();
 
     public Wall(String name, JSONObject wall) {
-        this.name = name;
+        this.NAME = name;
+        generateWall(wall);
+    }
+
+    private void generateWall(JSONObject wall) {
         this.itemsFactory = new ItemsFactory(wall);
         this.items = this.itemsFactory.items;
     }
@@ -28,6 +32,6 @@ public class Wall {
 
     @Override
     public String toString() {
-        return "Wall name: " + this.name + ", items: " + check_items();
+        return "Wall name: " + this.NAME + ", items: " + check_items();
     }
 }

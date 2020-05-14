@@ -61,7 +61,7 @@ public class ItemsFactory {
             if (location_item != null)
                 if (((Item) location_item).getLocation().equals(location)) {
                     if (location_item instanceof Checkable) {
-                        HashMap acquire_items = ((ContainerItems) location_item).check_content(location);
+                        HashMap acquire_items = ((Checkable) location_item).check_content(location);
                         if (acquire_items.size() > 0) System.out.println("New items are acquired " + acquire_items);
                         return acquire_items;
                     }

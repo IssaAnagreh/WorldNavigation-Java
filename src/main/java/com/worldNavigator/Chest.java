@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Chest extends Openable implements ContainerItems, Item, Checkable {
-    public String name;
-    public String location;
-    private boolean taken;
+public class Chest extends Openable implements Item, Checkable {
+    private final String NAME;
+    private final String LOCATION;
+    private boolean isTaken;
     private ContentManager contents;
 
     public Chest(JSONObject chest) {
-        this.name = (String) chest.get("name");
+        this.NAME = (String) chest.get("name");
         if (chest.get("key") != null) {
             setKey(new Key((String) chest.get("key")));
         }
@@ -25,21 +25,21 @@ public class Chest extends Openable implements ContainerItems, Item, Checkable {
             this.contents.addItem(chest);
         }
 
-        this.location = (String) chest.get("location");
+        this.LOCATION = (String) chest.get("location");
     }
 
     public String getLocation() {
-        return location;
+        return this.LOCATION;
     }
 
     public HashMap check_content(String location) {
         HashMap content = new HashMap<String, Object>();
-        if (this.taken) {
+        if (this.isTaken) {
             System.out.println("This chest is empty now");
         } else {
-            if (location.equals(this.location)) {
+            if (location.equals(this.LOCATION)) {
                 if (!getIs_locked()) {
-                    this.taken = true;
+                    this.isTaken = true;
                     content = this.contents.getContents();
                 } else {
                     System.out.println("You must use the key or find it for this chest");
@@ -51,7 +51,7 @@ public class Chest extends Openable implements ContainerItems, Item, Checkable {
 
     @Override
     public String getName() {
-        return name;
+        return this.NAME;
     }
 
     public String getType() {
@@ -60,11 +60,11 @@ public class Chest extends Openable implements ContainerItems, Item, Checkable {
 
     @Override
     public String getDetails() {
-        return name + " in " + location;
+        return this.NAME + " in " + this.LOCATION;
     }
 
     @Override
     public String toString() {
-        return getIs_locked() ? "LOCKED Chest: " + name + ", Location: " + this.location : "UNLOCKED Chest: " + name + ", Location: " + this.location;
+        return getIs_locked() ? "LOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION : "UNLOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION;
     }
 }

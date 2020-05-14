@@ -12,8 +12,7 @@ public class Maps {
     }
 
     public void addMap(String json) {
-        MapFactory khareeta = new MapFactory(json);
-        maps.add(khareeta);
+        maps.add(generate(json));
     };
 
     public void removeMap(MapFactory map) {

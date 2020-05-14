@@ -1,0 +1,13 @@
+
+E
+java:S3740"/Provide the parametrized type for this generic.(£óÊ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+)
+java:S1700"Rename field "maps"(£óÊ
+f
+java:S1104"PMake maps a static final constant or non-public and provide accessors if needed.(£óÊ
+v
+java:S1488
+"`Immediately return this expression instead of assigning it to the temporary variable "khareeta".(’’şÈ
+7
+java:S1116"Remove this empty statement.(ôŸìúÿÿÿÿ

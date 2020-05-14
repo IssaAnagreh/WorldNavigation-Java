@@ -7,27 +7,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Painting implements ContainerItems, Item, Checkable {
+public class Painting implements Item, Checkable {
     private ContentManager contents;
-    public String location;
-    public String name = "Painting";
-    private boolean taken;
+    public final String LOCATION;
+    public final String NAME = "Painting";
+    private boolean isTaken;
 
     public Painting(JSONObject painting) {
         if (painting.get("existed").equals("true")) {
             this.contents = new ContentManager();
             this.contents.addItem(painting);
         }
-        this.location = (String) painting.get("location");
+        this.LOCATION = (String) painting.get("location");
     }
 
     public HashMap check_content(String location) {
         HashMap content = new HashMap<String, Object>();
-        if (this.taken) {
+        if (this.isTaken) {
             System.out.println("This painting is empty now");
         } else {
-            if (location.equals(this.location)) {
-                this.taken = true;
+            if (location.equals(this.LOCATION)) {
+                this.isTaken = true;
                 content = this.contents.getContents();
             }
         }
@@ -36,12 +36,12 @@ public class Painting implements ContainerItems, Item, Checkable {
 
     @Override
     public String getLocation() {
-        return location;
+        return this.LOCATION;
     }
 
     @Override
     public String getName() {
-        return name;
+        return this.NAME;
     }
 
     public String getType() {
@@ -50,11 +50,11 @@ public class Painting implements ContainerItems, Item, Checkable {
 
     @Override
     public String getDetails() {
-        return name + " in " + location;
+        return this.NAME + " in " + this.LOCATION;
     }
 
     @Override
     public String toString() {
-        return "Painting, Location: " + this.location;
+        return "Painting, Location: " + this.LOCATION;
     }
 }

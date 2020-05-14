@@ -3,18 +3,18 @@ package com.worldNavigator;
 import java.util.Iterator;
 
 public class Key implements KeyChecker {
-    private final String name;
+    private final String NAME;
 
     public Key(String name) {
-        this.name = name;
+        this.NAME = name;
     }
 
     public String getName() {
-        return name;
+        return this.NAME;
     }
 
     public Boolean unlock(Openable openable){
-        if (openable != null) if (this.name.equals(openable.getKey())) {
+        if (openable != null) if (this.NAME.equals(openable.getKey())) {
             return false;
         } else {
             return true;

@@ -1,36 +1,30 @@
 package com.worldNavigator;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class Mirror implements ContainerItems, Item, Checkable {
+public class Mirror implements Item, Checkable {
     private ContentManager contents;
-    public String location;
-    public String name = "Mirror";
-    private boolean taken;
+    private final String LOCATION;
+    private final String NAME = "Mirror";
+    private boolean isTaken;
 
     public Mirror(JSONObject mirror) {
         if (mirror.get("existed").equals("true")) {
             this.contents = new ContentManager();
             this.contents.addItem(mirror);
         }
-        this.location = (String) mirror.get("location");
-    }
-
-    public Mirror() {
+        this.LOCATION = (String) mirror.get("location");
     }
 
     public HashMap check_content(String location) {
         HashMap content = new HashMap<String, Object>();
-        if (this.taken) {
+        if (this.isTaken) {
             System.out.println("This mirror is empty now");
         } else {
-            if (location.equals(this.location)) {
-                this.taken = true;
+            if (location.equals(this.LOCATION)) {
+                this.isTaken = true;
                 content = this.contents.getContents();
             }
         }
@@ -38,12 +32,12 @@ public class Mirror implements ContainerItems, Item, Checkable {
     }
 
     public String getLocation() {
-        return location;
+        return this.LOCATION;
     }
 
     @Override
     public String getName() {
-        return name;
+        return this.NAME;
     }
 
     public String getType() {
@@ -52,11 +46,11 @@ public class Mirror implements ContainerItems, Item, Checkable {
 
     @Override
     public String getDetails() {
-        return "You see a silhouette of you because of a " + name + " in " + location;
+        return "You see a silhouette of you because of a " + this.NAME + " in " + this.LOCATION;
     }
 
     @Override
     public String toString() {
-        return "Mirror, Location: " + this.location;
+        return "Mirror, Location: " + this.LOCATION;
     }
 }

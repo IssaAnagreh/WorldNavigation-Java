@@ -6,13 +6,18 @@ import java.util.HashMap;
 
 public class Room {
     public HashMap<String, Wall> walls = new HashMap<String, Wall>();
-    public String roomName;
-    public Boolean lit;
+    public final String ROOM_NAME;
+    public Boolean isLit;
     public Boolean lightSwitch;
-    public final int room_number;
+    public final int ROOM_NUMBER;
 
     public Room(JSONObject room, int room_counter) {
-        this.roomName = (String) room.get("name");
+        this.ROOM_NAME = (String) room.get("name");
+        this.ROOM_NUMBER = room_counter;
+        generateRoom(room);
+    }
+
+    private void generateRoom(JSONObject room) {
 
         Wall north_wall = new Wall("north_wall", (JSONObject) room.get("n_wall"));
         Wall east_wall = new Wall("east_wall", (JSONObject) room.get("e_wall"));
@@ -24,15 +29,14 @@ public class Room {
         walls.put("s", south_wall);
         walls.put("w", west_wall);
 
-        this.lit = Boolean.parseBoolean(room.get("lit").toString());
+        this.isLit = Boolean.parseBoolean(room.get("lit").toString());
         this.lightSwitch = (room.get("switch") != null) && Boolean.parseBoolean(room.get("switch").toString());
-        this.room_number = room_counter;
     }
 
     public void switchLights() {
         if (this.lightSwitch) {
-            this.lit = !this.lit;
-            if (lit) {
+            this.isLit = !this.isLit;
+            if (this.isLit) {
                 System.out.println("Room is lit now");
             } else {
                 System.out.println("Room is dark now");
@@ -43,8 +47,8 @@ public class Room {
     }
 
     public int useFlashLight(int flashLights) {
-        if (!this.lit) {
-            this.lit = true;
+        if (!this.isLit) {
+            this.isLit = true;
             System.out.println("Room is lit now");
             return --flashLights;
         } else {
@@ -54,6 +58,6 @@ public class Room {
 
     @Override
     public String toString() {
-        return "You are in room: " + roomName;
+        return "You are in room: " + this.ROOM_NAME;
     }
 }

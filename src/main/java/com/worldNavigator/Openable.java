@@ -4,18 +4,18 @@ import java.util.HashMap;
 
 public class Openable {
     private Key key;
-    private Boolean is_locked;
+    private Boolean isLocked;
 
     public Boolean getIs_locked() {
-        return is_locked;
+        return isLocked;
     }
 
-    public void initIs_locked(Boolean is_locked) {
-        this.is_locked = is_locked;
+    public void initIs_locked(Boolean isLocked) {
+        this.isLocked = isLocked;
     }
 
-    public void setIs_locked(Boolean is_locked) {
-        this.is_locked = !this.is_locked ? false : is_locked;
+    public void setIs_locked(Boolean isLocked) {
+        this.isLocked = !this.isLocked ? false : isLocked;
     }
 
     public String getKey() {
