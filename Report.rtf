@@ -79,7 +79,15 @@ Project: World Navigator\
 		- Customized player controllers is also extended from a master that has some certain controlling commands and methods that must not be changed can be over-ridden or added to.\
 \
 	- LSP:\
-		- \
+		- Honestly this principle was the most helpful which used in the my implementation of this project in one of the main scenarios; when having an Item class that is extended to all items such as door, chest, seller \'85etc. but still each one has it\'92s own specific fundamentals so doors is openable but not checkable, but chest is openable and checkable, and mirror is checkable but not openable. So having this principle to implement this critical scenario was helpful by making Item, Locked_Checkable, Unlocked_Checkable, Uncheckable, Openable, CheckBehavior interface and UseKeyBehavior interface, to deal with all possible scenarios with all the items and any future added items.\
+\
+	- ISP:\
+		- No unused implemented methods, and no unused forced implemented methods in the classes.\
+\
+	- DIP:\
+		- Items are the most changeable parts in the whole project so it needed to be extremely isolated, that was the inspiration of implementing of DIP by adding the ItemsFactory so it only gives the chance to deal with it to invoke a certain method or to read a certain attribute from a certain item such as Door, Chest, Paintings \'85etc.\
+\
+\
 \
 \
 \
