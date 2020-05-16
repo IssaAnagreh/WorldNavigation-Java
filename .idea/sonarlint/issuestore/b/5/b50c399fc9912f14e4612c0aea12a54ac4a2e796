@@ -1,11 +1,12 @@
 
 M
 java:S1874"2Remove this use of "Observable"; it is deprecated.(ž‹›Àüÿÿÿÿ
-K
-java:S1481"0Remove this unused "playerModel" local variable.(’å²€øÿÿÿÿ
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-T	java:S106"9Replace this use of System.out or System.err by a logger.(‚š‰18¯±ÚªŸ.
-Z
-java:S1854"?Remove this useless assignment to local variable "playerModel".(’å²€øÿÿÿÿ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(©Õ¤±ýÿÿÿÿ8‡£ˆÒ¡.
 E
 java:S1874"0Remove this use of "Observer"; it is deprecated.(ÄµêR
+Z
+java:S1854"?Remove this useless assignment to local variable "playerModel".(’å²€øÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(‚š‰18¯±ÚªŸ.
+K
+java:S1481"0Remove this unused "playerModel" local variable.(’å²€øÿÿÿÿ

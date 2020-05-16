@@ -4,31 +4,25 @@ import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 
-public class Checkable implements CheckBehavior {
+public class Unlocked_Checkable implements CheckBehavior {
     private ContentManager contents;
     private boolean isTaken;
     private final String LOCATION;
-    private UseKeyBehavior useKeyBehavior;
 
-    public Checkable(JSONObject item, String location, UseKeyBehavior useKeyBehavior) {
+    public Unlocked_Checkable(JSONObject item, String location) {
         this.contents = new ContentManager();
         this.contents.addItem(item);
         this.LOCATION = location;
-        this.useKeyBehavior = useKeyBehavior;
     }
 
     public HashMap check_content(String location) {
         HashMap content = new HashMap<String, Object>();
         if (this.isTaken) {
-            System.out.println("This chest is empty now");
+            System.out.println("Nothing to acquire");
         } else {
             if (location.equals(this.LOCATION)) {
-                if (!this.useKeyBehavior.getIs_locked()) {
-                    this.isTaken = true;
-                    content = this.contents.getContents();
-                } else {
-                    System.out.println("You must use the key or find it for this chest");
-                }
+                this.isTaken = true;
+                content = this.contents.getContents();
             }
         }
         return content;

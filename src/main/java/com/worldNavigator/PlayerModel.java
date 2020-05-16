@@ -156,7 +156,7 @@ public class PlayerModel extends Observable {
         if (door == null) {
             notify_player("No doors to be opened");
         } else {
-            if (((Item) door).getLocation().equals(this.location)) {
+            if (door.getLocation().equals(this.location)) {
                 boolean isOpened = false;
                 String nextRoom = door.getNextRoom();
                 if (nextRoom.contentEquals("golden")) {
@@ -174,8 +174,9 @@ public class PlayerModel extends Observable {
                     notify_player("This door opens to nothing");
                     return;
                 }
-                if (!isOpened && nextRoom.equals("locked"))
-                    notify_player("The door is locked or no doors to be opened");
+                if (!isOpened && nextRoom.equals("locked")) {
+                    notify_player("The door is locked");
+                }
             } else {
                 notify_player("No doors to be opened");
             }

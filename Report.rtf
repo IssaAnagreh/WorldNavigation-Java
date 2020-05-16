@@ -1,0 +1,99 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-BoldMT;\f1\fnil\fcharset0 LucidaGrande-Bold;\f2\froman\fcharset0 TimesNewRomanPSMT;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid1\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16140\viewh12880\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\qc\partightenfactor0
+
+\f0\b\fs32 \cf0 Coding Report\
+\
+Name: Issa Anagreh\
+Project: World Navigator\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
+\ls1\ilvl0
+\fs28 \cf0 {\listtext	
+\f1 \uc0\u9670 
+\f0 	}Clean Code\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\cf0 	- Naming:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f2\b0 \cf0 	- Constants were refactored to be all uppercase.\
+	- Some methods naming were forced to be used to match the requirements naming.\
+	- No abbreviations were added in the project to achieve the highest understanding.\
+	- IDE spelling check.\
+	- Naming of methods were almost as uncle bob recommended by starting with a verb then a noun.\
+	- Boolean variable naming always starts with is; if variable it\'92s isValue, and if final value IS_VALUE.\
+	\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 	- Constructors:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f2\b0 \cf0 	- Multi constructors chains are being used for multiple reasons:\
+		- Classes are made to separate responsibilities but are never to be instantiated unless a previous constructor is called.\
+		- Some classes have a private generating method which is called in the constructor to restrict generating process.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 	- Methods:\
+	
+\f2\b0 - Nulls are never returned.\
+	- Special codes are used as parameters in some methods such in trading; let me talk about an example  -it is found in the trading class-, I have a method that expects an integer to choose from list that are ID\'92s numerated, but use might want to exit the list without choosing so I made a decision of using -1 which is an impossible ID.\
+	- Maximum number of parameters used are 3.\
+	- Flag arguments are used once; it\'92s restricted by the requirements so that one command can switch the lights of the room on or off, so I saw that to have a method for a one requirement is better than having two.\
+	- Methods were strictly sized less than 10 lines of code.\
+	\
+	
+\f0\b - Values:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f2\b0 \cf0 	- Magic numbers are never used, constants have been used in the GameTimer to covert milliseconds to seconds.\
+	- Booleans are named depending on the usage, so no !isCorrect ever used.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 	- Failures and Exception handling:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f2\b0 \cf0 	- Made my best to not implement any failure and not to use try and catch, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did.\
+	- Returning is fast as possible, but unfortunately some if-else\'92s are added to achieve the previous point and avoid many user\'92s mistakes, plus they give many hints.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 	- SOLID:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\f2\b0 \cf0 	- SRP:\
+		- Maps factory and its next classes (rooms, walls, \'85etc.) have good example of single responsibility principle.\
+		- I tried to be as creative as possible; imagined Maps factory class, Game Menu class, Game mvc classes; PlayerModel that has all player\'92s details, PlayerController that allow user to control his player, PlayerViewer that can be the GUI once), Key class, GameTimer class, ContentsManager (this prepares items such as keys, flashlights and golds and so on), Room class, Wall class, Items classes (such as Painting class, Mirror class, Seller class, Door class and Chest class), and the ItemsFactory class.\
+		- PlayerController and PlayerModel are the most challenging classes; Player model is the model of the most engaging part of the game which is the player which interacts with mostly everything in the application -except some parts such as menus and maps factory-, so what I have seen is that splitting any part of this Class can increase the complexity as the model class must achieve its existence purpose which is to have all the information of the player. The Player controller class is a bit weird, usually controllers are customizable so what I did is to make a Player controller master then extended to a custom player controller (PlayerController class). More of deeply digging inside of some classes are to be discussed later\
+		- Coupling: unfortunately coupling frequently appears in the project, let\'92s discuss, I have a MapFactory which prepares a map including its rooms, then each room prepares its walls, then each wall prepares its items (Door, Chest, Mirror, Painting or Seller). I made my best thinking of this chain but I lastly found that this is a normal correct chain, where there is no map without a room at least, and room without 4 walls as the requirements said, and no wall without items then these items are generated via ItemsFactory class that can be updated if any new item was to be added lately.\
+	\
+	- OCP:\
+		- New items (doors, chests, paintings, mirrors and sellers) and contents (golds, flashLights and keys) are possibly can be added to the game, contents and items are changeable too. So I implemented ItemsFactory and Content Manager that helps to achieve OCP principle to add new items as simple as possible with changing only these classes.\
+		- Customized player controllers is also extended from a master that has some certain controlling commands and methods that must not be changed can be over-ridden or added to.\
+\
+	- LSP:\
+		- \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+		- This game project has many related classes and so it needed many design patterns to achieve this principle, starting with the keys usage that is working for chests and doors, but chests are checkable (can acquire items from) but doors are not, mirrors and paintings are checkable but not openable with keys. \
+\
+\
+\
+}

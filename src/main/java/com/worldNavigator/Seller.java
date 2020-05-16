@@ -15,8 +15,8 @@ public class Seller extends Item {
 
     public Seller(JSONObject seller) {
         this.LOCATION = (String) seller.get("location");
-        if (!seller.get("existed").equals("true")) {
-            super.setCheckBehavior(new Checkable(seller, this.LOCATION, super.useKeyBehavior));
+        if (seller.get("existed").equals("true")) {
+            super.setCheckBehavior(new Unlocked_Checkable(seller, this.LOCATION));
         }
         if (seller.get("selling") != null) {
             JSONObject temp_selling = (JSONObject) seller.get("selling");

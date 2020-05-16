@@ -46,7 +46,7 @@ public class ItemsFactory {
 
     public String check_item_by_location(String location) {
         for (String item : this.items.keySet()) {
-            Item location_itemInterface = (Item) this.items.get(item);
+            Item location_itemInterface = this.items.get(item);
             if (location_itemInterface != null) {
                 if (location_itemInterface.getLocation().equals(location)) {
                     return "This location has: " + location_itemInterface.getName();
@@ -59,7 +59,7 @@ public class ItemsFactory {
     public String getType(String location) {
         ArrayList output = new ArrayList();
         for (String item : this.items.keySet()) {
-            Item location_itemInterface = (Item) this.items.get(item);
+            Item location_itemInterface = this.items.get(item);
             if (location_itemInterface != null)
                 if (location_itemInterface.getLocation().equals(location))
                     return location_itemInterface.getType();

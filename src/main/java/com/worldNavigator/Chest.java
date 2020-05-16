@@ -16,8 +16,8 @@ public class Chest extends Item {
                 super.setCheckBehavior(new Locked_Checkable(chest, this.LOCATION, super.useKeyBehavior));
             }
         } else {
-            if (!chest.get("existed").equals("true")) {
-                super.setCheckBehavior(new Checkable(chest, this.LOCATION, super.useKeyBehavior));
+            if (chest.get("existed").equals("true")) {
+                super.setCheckBehavior(new Unlocked_Checkable(chest, this.LOCATION));
             }
         }
     }

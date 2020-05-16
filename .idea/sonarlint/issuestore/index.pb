@@ -1,6 +1,4 @@
 
-Z
-*src/main/java/com/worldNavigator/Move.java,2/0/200db571f3237785c062d89e369c14dc4a4cc174
 \
 ,src/main/java/com/worldNavigator/Rotate.java,4/e/4ee654a2edd0df33c5910297fd3379931e448aff
 \
@@ -53,3 +51,11 @@ Y
 )src/main/java/com/worldNavigator/Key.java,3/b/3bf5c843431959861b3b68fd9f0e110ec7e371b7
 Z
 *src/main/java/com/worldNavigator/Maps.java,2/4/2412b2351bc91ed282d5946759fae2ffab92d12d
+c
+3src/main/java/com/worldNavigator/CheckBehavior.java,3/e/3ec98fb4df738d01e8972cf1a4c5f93ad857ce04
+f
+6src/main/java/com/worldNavigator/Locked_Checkable.java,9/b/9b9713fd76ed81401ab971e3949cdb64a47b02ed
+d
+4src/main/java/com/worldNavigator/UseKeyBehavior.java,d/5/d5a11683f3302c274e345e08540a8e41fcb1855a
+a
+1src/main/java/com/worldNavigator/Uncheckable.java,8/1/8135cbe9aba33d51c86ca21789f212439a6e2b49

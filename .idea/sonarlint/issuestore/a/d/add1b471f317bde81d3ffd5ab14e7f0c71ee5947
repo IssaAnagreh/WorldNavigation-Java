@@ -1,20 +1,8 @@
 
-o
-java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ
-@
-java:S5411)"*Use the primitive boolean expression here.(¨„™¨
-f
-java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( şÍ¾
-E
-java:S5411D"*Use the primitive boolean expression here.(Ò”åûÿÿÿÿ
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8øÉªÖŸ.
-N	java:S106-"9Replace this use of System.out or System.err by a logger.(àßÔş
-X
-java:S1128"6Remove this unused import 'org.json.simple.JSONArray'.(àĞ›¢şÿÿÿÿ8Ş“‚ÖŸ.
-L
-java:S3740$"/Provide the parametrized type for this generic.(—ˆáû8±ıÕŸ.
-M	java:S106&"9Replace this use of System.out or System.err by a logger.(€¾ä&
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8øÉªÖŸ.
+F
+java:S5411,"*Use the primitive boolean expression here.(Û°‰t8£Û´Ó¡.
+t	java:S116"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8ıÛ¡Ï¡.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+W
+java:S1161&":Add the "@Override" annotation above this method signature(Ö±Éá8£Û´Ó¡.
+j	java:S116"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯îŞ8ıÛ¡Ï¡.

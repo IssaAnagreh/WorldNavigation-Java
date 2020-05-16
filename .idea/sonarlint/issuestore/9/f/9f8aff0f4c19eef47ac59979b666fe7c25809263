@@ -1,58 +1,58 @@
 
-L
-java:S3740-"/Provide the parametrized type for this generic.(úËã”8º’‰ßŸ.
-K
-java:S3740&"/Provide the parametrized type for this generic.(®üÏ8íœˆàŸ.
-
-java:S1319"pThe type of the "contents" object should be an interface such as "Map" rather than the implementation "HashMap".(åî˜µ8Ùâ§ßŸ.
-U	java:S1067"9Replace this use of System.out or System.err by a logger.(¥Àµ¢8Ÿ·Î‡ .
-Z	java:S106c"9Replace this use of System.out or System.err by a logger.(£öàïûÿÿÿÿ8Ÿ·Î‡ .
 o
-java:S3776-"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(úËã”8È¬àŸ.
-q
-java:S1104"TMake contents a static final constant or non-public and provide accessors if needed.(åî˜µ8şã¤ßŸ.
-L
-java:S37401"/Provide the parametrized type for this generic.(©ıÒ™8º’‰ßŸ.
-[
-java:S1155B">Use isEmpty() to check whether the collection is empty or not.(ñĞã8º’‰ßŸ.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+java:S3776)"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(úËã”8È¬àŸ.
+U	java:S106W"9Replace this use of System.out or System.err by a logger.(ëß¤Â8Ÿ·Î‡ .
+Z	java:S106_"9Replace this use of System.out or System.err by a logger.(£öàïûÿÿÿÿ8Ÿ·Î‡ .
+U	java:S106."9Replace this use of System.out or System.err by a logger.(£Õû¯8½ôğÕ¡.
 V
-java:S28645"4Iterate over the "entrySet" instead of the "keySet".(áàÚ¯ùÿÿÿÿ8¤ª€àŸ.
-Z	java:S106>"9Replace this use of System.out or System.err by a logger.(ÅîùÎşÿÿÿÿ8Ÿ·Î‡ .
-U	java:S1062"9Replace this use of System.out or System.err by a logger.(£Õû¯8Ÿ·Î‡ .
-U	java:S106V"9Replace this use of System.out or System.err by a logger.(•ıèä8Ÿ·Î‡ .
-Z	java:S106o"9Replace this use of System.out or System.err by a logger.(ß‰”ıÿÿÿÿ8Ÿ·Î‡ .
-U	java:S106~"9Replace this use of System.out or System.err by a logger.(¸‡ä¢8Ÿ·Î‡ .
+java:S2864L"4Iterate over the "entrySet" instead of the "keySet".(ò²æèÿÿÿÿÿ8È¬àŸ.
 Q
-java:S3740N"/Provide the parametrized type for this generic.(ûğ‘–ÿÿÿÿÿ8È¬àŸ.
-o
-java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ
-U	java:S1063"9Replace this use of System.out or System.err by a logger.(ĞÂ¥8Ÿ·Î‡ .
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ş¤´8º’‰ßŸ.
 Š
-java:S1319-"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(úËã”8º’‰ßŸ.
+java:S1319)"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(úËã”8º’‰ßŸ.
+U	java:S106R"9Replace this use of System.out or System.err by a logger.(•ıèä8Ÿ·Î‡ .
+q
+java:S1104"TMake contents a static final constant or non-public and provide accessors if needed.(åî˜µ8şã¤ßŸ.
+Z	java:S106:"9Replace this use of System.out or System.err by a logger.(ÅîùÎşÿÿÿÿ8Ÿ·Î‡ .
+Q
+java:S3740!"/Provide the parametrized type for this generic.(Á¼¨Üüÿÿÿÿ8½ôğÕ¡.
+
+java:S1319"pThe type of the "contents" object should be an interface such as "Map" rather than the implementation "HashMap".(åî˜µ8Ùâ§ßŸ.
 V
-java:S2864P"4Iterate over the "entrySet" instead of the "keySet".(ò²æèÿÿÿÿÿ8È¬àŸ.
-L
-java:S37401"/Provide the parametrized type for this generic.(©ıÒ™8º’‰ßŸ.
-X
-java:S1128"6Remove this unused import 'org.json.simple.JSONArray'.(àĞ›¢şÿÿÿÿ8ÁÖßŸ.
-U	java:S106["9Replace this use of System.out or System.err by a logger.(ëß¤Â8Ÿ·Î‡ .
-r	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ£º£ıÿÿÿÿ8º’‰ßŸ.
-U	java:S106v"9Replace this use of System.out or System.err by a logger.(ô´¯ƒ8Ÿ·Î‡ .
-Q
-java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ş¤´8º’‰ßŸ.
-Z	java:S106_"9Replace this use of System.out or System.err by a logger.(’£¼ğúÿÿÿÿ8Ÿ·Î‡ .
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊÂÒ±8º’‰ßŸ.
-J
-java:S3740."/Provide the parametrized type for this generic.(ÊŒå§øÿÿÿÿ
-U	java:S1064"9Replace this use of System.out or System.err by a logger.(¯ª­ˆ8Ÿ·Î‡ .
-L
-java:S3740"/Provide the parametrized type for this generic.(åî˜µ8·…ßŸ.
-Z	java:S106g"9Replace this use of System.out or System.err by a logger.(€ÙéÉÿÿÿÿÿ8Ÿ·Î‡ .
-f
-java:S1104"PMake name a static final constant or non-public and provide accessors if needed.(òÑç´
+java:S28641"4Iterate over the "entrySet" instead of the "keySet".(áàÚ¯ùÿÿÿÿ8¤ª€àŸ.
+U	java:S1063"9Replace this use of System.out or System.err by a logger.(¥Àµ¢8Ÿ·Î‡ .
+Z	java:S106["9Replace this use of System.out or System.err by a logger.(’£¼ğúÿÿÿÿ8Ÿ·Î‡ .
 
-java:S1319%"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Á¼¨Üüÿÿÿÿ8ªÑ³ş .
+java:S1319!"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Á¼¨Üüÿÿÿÿ8ªÑ³ş .
+U	java:S106/"9Replace this use of System.out or System.err by a logger.(ĞÂ¥8Ÿ·Î‡ .
+Z	java:S106c"9Replace this use of System.out or System.err by a logger.(€ÙéÉÿÿÿÿÿ8Ÿ·Î‡ .
+Z	java:S106k"9Replace this use of System.out or System.err by a logger.(ß‰”ıÿÿÿÿ8Ÿ·Î‡ .
+U	java:S106r"9Replace this use of System.out or System.err by a logger.(ô´¯ƒ8Ÿ·Î‡ .
+U	java:S106z"9Replace this use of System.out or System.err by a logger.(¸‡ä¢8Ÿ·Î‡ .
+o	java:S100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¼¨Üüÿÿÿÿ8ªÑ³ş .
+L
+java:S3740-"/Provide the parametrized type for this generic.(©ıÒ™8º’‰ßŸ.
 Q
-java:S3740%"/Provide the parametrized type for this generic.(Á¼¨Üüÿÿÿÿ8ªÑ³ş .
-o	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¼¨Üüÿÿÿÿ8ªÑ³ş .
+java:S3740J"/Provide the parametrized type for this generic.(ûğ‘–ÿÿÿÿÿ8È¬àŸ.
+[
+java:S1155>">Use isEmpty() to check whether the collection is empty or not.(ñĞã8º’‰ßŸ.
+q
+java:S1104"TMake LOCATION a static final constant or non-public and provide accessors if needed.(÷´ñ±8½ôğÕ¡.
+U	java:S1060"9Replace this use of System.out or System.err by a logger.(¯ª­ˆ8Ÿ·Î‡ .
+r	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ£º£ıÿÿÿÿ8º’‰ßŸ.
+o	java:S116"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷´ñ±8½ôğÕ¡.
+p	java:S116"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤úÁôøÿÿÿÿ8½ôğÕ¡.
+K
+java:S3740""/Provide the parametrized type for this generic.(®üÏ8ªÑ³ş .
+L
+java:S3740)"/Provide the parametrized type for this generic.(úËã”8½ôğÕ¡.
+L
+java:S3740"/Provide the parametrized type for this generic.(åî˜µ8·…ßŸ.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊÂÒ±8º’‰ßŸ.
+Q
+java:S3740*"/Provide the parametrized type for this generic.(ÊŒå§øÿÿÿÿ8º’‰ßŸ.
+L
+java:S3740-"/Provide the parametrized type for this generic.(©ıÒ™8º’‰ßŸ.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+C
+java:S1170"!Make this final field static too.(¤úÁôøÿÿÿÿ8½ôğÕ¡.
