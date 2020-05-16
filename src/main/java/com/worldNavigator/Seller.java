@@ -1,6 +1,5 @@
 package com.worldNavigator;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class Seller implements Item {
+public class Seller extends Item {
     public String LOCATION;
     public final String NAME = "Seller";
     HashMap<String, Integer> selling = new HashMap<>();
@@ -16,12 +15,9 @@ public class Seller implements Item {
 
     public Seller(JSONObject seller) {
         this.LOCATION = (String) seller.get("location");
-        if (seller.get("existed").equals("true")) {
-            ContentManager contentManager = new ContentManager();
-            contentManager.addSellingItem(seller);
-            this.contents = contentManager.getContents();
+        if (!seller.get("existed").equals("true")) {
+            super.setCheckBehavior(new Checkable(seller, this.LOCATION, super.useKeyBehavior));
         }
-
         if (seller.get("selling") != null) {
             JSONObject temp_selling = (JSONObject) seller.get("selling");
             for (Object item_name : temp_selling.keySet()) {

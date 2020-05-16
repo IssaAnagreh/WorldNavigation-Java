@@ -1,52 +1,29 @@
 package com.worldNavigator;
 
 import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-public class Chest extends Openable implements Item, Checkable {
+public class Chest extends Item {
     private final String NAME;
     private final String LOCATION;
-    private boolean isTaken;
-    private ContentManager contents;
 
     public Chest(JSONObject chest) {
         this.NAME = (String) chest.get("name");
-        if (chest.get("key") != null) {
-            setKey(new Key((String) chest.get("key")));
-        }
-        initIs_locked(chest.get("is_locked").equals("true"));
-
-        if (chest.get("existed").equals("true")) {
-            this.contents = new ContentManager();
-            this.contents.addItem(chest);
-        }
-
         this.LOCATION = (String) chest.get("location");
+
+        if (chest.get("key") != null) {
+            super.setUseKeyBehavior(new Openable(chest, "Chest"));
+            if (chest.get("existed").equals("true")) {
+                super.setCheckBehavior(new Locked_Checkable(chest, this.LOCATION, super.useKeyBehavior));
+            }
+        } else {
+            if (!chest.get("existed").equals("true")) {
+                super.setCheckBehavior(new Checkable(chest, this.LOCATION, super.useKeyBehavior));
+            }
+        }
     }
 
     public String getLocation() {
         return this.LOCATION;
-    }
-
-    public HashMap check_content(String location) {
-        HashMap content = new HashMap<String, Object>();
-        if (this.isTaken) {
-            System.out.println("This chest is empty now");
-        } else {
-            if (location.equals(this.LOCATION)) {
-                if (!getIs_locked()) {
-                    this.isTaken = true;
-                    content = this.contents.getContents();
-                } else {
-                    System.out.println("You must use the key or find it for this chest");
-                }
-            }
-        }
-        return content;
     }
 
     @Override
@@ -58,13 +35,12 @@ public class Chest extends Openable implements Item, Checkable {
         return "chest";
     }
 
-    @Override
     public String getDetails() {
         return this.NAME + " in " + this.LOCATION;
     }
 
     @Override
     public String toString() {
-        return getIs_locked() ? "LOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION : "UNLOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION;
+        return super.useKeyBehavior.getIs_locked() ? "LOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION : "UNLOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION;
     }
 }

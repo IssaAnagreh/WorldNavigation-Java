@@ -17,6 +17,7 @@ public class PlayerViewer implements Observer {
     public void update(Observable o, Object arg) {
         PlayerModel playerModel = (PlayerModel) o;
         String msg = (String) arg;
+//        System.out.println("update");
         System.out.println(msg);
     }
 

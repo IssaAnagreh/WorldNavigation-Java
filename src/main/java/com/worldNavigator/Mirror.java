@@ -4,18 +4,17 @@ import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 
-public class Mirror implements Item, Checkable {
+public class Mirror extends Item {
     private ContentManager contents;
     private final String LOCATION;
     private final String NAME = "Mirror";
     private boolean isTaken;
 
     public Mirror(JSONObject mirror) {
-        if (mirror.get("existed").equals("true")) {
-            this.contents = new ContentManager();
-            this.contents.addItem(mirror);
-        }
         this.LOCATION = (String) mirror.get("location");
+        if (!mirror.get("existed").equals("true")) {
+            super.setCheckBehavior(new Checkable(mirror, this.LOCATION, super.useKeyBehavior));
+        }
     }
 
     public HashMap check_content(String location) {

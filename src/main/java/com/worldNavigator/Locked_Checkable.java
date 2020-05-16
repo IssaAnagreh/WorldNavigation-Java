@@ -4,13 +4,13 @@ import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 
-public class Checkable implements CheckBehavior {
+public class Locked_Checkable implements CheckBehavior {
     private ContentManager contents;
     private boolean isTaken;
     private final String LOCATION;
     private UseKeyBehavior useKeyBehavior;
 
-    public Checkable(JSONObject item, String location, UseKeyBehavior useKeyBehavior) {
+    public Locked_Checkable(JSONObject item, String location, UseKeyBehavior useKeyBehavior) {
         this.contents = new ContentManager();
         this.contents.addItem(item);
         this.LOCATION = location;
@@ -45,6 +45,6 @@ public class Checkable implements CheckBehavior {
 
     @Override
     public String toString() {
-        return "Checkable";
+        return "Locked_Checkable";
     }
 }

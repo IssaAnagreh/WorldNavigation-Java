@@ -1,24 +1,20 @@
 package com.worldNavigator;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class Painting implements Item, Checkable {
+public class Painting extends Item {
     private ContentManager contents;
     public final String LOCATION;
     public final String NAME = "Painting";
     private boolean isTaken;
 
     public Painting(JSONObject painting) {
-        if (painting.get("existed").equals("true")) {
-            this.contents = new ContentManager();
-            this.contents.addItem(painting);
-        }
         this.LOCATION = (String) painting.get("location");
+        if (!painting.get("existed").equals("true")) {
+            super.setCheckBehavior(new Checkable(painting, this.LOCATION, super.useKeyBehavior));
+        }
     }
 
     public HashMap check_content(String location) {

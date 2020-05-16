@@ -10,9 +10,6 @@ import java.util.List;
 public class ContentManager {
     private HashMap<String, Object> contents = new HashMap<String, Object>();
 
-    public ContentManager() {
-    }
-
     public void addItem(JSONObject item) {
         JSONObject content = (JSONObject) item.get("content");
         if (item.get("existed").equals("true")) {

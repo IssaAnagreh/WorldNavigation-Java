@@ -19,7 +19,7 @@ public class PlayerModel extends Observable {
     public GameTimer timer;
     public Menu menu;
     public boolean playing;
-    public HashMap<String, Object> items = new HashMap();
+    public HashMap<String, Item> items = new HashMap();
 
     public PlayerModel(MapFactory map, Menu menu) {
         this.map = map;
@@ -122,35 +122,29 @@ public class PlayerModel extends Observable {
     }
 
     public void acquire_items() {
-        HashMap<String, Object> items = this.wall.itemsFactory.acquire_items(this.location);
-        if (items.get("keys") != null) ((List) items.get("keys")).forEach(emp -> this.keys.add((Key) emp));
-        if (items.get("golds") != null) this.golds += (long) items.get("golds");
-        if (items.get("flashLight") != null) this.flashLights += (long) items.get("flashLight");
+        Item item = this.wall.itemsFactory.getItem(this.location);
+        if (item != null) {
+            HashMap<String, Object> contents = item.checkBehavior.acquire_items(this.location);
+            if (contents.get("keys") != null) {
+                ((List) contents.get("keys")).forEach(emp -> this.keys.add((Key) emp));
+            }
+            if (contents.get("golds") != null) {
+                this.golds += (long) contents.get("golds");
+            }
+            if (contents.get("flashLight") != null) {
+                this.flashLights += (long) contents.get("flashLight");
+            }
+            if (contents.size() > 0) {
+                notify_player("Contents acquired " + contents);
+            }
+        }
     }
 
     public void use_key() {
         String print = "";
         if (this.keys.size() > 0) {
-            Openable openable = (Openable) this.wall.itemsFactory.getItem(this.location);
-            if (openable != null) {
-                if (openable.getIs_locked()) {
-                    boolean isLocked = true;
-                    for (Key keyItem : this.keys) {
-                        isLocked = !isLocked ? false : keyItem.unlock(openable);
-                        openable.setIs_locked(isLocked);
-                    }
-                    if (!isLocked) {
-                        print = "Object is open now";
-                    } else {
-                        print = "Look for a suitable key";
-                    }
-                } else {
-                    print = "Object is already open";
-                }
-            } else {
-                print = "Keys are used for locked chests and doors";
-            }
-
+            Item item = this.wall.itemsFactory.getItem(this.location);
+            print = item.useKeyBehavior.useKey(this.keys);
         } else {
             print = "You have no keys";
         }
@@ -174,14 +168,14 @@ public class PlayerModel extends Observable {
                         this.roomIndex = this.rooms.indexOf(room_candidate);
                         this.nextRoom_move();
                         isOpened = true;
-                        notify_player("Opened");
                     }
                 }
                 if (nextRoom.equals("")) {
                     notify_player("This door opens to nothing");
                     return;
                 }
-                if (!isOpened && nextRoom.equals("locked")) notify_player("The door is locked or no doors to be opened");
+                if (!isOpened && nextRoom.equals("locked"))
+                    notify_player("The door is locked or no doors to be opened");
             } else {
                 notify_player("No doors to be opened");
             }
@@ -194,33 +188,33 @@ public class PlayerModel extends Observable {
     }
 
     public void trade() {
-        Seller seller = (Seller) this.wall.items.get("seller");
-
-        if (seller != null) {
-            notify_player("This seller has: " + seller.check_content(this.location));
-            notify_player("You can use buy, sell, list or finish commands");
-            Scanner sc = new Scanner(System.in);
-            String command = sc.nextLine();
-            switch (command) {
-                case "buy":
-                    seller_buy(seller);
-                    break;
-                case "sell":
-                    seller_sell(seller);
-                    break;
-                case "list":
-                    seller_list(seller);
-                    break;
-                case "finish":
-                    notify_player("You quited trading");
-                    break;
-                default:
-                    trade();
-                    break;
-            }
-        } else {
-            notify_player("No sellers in this orientation");
-        }
+//        Seller seller = (Seller) this.wall.items.get("seller");
+//
+//        if (seller != null) {
+//            notify_player("This seller has: " + seller.check_content(this.location));
+//            notify_player("You can use buy, sell, list or finish commands");
+//            Scanner sc = new Scanner(System.in);
+//            String command = sc.nextLine();
+//            switch (command) {
+//                case "buy":
+//                    seller_buy(seller);
+//                    break;
+//                case "sell":
+//                    seller_sell(seller);
+//                    break;
+//                case "list":
+//                    seller_list(seller);
+//                    break;
+//                case "finish":
+//                    notify_player("You quited trading");
+//                    break;
+//                default:
+//                    trade();
+//                    break;
+//            }
+//        } else {
+//            notify_player("No sellers in this orientation");
+//        }
     }
 
     public void seller_list(Seller seller) {
@@ -235,7 +229,7 @@ public class PlayerModel extends Observable {
                 notify_player("Choose an existed item's index");
                 seller_buy(seller);
             } else {
-                notify_player("bought "+bought);
+                notify_player("bought " + bought);
                 this.golds = (int) bought.get("golds");
                 switch (kind) {
                     case "keys":

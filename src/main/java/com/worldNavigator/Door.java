@@ -2,9 +2,7 @@ package com.worldNavigator;
 
 import org.json.simple.JSONObject;
 
-import java.util.HashMap;
-
-public class Door extends Openable implements Item {
+public class Door extends Item {
     public final String NAME;
     private final Boolean IS_GOLDEN;
     private final String NEXT_ROOM;
@@ -12,17 +10,18 @@ public class Door extends Openable implements Item {
 
     public Door(JSONObject door) {
         this.NAME = (String) door.get("name");
-        this.IS_GOLDEN = door.get("golden").equals("true");
-        if (door.get("key") != null) {
-            setKey(new Key((String) door.get("key")));
-        }
-        initIs_locked(door.get("is_locked").equals("true"));
-        this.NEXT_ROOM = (String) door.get("to");
         this.LOCATION = (String) door.get("location");
+        this.IS_GOLDEN = door.get("golden").equals("true");
+        this.NEXT_ROOM = (String) door.get("to");
+
+        if (door.get("key") != null) {
+            super.setUseKeyBehavior(new Openable(door, "Door"));
+        }
+        super.setCheckBehavior(new Uncheckable());
     }
 
     public String getNextRoom() {
-        if (getIs_locked()) {
+        if (super.useKeyBehavior.getIs_locked()) {
             return "locked";
         } else {
             if (this.getGolden()) {

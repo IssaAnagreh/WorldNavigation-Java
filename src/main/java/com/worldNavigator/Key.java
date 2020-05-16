@@ -14,12 +14,7 @@ public class Key implements KeyChecker {
     }
 
     public Boolean unlock(Openable openable){
-        if (openable != null) if (this.NAME.equals(openable.getKey())) {
-            return false;
-        } else {
-            return true;
-        }
-        return true;
+        return this.NAME.equals(openable.getKey());
     }
 
     @Override
