@@ -40,7 +40,7 @@ public class Openable implements UseKeyBehavior {
         if (this.getIs_locked() != null && this.getIs_locked()) {
             boolean locked = true;
             for (Key keyItem : keys) {
-                locked = !locked ? false : !keyItem.unlock(this); // SonarLint simplification damages logic
+                locked = locked && !keyItem.unlock(this);
                 this.setIs_locked(locked);
             }
             if (locked) {
