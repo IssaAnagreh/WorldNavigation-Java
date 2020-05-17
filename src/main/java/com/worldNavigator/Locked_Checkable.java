@@ -34,7 +34,7 @@ public class Locked_Checkable implements CheckBehavior {
         return content;
     }
 
-    public HashMap<String, Object> acquire_items(String location) {
+    public HashMap<String, Object> acquire_contents(String location) {
         HashMap<String, Object> acquired_items = this.check_content(location);
         if (acquired_items.size() > 0) {
             return acquired_items;

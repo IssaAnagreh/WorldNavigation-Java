@@ -1,5 +1,6 @@
 package com.worldNavigator;
 
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class Item {
@@ -24,8 +25,12 @@ public abstract class Item {
         checkBehavior.check_content(location);
     }
 
-    public void applyUseKey(List<Key> keys) {
-        useKeyBehavior.useKey(keys);
+    public HashMap applyAcquire(String location) {
+        return checkBehavior.acquire_contents(location);
+    }
+
+    public String applyUseKey(List<Key> keys) {
+        return useKeyBehavior.useKey(keys);
     }
 
     @Override

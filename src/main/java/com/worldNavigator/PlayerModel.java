@@ -124,7 +124,7 @@ public class PlayerModel extends Observable {
     public void acquire_items() {
         Item item = this.wall.itemsFactory.getItem(this.location);
         if (item != null) {
-            HashMap<String, Object> contents = item.checkBehavior.acquire_items(this.location);
+            HashMap contents = item.applyAcquire(this.location);
             if (contents.get("keys") != null) {
                 ((List) contents.get("keys")).forEach(emp -> this.keys.add((Key) emp));
             }
@@ -144,7 +144,7 @@ public class PlayerModel extends Observable {
         String print = "";
         if (this.keys.size() > 0) {
             Item item = this.wall.itemsFactory.getItem(this.location);
-            print = item.useKeyBehavior.useKey(this.keys);
+            print = item.applyUseKey(this.keys);
         } else {
             print = "You have no keys";
         }

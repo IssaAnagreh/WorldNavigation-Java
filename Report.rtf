@@ -15,45 +15,43 @@ Name: Issa Anagreh\
 Project: World Navigator\
 \
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
-\ls1\ilvl0
-\fs28 \cf0 {\listtext	
+\ls1\ilvl0\cf0 {\listtext	
 \f1 \uc0\u9670 
 \f0 	}Clean Code\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
-\cf0 	- Naming:\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f2\b0 \cf0 	- Constants were refactored to be all uppercase.\
+\fs28 \cf0 	- Naming:
+\f2\b0 \
+	- Constants were refactored to be all uppercase.\
 	- Some methods naming were forced to be used to match the requirements naming.\
-	- No abbreviations were added in the project to achieve the highest understanding.\
+	- No abbreviations were added to the project to achieve the highest understanding.\
 	- IDE spelling check.\
-	- Naming of methods were almost as uncle bob recommended by starting with a verb then a noun.\
+	- The naming of methods were almost as uncle bob recommended by starting with a verb then a noun.\
 	- Boolean variable naming always starts with is; if variable it\'92s isValue, and if final value IS_VALUE.\
 	\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f0\b \cf0 	- Constructors:\
+\f0\b 	- Constructors:\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f2\b0 \cf0 	- Multi constructors chains are being used for multiple reasons:\
 		- Classes are made to separate responsibilities but are never to be instantiated unless a previous constructor is called.\
-		- Some classes have a private generating method which is called in the constructor to restrict generating process.\
+		- Some classes have a private generating method which is called in the constructor to restrict the generating process.\
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f0\b \cf0 	- Methods:\
 	
 \f2\b0 - Nulls are never returned.\
-	- Special codes are used as parameters in some methods such in trading; let me talk about an example  -it is found in the trading class-, I have a method that expects an integer to choose from list that are ID\'92s numerated, but use might want to exit the list without choosing so I made a decision of using -1 which is an impossible ID.\
-	- Maximum number of parameters used are 3.\
-	- Flag arguments are used once; it\'92s restricted by the requirements so that one command can switch the lights of the room on or off, so I saw that to have a method for a one requirement is better than having two.\
+	- Special codes are used as parameters in some methods such in trading; let me talk about an example  -it is found in the trading class-, I have a method that expects an integer to choose from a list that are ID\'92s enumerated, but users might want to exit the list without choosing so I made a decision of using -1 which is an impossible ID.\
+	- The maximum number of parameters used is 3.\
+	- Flag arguments are used once; it\'92s restricted by the requirements so that one command can switch the lights of the room on or off, so I saw that to have a method for one requirement is better than having two.\
 	- Methods were strictly sized less than 10 lines of code.\
 	\
 	
 \f0\b - Values:\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f2\b0 \cf0 	- Magic numbers are never used, constants have been used in the GameTimer to covert milliseconds to seconds.\
+\f2\b0 \cf0 	- Magic numbers are never used, constants have been used in the GameTimer to convert milliseconds to seconds.\
 	- Booleans are named depending on the usage, so no !isCorrect ever used.\
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
@@ -62,7 +60,7 @@ Project: World Navigator\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f2\b0 \cf0 	- Made my best to not implement any failure and not to use try and catch, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did.\
-	- Returning is fast as possible, but unfortunately some if-else\'92s are added to achieve the previous point and avoid many user\'92s mistakes, plus they give many hints.\
+	- Returning is fast as possible, but unfortunately, some if-else\'92s are added to achieve the previous point and avoid many user\'92s mistakes, plus they give many hints.\
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
@@ -70,20 +68,20 @@ Project: World Navigator\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f2\b0 \cf0 	- SRP:\
-		- Maps factory and its next classes (rooms, walls, \'85etc.) have good example of single responsibility principle.\
-		- I tried to be as creative as possible; imagined Maps factory class, Game Menu class, Game mvc classes; PlayerModel that has all player\'92s details, PlayerController that allow user to control his player, PlayerViewer that can be the GUI once), Key class, GameTimer class, ContentsManager (this prepares items such as keys, flashlights and golds and so on), Room class, Wall class, Items classes (such as Painting class, Mirror class, Seller class, Door class and Chest class), and the ItemsFactory class.\
-		- PlayerController and PlayerModel are the most challenging classes; Player model is the model of the most engaging part of the game which is the player which interacts with mostly everything in the application -except some parts such as menus and maps factory-, so what I have seen is that splitting any part of this Class can increase the complexity as the model class must achieve its existence purpose which is to have all the information of the player. The Player controller class is a bit weird, usually controllers are customizable so what I did is to make a Player controller master then extended to a custom player controller (PlayerController class). More of deeply digging inside of some classes are to be discussed later\
-		- Coupling: unfortunately coupling frequently appears in the project, let\'92s discuss, I have a MapFactory which prepares a map including its rooms, then each room prepares its walls, then each wall prepares its items (Door, Chest, Mirror, Painting or Seller). I made my best thinking of this chain but I lastly found that this is a normal correct chain, where there is no map without a room at least, and room without 4 walls as the requirements said, and no wall without items then these items are generated via ItemsFactory class that can be updated if any new item was to be added lately.\
+		- Maps factory and its next classes (rooms, walls, \'85etc.) have a good example of the single responsibility principle.\
+		- I tried to be as creative as possible; imagined Maps factory class, Game Menu class, Game MVC classes; PlayerModel that has all player\'92s details, PlayerController that allows user to control his player, PlayerViewer that can be the GUI once), Key class, GameTimer class, ContentsManager (this prepares items such as keys, flashlights and golds and so on), Room class, Wall class, Items classes (such as Painting class, Mirror class, Seller class, Door class, and Chest class), and the ItemsFactory class.\
+		- PlayerController and PlayerModel are the most challenging classes; Player model is the model of the most engaging part of the game which is the player which interacts with mostly everything in the application -except some parts such as menus and maps factory-, so what I have seen is that splitting any part of this Class can increase the complexity as the model class must achieve its existence purpose which is to have all the information of the player. The Player controller class is a bit weird, usually, controllers are customizable so what I did is to make a Player controller master then extended to a custom player controller (PlayerController class). More of deeply digging inside of some classes are to be discussed later\
+		- Coupling: unfortunately coupling frequently appears in the project, let\'92s discuss, I have a MapFactory which prepares a map including its rooms, then each room prepares its walls, then each wall prepares its items (Door, Chest, Mirror, Painting or Seller). I made my best thinking of this chain but I lastly found that this is a normal correct chain, where there is no map without a room at least, and room without 4 walls as the requirements said, and no wall without items then these items are generated via ItemsFactory class that can be updated if any new item was to be added later.\
 	\
 	- OCP:\
-		- New items (doors, chests, paintings, mirrors and sellers) and contents (golds, flashLights and keys) are possibly can be added to the game, contents and items are changeable too. So I implemented ItemsFactory and Content Manager that helps to achieve OCP principle to add new items as simple as possible with changing only these classes.\
-		- Customized player controllers is also extended from a master that has some certain controlling commands and methods that must not be changed can be over-ridden or added to.\
+		- New items (doors, chests, paintings, mirrors, and sellers) and contents (golds, flashLights, and keys) are possibly can be added to the game, contents and items are changeable too. So I implemented ItemsFactory and Content Manager that helps to achieve OCP principle to add new items as simple as possible with changing only these classes.\
+		- Customized player controllers class is also extended from a master that has some certain controlling commands and methods that must not be changed can be over-ridden or added to.\
 \
 	- LSP:\
-		- Honestly this principle was the most helpful which used in the my implementation of this project in one of the main scenarios; when having an Item class that is extended to all items such as door, chest, seller \'85etc. but still each one has it\'92s own specific fundamentals so doors is openable but not checkable, but chest is openable and checkable, and mirror is checkable but not openable. So having this principle to implement this critical scenario was helpful by making Item, Locked_Checkable, Unlocked_Checkable, Uncheckable, Openable, CheckBehavior interface and UseKeyBehavior interface, to deal with all possible scenarios with all the items and any future added items.\
+		- Honestly, this principle was the most helpful which used in my implementation of this project in one of the main scenarios; when having an Item class that is extended to all items such as door, chest, seller \'85etc. but still, each one has it\'92s own specific fundamentals so doors are openable but not checkable, but the chest is openable and checkable, and the mirror is checkable but not openable. So having this principle to implement this critical scenario was helpful by making Item, Locked_Checkable, Unlocked_Checkable, Uncheckable, Openable, CheckBehavior interface, and UseKeyBehavior interface, to deal with all possible scenarios with all the items and any future added items.\
 \
 	- ISP:\
-		- No unused implemented methods, and no unused forced implemented methods in the classes.\
+		- No unused implemented methods and no unused forced implemented methods in the classes.\
 \
 	- DIP:\
 		- Items are the most changeable parts in the whole project so it needed to be extremely isolated, that was the inspiration of implementing of DIP by adding the ItemsFactory so it only gives the chance to deal with it to invoke a certain method or to read a certain attribute from a certain item such as Door, Chest, Paintings \'85etc.\
@@ -92,17 +90,28 @@ Project: World Navigator\
 
 \f0\b \cf0 	- Comments:\
 	
-\f2\b0 - Comments were used twice; first usage was for a while loop that will take the commands all time as long as the game is on, while\'92s argument is player.isPlaying, the argument is clear enough but still I thought it may need more clarification, second usage was about telling the developer about the timer starting method while its class\'92s name is GameTimer and the run of the timer in it\'92s constructor.\
+\f2\b0 - Comments were used twice; the first usage was for a while loop that will take the commands all time as long as the game is on, while\'92s argument is player.isPlaying, the argument is clear enough but still I thought it may need more clarification, the second usage was about telling the developer about the timer starting method while its class\'92s name is GameTimer and the run of the timer in its constructor.\
 \
 \
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
 \ls2\ilvl0
-\f0\b \cf0 {\listtext	
+\f0\b\fs32 \cf0 {\listtext	
 \f1 \uc0\u9670 
 \f0 	}Design Patterns
 \f2\b0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
-\cf0 	This game project has many related classes and so it needed many design patterns to achieve this principle, starting with the keys usage that is working for chests and doors, but chests are checkable (can acquire items from) but doors are not, mirrors and paintings are checkable but not openable with keys, and many other applications. \
+
+\fs28 \cf0 	This game project has many related classes and so it needed many design patterns to achieve this principle, starting with the keys usage that is working for chests and doors, but chests are checkable (can acquire items from) but doors are not, mirrors and paintings are checkable but not openable with keys, and many other applications. \
+\
+	- Maps: originally maps are .json files that must be read and converted into java classes and objects somehow; \'93hide creation logic\'94 is the decision of mine to be implemented here, depending on this, 
+\f0\b Factory Method Pattern
+\f2\b0  was the best for this application, but actually I made a different implementation, no interfaces were made as it\'92s not actually needed in my case because map items have different methods content and there is no need for a special interface for them in this part of the designation -they have a special interface but in different scope-. \
+Let us dig deeper here, .json files needed a special library installed that can convert the .json file to jsonOBJECTS, jsonARRAYS and jsonVALUES, and these files must be refactored to be some java\'92s classes and objects which are complicated to go through every time a developer wants to implement a new item -let us say a developer wants to add tables in the rooms-. So, MapFactory is to parse all the .json map to java map, even if a developer wants to add a new item -a table as an example- can add it in a simple way depending on the readme file and changing the ItemsFactory class -this will be discussed later-. However, the only reason to get into the MapFactory class is if the developer wants to add a new object to contents such as golds, flashLights \'85etc, -a hummer as an example new content object-.\
+\
+	- Items: items are such as paintings, mirrors, doors, sellers \'85etc. The implementation here mainly was about having multiple shared behaviors, but multiple other different behaviors are also there, so \'93Separate what varies from what remains the same\'94 was the decision-maker of mine, depending on this, 
+\f0\b Strategy Design Pattern
+\f2\b0  was the best choice for me here.\
+Let us dig deeper, logically items must have a super class called Item because many methods are repetitive such as getLocation, getName\
 \
 \
 \
