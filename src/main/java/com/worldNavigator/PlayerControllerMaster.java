@@ -12,7 +12,6 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     private ArrayList<String> painting_commands = new ArrayList<>();
     private ArrayList<String> seller_commands = new ArrayList<>();
     private boolean hint = true;
-//    private HashMap<String, Runnable> commandsMap = new HashMap();
 
     public PlayerControllerMaster() {
         commands.add("room");
@@ -59,8 +58,6 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
 
     public void subscribe(PlayerViewer playerViewer) {
         this.playerModel.addObserver(playerViewer);
-//        commandsMap.put("wall", this::wall);
-//        commandsMap.get("wall").run();
     }
 
     public void startGame() throws IOException {
