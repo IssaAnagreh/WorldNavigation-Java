@@ -17,7 +17,6 @@ public class PlayerViewer implements Observer {
     public void update(Observable o, Object arg) {
         PlayerModel playerModel = (PlayerModel) o;
         String msg = (String) arg;
-//        System.out.println("update");
         System.out.println(msg);
     }
 
@@ -27,5 +26,10 @@ public class PlayerViewer implements Observer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Player viewer";
     }
 }

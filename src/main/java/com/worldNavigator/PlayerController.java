@@ -15,4 +15,9 @@ public class PlayerController extends PlayerControllerMaster {
 
     public PlayerController() {
     }
+
+    @Override
+    public String toString() {
+        return "Player Controller";
+    }
 }

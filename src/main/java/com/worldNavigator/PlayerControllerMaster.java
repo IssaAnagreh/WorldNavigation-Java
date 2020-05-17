@@ -313,4 +313,9 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Player Controller Master";
+    }
 }

@@ -26,12 +26,14 @@ public class Painting extends Item {
         return "painting";
     }
 
-    public String getDetails() {
-        return this.NAME + " in " + this.LOCATION;
-    }
 
     @Override
     public String toString() {
-        return "Painting, Location: " + this.LOCATION;
+        return "Painting: " + this.NAME + ", in: " + this.LOCATION;
+    }
+
+    @Override
+    public int compareTo(String location) {
+        return this.getLocation().compareTo(location);
     }
 }

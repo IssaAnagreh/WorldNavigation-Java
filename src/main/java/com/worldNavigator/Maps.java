@@ -22,4 +22,9 @@ public class Maps {
     public void replace(MapFactory map, int index) {
         this.maps.set(index, map);
     }
+
+    @Override
+    public String toString() {
+        return "Maps: " + this.maps.toString();
+    }
 }

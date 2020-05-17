@@ -42,4 +42,9 @@ public class GameTimer extends PlayerController {
             quit();
         }
     }
+
+    @Override
+    public String toString() {
+        return "Game Timer";
+    }
 }

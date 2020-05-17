@@ -35,12 +35,13 @@ public class Chest extends Item {
         return "chest";
     }
 
-    public String getDetails() {
-        return this.NAME + " in " + this.LOCATION;
+    @Override
+    public String toString() {
+        return super.useKeyBehavior.getIs_locked() ? "LOCKED Chest: " + this.NAME + ", in: " + this.LOCATION : "UNLOCKED Chest: " + this.NAME + ", in: " + this.LOCATION;
     }
 
     @Override
-    public String toString() {
-        return super.useKeyBehavior.getIs_locked() ? "LOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION : "UNLOCKED Chest: " + this.NAME + ", Location: " + this.LOCATION;
+    public int compareTo(String location) {
+        return this.getLocation().compareTo(location);
     }
 }

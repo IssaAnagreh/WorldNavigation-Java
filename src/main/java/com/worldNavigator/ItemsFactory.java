@@ -45,37 +45,34 @@ public class ItemsFactory {
     }
 
     public String check_item_by_location(String location) {
-        for (String item : this.items.keySet()) {
-            Item location_itemInterface = this.items.get(item);
-            if (location_itemInterface != null) {
-                if (location_itemInterface.getLocation().equals(location)) {
-                    return "This location has: " + location_itemInterface.getName();
-                }
+        for (Item item : this.items.values()) {
+            if (item.compareTo(location) == 0) {
+                return "This location has: " + item.getName();
             }
         }
         return "Nothing in this location";
     }
 
     public String getType(String location) {
-        ArrayList output = new ArrayList();
-        for (String item : this.items.keySet()) {
-            Item location_itemInterface = this.items.get(item);
-            if (location_itemInterface != null)
-                if (location_itemInterface.getLocation().equals(location))
-                    return location_itemInterface.getType();
+        for (Item item : this.items.values()) {
+            if (item.compareTo(location) == 0) {
+                return item.getType();
+            }
         }
         return "";
     }
 
     public Item getItem(String location) {
-        for (String item : this.items.keySet()) {
-            Item location_item = this.items.get(item);
-            if (location_item != null) {
-                if ((location_item).getLocation().equals(location)) {
-                    return location_item;
-                }
+        for (Item item : this.items.values()) {
+            if (item.compareTo(location) == 0) {
+                return item;
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Item Factory";
     }
 }

@@ -39,6 +39,6 @@ public class Unlocked_Checkable implements CheckBehavior {
 
     @Override
     public String toString() {
-        return "Checkable";
+        return "Unlocked Checkable";
     }
 }

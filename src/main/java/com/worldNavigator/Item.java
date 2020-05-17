@@ -20,10 +20,6 @@ public abstract class Item {
 
     public abstract String getType();
 
-    public String getDetails() {
-        return "Implement getDetails in Item Class";
-    }
-
     public void applyCheck(String location) {
         checkBehavior.check_content(location);
     }
@@ -31,4 +27,9 @@ public abstract class Item {
     public void applyUseKey(List<Key> keys) {
         useKeyBehavior.useKey(keys);
     }
+
+    @Override
+    public abstract String toString();
+
+    public abstract int compareTo(String location);
 }

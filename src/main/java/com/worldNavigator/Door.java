@@ -31,9 +31,6 @@ public class Door extends Item {
         }
     }
 
-    public String getDetails() {
-        return this.NAME + " in " + this.LOCATION;
-    }
 
     private Boolean getGolden() {
         return this.IS_GOLDEN;
@@ -53,6 +50,11 @@ public class Door extends Item {
 
     @Override
     public String toString() {
-        return "door";
+        return "Door: " + this.NAME + ", in " + this.LOCATION;
+    }
+
+    @Override
+    public int compareTo(String location) {
+        return this.getLocation().compareTo(location);
     }
 }

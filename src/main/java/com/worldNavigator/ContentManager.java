@@ -54,15 +54,8 @@ public class ContentManager {
         return this.contents;
     }
 
-    public long getGolds() {
-        return (long) this.contents.get("golds");
-    }
-
-    public long getFlashLight() {
-        return (long) this.contents.get("flashLight");
-    }
-
-    public List getKeys() {
-        return (List) this.contents.get("keys");
+    @Override
+    public String toString() {
+        return this.getContents().toString();
     }
 }

@@ -50,4 +50,9 @@ public class Menu {
     public void quit() {
         System.exit(1);
     }
+
+    @Override
+    public String toString() {
+        return "Menu";
+    }
 }

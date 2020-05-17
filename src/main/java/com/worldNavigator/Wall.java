@@ -2,9 +2,7 @@ package com.worldNavigator;
 
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Wall {
     public final String NAME;
@@ -22,12 +20,7 @@ public class Wall {
     }
 
     public String check_items() {
-        List<String> temp_items = new ArrayList();
-        for (Object item : this.items.keySet()) {
-            Item location_itemInterface = (Item) this.items.get(item);
-            if (this.items.get(item) != null) temp_items.add(location_itemInterface.getDetails());
-        }
-        return temp_items.size() > 0 ? temp_items.toString() : "Nothing to look at";
+        return this.items.isEmpty() ? "Nothing to look at" : this.items.values().toString();
     }
 
     @Override

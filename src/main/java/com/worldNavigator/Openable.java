@@ -53,4 +53,9 @@ public class Openable implements UseKeyBehavior {
         }
         return print;
     }
+
+    @Override
+    public String toString() {
+        return "Openable";
+    }
 }

@@ -309,4 +309,9 @@ public class PlayerModel extends Observable {
             notify_player("You have no flashLights");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Player model";
+    }
 }

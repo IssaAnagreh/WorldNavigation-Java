@@ -27,12 +27,12 @@ public class Mirror extends Item {
     }
 
     @Override
-    public String getDetails() {
-        return "You see a silhouette of you because of a " + this.NAME + " in " + this.LOCATION;
+    public String toString() {
+        return "Mirror: " + this.NAME  + " in: " + this.LOCATION;
     }
 
     @Override
-    public String toString() {
-        return "Mirror, Location: " + this.LOCATION;
+    public int compareTo(String location) {
+        return this.getLocation().compareTo(location);
     }
 }

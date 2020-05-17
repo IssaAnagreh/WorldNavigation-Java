@@ -50,4 +50,9 @@ public class Rotate {
         System.out.println(this.ORIENTATION);
         return this.ORIENTATION;
     }
+
+    @Override
+    public String toString() {
+        return "Rotate";
+    }
 }
