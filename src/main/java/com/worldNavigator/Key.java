@@ -1,7 +1,5 @@
 package com.worldNavigator;
 
-import java.util.Iterator;
-
 public class Key implements KeyChecker {
     private final String NAME;
 
@@ -13,12 +11,16 @@ public class Key implements KeyChecker {
         return this.NAME;
     }
 
-    public Boolean unlock(Openable openable){
-        return this.NAME.equals(openable.getKey());
+    public Boolean unlock(Openable openable) {
+        return compareTo(openable.getKey()) == 0;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.getName();
+    }
+
+    public int compareTo(String key) {
+        return this.NAME.compareTo(key);
     }
 }

@@ -22,12 +22,12 @@ public class Locked_Checkable implements CheckBehavior {
         if (this.isTaken) {
             System.out.println("This chest is empty now");
         } else {
-            if (location.equals(this.LOCATION)) {
-                if (!this.useKeyBehavior.getIs_locked()) {
+            if (this.compareTo(location) == 0) {
+                if (this.useKeyBehavior.getIs_locked() != null && this.useKeyBehavior.getIs_locked()) {
+                    System.out.println("You must use the key or find it for this chest");
+                } else {
                     this.isTaken = true;
                     content = this.contents.getContents();
-                } else {
-                    System.out.println("You must use the key or find it for this chest");
                 }
             }
         }
@@ -46,5 +46,9 @@ public class Locked_Checkable implements CheckBehavior {
     @Override
     public String toString() {
         return "Locked_Checkable";
+    }
+
+    public int compareTo(String location) {
+        return this.LOCATION.compareTo(location);
     }
 }

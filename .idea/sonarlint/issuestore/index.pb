@@ -21,8 +21,6 @@ _
 /src/main/java/com/worldNavigator/GameTimer.java,a/6/a6cd61688ea3677d82de7f88654798f621d60bea
 f
 6src/main/java/com/worldNavigator/PlayerController.java,4/d/4d1a8d72f89ed75634d6f45fce1ad23b39831a32
-_
-/src/main/java/com/worldNavigator/Checkable.java,6/f/6f432c8e250e90c81c7a1d1fb1af8cd28c2aec33
 `
 0src/main/java/com/worldNavigator/KeyChecker.java,8/8/88d8c9a08dab79662c6e2aa62818441d3d35acca
 Z
@@ -59,3 +57,7 @@ d
 4src/main/java/com/worldNavigator/UseKeyBehavior.java,d/5/d5a11683f3302c274e345e08540a8e41fcb1855a
 a
 1src/main/java/com/worldNavigator/Uncheckable.java,8/1/8135cbe9aba33d51c86ca21789f212439a6e2b49
+`
+0src/main/java/com/worldNavigator/Transition.java,4/4/441cdaa271fe1d5a19681f746ff7cd64967b7bf4
+h
+8src/main/java/com/worldNavigator/Unlocked_Checkable.java,d/b/dbcac9b9735c0a47470e4be416417d936997ed7e

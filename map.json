@@ -4,11 +4,11 @@
     "file": "map.json",
     "end_time": 3600,
     "player": {
-      "golds": 10,
+      "golds": 14,
       "flashLights": 0,
-      "orientation": "n",
-      "location": "c1",
-      "roomIndex": 2
+      "orientation": "e",
+      "location": "e4",
+      "roomIndex": 1
     },
     "rooms": [
       {

@@ -24,7 +24,7 @@ public class Openable implements UseKeyBehavior {
     }
 
     public void setIs_locked(Boolean isLocked) {
-        this.isLocked = !this.isLocked ? false : isLocked;
+        this.isLocked = (this.isLocked != null && !this.isLocked) ? false : isLocked;
     }
 
     public String getKey() {
@@ -37,10 +37,10 @@ public class Openable implements UseKeyBehavior {
 
     public String useKey(List<Key> keys) {
         String print = "";
-        if (this.getIs_locked()) {
+        if (this.getIs_locked() != null && this.getIs_locked()) {
             boolean locked = true;
             for (Key keyItem : keys) {
-                locked = !locked ? false : !keyItem.unlock(this);
+                locked = !locked ? false : !keyItem.unlock(this); // SonarLint simplification damages logic
                 this.setIs_locked(locked);
             }
             if (locked) {

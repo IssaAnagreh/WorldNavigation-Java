@@ -1,21 +1,13 @@
 
-L
-java:S3740A"/Provide the parametrized type for this generic.(ÑÄ§Å8¸ï¿ƒ .
-c
-java:S1192"FDefine a constant instead of duplicating this literal "golds" 4 times.(™ÍîÍ8Ûêé… .
-Q
-java:S37405"/Provide the parametrized type for this generic.(Æ·‰²øÿÿÿÿ8Ûêé… .
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºˆÚÿÿÿÿÿÿ8Ûêé… .
-
-java:S13195"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Æ·‰²øÿÿÿÿ8Ûêé… .
-L
-java:S1066+"/Merge this if statement with the enclosing one.(¼ş8Ûêé… .
-m
-java:S1192"KDefine a constant instead of duplicating this literal "flashLight" 4 times.(Å’Ì÷ıÿÿÿÿ8Ûêé… .
 r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤á”ùÿÿÿÿ8Ûêé… .
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+Q
+java:S3740"/Provide the parametrized type for this generic.(‡ö­ıÿÿÿÿ8™ãÌÿ¡.
 P
-java:S2864("4Iterate over the "entrySet" instead of the "keySet".(‰ğë38Ûêé… .
-u
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ëı§"8û†ÉÕŸ.
+java:S2864,"4Iterate over the "entrySet" instead of the "keySet".(‰ğë38Ûêé… .
+Q
+java:S3740"/Provide the parametrized type for this generic.(Æêçìøÿÿÿÿ8‹Îÿ¡.
+Q
+java:S37409"/Provide the parametrized type for this generic.(Æ·‰²øÿÿÿÿ8Ûêé… .
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+
+java:S13199"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Æ·‰²øÿÿÿÿ8Ûêé… .

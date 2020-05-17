@@ -8,40 +8,44 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ContentManager {
-    private HashMap<String, Object> contents = new HashMap<String, Object>();
+    private HashMap<String, Object> contents = new HashMap();
 
     public void addItem(JSONObject item) {
         JSONObject content = (JSONObject) item.get("content");
         if (item.get("existed").equals("true")) {
             if (content.get("keys") != null) {
                 JSONArray keys_names = (JSONArray) content.get("keys");
-                List<Key> keys = new ArrayList<Key>();
+                List<Key> keys = new ArrayList();
                 if (keys_names != null) {
                     keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
                     this.contents.put("keys", keys);
                 }
             }
-            if (content.get("flashLight") != null) {
+
+            String flashLightString = "flashLight";
+            if (content.get(flashLightString) != null) {
                 long flashLight;
-                flashLight = (long) content.get("flashLight");
-                this.contents.put("flashLight", flashLight);
+                flashLight = (long) content.get(flashLightString);
+                this.contents.put(flashLightString, flashLight);
             }
-            if (content.get("golds") != null) {
+
+            String goldsString = "golds";
+            if (content.get(goldsString) != null) {
                 long golds;
-                golds = (long) content.get("golds");
-                this.contents.put("golds", golds);
+                golds = (long) content.get(goldsString);
+                this.contents.put(goldsString, golds);
             }
         }
     }
 
-    public void addSellingItem(JSONObject seller) {
+    public void addSellerItem(JSONObject seller) {
         if (seller.get("existed").equals("true")) {
             this.contents = (HashMap) seller.get("content");
             for (String contentKey: contents.keySet()) {
-                JSONArray temp = (JSONArray) contents.get(contentKey);
                 if (contentKey.equals("keys")) {
+                    JSONArray temp = (JSONArray) contents.get(contentKey);
                     if (temp != null) temp.forEach(emp -> {
-                        HashMap<String, Object> key = (HashMap) emp;
+                        HashMap<String, Object> key = (HashMap<String, Object>) emp;
                         key.replace("name", new Key(key.get("name").toString()));
                         key.replace("cost", new Key(key.get("cost").toString()));
                     });

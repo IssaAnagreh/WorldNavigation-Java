@@ -113,12 +113,12 @@ public class PlayerModel extends Observable {
         }
     }
 
-    public void check() {
-        notify_player(this.wall.itemsFactory.check_item_by_location(this.location));
-    }
-
     public String getType() {
         return this.wall.itemsFactory.getType(this.location);
+    }
+
+    public void check() {
+        notify_player(this.wall.itemsFactory.check_item_by_location(this.location));
     }
 
     public void acquire_items() {
@@ -189,37 +189,37 @@ public class PlayerModel extends Observable {
     }
 
     public void trade() {
-//        Seller seller = (Seller) this.wall.items.get("seller");
-//
-//        if (seller != null) {
-//            notify_player("This seller has: " + seller.check_content(this.location));
-//            notify_player("You can use buy, sell, list or finish commands");
-//            Scanner sc = new Scanner(System.in);
-//            String command = sc.nextLine();
-//            switch (command) {
-//                case "buy":
-//                    seller_buy(seller);
-//                    break;
-//                case "sell":
-//                    seller_sell(seller);
-//                    break;
-//                case "list":
-//                    seller_list(seller);
-//                    break;
-//                case "finish":
-//                    notify_player("You quited trading");
-//                    break;
-//                default:
-//                    trade();
-//                    break;
-//            }
-//        } else {
-//            notify_player("No sellers in this orientation");
-//        }
+        Seller seller = (Seller) this.wall.items.get("seller");
+
+        if (seller != null) {
+            notify_player("This seller has: " + seller.check_content(this.location));
+            notify_player("You can use buy, sell, list or finish commands");
+            Scanner sc = new Scanner(System.in);
+            String command = sc.nextLine();
+            switch (command) {
+                case "buy":
+                    seller_buy(seller);
+                    break;
+                case "sell":
+                    seller_sell(seller);
+                    break;
+                case "list":
+                    seller_list(seller);
+                    break;
+                case "finish":
+                    notify_player("You quited trading");
+                    break;
+                default:
+                    trade();
+                    break;
+            }
+        } else {
+            notify_player("No sellers in this orientation");
+        }
     }
 
     public void seller_list(Seller seller) {
-        notify_player(seller.contents.toString());
+        notify_player(seller.contents.getContents().toString());
     }
 
     public void seller_buy(Seller seller) {

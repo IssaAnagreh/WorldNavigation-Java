@@ -12,7 +12,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     private ArrayList<String> painting_commands = new ArrayList<>();
     private ArrayList<String> seller_commands = new ArrayList<>();
     private boolean hint = true;
-    private HashMap<String, Runnable> commandsMap = new HashMap();
+//    private HashMap<String, Runnable> commandsMap = new HashMap();
 
     public PlayerControllerMaster() {
         commands.add("room");
@@ -30,21 +30,24 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         commands.add("f");
         commands.add("backward");
         commands.add("b");
-        commands.add("check");
-        chest_commands.add("check");
-        mirror_commands.add("check");
-        painting_commands.add("check");
+        String checkString = "check";
+        commands.add(checkString);
+        chest_commands.add(checkString);
+        mirror_commands.add(checkString);
+        painting_commands.add(checkString);
         commands.add("c");
         commands.add("myItems");
         commands.add("items");
-        commands.add("useKey");
-        chest_commands.add("useKey");
-        door_commands.add("useKey");
+        String useKeyString = "useKey";
+        commands.add(useKeyString);
+        chest_commands.add(useKeyString);
+        door_commands.add(useKeyString);
         commands.add("key");
         commands.add("open");
         door_commands.add("open");
-        commands.add("trade");
-        seller_commands.add("trade");
+        String tradeString = "trade";
+        commands.add(tradeString);
+        seller_commands.add(tradeString);
         commands.add("switchLight");
         commands.add("switch");
         commands.add("flashLight");

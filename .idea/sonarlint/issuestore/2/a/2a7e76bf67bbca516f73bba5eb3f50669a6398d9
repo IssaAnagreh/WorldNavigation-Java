@@ -1,28 +1,24 @@
 
-v	java:S116"ZRename this field "seller_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ª¡ƒ8ûñÃ© .
-{	java:S115\"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ûñÃ© .
-u
-java:S3776Á"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(–©‚Çùÿÿÿÿ8ûñÃ© .
-{	java:S115\"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ûñÃ© .
-V	java:S106œ"9Replace this use of System.out or System.err by a logger.(ˆİ’Ô8åŞó© .
-x	java:S116"\Rename this field "painting_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬šá8ü¾¯© .
-e
-java:S1479Ã"BReduce the number of non-empty switch cases from 34 to at most 30.(¸ìù«üÿÿÿÿ8ûñÃ© .
-Z	java:S106A"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8ûñÃ© .
-F
-java:S1148¹"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§À—ÎŸ.
-R
-java:S2209B"5Change this instance-reference to a static reference.(­ìÛ—8ûñÃ© .
-h
-java:S1192 "FDefine a constant instead of duplicating this literal "check" 5 times.(İ÷÷¥ÿÿÿÿÿ8Äç³© .
+{	java:S115b"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ğÇùû¡.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-[
-java:S1117Â"8Rename "hint" which hides the field declared at line 14.(¼Ê×úÿÿÿÿ8ûñÃ© .
 v	java:S116"ZRename this field "mirror_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÜ¿§8Œà®© .
+e
+java:S1479É"BReduce the number of non-empty switch cases from 34 to at most 30.(¸ìù«üÿÿÿÿ8ğÇùû¡.
 t	java:S116	"XRename this field "door_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åæš8Œà®© .
+x	java:S116"\Rename this field "painting_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬šá8ü¾¯© .
+[
+java:S1117È"8Rename "hint" which hides the field declared at line 14.(¼Ê×úÿÿÿÿ8ğÇùû¡.
+u
+java:S3776Ç"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(–©‚Çùÿÿÿÿ8ğÇùû¡.
+F
+java:S1148¿"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§À—ÎŸ.
+v	java:S116"ZRename this field "seller_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ª¡ƒ8ûñÃ© .
+{	java:S115b"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ğÇùû¡.
 z	java:S116
 "YRename this field "chest_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à³Ëûÿÿÿÿ8Œà®© .
-h
-java:S1192-"FDefine a constant instead of duplicating this literal "trade" 3 times.(¶úşØıÿÿÿÿ8íëÙ© .
-i
-java:S1192'"GDefine a constant instead of duplicating this literal "useKey" 4 times.(…íºöøÿÿÿÿ8µ³Ø© .
+X	java:S125"<This block of commented-out lines of code should be removed.(ÁçÑø8è‰“€¢.
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8ğÇùû¡.
+]	java:S125>"<This block of commented-out lines of code should be removed.(¾éï–ÿÿÿÿÿ8è ü¡.
+R
+java:S2209H"5Change this instance-reference to a static reference.(­ìÛ—8ğÇùû¡.
+V	java:S106¢"9Replace this use of System.out or System.err by a logger.(ˆİ’Ô8ğÇùû¡.

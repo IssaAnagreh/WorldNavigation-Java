@@ -1,44 +1,11 @@
 
-L
-java:S1066"/Merge this if statement with the enclosing one.(Ü£Ò8ö”ßÓ¡.
-r	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âäêÛûÿÿÿÿ8ñ‰‘Ö¡.
-r	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âäêÛûÿÿÿÿ8ñ‰‘Ö¡.
-o	java:S100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÑÍâùÿÿÿÿ8ñ‰‘Ö¡.
-W
-java:S1854<":Remove this useless assignment to local variable "output".(˜şïÚ8ñ‰‘Ö¡.
-H
-java:S1481<"+Remove this unused "output" local variable.(˜şïÚ8ñ‰‘Ö¡.
-V
-java:S2864="4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ñ‰‘Ö¡.
-
-java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(…îßıÿÿÿÿ8ë¨ÇÏŸ.
-Q
-java:S1066"/Merge this if statement with the enclosing one.(Ë²îÊúÿÿÿÿ8‚¥àÓ¡.
-L
-java:S3740<"/Provide the parametrized type for this generic.(˜şïÚ8ñ‰‘Ö¡.
-Q
-java:S1066)"/Merge this if statement with the enclosing one.(å’¾…üÿÿÿÿ8¶‘Ö¡.
+Š
+java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(õ´8Ñê¿ÿ¡.
+o	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÑÍâùÿÿÿÿ8ñ‰‘Ö¡.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+j
+java:S1192"HDefine a constant instead of duplicating this literal "existed" 5 times.(“ÿ‹îıÿÿÿÿ8ŸÔñÿ¡.
 L
-java:S10663"/Merge this if statement with the enclosing one.(«ğ8ñ‰‘Ö¡.
-V
-java:S28640"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ñ‰‘Ö¡.
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(…îßıÿÿÿÿ8ë¨ÇÏŸ.
-s
-java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(…îßıÿÿÿÿ8ë¨ÇÏŸ.
-L
-java:S1066""/Merge this if statement with the enclosing one.(›Ñ¨8Ì÷ğĞ¡.
-L
-java:S3740<"/Provide the parametrized type for this generic.(˜şïÚ8ñ‰‘Ö¡.
-e
-java:S1192"HDefine a constant instead of duplicating this literal "existed" 5 times.(Ü£Ò8¿Ö¡.
-L
-java:S1066@"/Merge this if statement with the enclosing one.(î™æÖ8ñ‰‘Ö¡.
-Q
-java:S1066J"/Merge this if statement with the enclosing one.(õÖ€øÿÿÿÿ8ñ‰‘Ö¡.
-K
-java:S1066"/Merge this if statement with the enclosing one.(ú¥ön8½ÇßÓ¡.
-V
-java:S2864G"4Iterate over the "entrySet" instead of the "keySet".(Šİùÿÿÿÿ8ñ‰‘Ö¡.
-m	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ò¬8ñ‰‘Ö¡.
+java:S3740"/Provide the parametrized type for this generic.(õ´8„ºïÿ¡.
+n
+java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(õ´8ë¨ÇÏŸ.

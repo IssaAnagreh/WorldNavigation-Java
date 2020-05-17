@@ -11,12 +11,14 @@ public class Seller extends Item {
     public String LOCATION;
     public final String NAME = "Seller";
     HashMap<String, Integer> selling = new HashMap<>();
-    public HashMap<String, ArrayList> contents;
+    public ContentManager contents;
 
     public Seller(JSONObject seller) {
         this.LOCATION = (String) seller.get("location");
         if (seller.get("existed").equals("true")) {
-            super.setCheckBehavior(new Unlocked_Checkable(seller, this.LOCATION));
+            super.setCheckBehavior(new Uncheckable());
+            this.contents = new ContentManager();
+            this.contents.addSellerItem(seller);
         }
         if (seller.get("selling") != null) {
             JSONObject temp_selling = (JSONObject) seller.get("selling");
@@ -31,11 +33,7 @@ public class Seller extends Item {
     }
 
     public HashMap check_content(String location) {
-        HashMap content = new HashMap<>();
-        if (location.equals(this.LOCATION)) {
-            content = this.contents;
-        }
-        return content;
+        return this.contents.getContents();
     }
 
     public HashMap buy(int gold) {
@@ -45,9 +43,8 @@ public class Seller extends Item {
         List categories = new ArrayList();
         System.out.println("Items ready to be sold:");
         System.out.println(-1 + ": " + "Quit");
-        System.out.println(this.contents.toString());
-        for (Object category : this.contents.keySet()) {
-            for (Object item : this.contents.get(category)) {
+        for (Object category : this.contents.getContents().keySet()) {
+            for (Object item : ((List) this.contents.getContents().get(category))) {
                 System.out.println(counter + ": " + category + " " + item);
                 categories.add(category);
                 categories.add(item);
@@ -59,7 +56,7 @@ public class Seller extends Item {
         Scanner sc = new Scanner(System.in);
         int index = sc.nextInt();
         if (index != -1) {
-            if (categories.size() > 0) {
+            if (!categories.isEmpty()) {
                 String category_name;
                 if (categories.size() > (index * 2) && index >= 0) {
                     category_name = categories.get(index * 2).toString();
@@ -69,7 +66,7 @@ public class Seller extends Item {
                     return output;
                 }
 
-                Object category = this.contents.get(category_name);
+                Object category = this.contents.getContents().get(category_name);
                 if (category != null) {
                     HashMap item = (HashMap) categories.get((index * 2) + 1);
                     if (item != null) {
@@ -103,10 +100,6 @@ public class Seller extends Item {
     }
 
     public int sell(int golds, String type) {
-        for (String category : this.selling.keySet()) {
-            System.out.println(category);
-        }
-
         int output = golds;
         if (this.selling.get(type) != null) {
             output = golds + this.selling.get(type);

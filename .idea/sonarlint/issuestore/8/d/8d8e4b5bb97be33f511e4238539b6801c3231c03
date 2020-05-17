@@ -1,14 +1,6 @@
 
 >
-java:S1170
-"!Make this final field static too.(²ê×8ê×êÕ¡.
+java:S1170"!Make this final field static too.(²ê×8ê×êÕ¡.
+t	java:S116"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8ê×êÕ¡.
+k	java:S116"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ê×8ê×êÕ¡.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-t	java:S116	"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8ê×êÕ¡.
-k	java:S116
-"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ê×8ê×êÕ¡.
-P
-java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ëùËÖ¡.
-I
-java:S1068",Remove this unused "contents" private field.(Ìò¯8ëùËÖ¡.
-M
-java:S1068"+Remove this unused "isTaken" private field.(»¸£ùúÿÿÿÿ8ëùËÖ¡.

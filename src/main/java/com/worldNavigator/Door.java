@@ -21,12 +21,12 @@ public class Door extends Item {
     }
 
     public String getNextRoom() {
-        if (super.useKeyBehavior.getIs_locked()) {
+        if (super.useKeyBehavior.getIs_locked() != null && super.useKeyBehavior.getIs_locked()) {
             return "locked";
         } else {
-            if (this.getGolden()) {
+            if (this.getGolden() != null && this.getGolden()) {
                 return "golden";
-            };
+            }
             return this.NEXT_ROOM;
         }
     }

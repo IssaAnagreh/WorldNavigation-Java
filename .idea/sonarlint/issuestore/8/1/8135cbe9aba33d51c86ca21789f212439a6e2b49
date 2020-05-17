@@ -1,17 +1,17 @@
 
-L
-java:S3740"/Provide the parametrized type for this generic.(Ğòö¬8Ã«Ö¡.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-Y
-java:S1128"7Remove this unused import 'org.json.simple.JSONObject'.(‚ƒç‘ÿÿÿÿÿ8½ÆÖ¡.
-L
-java:S3740
-"/Provide the parametrized type for this generic.(—ˆáû8Ã«Ö¡.
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íï¢¶8Ã«Ö¡.
 |
 java:S1488
 "_Immediately return this expression instead of assigning it to the temporary variable "content".(—ˆáû8ÿêÖ¡.
-_
-java:S1854"BRemove this useless assignment to local variable "acquired_items".(íï¢¶8ò¶ŸÖ¡.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íï¢¶8Ã«Ö¡.
+L
+java:S3740
+"/Provide the parametrized type for this generic.(—ˆáû8Ã«Ö¡.
+L
+java:S3740"/Provide the parametrized type for this generic.(Ğòö¬8Ã«Ö¡.
+Y
+java:S1128"7Remove this unused import 'org.json.simple.JSONObject'.(‚ƒç‘ÿÿÿÿÿ8½ÆÖ¡.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
 P
 java:S1481"3Remove this unused "acquired_items" local variable.(íï¢¶8ò¶ŸÖ¡.
+_
+java:S1854"BRemove this useless assignment to local variable "acquired_items".(íï¢¶8ò¶ŸÖ¡.

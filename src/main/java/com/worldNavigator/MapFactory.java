@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Observable;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -54,15 +53,16 @@ public class MapFactory {
             //Get map object within list
             name = (String) map.get("name");
             end_time = (long) map.get("end_time");
-            this.golds = Integer.parseInt(((HashMap) map.get("player")).get("golds").toString());
-            this.flashLights = Integer.parseInt(((HashMap) map.get("player")).get("flashLights").toString());
+            String player_string = "player";
+            this.golds = Integer.parseInt(((HashMap) map.get(player_string)).get("golds").toString());
+            this.flashLights = Integer.parseInt(((HashMap) map.get(player_string)).get("flashLights").toString());
             this.keys = new ArrayList();
-            this.location = ((HashMap) map.get("player")).get("location").toString();
-            this.orientation = ((HashMap) map.get("player")).get("orientation").toString();
-            this.roomIndex = Integer.parseInt(((HashMap) map.get("player")).get("roomIndex").toString());
+            this.location = ((HashMap) map.get(player_string)).get("location").toString();
+            this.orientation = ((HashMap) map.get(player_string)).get("orientation").toString();
+            this.roomIndex = Integer.parseInt(((HashMap) map.get(player_string)).get("roomIndex").toString());
 
-            JSONArray rooms = (JSONArray) map.get("rooms");
-            rooms.forEach(room -> parseRoomObject((JSONObject) room));
+            JSONArray jsonRooms = (JSONArray) map.get("rooms");
+            jsonRooms.forEach(room -> parseRoomObject((JSONObject) room));
         } else {
             throw new IllegalArgumentException();
         }
@@ -75,7 +75,7 @@ public class MapFactory {
         if (roomObject != null) {
             rooms.add(new Room(roomObject, room_counter));
             this.room_counter++;
-        };
+        }
     }
 
     @Override

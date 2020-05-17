@@ -1,7 +1,7 @@
 
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
 {	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8Àİº¯Ÿ.
-o	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à™Øşøÿÿÿÿ8Àİº¯Ÿ.
+{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8Àİº¯Ÿ.
 o	java:S100""NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ş»æ®øÿÿÿÿ8Àİº¯Ÿ.
 o	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•×êîüÿÿÿÿ8Àİº¯Ÿ.
-{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8Àİº¯Ÿ.
+o	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à™Øşøÿÿÿÿ8Àİº¯Ÿ.

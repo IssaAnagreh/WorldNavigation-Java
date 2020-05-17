@@ -1,10 +1,2 @@
 
-S
-java:S1128"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉ8‘›«Ÿ.
-P
-java:S1128"3Remove this unused import 'java.io.BufferedReader'.(€é²Å8‘›«Ÿ.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-Q
-java:S1128"6Remove this unused import 'org.json.simple.JSONArray'.(àĞ›¢şÿÿÿÿ
-R
-java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8³‘÷… .
