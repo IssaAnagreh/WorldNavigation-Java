@@ -111,7 +111,13 @@ Let us dig deeper here, .json files needed a special library installed that can 
 	- Items: items are such as paintings, mirrors, doors, sellers \'85etc. The implementation here mainly was about having multiple shared behaviors, but multiple other different behaviors are also there, so \'93Separate what varies from what remains the same\'94 was the decision-maker of mine, depending on this, 
 \f0\b Strategy Design Pattern
 \f2\b0  was the best choice for me here.\
-Let us dig deeper, logically items must have a super class called Item because many methods are repetitive such as getLocation, getName\
+Let us dig deeper, logically items must have a super class called Item because multiple behaviors are repetitive such as useKey, AcquireContent, and some other abstract methods and attributes, but as said before the behaviors are various as we may have locked chests that need keys to open them or unlocked chests that can be checked and acquire their contents directly. On the other hand, some Items are not checkable at all such as doors -doors do not have contents to be acquired- so here Unlocked_Checkable, Locked_Checkable and Uncheckable classes were made and implemented CheckBehavior interface.\
+Moreover, Some items are openable such as doors and chests, so they need a UseKeyBehavior interface to implement from. Actually we have only one class that implements UseKeyBehavior as I took a decision of leaving this behavior in the unopenable items as null, but I am sure of using it later if we want to separate opening chests from acquiring their contents and this will create a new class and let us call it unlocked_openable when it needs no keys to open.\
+\
+	- Player: rarely I like to take a common decision like this but 
+\f0\b MVC Pattern 
+\f2\b0 here is the wisest decision to take I believe, we have a view that can be once a GUI, we have a data pool of the player that can be the model, and a controller which connects the view with the model mainly by the player commands.\
+\
 \
 \
 \

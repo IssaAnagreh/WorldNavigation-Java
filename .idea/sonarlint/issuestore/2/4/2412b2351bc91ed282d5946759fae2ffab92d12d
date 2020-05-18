@@ -1,8 +1,8 @@
 
-)
-java:S1700"Rename field "maps"(ç£Û 
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(„®•;
 E
 java:S3740"/Provide the parametrized type for this generic.(ç£Û 
+)
+java:S1700"Rename field "maps"(ç£Û 
 f
 java:S1104"PMake maps a static final constant or non-public and provide accessors if needed.(ç£Û 

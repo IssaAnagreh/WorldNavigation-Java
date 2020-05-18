@@ -21,10 +21,6 @@ public abstract class Item {
 
     public abstract String getType();
 
-    public void applyCheck(String location) {
-        checkBehavior.check_content(location);
-    }
-
     public HashMap applyAcquire(String location) {
         return checkBehavior.acquire_contents(location);
     }

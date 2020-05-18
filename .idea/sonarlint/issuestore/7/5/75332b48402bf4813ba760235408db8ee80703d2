@@ -1,73 +1,68 @@
 
-r
-java:S1104"PMake keys a static final constant or non-public and provide accessors if needed.(®âÄÒüÿÿÿÿ8ÓüÈ† .
-R
-java:S3740â"/Provide the parametrized type for this generic.(Ğñ†íÿÿÿÿÿ8°ç¦û¡.
-m	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¯†û8°ç¦û¡.
-m	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì÷ºÿ8°ç¦û¡.
-X
-java:S26965"6Make the enclosing method "static" or remove this set.(ÍÎ‰¯øÿÿÿÿ8ÁªÊû¡.
-\
-java:S1155‘">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8°ç¦û¡.
 s
 java:S1104"QMake golds a static final constant or non-public and provide accessors if needed.(Õ¾ûËÿÿÿÿÿ8¸‘É† .
-p	java:S100ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¿ÅÙşÿÿÿÿ8°ç¦û¡.
-^	java:S125Õ"<This block of commented-out lines of code should be removed.(¿Õ˜Êıÿÿÿÿ8°ç¦û¡.
-i
-java:S1192ƒ"FDefine a constant instead of duplicating this literal "golds" 3 times.(Î°¸ùÿÿÿÿ8°ç¦û¡.
-H
-java:S5411®"*Use the primitive boolean expression here.(îéÆì8°ç¦û¡.
-^	java:S125Â"<This block of commented-out lines of code should be removed.(Â¿”Áıÿÿÿÿ8°ç¦û¡.
-k	java:S100á"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø±É8°ç¦û¡.
-J
-java:S14811"(Remove this unused "end" local variable.(ÆÊõçÿÿÿÿÿ8°ç¦û¡.
-m
-java:S1104"PMake menu a static final constant or non-public and provide accessors if needed.(İ‘‰ì8ÓüÈ† .
-p
-java:S1104"SMake playing a static final constant or non-public and provide accessors if needed.(šÓ•˜8ƒÎÆ† .
-Y	java:S125Ì"<This block of commented-out lines of code should be removed.(õû«8°ç¦û¡.
-^	java:S125É"<This block of commented-out lines of code should be removed.(ÔŒÏÇıÿÿÿÿ8°ç¦û¡.
-Š
-java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(õ´8³ŠÀÿ¡.
-W
-java:S22095"5Change this instance-reference to a static reference.(ÍÎ‰¯øÿÿÿÿ8ÁªÊû¡.
-i	java:S100O"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­‚¼8°ç¦û¡.
-M
-java:S1874"2Remove this use of "Observable"; it is deprecated.(ÀŠ¡ùÿÿÿÿ
-j	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªª£€8°ç¦û¡.
-t
-java:S1104"WMake orientation a static final constant or non-public and provide accessors if needed.(ÓÜç²8¸‘É† .
-Y	java:S125Ï"<This block of commented-out lines of code should be removed.(ˆ·Š8°ç¦û¡.
-u
-java:S3776ÿ"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(‹¿ÅÙşÿÿÿÿ8°ç¦û¡.
-v
-java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ8¸‘É† .
-F	java:S108û")Either remove or fill this block of code.(å¥‡8°ç¦û¡.
-L
-java:S3740"/Provide the parametrized type for this generic.(õ´8³ŠÀÿ¡.
-n
-java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(õ´8ÓüÈ† .
 L
 java:S5411l"*Use the primitive boolean expression here.(ßáÎˆûÿÿÿÿ8°ç¦û¡.
-Y	java:S125À"<This block of commented-out lines of code should be removed.(Ó®—©8°ç¦û¡.
-\
-java:S1155‰">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8°ç¦û¡.
-m	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì÷ºÿ8°ç¦û¡.
-U
-java:S1117m"8Rename "wall" which hides the field declared at line 11.(ŠŸÍ8°ç¦û¡.
-p	java:S100İ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éãòâşÿÿÿÿ8°ç¦û¡.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-G
-java:S54119"*Use the primitive boolean expression here.(îéÆì8š—Üû¡.
-j	java:S100|"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—´€™8°ç¦û¡.
 u
 java:S3776š"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(”ª…Œÿÿÿÿÿ8°ç¦û¡.
-Y	java:S125Ò"<This block of commented-out lines of code should be removed.(ŠïËÃ8°ç¦û¡.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+t
+java:S1104"WMake orientation a static final constant or non-public and provide accessors if needed.(ÓÜç²8¸‘É† .
+L
+java:S3740"/Provide the parametrized type for this generic.(õ´8³ŠÀÿ¡.
+m	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì÷ºÿ8°ç¦û¡.
 m
 java:S1104
 "PMake room a static final constant or non-public and provide accessors if needed.(ïşÌ»8¸‘É† .
-Y
-java:S18541"7Remove this useless assignment to local variable "end".(ÆÊõçÿÿÿÿÿ8°ç¦û¡.
+i
+java:S1192ƒ"FDefine a constant instead of duplicating this literal "golds" 3 times.(Î°¸ùÿÿÿÿ8°ç¦û¡.
+G
+java:S54119"*Use the primitive boolean expression here.(îéÆì8š—Üû¡.
+H
+java:S5411®"*Use the primitive boolean expression here.(îéÆì8°ç¦û¡.
+\
+java:S1155‘">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8°ç¦û¡.
+p	java:S100ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¿ÅÙşÿÿÿÿ8°ç¦û¡.
+j	java:S100|"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—´€™8°ç¦û¡.
+F	java:S108û")Either remove or fill this block of code.(å¥‡8°ç¦û¡.
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àºğ§8°ç¦û¡.
 s
 java:S1104"QMake timer a static final constant or non-public and provide accessors if needed.(ØÄ×¤ûÿÿÿÿ8ÓüÈ† .
-k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àºğ§8°ç¦û¡.
+m	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì÷ºÿ8°ç¦û¡.
+Š
+java:S1319"mThe type of the "items" object should be an interface such as "Map" rather than the implementation "HashMap".(õ´8³ŠÀÿ¡.
+n
+java:S1104"QMake items a static final constant or non-public and provide accessors if needed.(õ´8ÓüÈ† .
+j	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªª£€8°ç¦û¡.
+R
+java:S3740â"/Provide the parametrized type for this generic.(Ğñ†íÿÿÿÿÿ8°ç¦û¡.
+m	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¯†û8°ç¦û¡.
+p
+java:S1104"SMake playing a static final constant or non-public and provide accessors if needed.(šÓ•˜8ƒÎÆ† .
+Y
+java:S18541"7Remove this useless assignment to local variable "end".(ÆÊõçÿÿÿÿÿ8°ç¦û¡.
+U
+java:S1117m"8Rename "wall" which hides the field declared at line 11.(ŠŸÍ8°ç¦û¡.
+v
+java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ8¸‘É† .
+p	java:S100İ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éãòâşÿÿÿÿ8°ç¦û¡.
+\
+java:S1155‰">Use isEmpty() to check whether the collection is empty or not.(õµ«Å8°ç¦û¡.
+u
+java:S3776ÿ"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(‹¿ÅÙşÿÿÿÿ8°ç¦û¡.
+m
+java:S1104"PMake menu a static final constant or non-public and provide accessors if needed.(İ‘‰ì8ÓüÈ† .
+J
+java:S14811"(Remove this unused "end" local variable.(ÆÊõçÿÿÿÿÿ8°ç¦û¡.
+X
+java:S26965"6Make the enclosing method "static" or remove this set.(ÍÎ‰¯øÿÿÿÿ8ÁªÊû¡.
+i	java:S100O"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­‚¼8°ç¦û¡.
+k	java:S100á"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø±É8°ç¦û¡.
+r
+java:S1104"PMake keys a static final constant or non-public and provide accessors if needed.(®âÄÒüÿÿÿÿ8ÓüÈ† .
+M
+java:S1874"2Remove this use of "Observable"; it is deprecated.(ÀŠ¡ùÿÿÿÿ
+W
+java:S22095"5Change this instance-reference to a static reference.(ÍÎ‰¯øÿÿÿÿ8ÁªÊû¡.
+Q
+java:S3740"/Provide the parametrized type for this generic.(Ö‰õ±ıÿÿÿÿ8—àè§¢.

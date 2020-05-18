@@ -1,8 +1,11 @@
 package com.worldNavigator;
 
 import java.io.IOException;
+import java.util.Map;
 
 public interface PlayerControllerInterface {
+    Map<String, Command> commandsMap = null;
+
     void subscribe(PlayerViewer playerViewer);
 
     void startGame() throws IOException;
@@ -56,4 +59,6 @@ public interface PlayerControllerInterface {
     void commands();
 
     void use_method(String command);
+
+    void switchHints();
 }

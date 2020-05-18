@@ -1,13 +1,13 @@
 
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤α”ωÿÿÿÿ8Ϋκι… .
+
+java:S13199"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Ζ·‰²ψÿÿÿÿ8Ϋκι… .
 Q
 java:S3740"/Provide the parametrized type for this generic.(‡φ­ύÿÿÿÿ8™γΜÿ΅.
 P
 java:S2864,"4Iterate over the "entrySet" instead of the "keySet".(‰πλ38Ϋκι… .
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(γ¨¥;
 Q
 java:S3740"/Provide the parametrized type for this generic.(Ζκημψÿÿÿÿ8‹Ξÿ΅.
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤α”ωÿÿÿÿ8Ϋκι… .
 Q
 java:S37409"/Provide the parametrized type for this generic.(Ζ·‰²ψÿÿÿÿ8Ϋκι… .
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(γ¨¥;
-
-java:S13199"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Ζ·‰²ψÿÿÿÿ8Ϋκι… .

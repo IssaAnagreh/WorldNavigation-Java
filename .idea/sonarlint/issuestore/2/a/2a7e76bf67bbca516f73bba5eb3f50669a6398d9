@@ -1,24 +1,22 @@
 
-{	java:S115b"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ğÇùû¡.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-v	java:S116"ZRename this field "mirror_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÜ¿§8Œà®© .
-e
-java:S1479É"BReduce the number of non-empty switch cases from 34 to at most 30.(¸ìù«üÿÿÿÿ8ğÇùû¡.
-t	java:S116	"XRename this field "door_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åæš8Œà®© .
+Z	java:S106D"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8ğÇùû¡.
 x	java:S116"\Rename this field "painting_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬šá8ü¾¯© .
-[
-java:S1117È"8Rename "hint" which hides the field declared at line 14.(¼Ê×úÿÿÿÿ8ğÇùû¡.
-u
-java:S3776Ç"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(–©‚Çùÿÿÿÿ8ğÇùû¡.
-F
-java:S1148¿"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§À—ÎŸ.
-v	java:S116"ZRename this field "seller_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ª¡ƒ8ûñÃ© .
-{	java:S115b"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ğÇùû¡.
+t	java:S116	"XRename this field "door_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åæš8Œà®© .
+{	java:S115_"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ğÇùû¡.
 z	java:S116
 "YRename this field "chest_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à³Ëûÿÿÿÿ8Œà®© .
-X	java:S125"<This block of commented-out lines of code should be removed.(ÁçÑø8è‰“€¢.
-Z	java:S106G"9Replace this use of System.out or System.err by a logger.(ì†¨Óÿÿÿÿÿ8ğÇùû¡.
-]	java:S125>"<This block of commented-out lines of code should be removed.(¾éï–ÿÿÿÿÿ8è ü¡.
 R
-java:S2209H"5Change this instance-reference to a static reference.(­ìÛ—8ğÇùû¡.
-V	java:S106¢"9Replace this use of System.out or System.err by a logger.(ˆİ’Ô8ğÇùû¡.
+java:S2209E"5Change this instance-reference to a static reference.(­ìÛ—8ğÇùû¡.
+V	java:S106Ÿ"9Replace this use of System.out or System.err by a logger.(ˆİ’Ô8ğÇùû¡.
+{	java:S115_"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­“†ÿÿÿÿÿ8ğÇùû¡.
+u
+java:S3776Ä"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(–©‚Çùÿÿÿÿ8ğÇùû¡.
+[
+java:S1117Å"8Rename "hint" which hides the field declared at line 14.(¼Ê×úÿÿÿÿ8ğÇùû¡.
+F
+java:S1148¼"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§À—ÎŸ.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+v	java:S116"ZRename this field "mirror_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÜ¿§8Œà®© .
+v	java:S116"ZRename this field "seller_commands" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ª¡ƒ8ûñÃ© .
+e
+java:S1479Æ"BReduce the number of non-empty switch cases from 34 to at most 30.(¸ìù«üÿÿÿÿ8ğÇùû¡.

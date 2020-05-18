@@ -1,8 +1,6 @@
 
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-F
-java:S1125+")Remove the literal "false" boolean value.(¼¬Š“8 ×ýÑ¡.
-K
-java:S1125")Remove the literal "false" boolean value.(±ŽðÐüÿÿÿÿ8”­ÁÏ¡.
 j	java:S116
 "ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯îÞ8×¿…Ö¡.
+K
+java:S1125")Remove the literal "false" boolean value.(±ŽðÐüÿÿÿÿ8”­ÁÏ¡.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;

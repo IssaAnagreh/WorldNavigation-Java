@@ -1,16 +1,16 @@
 
-]
-java:S1854 "@Remove this useless assignment to local variable "playerViewer".(¡ÔÒ˜8­Êõû¡.
-o	java:S116"TRename this field "map_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áóì8­Êõû¡.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(óƒÍÀ8­Êõû¡.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
 U	java:S106"9Replace this use of System.out or System.err by a logger.(ªƒÁá8­Êõû¡.
 w
 java:S1450
 "ZRemove the "playerModel" field and declare it as a local variable in the relevant methods.(ÒúÇ8­Êõû¡.
 Z	java:S106"9Replace this use of System.out or System.err by a logger.(”ÑŞÿÿÿÿÿ8­Êõû¡.
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºúĞÚ8­Êõû¡.
 e	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä÷¡e
-k	java:S117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şåæòøÿÿÿÿ
 N
 java:S1481 "1Remove this unused "playerViewer" local variable.(¡ÔÒ˜8­Êõû¡.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+k	java:S117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şåæòøÿÿÿÿ
+o	java:S116"TRename this field "map_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áóì8­Êõû¡.
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºúĞÚ8­Êõû¡.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(óƒÍÀ8­Êõû¡.
+]
+java:S1854 "@Remove this useless assignment to local variable "playerViewer".(¡ÔÒ˜8­Êõû¡.
