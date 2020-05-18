@@ -2,6 +2,11 @@ package com.worldNavigator;
 
 public class Transition {
     private String new_location;
+    private PlayerModel playerModel;
+
+    public Transition(PlayerModel playerModel) {
+        this.playerModel = playerModel;
+    }
 
     public void move(String location, String orientation, PlayerControllerMaster.MoveParam move) {
         if (move == PlayerControllerMaster.MoveParam.forward) {
@@ -9,7 +14,7 @@ public class Transition {
         } else if (move == PlayerControllerMaster.MoveParam.backward) {
             backward(location, orientation);
         } else {
-            System.out.println("wrong movement input, user 'forward' or 'backward'");
+            this.playerModel.notify_player("wrong movement input, user 'forward' or 'backward'");
         }
     }
 

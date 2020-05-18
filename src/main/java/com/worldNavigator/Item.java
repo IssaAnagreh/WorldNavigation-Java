@@ -21,8 +21,8 @@ public abstract class Item {
 
     public abstract String getType();
 
-    public HashMap applyAcquire(String location) {
-        return checkBehavior.acquire_contents(location);
+    public HashMap applyAcquire(String location, PlayerModel playerModel) {
+        return checkBehavior.acquire_contents(location, playerModel);
     }
 
     public String applyUseKey(List<Key> keys) {

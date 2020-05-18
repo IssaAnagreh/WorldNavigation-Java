@@ -36,23 +36,23 @@ public class Seller extends Item {
         return this.contents.getContents();
     }
 
-    public HashMap buy(int gold) {
+    public HashMap buy(int gold, PlayerModel playerModel) {
         HashMap output = new HashMap<>();
 
         int counter = 0;
         List categories = new ArrayList();
-        System.out.println("Items ready to be sold:");
-        System.out.println(-1 + ": " + "Quit");
+        playerModel.notify_player("Items ready to be sold:");
+        playerModel.notify_player(-1 + ": " + "Quit");
         for (Object category : this.contents.getContents().keySet()) {
             for (Object item : ((List) this.contents.getContents().get(category))) {
-                System.out.println(counter + ": " + category + " " + item);
+                playerModel.notify_player(counter + ": " + category + " " + item);
                 categories.add(category);
                 categories.add(item);
                 counter++;
             }
         }
 
-        System.out.println("Type the number of the item you want to buy");
+        playerModel.notify_player("Type the number of the item you want to buy");
         Scanner sc = new Scanner(System.in);
         int index = sc.nextInt();
         if (index != -1) {
@@ -76,43 +76,43 @@ public class Seller extends Item {
                                 output.put("golds", gold - Integer.parseInt(item.get(item_name).toString()));
                                 return output;
                             } else {
-                                System.out.println("Return when you have enough gold");
+                                playerModel.notify_player("Return when you have enough gold");
                                 return new HashMap<>();
                             }
                         }
                     } else {
-                        System.out.println("This index is not available");
+                        playerModel.notify_player("This index is not available");
                         return new HashMap<>();
                     }
                 } else {
-                    System.out.println("This category is not available");
+                    playerModel.notify_player("This category is not available");
                     return new HashMap<>();
                 }
             } else {
-                System.out.println("Seller has nothing to sell");
+                playerModel.notify_player("Seller has nothing to sell");
                 return new HashMap<>();
             }
         } else {
-            System.out.println("You quited trading");
+            playerModel.notify_player("You quited trading");
             return output;
         }
         return output;
     }
 
-    public int sell(int golds, String type) {
+    public int sell(int golds, String type, PlayerModel playerModel) {
         int output = golds;
         if (this.selling.get(type) != null) {
             output = golds + this.selling.get(type);
         } else {
-            System.out.println("This item is not in the list");
+            playerModel.notify_player("This item is not in the list");
         }
 
         return output;
 
     }
 
-    public void sellingList() {
-        System.out.println(this.selling);
+    public void sellingList(PlayerModel playerModel) {
+        playerModel.notify_player(this.selling.toString());
     }
 
     @Override

@@ -15,10 +15,10 @@ public class Unlocked_Checkable implements CheckBehavior {
         this.LOCATION = location;
     }
 
-    public HashMap check_content(String location) {
+    public HashMap check_content(String location, PlayerModel playerModel) {
         HashMap content = new HashMap<String, Object>();
         if (this.isTaken) {
-            System.out.println("Nothing to acquire");
+            playerModel.notify_player("Nothing to acquire");
         } else {
             if (location.equals(this.LOCATION)) {
                 this.isTaken = true;
@@ -28,8 +28,8 @@ public class Unlocked_Checkable implements CheckBehavior {
         return content;
     }
 
-    public HashMap<String, Object> acquire_contents(String location) {
-        HashMap<String, Object> acquired_items = this.check_content(location);
+    public HashMap<String, Object> acquire_contents(String location, PlayerModel playerModel) {
+        HashMap<String, Object> acquired_items = this.check_content(location, playerModel);
         if (acquired_items.size() > 0) {
             return acquired_items;
         } else {

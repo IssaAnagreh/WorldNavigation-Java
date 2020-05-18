@@ -33,23 +33,23 @@ public class Room {
         this.lightSwitch = (room.get("switch") != null) && Boolean.parseBoolean(room.get("switch").toString());
     }
 
-    public void switchLights() {
+    public void switchLights(PlayerModel playerModel) {
         if (this.lightSwitch) {
             this.isLit = !this.isLit;
             if (this.isLit) {
-                System.out.println("Room is lit now");
+                playerModel.notify_player("Room is lit now");
             } else {
-                System.out.println("Room is dark now");
+                playerModel.notify_player("Room is dark now");
             }
         } else {
-            System.out.println("This room has now lights switch, use a flash light");
+            playerModel.notify_player("This room has now lights switch, use a flash light");
         }
     }
 
-    public int useFlashLight(int flashLights) {
+    public int useFlashLight(int flashLights, PlayerModel playerModel) {
         if (!this.isLit) {
             this.isLit = true;
-            System.out.println("Room is lit now");
+            playerModel.notify_player("Room is lit now");
             return --flashLights;
         } else {
             return flashLights;

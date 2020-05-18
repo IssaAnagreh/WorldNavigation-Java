@@ -9,17 +9,19 @@ public class GameTimer extends PlayerController {
     public int seconds;
     public int remaining_time;
     private final int MILLI_IN_SEC = 1000;
+    private PlayerModel playerModel;
 
-    public GameTimer(int seconds) {
+    public GameTimer(int seconds, PlayerModel playerModel) {
         timer = new Timer();
         timer.schedule(new FinishTask(), this.MILLI_IN_SEC*seconds);
         timer.schedule(new RemindTask(), 0, this.MILLI_IN_SEC);
-        System.out.println("This game will end in " + seconds + " seconds");
         this.seconds = seconds;
+        this.playerModel = playerModel;
+        this.playerModel.notify_player("This game will end in " + seconds + " seconds");
     }
 
     public void getRemaining_time() {
-        System.out.println("Remaining time: " + remaining_time + " minutes");
+        this.playerModel.notify_player("Remaining time: " + remaining_time + " minutes");
     }
 
     class RemindTask extends TimerTask {

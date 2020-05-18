@@ -2,9 +2,11 @@ package com.worldNavigator;
 
 public class Rotate {
     String ORIENTATION;
+    PlayerModel playerModel;
 
-    public Rotate(String orientation) {
+    public Rotate(String orientation, PlayerModel playerModel) {
         this.ORIENTATION = orientation;
+        this.playerModel = playerModel;
     }
 
     public String left() {
@@ -22,10 +24,10 @@ public class Rotate {
                 this.ORIENTATION = "s";
                 break;
             default:
-                System.out.println("Semething went wrong while rotating");
+                this.playerModel.notify_player("Semething went wrong while rotating");
                 break;
         }
-        System.out.println(this.ORIENTATION);
+        this.playerModel.notify_player(this.ORIENTATION);
         return this.ORIENTATION;
     }
 
@@ -44,10 +46,10 @@ public class Rotate {
                 this.ORIENTATION = "n";
                 break;
             default:
-                System.out.println("Semething went wrong while rotating");
+                this.playerModel.notify_player("Semething went wrong while rotating");
                 break;
         }
-        System.out.println(this.ORIENTATION);
+        this.playerModel.notify_player(this.ORIENTATION);
         return this.ORIENTATION;
     }
 

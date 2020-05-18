@@ -47,7 +47,7 @@ public class PlayerModel extends Observable {
         // start game timer
         long start = System.currentTimeMillis();
         long end = start + (1000 * end_time);
-        GameTimer gameTimer = new GameTimer((int) end_time);
+        GameTimer gameTimer = new GameTimer((int) end_time, this);
         this.timer = gameTimer;
 
         this.br = new BufferedReader(new InputStreamReader(System.in));
@@ -70,14 +70,14 @@ public class PlayerModel extends Observable {
     }
 
     public void move(PlayerControllerMaster.MoveParam move) {
-        Transition new_location = new Transition();
+        Transition new_location = new Transition(this);
         new_location.move(this.location, this.orientation, move);
         this.location = new_location.toString();
         notify_player(this.location);
     }
 
     public void nextRoom_move() {
-        Transition new_location = new Transition();
+        Transition new_location = new Transition(this);
         new_location.openNextRoom(this.location, this.orientation, PlayerControllerMaster.MoveParam.forward);
         int index = this.roomIndex + 1;
         notify_player("You are in: " + new_location.toString() + " in room number: " + index);
@@ -87,12 +87,12 @@ public class PlayerModel extends Observable {
     }
 
     public void rotateLeft() {
-        this.orientation = new Rotate(this.orientation).left();
+        this.orientation = new Rotate(this.orientation, this).left();
         this.wall = room.walls.get(this.orientation);
     }
 
     public void rotateRight() {
-        this.orientation = new Rotate(this.orientation).right();
+        this.orientation = new Rotate(this.orientation, this).right();
         this.wall = room.walls.get(this.orientation);
     }
 
@@ -124,7 +124,7 @@ public class PlayerModel extends Observable {
     public void acquire_items() {
         Item item = this.wall.itemsFactory.getItem(this.location);
         if (item != null) {
-            HashMap contents = item.applyAcquire(this.location);
+            HashMap contents = item.applyAcquire(this.location, this);
             if (contents.get("keys") != null) {
                 ((List) contents.get("keys")).forEach(emp -> this.keys.add((Key) emp));
             }
@@ -223,7 +223,7 @@ public class PlayerModel extends Observable {
     }
 
     public void seller_buy(Seller seller) {
-        HashMap bought = seller.buy(this.golds);
+        HashMap bought = seller.buy(this.golds, this);
         if (bought.size() > 0) {
             String kind = bought.get("kind").toString();
             if (kind.equals("out of bounds")) {
@@ -272,7 +272,7 @@ public class PlayerModel extends Observable {
                             break;
                         }
                     }
-                    this.golds = seller.sell(this.golds, type);
+                    this.golds = seller.sell(this.golds, type, this);
                 } else {
                     notify_player("You dont have keys to sell");
                     seller_sell(seller);
@@ -280,7 +280,7 @@ public class PlayerModel extends Observable {
             } else if (type.equals("flashLights")) {
                 if (this.flashLights > 0) {
                     this.flashLights--;
-                    this.golds = seller.sell(this.golds, type);
+                    this.golds = seller.sell(this.golds, type, this);
                     notify_player("Your Items: ");
                     myItems();
                 } else {
@@ -295,7 +295,7 @@ public class PlayerModel extends Observable {
     }
 
     public void switchLights() {
-        this.room.switchLights();
+        this.room.switchLights(this);
     }
 
     public void flashLight() {
@@ -304,7 +304,7 @@ public class PlayerModel extends Observable {
             return;
         }
         if (this.flashLights > 0) {
-            this.flashLights = this.room.useFlashLight(this.flashLights);
+            this.flashLights = this.room.useFlashLight(this.flashLights, this);
         } else {
             notify_player("You have no flashLights");
         }

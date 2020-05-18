@@ -17,14 +17,14 @@ public class Locked_Checkable implements CheckBehavior {
         this.useKeyBehavior = useKeyBehavior;
     }
 
-    public HashMap check_content(String location) {
+    public HashMap check_content(String location, PlayerModel playerModel) {
         HashMap content = new HashMap<String, Object>();
         if (this.isTaken) {
-            System.out.println("This chest is empty now");
+            playerModel.notify_player("This chest is empty now");
         } else {
             if (this.compareTo(location) == 0) {
                 if (this.useKeyBehavior.getIs_locked() != null && this.useKeyBehavior.getIs_locked()) {
-                    System.out.println("You must use the key or find it for this chest");
+                    playerModel.notify_player("You must use the key or find it for this chest");
                 } else {
                     this.isTaken = true;
                     content = this.contents.getContents();
@@ -34,8 +34,8 @@ public class Locked_Checkable implements CheckBehavior {
         return content;
     }
 
-    public HashMap<String, Object> acquire_contents(String location) {
-        HashMap<String, Object> acquired_items = this.check_content(location);
+    public HashMap<String, Object> acquire_contents(String location, PlayerModel playerModel) {
+        HashMap<String, Object> acquired_items = this.check_content(location, playerModel);
         if (acquired_items.size() > 0) {
             return acquired_items;
         } else {
