@@ -31,15 +31,13 @@ Project: World Navigator\
 	\
 
 \f0\b 	- Constructors:\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f2\b0 \cf0 	- Multi constructors chains are being used for multiple reasons:\
+\f2\b0 	- Multi constructors chains are being used for multiple reasons:\
 		- Classes are made to separate responsibilities but are never to be instantiated unless a previous constructor is called.\
 		- Some classes have a private generating method which is called in the constructor to restrict the generating process.\
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f0\b \cf0 	- Methods:\
+\f0\b 	- Methods:\
 	
 \f2\b0 - Nulls are never returned.\
 	- Special codes are used as parameters in some methods such in trading; let me talk about an example  -it is found in the trading class-, I have a method that expects an integer to choose from a list that are ID\'92s enumerated, but users might want to exit the list without choosing so I made a decision of using -1 which is an impossible ID.\
@@ -49,25 +47,20 @@ Project: World Navigator\
 	\
 	
 \f0\b - Values:\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f2\b0 \cf0 	- Magic numbers are never used, constants have been used in the GameTimer to convert milliseconds to seconds.\
+\f2\b0 	- Magic numbers are never used, constants have been used in the GameTimer to convert milliseconds to seconds.\
 	- Booleans are named depending on the usage, so no !isCorrect ever used.\
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f0\b \cf0 	- Failures and Exception handling:\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\f0\b 	- Failures and Exception handling:\
 
-\f2\b0 \cf0 	- Made my best to not implement any failure and not to use try and catch, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did.\
+\f2\b0 	- Made my best to not implement any failure and not to use try and catch, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did.\
 	- Returning is fast as possible, but unfortunately, some if-else\'92s are added to achieve the previous point and avoid many user\'92s mistakes, plus they give many hints.\
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f0\b \cf0 	- SOLID:\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\f0\b 	- SOLID:\
 
-\f2\b0 \cf0 	- SRP:\
+\f2\b0 	- SRP:\
 		- Maps factory and its next classes (rooms, walls, \'85etc.) have a good example of the single responsibility principle.\
 		- I tried to be as creative as possible; imagined Maps factory class, Game Menu class, Game MVC classes; PlayerModel that has all player\'92s details, PlayerController that allows user to control his player, PlayerViewer that can be the GUI once), Key class, GameTimer class, ContentsManager (this prepares items such as keys, flashlights and golds and so on), Room class, Wall class, Items classes (such as Painting class, Mirror class, Seller class, Door class, and Chest class), and the ItemsFactory class.\
 		- PlayerController and PlayerModel are the most challenging classes; Player model is the model of the most engaging part of the game which is the player which interacts with mostly everything in the application -except some parts such as menus and maps factory-, so what I have seen is that splitting any part of this Class can increase the complexity as the model class must achieve its existence purpose which is to have all the information of the player. The Player controller class is a bit weird, usually, controllers are customizable so what I did is to make a Player controller master then extended to a custom player controller (PlayerController class). More of deeply digging inside of some classes are to be discussed later\
@@ -86,9 +79,8 @@ Project: World Navigator\
 	- DIP:\
 		- Items are the most changeable parts in the whole project so it needed to be extremely isolated, that was the inspiration of implementing of DIP by adding the ItemsFactory so it only gives the chance to deal with it to invoke a certain method or to read a certain attribute from a certain item such as Door, Chest, Paintings \'85etc.\
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\f0\b \cf0 	- Comments:\
+\f0\b 	- Comments:\
 	
 \f2\b0 - Comments were used twice; the first usage was for a while loop that will take the commands all time as long as the game is on, while\'92s argument is player.isPlaying, the argument is clear enough but still I thought it may need more clarification, the second usage was about telling the developer about the timer starting method while its class\'92s name is GameTimer and the run of the timer in its constructor.\
 \
@@ -117,6 +109,26 @@ Moreover, Some items are openable such as doors and chests, so they need a UseKe
 	- Player: rarely I like to take a common decision like this but 
 \f0\b MVC Pattern 
 \f2\b0 here is the wisest decision to take I believe, we have a view that can be once a GUI, we have a data pool of the player that can be the model, and a controller which connects the view with the model mainly by the player commands.\
+\
+	- Player model: this can be debatable actually but from my point of view is that my PlayerModel class is implementing the 
+\f0\b Facade Pattern
+\f2\b0 ; this class has access on every playing class in the software, and what I mean by playing classes is that about classes which has a direct link with the player and the player\'92s interactive objects such as doors, chest, sellers, rotation, move \'85etc.\
+However, player model class does not have an access to Menu class as an example, but still my point is valid; how, menu is a high part of the game that has nothing related to the player (the virtual creation which seeks the golden door), as menu decides the map or restarting and quitting the game.\
+\
+	- Player controller master: PlayerControllerMaster is a class that I believe is one of the most that has a chance to be changed as each user might want to change the commands he uses, \'93forward\'94 command is a long command actually when I tried my software it made me really bored, so I made up an extended PlayerController which is extended from the master implementing the 
+\f0\b Decorator Pattern
+\f2\b0  and added \'93f\'94 as a command to move forward with my virtual player in the game -by the way I made an improvement to the game that the map has more of real 2D rooms the user can really move in, look at the readme-.\
+\
+	- Commands: as simple as this decision was to take this 
+\f0\b Command Design Pattern
+\f2\b0  was the latest taken, why; because this patterns fills the command inside of a hash map with some more simple details, and the problem was with how to put a value as method, thankfully this pattern helped me by making a command class in each key\'92s value of the commands Hashmap.\
+Switch statement was a valid choice here, but it was really long to be acceptable, and this was the main reason of taking this pattern implementation.\
+\
+	- Keys: this is the most complex decision has been taken, keys must be a special class that can open doors or chests but, in the future more kind of keys or content items such as keys can open object items such as chests, so the decision of implementing 
+\f0\b Visitor Pattern 
+\f2\b0 was a must for me.\
+It gives me a wide number of choices when it comes to how to open things this is the main idea, plus this pattern can simplify the using key process even if having an other item that can open objects is not possible.\
+\
 \
 \
 \

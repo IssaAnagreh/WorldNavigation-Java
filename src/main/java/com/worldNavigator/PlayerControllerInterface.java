@@ -4,61 +4,62 @@ import java.io.IOException;
 import java.util.Map;
 
 public interface PlayerControllerInterface {
-    Map<String, Command> commandsMap = null;
+  Map<String, Command> commandsMap = null;
 
-    void subscribe(PlayerViewer playerViewer);
+  void subscribe(PlayerViewer playerViewer);
 
-    void startGame() throws IOException;
+  void startGame() throws IOException;
 
-    void myItems();
+  void myItems();
 
-    void rotateLeft();
+  void rotateLeft();
 
-    void rotateRight();
+  void rotateRight();
 
-    void myLocation();
+  void myLocation();
 
-    void myOrientation();
+  void myOrientation();
 
-    enum MoveParam {
-        forward, backward;
-    }
+  enum MoveParam {
+    forward,
+    backward;
+  }
 
-    void move(PlayerControllerMaster.MoveParam move);
+  void move(PlayerControllerMaster.MoveParam move);
 
-    void wall();
+  void wall();
 
-    void look();
+  void look();
 
-    void room();
+  void room();
 
-    void check();
+  void check();
 
-    void acquire_items();
+  void acquire_items();
 
-    void use_key();
+  void use_key();
 
-    void open();
+  void open();
 
-    void setLocation();
+  void setLocation();
 
-    void trade();
+  void trade();
 
-    void switchLights();
+  void switchLights();
 
-    void flashLight();
+  void flashLight();
 
-    void time();
+  void time();
 
-    void restart();
+  void restart();
 
-    void quit();
+  void quit();
 
-    String getType();
+  String getType();
 
-    void commands();
+  void commands();
 
-    void use_method(String command);
+  void use_method(String command);
 
-    void switchHints();
+  void switchHints();
 }

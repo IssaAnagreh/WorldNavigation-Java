@@ -1,4 +1,4 @@
 
-t	java:S116"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8ıÛ¡Ï¡.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+t	java:S116"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8ıÛ¡Ï¡.
 j	java:S116"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯îŞ8ıÛ¡Ï¡.

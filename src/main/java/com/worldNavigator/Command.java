@@ -1,5 +1,5 @@
 package com.worldNavigator;
 
 public interface Command {
-    void applyCommand(PlayerControllerInterface playerControllerInterface);
+  void applyCommand(PlayerControllerInterface playerControllerInterface);
 }

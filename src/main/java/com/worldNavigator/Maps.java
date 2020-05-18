@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Maps {
-    public List<MapFactory> maps = new ArrayList();
+  public List<MapFactory> maps = new ArrayList();
 
-    public MapFactory generate(String json) {
-        return new MapFactory(json);
-    }
+  public MapFactory generate(String json) {
+    return new MapFactory(json);
+  }
 
-    public void addMap(String json) {
-        maps.add(generate(json));
-    }
+  public void addMap(String json) {
+    maps.add(generate(json));
+  }
 
-    public void removeMap(MapFactory map) {
-        maps.remove(map);
-    }
+  public void removeMap(MapFactory map) {
+    maps.remove(map);
+  }
 
-    public void replace(MapFactory map, int index) {
-        this.maps.set(index, map);
-    }
+  public void replace(MapFactory map, int index) {
+    this.maps.set(index, map);
+  }
 
-    @Override
-    public String toString() {
-        return "Maps: " + this.maps.toString();
-    }
+  @Override
+  public String toString() {
+    return "Maps: " + this.maps.toString();
+  }
 }

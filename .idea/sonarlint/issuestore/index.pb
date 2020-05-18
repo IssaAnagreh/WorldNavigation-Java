@@ -61,3 +61,5 @@ a
 0src/main/java/com/worldNavigator/Transition.java,4/4/441cdaa271fe1d5a19681f746ff7cd64967b7bf4
 h
 8src/main/java/com/worldNavigator/Unlocked_Checkable.java,d/b/dbcac9b9735c0a47470e4be416417d936997ed7e
+]
+-src/main/java/com/worldNavigator/Command.java,2/e/2e8c76e40cced4e56250f3bab9be5bef7b75cdd4

@@ -1,19 +1,18 @@
 
+h	java:S100F"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÕËûÿÿÿÿ
 H
-java:S1199"-Extract this nested code block into a method.(Õ‹é’ıÿÿÿÿ
+java:S1199%"-Extract this nested code block into a method.(£ØÚ¯úÿÿÿÿ
 H
-java:S1199 "-Extract this nested code block into a method.(£ØÚ¯úÿÿÿÿ
-H
-java:S1199-"-Extract this nested code block into a method.(Õ‹é’ıÿÿÿÿ
-H
-java:S11995"-Extract this nested code block into a method.(£ØÚ¯úÿÿÿÿ
-H
-java:S1199C"-Extract this nested code block into a method.(Õ‹é’ıÿÿÿÿ
-H
-java:S1199K"-Extract this nested code block into a method.(£ØÚ¯úÿÿÿÿ
+java:S1199P"-Extract this nested code block into a method.(£ØÚ¯úÿÿÿÿ
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+c	java:S100u"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øğ™«
+d	java:S100„"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…·³
 q	java:S116"WRename this field "new_location" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æš˜‹üÿÿÿÿ
-M	java:S106"9Replace this use of System.out or System.err by a logger.(½Ÿ³
-h	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÕËûÿÿÿÿ
-c	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øğ™«
-c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…·³
+H
+java:S1199:"-Extract this nested code block into a method.(£ØÚ¯úÿÿÿÿ
+H
+java:S1199H"-Extract this nested code block into a method.(Õ‹é’ıÿÿÿÿ
+H
+java:S1199"-Extract this nested code block into a method.(Õ‹é’ıÿÿÿÿ
+H
+java:S11992"-Extract this nested code block into a method.(Õ‹é’ıÿÿÿÿ
