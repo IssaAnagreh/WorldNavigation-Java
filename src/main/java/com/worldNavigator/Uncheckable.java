@@ -10,7 +10,6 @@ public class Uncheckable implements CheckBehavior {
   }
 
   public HashMap<String, Object> acquire_contents(String location, PlayerModel playerModel) {
-    HashMap<String, Object> acquired_items = this.check_content(location, playerModel);
     return new HashMap();
   }
 

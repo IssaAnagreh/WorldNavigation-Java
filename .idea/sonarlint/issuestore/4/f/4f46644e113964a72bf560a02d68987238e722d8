@@ -1,6 +1,6 @@
 
-Š
-java:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(æÅ¦ó8ìÅæ§¢.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+Š
+java:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(æÅ¦ó8¿‰ïÎ¢.
 L
-java:S3740"/Provide the parametrized type for this generic.(æÅ¦ó8÷Ÿè§¢.
+java:S3740"/Provide the parametrized type for this generic.(æÅ¦ó8¿‰ïÎ¢.

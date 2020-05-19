@@ -5,10 +5,10 @@
     "end_time": 3600,
     "player": {
       "golds": 4,
-      "flashLights": 0,
-      "orientation": "w",
-      "location": "a4",
-      "roomIndex": 0
+      "flashLights": 1,
+      "orientation": "s",
+      "location": "e5",
+      "roomIndex": 4
     },
     "rooms": [
       {
@@ -80,6 +80,16 @@
               },
               "location": "d5"
             },
+            "safe": {
+              "existed": "true",
+              "name": "room_1-safe_1",
+              "is_locked": "true",
+              "key": "key-room_1-safe_1",
+              "content": {
+                "golds": 10
+              },
+              "location": "c5"
+            },
             "mirror": {
               "existed": "false"
             },
@@ -102,7 +112,8 @@
               "content": {
                 "keys": [
                   "key-room_1-door_1",
-                  "key-room_1-chest_1"
+                  "key-room_1-chest_1",
+                  "key-room_1-safe_1"
                 ],
                 "flashLight": 1,
                 "golds": 5
@@ -135,7 +146,18 @@
               "name": "room_2-chest_1",
               "is_locked": "true",
               "key": "",
-              "content": {},
+              "content": {
+                "golds": 1
+              },
+              "location": "e1"
+            },
+            "table": {
+              "existed": "true",
+              "name": "room_2-table_1",
+              "is_locked": "false",
+              "content": {
+                "golds": 1
+              },
               "location": "d1"
             },
             "mirror": {
@@ -270,6 +292,10 @@
             },
             "seller": {
               "existed": "false"
+            },
+            "window": {
+              "existed": "true",
+              "location": "d1"
             }
           },
           "e_wall": {
@@ -513,6 +539,14 @@
             },
             "seller": {
               "existed": "false"
+            },
+            "gate": {
+              "existed": "true",
+              "name": "room_5-gate_1",
+              "is_locked": "false",
+              "to": "room_2",
+              "golden": "false",
+              "location": "e5"
             }
           },
           "w_wall": {

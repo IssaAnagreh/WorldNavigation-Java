@@ -153,13 +153,12 @@ public class PlayerModel extends Observable {
   }
 
   public void open() {
-    Door door = (Door) this.wall.items.get("door");
-    if (door == null) {
-      notify_player("No doors to be opened");
-    } else {
-      if (door.getLocation().equals(this.location)) {
+    Item item = this.wall.itemsFactory.getItem(this.location);
+    if (item instanceof NextGoing) {
+      NextGoing openable = (NextGoing) item;
+      if (item.getLocation().equals(this.location)) {
         boolean isOpened = false;
-        String nextRoom = door.getNextRoom();
+        String nextRoom = openable.getNextRoom();
         if (nextRoom.contentEquals("golden")) {
           notify_player("CONGRATULATIONS! YOU WON THE GAME");
           System.exit(1);
@@ -172,15 +171,17 @@ public class PlayerModel extends Observable {
           }
         }
         if (nextRoom.equals("")) {
-          notify_player("This door opens to nothing");
+          notify_player("This " + openable.getName() + " opens to nothing");
           return;
         }
         if (!isOpened && nextRoom.equals("locked")) {
-          notify_player("The door is locked");
+          notify_player("The " + openable.getName() + " door is locked");
         }
       } else {
-        notify_player("No doors to be opened");
+        notify_player("Nothing to be opened");
       }
+    } else {
+      notify_player("Nothing to be opened");
     }
   }
 

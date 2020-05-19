@@ -31,6 +31,7 @@ public class Chest extends Item {
     return this.NAME;
   }
 
+  @Override
   public String getType() {
     return "chest";
   }

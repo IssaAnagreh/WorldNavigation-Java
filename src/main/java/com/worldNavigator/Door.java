@@ -2,7 +2,7 @@ package com.worldNavigator;
 
 import org.json.simple.JSONObject;
 
-public class Door extends Item {
+public class Door extends Item implements NextGoing {
   public final String NAME;
   private final Boolean IS_GOLDEN;
   private final String NEXT_ROOM;
@@ -21,7 +21,7 @@ public class Door extends Item {
   }
 
   public String getNextRoom() {
-    if (super.useKeyBehavior.getIs_locked() != null && super.useKeyBehavior.getIs_locked()) {
+    if (super.useKeyBehavior != null && super.useKeyBehavior.getIs_locked()) {
       return "locked";
     } else {
       if (this.getGolden() != null && this.getGolden()) {
@@ -35,14 +35,17 @@ public class Door extends Item {
     return this.IS_GOLDEN;
   }
 
+  @Override
   public String getLocation() {
     return this.LOCATION;
   }
 
+  @Override
   public String getName() {
     return this.NAME;
   }
 
+  @Override
   public String getType() {
     return "door";
   }

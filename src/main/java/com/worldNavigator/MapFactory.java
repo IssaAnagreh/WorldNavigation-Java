@@ -54,14 +54,27 @@ public class MapFactory {
       name = (String) map.get("name");
       end_time = (long) map.get("end_time");
       String player_string = "player";
-      this.golds = Integer.parseInt(((HashMap) map.get(player_string)).get("golds").toString());
+      this.golds =
+          ((HashMap) map.get(player_string)).get("golds") != null
+              ? Integer.parseInt(((HashMap) map.get(player_string)).get("golds").toString())
+              : 0;
       this.flashLights =
-          Integer.parseInt(((HashMap) map.get(player_string)).get("flashLights").toString());
+          ((HashMap) map.get(player_string)).get("flashLights") != null
+              ? Integer.parseInt(((HashMap) map.get(player_string)).get("flashLights").toString())
+              : 0;
       this.keys = new ArrayList();
-      this.location = ((HashMap) map.get(player_string)).get("location").toString();
-      this.orientation = ((HashMap) map.get(player_string)).get("orientation").toString();
+      this.location =
+          ((HashMap) map.get(player_string)).get("location") != null
+              ? ((HashMap) map.get(player_string)).get("location").toString()
+              : "c3";
+      this.orientation =
+          ((HashMap) map.get(player_string)).get("orientation") != null
+              ? ((HashMap) map.get(player_string)).get("orientation").toString()
+              : "n";
       this.roomIndex =
-          Integer.parseInt(((HashMap) map.get(player_string)).get("roomIndex").toString());
+          ((HashMap) map.get(player_string)).get("roomIndex") != null
+              ? Integer.parseInt(((HashMap) map.get(player_string)).get("roomIndex").toString())
+              : 0;
 
       JSONArray jsonRooms = (JSONArray) map.get("rooms");
       jsonRooms.forEach(room -> parseRoomObject((JSONObject) room));

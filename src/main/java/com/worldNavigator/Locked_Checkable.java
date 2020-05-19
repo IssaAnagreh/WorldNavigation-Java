@@ -20,11 +20,11 @@ public class Locked_Checkable implements CheckBehavior {
   public HashMap check_content(String location, PlayerModel playerModel) {
     HashMap content = new HashMap<String, Object>();
     if (this.isTaken) {
-      playerModel.notify_player("This chest is empty now");
+      playerModel.notify_player("This object is empty now");
     } else {
       if (this.compareTo(location) == 0) {
         if (this.useKeyBehavior.getIs_locked() != null && this.useKeyBehavior.getIs_locked()) {
-          playerModel.notify_player("You must use the key or find it for this chest");
+          playerModel.notify_player("You must use the key or find it for this object");
         } else {
           this.isTaken = true;
           content = this.contents.getContents();

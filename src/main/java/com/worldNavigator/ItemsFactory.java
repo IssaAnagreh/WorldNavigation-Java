@@ -32,6 +32,26 @@ public class ItemsFactory {
     if (seller != null && (((JSONObject) seller).get("existed")).equals("true")) {
       items.put("seller", new Seller((JSONObject) seller));
     }
+
+    Object safe = wall.get("safe");
+    if (safe != null && (((JSONObject) safe).get("existed")).equals("true")) {
+      items.put("safe", new Safe((JSONObject) safe));
+    }
+
+    Object window = wall.get("window");
+    if (window != null && (((JSONObject) window).get("existed")).equals("true")) {
+      items.put("window", new Window((JSONObject) window));
+    }
+
+    Object table = wall.get("table");
+    if (table != null && (((JSONObject) table).get("existed")).equals("true")) {
+      items.put("table", new Table((JSONObject) table));
+    }
+
+    Object gate = wall.get("gate");
+    if (gate != null && (((JSONObject) gate).get("existed")).equals("true")) {
+      items.put("gate", new Gate((JSONObject) gate));
+    }
   }
 
   public String check_item_by_location(String location) {

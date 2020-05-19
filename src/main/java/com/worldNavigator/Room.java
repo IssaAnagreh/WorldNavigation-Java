@@ -12,7 +12,7 @@ public class Room {
   public final int ROOM_NUMBER;
 
   public Room(JSONObject room, int room_counter) {
-    this.ROOM_NAME = (String) room.get("name");
+    this.ROOM_NAME = room.get("name") != null ? (String) room.get("name") : "room_"+(room_counter+1);
     this.ROOM_NUMBER = room_counter;
     generateRoom(room);
   }
@@ -29,7 +29,7 @@ public class Room {
     walls.put("s", south_wall);
     walls.put("w", west_wall);
 
-    this.isLit = Boolean.parseBoolean(room.get("lit").toString());
+    this.isLit = room.get("lit") == null || Boolean.parseBoolean(room.get("lit").toString());
     this.lightSwitch =
         (room.get("switch") != null) && Boolean.parseBoolean(room.get("switch").toString());
   }
@@ -43,7 +43,7 @@ public class Room {
         playerModel.notify_player("Room is dark now");
       }
     } else {
-      playerModel.notify_player("This room has now lights switch, use a flash light");
+      playerModel.notify_player("This room has no lights switch, use a flash light");
     }
   }
 

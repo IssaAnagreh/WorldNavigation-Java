@@ -19,7 +19,7 @@ public class Mirror extends Item {
 
   @Override
   public String getName() {
-    return this.NAME;
+    return this.NAME + ", You See a silhouette of you";
   }
 
   public String getType() {
