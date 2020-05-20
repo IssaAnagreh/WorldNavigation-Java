@@ -41,20 +41,16 @@ Project: World Navigator\
 \cf0 figure-1: This figure can be assumed as a chess board
 \fs28 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
-\cf0 	- Player starts in certain square in a certain room then starts to walk forward or backward with rotating himself left and right.\
-	- To tell the available commands, player can use <
-\f0\b commands
-\f2\b0 >.\
-	- <open> command is the only command that can change room from one to another in front of an open door.\
-	- <check> can check what is the item you are in front of, or can acquire checkable items\'92 contents.\
+\cf0 	- The player starts in a certain square in a certain room then starts to walk forward or backward with rotating himself left and right.\
+	- To tell the available commands, the player can use <commands>.\
+	- <open> command is the only command that can change the room from one to another in front of an open door.\
+	- <check> can check what is the item you are in front of or can acquire checkable items\'92 contents.\
 	- Forwarding and back warding, with left and right, is boring? use <setloc> cheating command with the required square tag (ex: c2) to change player location directly.\
 	- <look> is a great command to tell what items the opposite wall has with their locations.\
-	- For locked items should use <useKey> before check them or open them.\
+	- For locked items should use <useKey> before checking them or open them.\
 	- Some checkable items (ex: chests) can be locked but has nothing inside.\
-	- Some openable items (ex: doors) can be opened to nothing.\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
-
-\f0\b\fs32 \cf0 	\
+	- Some openable items (ex: doors) can be opened to nothing.
+\f0\b\fs32 	\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
 \ls2\ilvl0\cf0 {\listtext	
 \f1 \uc0\u9670 
@@ -62,44 +58,22 @@ Project: World Navigator\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f2\b0\fs28 \cf0 	- Each map needs its own .json file.\
-	- \'93name\'94, \'93file\'94, \'93end_time\'94 
-\f0\b must
-\f2\b0  be added.\
-	- Player details is optional.\
-	- Rooms 
-\f0\b must
-\f2\b0  at least have 1 room.\
+	- \'93name\'94, \'93file\'94, \'93end_time\'94 must be added.\
+	- Player details are optional.\
+	- Rooms must at least have 1 room.\
 	- Rooms can be named by default.\
 	- Rooms are lit by default.\
-	- Rooms do not have light switch by default (false value).\
-	- 4 walls are 
-\f0\b must 
-\f2\b0 be added to each room with the names of (n_wall, e_wall, s_wall and w_wall).\
+	- Rooms do not have a light switch by default (false value).\
+	- 4 walls are must be added to each room with the names of (n_wall, e_wall, s_wall, and w_wall).\
 	- Walls can have nothing.\
-	- Wall items names are 
-\f0\b not changeable
-\f2\b0  such as (door, chest, mirror, painting and seller).\
-	- Items\'92 existed is a 
-\f0\b must
-\f2\b0  with values of (true, false).\
-	- Items\'92 name are 
-\f0\b not optional.\
-	- 
-\f2\b0 Items\'92 key is optional but can 
-\f0\b only
-\f2\b0  be added to doors and chests, which refers to an item\'92s opening key.\
-	- Items\'92 location is a 
-\f0\b must 
-\f2\b0 with a format of \'93letter between a to e + number between 1 to 5\'94, and double check the location with figure-1
-\f0\b .
-\f2\b0 \
-	- Items\'92 content map is optional
-\f0\b .\
-	
-\f2\b0 - Content map can have keys, flashlights or golds all optionally but with strictly named of (keys, flashLights, golds).\
-	- Content map 
-\f0\b can not
-\f2\b0  be meaningful if added to doors.\
+	- Wall items' names are not changeable such as (door, chest, mirror, painting, and seller).\
+	- Items\'92 existed is a must with values of (true, false).\
+	- Items\'92 name is not optional.\
+	- Items\'92 key is optional but can only be added to doors and chests, which refers to an item\'92s opening key.\
+	- Items\'92 location is a must with a format of \'93letter between a to e + number between 1 to 5\'94, and double-check the location with figure-1.\
+	- Items\'92 content map is optional.\
+	- The content map can have keys, flashlights, or golds all optionally but with strictly named (keys, flashLights, golds).\
+	- The content map can not be meaningful if added to the doors.\
 	- Sellers can have content that can be bought by the player, and a selling map of items can be sold by the player with their prices such as (\'93keys\'94: 7) which means a player can sell a key by 7 golds, but with strictly named of (keys, flashLights).\
 
 \f0\b \
@@ -112,7 +86,7 @@ Project: World Navigator\
 \cf0 	
 \fs28 - Dimensions:\
 		
-\f2\b0 - Each room has a size of 5x5 squares, player starts in certain square then starts to walk forward or backward with rotating himself left and right.\
+\f2\b0 - Each room has a size of 5x5 squares, the player starts in a certain square then starts to walk forward or backward with rotating himself left and right.\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\fi1133\pardirnatural\partightenfactor0
 
 \f3\fs24 \cf0 {{\NeXTGraphic Screen Shot 2020-05-20 at 1.58.55 PM.png \width3780 \height3760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
@@ -132,7 +106,7 @@ Project: World Navigator\
 \fs24 \
 
 \fs28 		- Items 
-\f0\b cant
+\f0\b cannot
 \f2\b0  be overlapped in the same location.\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\fi1132\pardirnatural\partightenfactor0
 
@@ -146,9 +120,8 @@ Project: World Navigator\
 \fs28 \cf0 	- Openable items:\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 \ls5\ilvl0
-\f2\b0 \cf0 		- Adding new openable item (ex: a gate), can be added smoothly, by theses steps:\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
-\cf0 		- let us pretend we have this item details:\
+\f2\b0 \cf0 		- Adding new openable item (ex: a gate) can be added smoothly, by theses steps:\
+		- let us pretend we have this item details:\
 \pard\tx566\tx1133\tx1160\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\fi1132\pardirnatural\partightenfactor0
 
 \fs24 \cf0 {{\NeXTGraphic Screen Shot 2020-05-20 at 2.40.17 AM.png \width4380 \height3420 \appleattachmentpadding0 \appleembedtype0 \appleaqc
@@ -186,7 +159,7 @@ Project: World Navigator\
 \fs32 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 \ls6\ilvl0
-\f2\b0\fs28 \cf0 		- Adding new uncheckable item (ex: a window), can be added smoothly, by theses steps:\
+\f2\b0\fs28 \cf0 		- Adding new uncheckable item (ex: a window) can be added smoothly, by theses steps:\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 \ls7\ilvl0\cf0 		- let us pretend we have this item details:
 \f0\b\fs32 \
@@ -227,7 +200,7 @@ Project: World Navigator\
 \fs32 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 \ls8\ilvl0
-\f2\b0\fs28 \cf0 		- Adding new unlocked_chackable item (ex: a table), can be added smoothly, by theses steps:\
+\f2\b0\fs28 \cf0 		- Adding new unlocked_chackable item (ex: a table) can be added smoothly, by theses steps:\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 		- let us pretend we have this item details:\cf2 \cb3 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\fi1131\pardirnatural\partightenfactor0
@@ -271,7 +244,7 @@ Project: World Navigator\
 \fs32 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 \ls10\ilvl0
-\f2\b0\fs28 \cf0 		- Adding new openable item (ex: a safe), can be added smoothly, by theses steps:\
+\f2\b0\fs28 \cf0 		- Adding new openable item (ex: a safe) can be added smoothly, by theses steps:\
 		- let us pretend we have this item details:\cf2 \cb3 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -301,7 +274,6 @@ Project: World Navigator\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f2\b0\fs28 \cf0 		Do not forget to implement all of the abstract methods. THAT\'92S IT.\
-\
 
 \f0\b 	- P.S:
 \f2\b0  Optional special commands can be added to the PlayerController if new Items are added.
