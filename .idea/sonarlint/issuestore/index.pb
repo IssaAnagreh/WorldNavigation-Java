@@ -66,3 +66,13 @@ h
 :
 
 Report.rtf,2/0/20732d482724592a12615db8b8837e9c2df66f52
+Z
+*src/main/java/com/worldNavigator/Safe.java,b/6/b692779fc1fb0a5fd66b15932b6163c24f0e50ad
+\
+,src/main/java/com/worldNavigator/Window.java,9/1/9106443140bc8be7b8656507b847d6924158f8e8
+[
++src/main/java/com/worldNavigator/Table.java,5/f/5fe78970c29a366bea906544fb984d0c4e2a09ae
+_
+/src/main/java/com/worldNavigator/NextGoing.java,2/2/22d7e47ffc0c272cff95c2295671028d6ab334aa
+Z
+*src/main/java/com/worldNavigator/Gate.java,b/0/b0a35d50fcce67e609cf19402de19ab92373a19c

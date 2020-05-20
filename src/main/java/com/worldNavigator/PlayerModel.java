@@ -69,7 +69,7 @@ public class PlayerModel extends Observable {
     notify_player("flashLights: " + this.flashLights);
   }
 
-  public void move(PlayerControllerMaster.MoveParam move) {
+  public void move(PlayerController.MoveParam move) {
     Transition new_location = new Transition(this);
     new_location.move(this.location, this.orientation, move);
     this.location = new_location.toString();
@@ -78,8 +78,7 @@ public class PlayerModel extends Observable {
 
   public void nextRoom_move() {
     Transition new_location = new Transition(this);
-    new_location.openNextRoom(
-        this.location, this.orientation, PlayerControllerMaster.MoveParam.forward);
+    new_location.openNextRoom(this.location, this.orientation, PlayerController.MoveParam.forward);
     int index = this.roomIndex + 1;
     notify_player("You are in: " + new_location.toString() + " in room number: " + index);
     this.location = new_location.toString();

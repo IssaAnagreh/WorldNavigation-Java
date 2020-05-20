@@ -1,18 +1,18 @@
 
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+k	java:S100‹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øğ™«8ÂªóÎ¢.
 O
-java:S1199"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
-O
-java:S1199+"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
+java:S1199Y"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
+k	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…·³8ÂªóÎ¢.
 O
 java:S1199<"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
 O
-java:S1199H"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
-O
-java:S1199Y"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
-O
 java:S1199d"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
-x	java:S116"WRename this field "new_location" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æš˜‹üÿÿÿÿ8ÂªóÎ¢.
 o	java:S100V"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÕËûÿÿÿÿ8ÂªóÎ¢.
-k	java:S100‹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øğ™«8ÂªóÎ¢.
-k	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…·³8ÂªóÎ¢.
+O
+java:S1199+"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+x	java:S116"WRename this field "new_location" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æš˜‹üÿÿÿÿ8ÂªóÎ¢.
+O
+java:S1199"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
+O
+java:S1199H"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.

@@ -1,13 +1,8 @@
 
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
 L
 java:S3740"/Provide the parametrized type for this generic.(—ˆáû8æ¹óÎ¢.
-L
-java:S3740"/Provide the parametrized type for this generic.(Ğòö¬8æ¹óÎ¢.
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³°£Ûúÿÿÿÿ8æ¹óÎ¢.
 |
 java:S1488"_Immediately return this expression instead of assigning it to the temporary variable "content".(—ˆáû8æ¹óÎ¢.
-d
-java:S1854"BRemove this useless assignment to local variable "acquired_items".(³°£Ûúÿÿÿÿ8æ¹óÎ¢.
-U
-java:S1481"3Remove this unused "acquired_items" local variable.(³°£Ûúÿÿÿÿ8æ¹óÎ¢.
+L
+java:S3740"/Provide the parametrized type for this generic.(Ğòö¬8æ¹óÎ¢.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
