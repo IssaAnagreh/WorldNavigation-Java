@@ -4,37 +4,26 @@ import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 
-public class Unlocked_Checkable implements CheckBehavior {
-  private ContentManager contents;
+public class Unlocked_Checkable extends Checkable implements CheckBehavior {
   private boolean isTaken;
-  private final String LOCATION;
 
   public Unlocked_Checkable(JSONObject item, String location) {
-    this.contents = new ContentManager();
-    this.contents.addItem(item);
-    this.LOCATION = location;
+    super(item, location);
+
   }
 
   public HashMap check_content(String location, PlayerModel playerModel) {
     HashMap content = new HashMap<String, Object>();
     if (this.isTaken) {
-      playerModel.notify_player("Nothing to acquire");
+      playerModel.notify_player("Empty!");
     } else {
-      if (location.equals(this.LOCATION)) {
+      if (location.equals(super.LOCATION)) {
         this.isTaken = true;
-        content = this.contents.getContents();
+        System.out.println("super.contents.getContents() "+super.contents.getContents());
+        content = super.contents.getContents();
       }
     }
     return content;
-  }
-
-  public HashMap<String, Object> acquire_contents(String location, PlayerModel playerModel) {
-    HashMap<String, Object> acquired_items = this.check_content(location, playerModel);
-    if (acquired_items.size() > 0) {
-      return acquired_items;
-    } else {
-      return new HashMap();
-    }
   }
 
   @Override

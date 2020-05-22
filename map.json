@@ -5,10 +5,10 @@
     "end_time": 3600,
     "player": {
       "golds": 4,
-      "flashLights": 1,
-      "orientation": "s",
-      "location": "e5",
-      "roomIndex": 4
+      "flashLights": 0,
+      "orientation": "w",
+      "location": "a4",
+      "roomIndex": 0
     },
     "rooms": [
       {
@@ -75,7 +75,7 @@
                 "keys": [
                   "key-room_1-door_2"
                 ],
-                "flashLight": 1,
+                "flashLights": 1,
                 "golds": 0
               },
               "location": "d5"
@@ -115,8 +115,9 @@
                   "key-room_1-chest_1",
                   "key-room_1-safe_1"
                 ],
-                "flashLight": 1,
-                "golds": 5
+                "flashLights": 0,
+                "golds": 5,
+                "masterKeys": 1
               },
               "location": "a4"
             },

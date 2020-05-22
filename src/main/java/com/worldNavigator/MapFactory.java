@@ -18,9 +18,7 @@ public class MapFactory {
   public long end_time;
   private int room_counter = 0;
   public final String mapName;
-  public int golds;
-  public int flashLights;
-  public ArrayList keys;
+  public HashMap contents;
   public String location;
   public String orientation;
   public int roomIndex;
@@ -53,16 +51,10 @@ public class MapFactory {
       // Get map object within list
       name = (String) map.get("name");
       end_time = (long) map.get("end_time");
+      ContentManager contentManager = new ContentManager();
       String player_string = "player";
-      this.golds =
-          ((HashMap) map.get(player_string)).get("golds") != null
-              ? Integer.parseInt(((HashMap) map.get(player_string)).get("golds").toString())
-              : 0;
-      this.flashLights =
-          ((HashMap) map.get(player_string)).get("flashLights") != null
-              ? Integer.parseInt(((HashMap) map.get(player_string)).get("flashLights").toString())
-              : 0;
-      this.keys = new ArrayList();
+      contentManager.addPlayer((HashMap) map.get(player_string));
+      this.contents = contentManager.getContents();
       this.location =
           ((HashMap) map.get(player_string)).get("location") != null
               ? ((HashMap) map.get(player_string)).get("location").toString()

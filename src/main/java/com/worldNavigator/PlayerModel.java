@@ -9,25 +9,21 @@ public class PlayerModel extends Observable {
   private List<Room> rooms;
   public Room room;
   private Wall wall;
-  private int flashLights;
   private int roomIndex;
-  public int golds;
   public String orientation;
   public String location;
   static BufferedReader br;
-  public List<KeyChecker> keys;
   public GameTimer timer;
   public Menu menu;
   public boolean playing;
   public HashMap<String, Item> items = new HashMap();
+  public HashMap contents;
 
   public PlayerModel(MapFactory map, Menu menu) {
     this.map = map;
     this.rooms = map.rooms;
     this.menu = menu;
-    this.flashLights = map.flashLights;
-    this.golds = map.golds;
-    this.keys = map.keys;
+    this.contents = map.contents;
     this.location = map.location;
     this.orientation = map.orientation;
     this.roomIndex = map.roomIndex;
@@ -64,9 +60,7 @@ public class PlayerModel extends Observable {
   }
 
   public void myItems() {
-    notify_player("keys: " + this.keys);
-    notify_player("golds: " + this.golds);
-    notify_player("flashLights: " + this.flashLights);
+    notify_player(this.contents.toString());
   }
 
   public void move(PlayerController.MoveParam move) {
@@ -96,14 +90,6 @@ public class PlayerModel extends Observable {
     this.wall = room.walls.get(this.orientation);
   }
 
-  public void myLocation() {
-    notify_player(this.location);
-  }
-
-  public void myOrientation() {
-    notify_player(this.orientation);
-  }
-
   public void look() {
     if (room.isLit) {
       Wall wall = this.room.walls.get(this.orientation);
@@ -124,31 +110,34 @@ public class PlayerModel extends Observable {
   public void acquire_items() {
     Item item = this.wall.itemsFactory.getItem(this.location);
     if (item != null) {
-      HashMap contents = item.applyAcquire(this.location, this);
-      if (contents.get("keys") != null) {
-        ((List) contents.get("keys")).forEach(emp -> this.keys.add((Key) emp));
-      }
-      if (contents.get("golds") != null) {
-        this.golds += (long) contents.get("golds");
-      }
-      if (contents.get("flashLight") != null) {
-        this.flashLights += (long) contents.get("flashLight");
-      }
-      if (contents.size() > 0) {
-        notify_player("Contents acquired " + contents);
-      }
+      item.applyAcquire(this.location, this);
     }
   }
 
   public void use_key() {
     String print = "";
-    if (this.keys.size() > 0) {
+    if (((List) this.contents.get("keys")).size() > 0) {
       Item item = this.wall.itemsFactory.getItem(this.location);
-      print = item.applyUseKey(this.keys);
+      print = item != null ? item.applyUseKey((List) this.contents.get("keys")) : "Opening nothing";
     } else {
       print = "You have no keys";
     }
     notify_player(print);
+  }
+
+  public String use_masterKey() {
+    String print = "";
+    List masterKeysList = new ArrayList<KeyChecker>();
+    if (((int) this.contents.get("masterKeys")) > 0) {
+      masterKeysList.add(new MasterKey());
+      Item item = this.wall.itemsFactory.getItem(this.location);
+      print = item != null ? item.applyUseKey(masterKeysList) : "Opening nothing";
+      this.contents.put("masterKeys", (int) this.contents.get("masterKeys") - 1);
+    } else {
+      print = "You have no master keys";
+    }
+    notify_player(print);
+    return "use_masterKey";
   }
 
   public void open() {
@@ -224,7 +213,7 @@ public class PlayerModel extends Observable {
   }
 
   public void seller_buy(Seller seller) {
-    HashMap bought = seller.buy(this.golds, this);
+    HashMap bought = seller.buy((int) this.contents.get("golds"), this);
     if (bought.size() > 0) {
       String kind = bought.get("kind").toString();
       if (kind.equals("out of bounds")) {
@@ -232,13 +221,14 @@ public class PlayerModel extends Observable {
         seller_buy(seller);
       } else {
         notify_player("bought " + bought);
-        this.golds = (int) bought.get("golds");
+        this.contents.put(
+            "golds", ((int) this.contents.get("golds")) + ((int) bought.get("golds")));
         switch (kind) {
           case "keys":
-            this.keys.add(((Key) bought.get("item")));
+            this.contents.put("keys", ((List) this.contents.get("keys")).add(bought.get("item")));
             break;
           case "flashLights":
-            this.flashLights += 1;
+            this.contents.put("flashLights", ((int) this.contents.get("flashLights")) + 1);
             break;
           default:
             notify_player("Kind is not standard");
@@ -266,25 +256,26 @@ public class PlayerModel extends Observable {
       trade();
     } else {
       if (type.equals("keys")) {
-        if (this.keys.size() > 0) {
-          notify_player("Enter the name of the item you want to sell: " + this.keys);
+        if (((List) this.contents.get("keys")).isEmpty()) {
+          notify_player("You dont have keys to sell");
+          seller_sell(seller);
+        } else {
+          notify_player(
+              "Enter the name of the item you want to sell: " + this.contents.get("keys"));
           Scanner sc2 = new Scanner(System.in);
           String item = sc2.next();
-          for (KeyChecker key : this.keys) {
+          for (KeyChecker key : ((List<KeyChecker>) this.contents.get("keys"))) {
             if (key.toString().equals(item)) {
-              this.keys.remove(key);
+              ((List<KeyChecker>) this.contents.get("keys")).remove(key);
               break;
             }
           }
-          this.golds = seller.sell(this.golds, type, this);
-        } else {
-          notify_player("You dont have keys to sell");
-          seller_sell(seller);
+          this.contents.put("golds", seller.sell((int) this.contents.get("golds"), type, this));
         }
       } else if (type.equals("flashLights")) {
-        if (this.flashLights > 0) {
-          this.flashLights--;
-          this.golds = seller.sell(this.golds, type, this);
+        if (((int) this.contents.get("flashLights")) > 0) {
+          this.contents.put("flashLights", ((int) this.contents.get("flashLights")) - 1);
+          this.contents.put("golds", seller.sell((int) this.contents.get("golds"), type, this));
           notify_player("Your Items: ");
           myItems();
         } else {
@@ -307,8 +298,9 @@ public class PlayerModel extends Observable {
       notify_player("You don't need to light a lit room");
       return;
     }
-    if (this.flashLights > 0) {
-      this.flashLights = this.room.useFlashLight(this.flashLights, this);
+    if ((int) this.contents.get("flashLights") > 0) {
+      this.contents.put(
+          "flashLights", this.room.useFlashLight((int) this.contents.get("flashLights"), this));
     } else {
       notify_player("You have no flashLights");
     }

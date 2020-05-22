@@ -1,6 +1,6 @@
 
-p	java:S116"TRename this field "NEXT_ROOM" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÕÅ8û§îÎ¢.
-t	java:S116	"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8û§îÎ¢.
-k	java:S116"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Îä8û§îÎ¢.
-p	java:S116"TRename this field "IS_GOLDEN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û¬À¸8û§îÎ¢.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+p	java:S116"TRename this field "NEXT_ROOM" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÕÅ8û§îÎ¢.
+k	java:S116"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Îä8û§îÎ¢.
+t	java:S116	"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8û§îÎ¢.
+p	java:S116"TRename this field "IS_GOLDEN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û¬À¸8û§îÎ¢.

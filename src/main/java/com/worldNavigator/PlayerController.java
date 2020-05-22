@@ -20,6 +20,7 @@ public class PlayerController extends PlayerControllerMaster {
     super.commandsMap.put("key", PlayerControllerInterface::use_key);
     super.commandsMap.put("light", PlayerControllerInterface::switchLights);
     super.commandsMap.put("flash", PlayerControllerInterface::flashLight);
+    super.commandsMap.put("master", playerController -> super.playerModel.use_masterKey());
     super.commandsMap.put("setloc", PlayerControllerInterface::setLocation);
   }
 

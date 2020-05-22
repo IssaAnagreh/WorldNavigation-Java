@@ -1,6 +1,5 @@
 package com.worldNavigator;
 
-import java.util.HashMap;
 import java.util.List;
 
 public abstract class Item {
@@ -21,8 +20,8 @@ public abstract class Item {
 
   public abstract String getType();
 
-  public HashMap applyAcquire(String location, PlayerModel playerModel) {
-    return checkBehavior.acquire_contents(location, playerModel);
+  public void applyAcquire(String location, PlayerModel playerModel) {
+    checkBehavior.acquire_contents(location, playerModel);
   }
 
   public String applyUseKey(List<KeyChecker> keys) {

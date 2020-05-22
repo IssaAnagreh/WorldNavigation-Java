@@ -260,7 +260,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
   public void use_method(String command) {
     Command c = this.commandsMap.get(command);
     if (c == null) {
-      this.playerModel.notify_player("You should use a valid command");
+      this.playerModel.notify_player("Use a valid command");
     } else {
       c.applyCommand(this);
     }

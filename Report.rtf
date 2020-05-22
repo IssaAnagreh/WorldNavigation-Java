@@ -6,8 +6,9 @@
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid1\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid101\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid201\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
-{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid301\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid301\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid401\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww16140\viewh12880\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\qc\partightenfactor0
 
@@ -102,26 +103,39 @@ Project: World Navigator\
 
 \fs28 \cf0 	This game project has many related classes and so it needed many design patterns to achieve this principle, starting with the keys usage that is working for chests and doors, but chests are checkable (can acquire items from) but doors are not, mirrors and paintings are checkable but not openable with keys, and many other applications. \
 \
-	- Maps: originally maps are .json files that must be read and converted into java classes and objects somehow; \'93hide creation logic\'94 is the decision of mine to be implemented here, depending on this, Factory Method Pattern was the best for this application, but actually I made a different implementation, no interfaces were made as it\'92s not actually needed in my case because map items have different methods content and there is no need for a special interface for them in this part of the designation -they have a special interface but in different scope-. \
+	- Maps: originally maps are .json files that must be read and converted into java classes and objects somehow; \'93hide creation logic\'94 is the decision of mine to be implemented here, depending on this, 
+\f0\b Factory Method Pattern
+\f2\b0  was the best for this application, but actually I made a different implementation, no interfaces were made as it\'92s not actually needed in my case because map items have different methods content and there is no need for a special interface for them in this part of the designation -they have a special interface but in different scope-. \
 Let us dig deeper here, .json files needed a special library installed that can convert the .json file to jsonOBJECTS, jsonARRAYS, and jsonVALUES, and these files must be refactored to be some java\'92s classes and objects which are complicated to go through every time a developer wants to implement a new item -let us say a developer wants to add tables in the rooms-. So, MapFactory is to parse all the .json map to java map, even if a developer wants to add a new item -a table as an example- can add it in a simple way depending on the readme file and changing the ItemsFactory class -this will be discussed later-. However, the only reason to get into the MapFactory class is if the developer wants to add a new object to contents such as golds, flashLights \'85etc, -a hummer as an example new content object-.\
 \
-	- Items: items are such as paintings, mirrors, doors, sellers \'85etc. The implementation here mainly was about having multiple shared behaviors, but multiple other different behaviors are also there, so \'93Separate what varies from what remains the same\'94 was the decision-maker of mine, depending on this, Strategy Design Pattern was the best choice for me here.\
+	- Items: items are such as paintings, mirrors, doors, sellers \'85etc. The implementation here mainly was about having multiple shared behaviors, but multiple other different behaviors are also there, so \'93Separate what varies from what remains the same\'94 was the decision-maker of mine, depending on this, 
+\f0\b Strategy Design Pattern
+\f2\b0  was the best choice for me here.\
 Let us dig deeper, logically items must have a superclass called Item because multiple behaviors are repetitive such as useKey, AcquireContent, and some other abstract methods and attributes, but as said before the behaviors are various as we may have locked chests that need keys to open them or unlocked chests that can be checked and acquire their contents directly. On the other hand, some Items are not checkable at all such as doors -doors do not have contents to be acquired- so here Unlocked_Checkable, Locked_Checkable, and Uncheckable classes were made and implemented CheckBehavior interface.\
 Moreover, Some items are openable such as doors and chests, so they need a UseKeyBehavior interface to implement. Actually we have only one class that implements UseKeyBehavior as I took a decision of leaving this behavior in the unopenable items as null, but I am sure of using it later if we want to separate opening chests from acquiring their contents and this will create a new class and let us call it unlocked_openable when it needs no keys to open.\
 \
-	- Player: rarely I like to take a common decision like this but MVC Pattern here is the wisest decision to take I believe, we have a view that can be once a GUI, we have a data pool of the player that can be the model, and a controller which connects the view with the model mainly by the player commands.\
+	- Player: rarely I like to take a common decision like this but 
+\f0\b MVC Pattern
+\f2\b0  here is the wisest decision to take I believe, we have a view that can be once a GUI, we have a data pool of the player that can be the model, and a controller which connects the view with the model mainly by the player commands.\
 \
-	- Player model: this can be debatable actually but from my point of view is that my PlayerModel class is implementing the Facade Pattern; this class has access on every playing class in the software, and what I mean by playing classes is that about classes which have a direct link with the player and the player\'92s interactive objects such as doors, chest, sellers, rotation, move \'85etc.\
+	- Player model: this can be debatable actually but from my point of view is that my PlayerModel class is implementing the 
+\f0\b Facade Pattern
+\f2\b0 ; this class has access on every playing class in the software, and what I mean by playing classes is that about classes which have a direct link with the player and the player\'92s interactive objects such as doors, chest, sellers, rotation, move \'85etc.\
 However, the player model class does not have access to Menu class as an example, but still, my point is valid; how, the menu is a high part of the game that has nothing related to the player (the virtual creation which seeks the golden door), as menu decides the map or restarting and quitting the game.\
 \
-	- Player controller master: PlayerControllerMaster is a class that I believe is one of the most that has a chance to be changed as each user might want to change the commands he uses, \'93forward\'94 command is a long command actually when I tried my software it made me really bored, so I made up an extended PlayerController which is extended from the master implementing the Decorator Pattern and added \'93f\'94 as a command to move forward with my virtual player in the game -by the way, I made an improvement to the game that the map has more of real 2D rooms the user can really move in, look at the readme-.\
+	- Player controller master: PlayerControllerMaster is a class that I believe is one of the most that has a chance to be changed as each user might want to change the commands he uses, \'93forward\'94 command is a long command actually when I tried my software it made me really bored, so I made up an extended PlayerController which is extended from the master implementing the 
+\f0\b Decorator Pattern
+\f2\b0  and added \'93f\'94 as a command to move forward with my virtual player in the game -by the way, I made an improvement to the game that the map has more of real 2D rooms the user can really move in, look at the readme-.\
 \
-	- Commands: as simple as this decision was to take this Command Design Pattern was the latest taken, why; because this pattern fills the command inside of a hash map with some more simple details, and the problem was with how to put a value as a method, thankfully this pattern helped me by making a command class in each key\'92s value of the commands Hashmap.\
+	- Commands: as simple as this decision was to take this 
+\f0\b Command Design Pattern
+\f2\b0  was the latest taken, why; because this pattern fills the command inside of a hash map with some more simple details, and the problem was with how to put a value as a method, thankfully this pattern helped me by making a command class in each key\'92s value of the commands Hashmap.\
 Switch statement was a valid choice here, but it was really long to be acceptable, and this was the main reason for taking this pattern implementation.\
 \
-	- Keys: this is the most complex decision has been taken, keys must be a special class that can open doors or chests but, in the future, more kind of keys or content items such as keys can open object items such as chests, so the decision of implementing Visitor Pattern was a must for me.\
+	- Keys: this is the most complex decision has been taken, keys must be a special class that can open doors or chests but, in the future, more kind of keys or content items such as keys can open object items such as chests, so the decision of implementing 
+\f0\b Visitor Pattern
+\f2\b0  was a must for me.\
 It gives me a wide number of choices when it comes to how to open things this is the main idea, plus this pattern can simplify the using key process even if having another item that can open objects is not possible.\
-\
 \
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
 \ls3\ilvl0
@@ -135,7 +149,7 @@ It gives me a wide number of choices when it comes to how to open things this is
 	- Command: is to implement the command pattern.\
 	- KeyChecker: is to implement the visitor pattern.\
 	- NextGoing: Openable class is not enough to express a going through items, such as doors or gates, actually it expresses about an item that uses key to be opened. So NextGoing is a mandatory interface for items such as doors or gates.\
-	- PlayerControllerInterface: is to implement the Decorator pattern.\
+	- PlayerControllerInterface: is to implement the Decorator pattern safely.\
 	\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
 \ls4\ilvl0
@@ -150,5 +164,18 @@ It gives me a wide number of choices when it comes to how to open things this is
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f2\b0\fs28 \cf0 \
-\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
+\ls5\ilvl0
+\f0\b\fs32 \cf0 {\listtext	
+\f1 \uc0\u9670 
+\f0 	}Some Special Classes for Items and Contents:
+\f2\b0\fs28 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 	- Checkable class: is class that is extended from previously mentioned Unlocked_Checkable, Locked_Checkable, and Uncheckable.\
+	- ContentManager class: items are different kinds such as keys (Key class), flashLights (int), and so on, so preparing them is not an easy job to do, a special class to do this is a good idea for me to implement this.\
+	- ItemsFactory: Each item has a special class so implementing them is a tricky job, so ItemsFactory\'92s job is not simple.
+\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \
 }

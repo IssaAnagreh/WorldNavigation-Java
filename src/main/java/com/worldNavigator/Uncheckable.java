@@ -9,8 +9,9 @@ public class Uncheckable implements CheckBehavior {
     return content;
   }
 
-  public HashMap<String, Object> acquire_contents(String location, PlayerModel playerModel) {
-    return new HashMap();
+  @Override
+  public void acquire_contents(String location, PlayerModel playerModel) {
+    return;
   }
 
   @Override
