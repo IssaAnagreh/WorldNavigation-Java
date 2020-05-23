@@ -1,9 +1,9 @@
 package com.worldNavigator;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public interface CheckBehavior {
-  HashMap check_content(String location, PlayerModel playerModel);
+  Map<String, Object> check_content(String location, PlayerModel playerModel);
 
   void acquire_contents(String location, PlayerModel playerModel);
 }

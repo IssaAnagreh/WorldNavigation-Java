@@ -1,8 +1,6 @@
 
-i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊÇš`8ÄŒýÓ¡.
-K
-java:S3740"/Provide the parametrized type for this generic.(ÊÇš`8ÄŒýÓ¡.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®¼¤Öýÿÿÿÿ8¡ÝíÎ¢.
 Q
 java:S3740"/Provide the parametrized type for this generic.(®¼¤Öýÿÿÿÿ8¡ÝíÎ¢.
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®¼¤Öýÿÿÿÿ8¡ÝíÎ¢.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ‰­ƒ8½é›ò£.

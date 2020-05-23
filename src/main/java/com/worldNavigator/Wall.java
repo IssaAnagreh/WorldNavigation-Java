@@ -3,11 +3,12 @@ package com.worldNavigator;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Wall {
   public final String NAME;
   public ItemsFactory itemsFactory;
-  public HashMap<String, Item> items = new HashMap<String, Item>();
+  public Map<String, Item> items = new HashMap<>();
 
   public Wall(String name, JSONObject wall) {
     this.NAME = name;

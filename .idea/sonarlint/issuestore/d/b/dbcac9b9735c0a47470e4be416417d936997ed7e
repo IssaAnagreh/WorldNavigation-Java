@@ -1,10 +1,6 @@
 
+L
+java:S3740"/Provide the parametrized type for this generic.(—ˆáû8ËóÎ¢.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ñ¡¦˜øÿÿÿÿ8ô‰Åó£.
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¾µëÓøÿÿÿÿ8ãäºñ¡.
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(úÉûüÿÿÿÿ8ãäºñ¡.
-L
-java:S3740"/Provide the parametrized type for this generic.(—ˆáû8ËóÎ¢.
-L
-java:S3740$"/Provide the parametrized type for this generic.(Ğòö¬8ËóÎ¢.
-r	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³°£Ûúÿÿÿÿ8ËóÎ¢.
-t	java:S116
-"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëñóùÿÿÿÿ8ËóÎ¢.

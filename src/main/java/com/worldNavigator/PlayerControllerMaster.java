@@ -5,27 +5,27 @@ import java.util.*;
 
 public class PlayerControllerMaster implements PlayerControllerInterface {
   PlayerModel playerModel;
-  private ArrayList<String> door_commands = new ArrayList<>();
-  private ArrayList<String> chest_commands = new ArrayList<>();
-  private ArrayList<String> mirror_commands = new ArrayList<>();
-  private ArrayList<String> painting_commands = new ArrayList<>();
-  private ArrayList<String> seller_commands = new ArrayList<>();
+  private final List<String> DOOR_COMMANDS = new ArrayList<>();
+  private final List<String> CHEST_COMMANDS = new ArrayList<>();
+  private final List<String> MIRROR_COMMANDS = new ArrayList<>();
+  private final List<String> PAINTING_COMMANDS = new ArrayList<>();
+  private final List<String> SELLER_COMMANDS = new ArrayList<>();
   public boolean hint = true;
   public Map<String, Command> commandsMap;
-  public final String HINT = ", use <hints> command to stop these hints";
+  public final String HINT_SENTENCE = ", use <hints> command to stop these hints";
 
   public PlayerControllerMaster() {
     this.init_commands();
     String checkString = "check";
-    chest_commands.add(checkString);
-    mirror_commands.add(checkString);
-    painting_commands.add(checkString);
+    CHEST_COMMANDS.add(checkString);
+    MIRROR_COMMANDS.add(checkString);
+    PAINTING_COMMANDS.add(checkString);
     String useKeyString = "useKey";
-    chest_commands.add(useKeyString);
-    door_commands.add(useKeyString);
-    door_commands.add("open");
+    CHEST_COMMANDS.add(useKeyString);
+    DOOR_COMMANDS.add(useKeyString);
+    DOOR_COMMANDS.add("open");
     String tradeString = "trade";
-    seller_commands.add(tradeString);
+    SELLER_COMMANDS.add(tradeString);
   }
 
   public void subscribe(PlayerViewer playerViewer) {
@@ -51,14 +51,14 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         playerController -> {
           this.myOrientation();
           if (this.hint)
-            this.playerModel.notify_player("You can use <o> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <o> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "location",
         playerController -> {
           this.myLocation();
           if (this.hint)
-            this.playerModel.notify_player("You can use <loc> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <loc> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put("wall", PlayerControllerInterface::wall);
     c.put("look", PlayerControllerInterface::look);
@@ -67,28 +67,28 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         playerController -> {
           this.rotateLeft();
           if (this.hint)
-            this.playerModel.notify_player("You can use <l> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <l> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "right",
         playerController -> {
           this.rotateRight();
           if (this.hint)
-            this.playerModel.notify_player("You can use <r> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <r> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "forward",
         playerController -> {
           move(PlayerControllerMaster.MoveParam.forward);
           if (this.hint)
-            this.playerModel.notify_player("You can use <f> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <f> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "backward",
         playerController -> {
           move(PlayerControllerMaster.MoveParam.backward);
           if (this.hint)
-            this.playerModel.notify_player("You can use <b> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <b> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "check",
@@ -96,21 +96,21 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
           this.check();
           this.acquire_items();
           if (this.hint)
-            this.playerModel.notify_player("You can use <c> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <c> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "myItems",
         playerController -> {
           this.myItems();
           if (this.hint)
-            this.playerModel.notify_player("You can use <items> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <items> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "useKey",
         playerController -> {
           this.use_key();
           if (this.hint)
-            this.playerModel.notify_player("You can use <key> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <key> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put("open", PlayerControllerInterface::open);
     c.put("trade", PlayerControllerInterface::trade);
@@ -119,14 +119,14 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         playerController -> {
           this.switchLights();
           if (this.hint)
-            this.playerModel.notify_player("You can use <light> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <light> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "flashLight",
         playerController -> {
           this.flashLight();
           if (this.hint)
-            this.playerModel.notify_player("You can use <flash> as a shortcut command" + this.HINT);
+            this.playerModel.notify_player("You can use <flash> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put("commands", PlayerControllerInterface::commands);
     c.put("time", PlayerControllerInterface::time);
@@ -221,19 +221,19 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     String type = this.getType();
     switch (type + "") {
       case "door":
-        this.playerModel.notify_player(this.door_commands.toString());
+        this.playerModel.notify_player(this.DOOR_COMMANDS.toString());
         break;
       case "seller":
-        this.playerModel.notify_player(this.seller_commands.toString());
+        this.playerModel.notify_player(this.SELLER_COMMANDS.toString());
         break;
       case "mirror":
-        this.playerModel.notify_player(this.mirror_commands.toString());
+        this.playerModel.notify_player(this.MIRROR_COMMANDS.toString());
         break;
       case "painting":
-        this.playerModel.notify_player(this.painting_commands.toString());
+        this.playerModel.notify_player(this.PAINTING_COMMANDS.toString());
         break;
       case "chest":
-        this.playerModel.notify_player(this.chest_commands.toString());
+        this.playerModel.notify_player(this.CHEST_COMMANDS.toString());
         break;
       default:
         this.playerModel.notify_player(this.commandsMap.keySet().toString());

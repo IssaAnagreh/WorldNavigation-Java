@@ -6,21 +6,22 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ContentManager {
-  private HashMap<String, Object> contents = new HashMap();
+  private Map<String, Object> contents = new HashMap<>();
 
   public void addItem(JSONObject item) {
     JSONObject content = (JSONObject) item.get("content");
     if (item.get("existed").equals("true")) {
-      String keysLightString = "keys";
-      this.contents.put(keysLightString, new ArrayList());
-      if (content.get(keysLightString) != null) {
-        JSONArray keys_names = (JSONArray) content.get(keysLightString);
-        List<Key> keys = new ArrayList();
+      String keysString = "keys";
+      this.contents.put(keysString, new ArrayList<Key>());
+      if (content.get(keysString) != null) {
+        JSONArray keys_names = (JSONArray) content.get(keysString);
+        List<Key> keys = new ArrayList<>();
         if (keys_names != null) {
           keys_names.forEach(emp -> keys.add(new Key(emp.toString())));
-          this.contents.put(keysLightString, keys);
+          this.contents.put(keysString, keys);
         }
       }
 
@@ -68,7 +69,7 @@ public class ContentManager {
     }
   }
 
-  public void addPlayer(HashMap player) {
+  public void addPlayer(Map<String, Object> player) {
     String goldsString = "golds";
     if (player.get(goldsString) == null) {
       this.contents.put(goldsString, 0);
@@ -89,10 +90,10 @@ public class ContentManager {
     } else {
       this.contents.put(masterKeyString, Integer.parseInt(player.get(masterKeyString).toString()));
     }
-    this.contents.put("keys", new ArrayList());
+    this.contents.put("keys", new ArrayList<Key>());
   }
 
-  public HashMap getContents() {
+  public Map<String, Object> getContents() {
     return this.contents;
   }
 

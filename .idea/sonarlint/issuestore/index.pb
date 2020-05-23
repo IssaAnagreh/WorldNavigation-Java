@@ -78,3 +78,5 @@ Z
 *src/main/java/com/worldNavigator/Gate.java,b/0/b0a35d50fcce67e609cf19402de19ab92373a19c
 _
 /src/main/java/com/worldNavigator/MasterKey.java,d/7/d706885dd964d4f23c939de6dbb52b479df963f1
+_
+/src/main/java/com/worldNavigator/Checkable.java,6/f/6f432c8e250e90c81c7a1d1fb1af8cd28c2aec33

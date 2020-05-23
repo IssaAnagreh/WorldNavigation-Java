@@ -3,6 +3,7 @@ package com.worldNavigator;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Unlocked_Checkable extends Checkable implements CheckBehavior {
   private boolean isTaken;
@@ -12,14 +13,13 @@ public class Unlocked_Checkable extends Checkable implements CheckBehavior {
 
   }
 
-  public HashMap check_content(String location, PlayerModel playerModel) {
-    HashMap content = new HashMap<String, Object>();
+  public Map<String, Object> check_content(String location, PlayerModel playerModel) {
+    Map<String, Object> content = new HashMap<>();
     if (this.isTaken) {
       playerModel.notify_player("Empty!");
     } else {
       if (location.equals(super.LOCATION)) {
         this.isTaken = true;
-        System.out.println("super.contents.getContents() "+super.contents.getContents());
         content = super.contents.getContents();
       }
     }

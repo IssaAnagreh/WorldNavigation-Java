@@ -6,16 +6,16 @@ import java.util.TimerTask;
 public class GameTimer extends PlayerController {
   Timer timer;
   private int time = 0;
-  public int seconds;
+  public final int SECONDS;
   public int remaining_time;
-  private final int MILLI_IN_SEC = 1000;
-  private PlayerModel playerModel;
+  private static final int MILLI_IN_SEC = 1000;
+  private final PlayerModel playerModel;
 
   public GameTimer(int seconds, PlayerModel playerModel) {
     timer = new Timer();
-    timer.schedule(new FinishTask(), this.MILLI_IN_SEC * seconds);
-    timer.schedule(new RemindTask(), 0, this.MILLI_IN_SEC);
-    this.seconds = seconds;
+    timer.schedule(new FinishTask(), MILLI_IN_SEC * seconds);
+    timer.schedule(new RemindTask(), 0, MILLI_IN_SEC);
+    this.SECONDS = seconds;
     this.playerModel = playerModel;
     this.playerModel.notify_player("This game will end in " + seconds + " seconds");
   }
@@ -25,10 +25,9 @@ public class GameTimer extends PlayerController {
   }
 
   class RemindTask extends TimerTask {
-    private final int SEC_IN_MIN = 60;
-
     public void run() {
-      int new_remaining_time = (seconds / this.SEC_IN_MIN) - (++time / this.SEC_IN_MIN);
+      int SEC_IN_MIN = 60;
+      int new_remaining_time = (SECONDS / SEC_IN_MIN) - (++time / SEC_IN_MIN);
       if (remaining_time != new_remaining_time) {
         remaining_time = new_remaining_time;
       }

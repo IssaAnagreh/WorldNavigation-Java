@@ -2,8 +2,8 @@ package com.worldNavigator;
 
 import org.json.simple.JSONObject;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class Checkable implements CheckBehavior {
   protected ContentManager contents;
@@ -16,31 +16,36 @@ public abstract class Checkable implements CheckBehavior {
   }
 
   public void acquire_contents(String location, PlayerModel playerModel) {
-    HashMap<String, Object> acquired_contents = this.check_content(location, playerModel);
-    if (acquired_contents.isEmpty()) {
-      return;
-    } else {
+    Map<String, Object> acquired_contents = this.check_content(location, playerModel);
+    if (!acquired_contents.isEmpty()) {
       if (acquired_contents.get("keys") != null) {
-        ((List) acquired_contents.get("keys"))
-            .forEach(emp -> ((List) playerModel.contents.get("keys")).add(emp));
+        ((List<?>) acquired_contents.get("keys"))
+            .forEach(((List) playerModel.contents.get("keys"))::add);
       }
-      if (acquired_contents.get("golds") != null) {
+
+      String goldsString = "golds";
+      if (acquired_contents.get(goldsString) != null) {
         playerModel.contents.put(
-            "golds",
-            ((int) playerModel.contents.get("golds")) + ((int) acquired_contents.get("golds")));
+            goldsString,
+            ((int) playerModel.contents.get(goldsString)) + ((int) acquired_contents.get(goldsString)));
       }
-      if (acquired_contents.get("flashLights") != null) {
+
+      String flashLightString = "flashLights";
+      if (acquired_contents.get(flashLightString) != null) {
         playerModel.contents.put(
-            "flashLights",
-            ((int) playerModel.contents.get("flashLights"))
-                + ((int) acquired_contents.get("flashLights")));
+            flashLightString,
+            ((int) playerModel.contents.get(flashLightString))
+                + ((int) acquired_contents.get(flashLightString)));
       }
-      if (acquired_contents.get("masterKeys") != null) {
+
+      String masterKeyString = "masterKeys";
+      if (acquired_contents.get(masterKeyString) != null) {
         playerModel.contents.put(
-            "masterKeys",
-            ((int) playerModel.contents.get("masterKeys"))
-                + ((int) acquired_contents.get("masterKeys")));
+            masterKeyString,
+            ((int) playerModel.contents.get(masterKeyString))
+                + ((int) acquired_contents.get(masterKeyString)));
       }
+
       playerModel.notify_player("Contents acquired " + acquired_contents);
     }
   }

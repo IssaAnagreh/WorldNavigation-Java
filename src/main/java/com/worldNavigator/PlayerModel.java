@@ -16,8 +16,8 @@ public class PlayerModel extends Observable {
   public GameTimer timer;
   public Menu menu;
   public boolean playing;
-  public HashMap<String, Item> items = new HashMap();
-  public HashMap contents;
+  public Map<String, Item> items = new HashMap();
+  public Map<String, Object> contents;
 
   public PlayerModel(MapFactory map, Menu menu) {
     this.map = map;
@@ -92,8 +92,8 @@ public class PlayerModel extends Observable {
 
   public void look() {
     if (room.isLit) {
-      Wall wall = this.room.walls.get(this.orientation);
-      notify_player(wall.check_items());
+      Wall opposite_wall = this.room.walls.get(this.orientation);
+      notify_player(opposite_wall.check_items());
     } else {
       notify_player("Dark");
     }
@@ -116,28 +116,28 @@ public class PlayerModel extends Observable {
 
   public void use_key() {
     String print = "";
-    if (((List) this.contents.get("keys")).size() > 0) {
-      Item item = this.wall.itemsFactory.getItem(this.location);
-      print = item != null ? item.applyUseKey((List) this.contents.get("keys")) : "Opening nothing";
-    } else {
+    if (((ArrayList<KeyChecker>) this.contents.get("keys")).isEmpty()) {
       print = "You have no keys";
+    } else {
+      Item item = this.wall.itemsFactory.getItem(this.location);
+      print = item != null ? item.applyUseKey((ArrayList<KeyChecker>) this.contents.get("keys")) : "Opening nothing";
     }
     notify_player(print);
   }
 
-  public String use_masterKey() {
+  public void use_masterKey() {
     String print = "";
-    List masterKeysList = new ArrayList<KeyChecker>();
-    if (((int) this.contents.get("masterKeys")) > 0) {
+    List<KeyChecker> masterKeysList = new ArrayList<>();
+    String masterKeysString = "masterKeys";
+    if (((int) this.contents.get(masterKeysString)) > 0) {
       masterKeysList.add(new MasterKey());
       Item item = this.wall.itemsFactory.getItem(this.location);
       print = item != null ? item.applyUseKey(masterKeysList) : "Opening nothing";
-      this.contents.put("masterKeys", (int) this.contents.get("masterKeys") - 1);
+      this.contents.put(masterKeysString, (int) this.contents.get(masterKeysString) - 1);
     } else {
       print = "You have no master keys";
     }
     notify_player(print);
-    return "use_masterKey";
   }
 
   public void open() {
@@ -213,7 +213,7 @@ public class PlayerModel extends Observable {
   }
 
   public void seller_buy(Seller seller) {
-    HashMap bought = seller.buy((int) this.contents.get("golds"), this);
+    Map bought = seller.buy((int) this.contents.get("golds"), this);
     if (bought.size() > 0) {
       String kind = bought.get("kind").toString();
       if (kind.equals("out of bounds")) {
@@ -256,7 +256,7 @@ public class PlayerModel extends Observable {
       trade();
     } else {
       if (type.equals("keys")) {
-        if (((List) this.contents.get("keys")).isEmpty()) {
+        if (((List<KeyChecker>) this.contents.get("keys")).isEmpty()) {
           notify_player("You dont have keys to sell");
           seller_sell(seller);
         } else {

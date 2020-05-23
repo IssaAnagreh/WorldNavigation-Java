@@ -4,11 +4,12 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Scanner;
 
 public class Seller extends Item {
-  public String LOCATION;
+  public final String LOCATION;
   public final String NAME = "Seller";
   HashMap<String, Integer> selling = new HashMap<>();
   public ContentManager contents;
@@ -33,12 +34,12 @@ public class Seller extends Item {
     return this.LOCATION;
   }
 
-  public HashMap check_content(String location) {
+  public Map check_content(String location) {
     return this.contents.getContents();
   }
 
-  public HashMap buy(int gold, PlayerModel playerModel) {
-    HashMap output = new HashMap<>();
+  public Map buy(int gold, PlayerModel playerModel) {
+    Map output = new HashMap<>();
 
     int counter = 0;
     List categories = new ArrayList();

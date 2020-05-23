@@ -29,7 +29,7 @@ public class Transition {
     switch (orientation) {
       case "n":
         {
-          int number = Integer.parseInt(location.substring(location.length() - 1));
+          int number = change_number(location);
           this.new_location =
               number > 1
                   ? (location.charAt(0)) + "" + (number - 1)
@@ -41,7 +41,7 @@ public class Transition {
         break;
       case "s":
         {
-          int number = Integer.parseInt(location.substring(location.length() - 1));
+          int number = change_number(location);
           this.new_location =
               number < 5
                   ? (location.charAt(0)) + "" + (number + 1)
@@ -58,7 +58,7 @@ public class Transition {
     switch (orientation) {
       case "n":
         {
-          int number = Integer.parseInt(location.substring(location.length() - 1));
+          int number = change_number(location);
           this.new_location =
               number < 5
                   ? (location.charAt(0)) + "" + (number + 1)
@@ -70,7 +70,7 @@ public class Transition {
         break;
       case "s":
         {
-          int number = Integer.parseInt(location.substring(location.length() - 1));
+          int number = change_number(location);
           this.new_location =
               number > 1
                   ? (location.charAt(0)) + "" + (number - 1)
@@ -87,7 +87,7 @@ public class Transition {
     switch (orientation) {
       case "n":
         {
-          int number = Integer.parseInt(location.substring(location.length() - 1));
+          int number = change_number(location);
           this.new_location =
               number > 1 ? (location.charAt(0)) + "" + (number - 1) : (location.charAt(0)) + "" + 5;
           break;
@@ -98,7 +98,7 @@ public class Transition {
         break;
       case "s":
         {
-          int number = Integer.parseInt(location.substring(location.length() - 1));
+          int number = change_number(location);
           this.new_location =
               number < 5 ? (location.charAt(0)) + "" + (number + 1) : (location.charAt(0)) + "" + 1;
           break;
@@ -164,6 +164,10 @@ public class Transition {
       default:
         return "e";
     }
+  }
+
+  private int change_number(String location) {
+    return Integer.parseInt(location.substring(location.length() - 1));
   }
 
   @Override
