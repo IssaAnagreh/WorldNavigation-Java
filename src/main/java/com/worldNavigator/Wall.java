@@ -20,12 +20,12 @@ public class Wall {
     this.items = this.itemsFactory.items;
   }
 
-  public String check_items() {
+  public String checkItems() {
     return this.items.isEmpty() ? "Nothing to look at" : this.items.values().toString();
   }
 
   @Override
   public String toString() {
-    return "Wall name: " + this.NAME + ", items: " + check_items();
+    return "Wall name: " + this.NAME + ", items: " + checkItems();
   }
 }

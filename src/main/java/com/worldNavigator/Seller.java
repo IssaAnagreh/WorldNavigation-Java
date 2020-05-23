@@ -19,7 +19,7 @@ public class Seller extends Item {
     if (seller.get("existed").equals("true")) {
       super.setCheckBehavior(new Uncheckable());
       this.contents = new ContentManager();
-      this.contents.addSellerItem(seller);
+      this.contents.manageSellerItem(seller);
     }
     if (seller.get("selling") != null) {
       JSONObject temp_selling = (JSONObject) seller.get("selling");

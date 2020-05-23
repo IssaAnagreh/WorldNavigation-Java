@@ -38,7 +38,7 @@ public class PlayerModel extends Observable {
 
   public void startGame() {
     this.playing = true;
-    long end_time = this.map.end_time;
+    long end_time = this.map.endTime;
 
     // start game timer
     long start = System.currentTimeMillis();
@@ -93,7 +93,7 @@ public class PlayerModel extends Observable {
   public void look() {
     if (room.isLit) {
       Wall opposite_wall = this.room.walls.get(this.orientation);
-      notify_player(opposite_wall.check_items());
+      notify_player(opposite_wall.checkItems());
     } else {
       notify_player("Dark");
     }

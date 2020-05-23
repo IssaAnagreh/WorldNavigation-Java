@@ -21,7 +21,7 @@ public abstract class Item {
   public abstract String getType();
 
   public void applyAcquire(String location, PlayerModel playerModel) {
-    checkBehavior.acquire_contents(location, playerModel);
+    checkBehavior.acquireContents(location, playerModel);
   }
 
   public String applyUseKey(List<KeyChecker> keys) {

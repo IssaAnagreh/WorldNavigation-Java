@@ -3,11 +3,11 @@ package com.worldNavigator;
 import java.util.List;
 
 public interface UseKeyBehavior {
-  Boolean getIs_locked();
+  Boolean get_isLocked();
 
-  void initIs_locked(Boolean isLocked);
+  void init_isLocked(Boolean isLocked);
 
-  void setIs_locked(Boolean isLocked);
+  void set_isLocked(Boolean isLocked);
 
   String getKey();
 

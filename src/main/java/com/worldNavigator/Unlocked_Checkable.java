@@ -13,7 +13,7 @@ public class Unlocked_Checkable extends Checkable implements CheckBehavior {
 
   }
 
-  public Map<String, Object> check_content(String location, PlayerModel playerModel) {
+  public Map<String, Object> checkContent(String location, PlayerModel playerModel) {
     Map<String, Object> content = new HashMap<>();
     if (this.isTaken) {
       playerModel.notify_player("Empty!");

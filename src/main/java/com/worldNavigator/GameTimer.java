@@ -7,7 +7,7 @@ public class GameTimer extends PlayerController {
   Timer timer;
   private int time = 0;
   public final int SECONDS;
-  public int remaining_time;
+  public int remainingTime;
   private static final int MILLI_IN_SEC = 1000;
   private final PlayerModel playerModel;
 
@@ -21,15 +21,15 @@ public class GameTimer extends PlayerController {
   }
 
   public void getRemaining_time() {
-    this.playerModel.notify_player("Remaining time: " + remaining_time + " minutes");
+    this.playerModel.notify_player("Remaining time: " + remainingTime + " minutes");
   }
 
   class RemindTask extends TimerTask {
     public void run() {
       int SEC_IN_MIN = 60;
       int new_remaining_time = (SECONDS / SEC_IN_MIN) - (++time / SEC_IN_MIN);
-      if (remaining_time != new_remaining_time) {
-        remaining_time = new_remaining_time;
+      if (remainingTime != new_remaining_time) {
+        remainingTime = new_remaining_time;
       }
     }
   }

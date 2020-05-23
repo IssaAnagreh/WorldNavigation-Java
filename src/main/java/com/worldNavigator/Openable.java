@@ -11,22 +11,22 @@ public class Openable implements UseKeyBehavior {
 
   public Openable(JSONObject item, String name) {
     this.setKey(new Key((String) item.get("key")));
-    this.initIs_locked(item.get("is_locked").equals("true"));
+    this.init_isLocked(item.get("is_locked").equals("true"));
     this.NAME = name;
   }
 
   @Override
-  public Boolean getIs_locked() {
+  public Boolean get_isLocked() {
     return isLocked;
   }
 
   @Override
-  public void initIs_locked(Boolean isLocked) {
+  public void init_isLocked(Boolean isLocked) {
     this.isLocked = isLocked;
   }
 
   @Override
-  public void setIs_locked(Boolean isLocked) {
+  public void set_isLocked(Boolean isLocked) {
     this.isLocked = (this.isLocked != null && !this.isLocked) ? false : isLocked;
   }
 
@@ -43,11 +43,11 @@ public class Openable implements UseKeyBehavior {
   @Override
   public String useKey(List<KeyChecker> keys) {
     String print = "";
-    if (this.getIs_locked() != null && this.getIs_locked()) {
+    if (this.get_isLocked() != null && this.get_isLocked()) {
       boolean locked = true;
       for (KeyChecker keyItem : keys) {
         locked = locked && !keyItem.unlock(this);
-        this.setIs_locked(locked);
+        this.set_isLocked(locked);
       }
       if (locked) {
         print = "Look for a suitable key";

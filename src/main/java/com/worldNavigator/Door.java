@@ -21,7 +21,7 @@ public class Door extends Item implements NextGoing {
   }
 
   public String getNextRoom() {
-    if (super.useKeyBehavior != null && super.useKeyBehavior.getIs_locked()) {
+    if (super.useKeyBehavior != null && super.useKeyBehavior.get_isLocked()) {
       return "locked";
     } else {
       if (this.getGolden() != null && this.getGolden()) {

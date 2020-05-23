@@ -11,7 +11,7 @@ import java.util.Map;
 public class ContentManager {
   private Map<String, Object> contents = new HashMap<>();
 
-  public void addItem(JSONObject item) {
+  public void manageItem(JSONObject item) {
     JSONObject content = (JSONObject) item.get("content");
     if (item.get("existed").equals("true")) {
       String keysString = "keys";
@@ -51,7 +51,7 @@ public class ContentManager {
     }
   }
 
-  public void addSellerItem(JSONObject seller) {
+  public void manageSellerItem(JSONObject seller) {
     if (seller.get("existed").equals("true")) {
       this.contents = (HashMap) seller.get("content");
       for (String contentKey : contents.keySet()) {
@@ -69,7 +69,7 @@ public class ContentManager {
     }
   }
 
-  public void addPlayer(Map<String, Object> player) {
+  public void managePlayer(Map<String, Object> player) {
     String goldsString = "golds";
     if (player.get(goldsString) == null) {
       this.contents.put(goldsString, 0);

@@ -14,13 +14,13 @@ public class Locked_Checkable extends Checkable implements CheckBehavior {
     this.useKeyBehavior = useKeyBehavior;
   }
 
-  public Map<String, Object> check_content(String location, PlayerModel playerModel) {
+  public Map<String, Object> checkContent(String location, PlayerModel playerModel) {
     Map<String, Object> content = new HashMap<>();
     if (this.isTaken) {
       playerModel.notify_player("Empty!");
     } else {
       if (this.compareTo(location) == 0) {
-        if (this.useKeyBehavior.getIs_locked() != null && this.useKeyBehavior.getIs_locked()) {
+        if (this.useKeyBehavior.get_isLocked() != null && this.useKeyBehavior.get_isLocked()) {
           playerModel.notify_player("You must use the key or find it for this object");
         } else {
           this.isTaken = true;
