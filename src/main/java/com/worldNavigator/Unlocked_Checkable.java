@@ -9,8 +9,8 @@ public class Unlocked_Checkable extends Checkable implements CheckBehavior {
   private boolean isTaken;
 
   public Unlocked_Checkable(JSONObject item, String location) {
-    super(item, location);
-
+    super(location);
+    super.setContents(item);
   }
 
   public Map<String, Object> checkContent(String location, PlayerModel playerModel) {
@@ -20,7 +20,7 @@ public class Unlocked_Checkable extends Checkable implements CheckBehavior {
     } else {
       if (location.equals(super.LOCATION)) {
         this.isTaken = true;
-        content = super.contents.getContents();
+        content = super.getContents().getContents();
       }
     }
     return content;

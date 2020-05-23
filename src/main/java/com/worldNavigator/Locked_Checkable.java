@@ -10,8 +10,9 @@ public class Locked_Checkable extends Checkable implements CheckBehavior {
   private UseKeyBehavior useKeyBehavior;
 
   public Locked_Checkable(JSONObject item, String location, UseKeyBehavior useKeyBehavior) {
-    super(item, location);
+    super(location);
     this.useKeyBehavior = useKeyBehavior;
+    super.setContents(item);
   }
 
   public Map<String, Object> checkContent(String location, PlayerModel playerModel) {
@@ -24,7 +25,7 @@ public class Locked_Checkable extends Checkable implements CheckBehavior {
           playerModel.notify_player("You must use the key or find it for this object");
         } else {
           this.isTaken = true;
-          content = super.contents.getContents();
+          content = super.getContents().getContents();
         }
       }
     }

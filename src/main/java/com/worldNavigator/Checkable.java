@@ -6,13 +6,20 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class Checkable implements CheckBehavior {
-  protected ContentManager contents;
+  private ContentManager contents;
   protected final String LOCATION;
 
-  public Checkable(JSONObject item, String location) {
+  public Checkable(String location) {
+    this.LOCATION = location;
+  }
+
+  protected void setContents(JSONObject item) {
     this.contents = new ContentManager();
     this.contents.manageItem(item);
-    this.LOCATION = location;
+  }
+
+  protected ContentManager getContents() {
+    return contents;
   }
 
   public void acquireContents(String location, PlayerModel playerModel) {

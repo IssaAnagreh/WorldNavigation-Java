@@ -104,7 +104,7 @@ public class PlayerModel extends Observable {
   }
 
   public void check() {
-    notify_player(this.wall.itemsFactory.check_item_by_location(this.location));
+    notify_player(this.wall.itemsFactory.checkItemByLocation(this.location));
   }
 
   public void acquire_items() {
