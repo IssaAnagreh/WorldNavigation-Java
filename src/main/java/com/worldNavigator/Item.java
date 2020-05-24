@@ -28,8 +28,8 @@ public abstract class Item {
     return useKeyBehavior.useKey(keys);
   }
 
+  public abstract int compareTo(String location);
+
   @Override
   public abstract String toString();
-
-  public abstract int compareTo(String location);
 }

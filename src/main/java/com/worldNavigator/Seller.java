@@ -126,12 +126,12 @@ public class Seller extends Item {
   }
 
   @Override
-  public String toString() {
-    return "Seller: " + this.NAME + " in: " + this.LOCATION;
+  public int compareTo(String location) {
+    return this.getLocation().compareTo(location);
   }
 
   @Override
-  public int compareTo(String location) {
-    return this.getLocation().compareTo(location);
+  public String toString() {
+    return "Seller: " + this.NAME + " in: " + this.LOCATION;
   }
 }

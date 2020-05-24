@@ -37,14 +37,14 @@ public class Chest extends Item {
   }
 
   @Override
-  public String toString() {
-    return (super.useKeyBehavior.get_isLocked() != null && super.useKeyBehavior.get_isLocked())
-        ? "LOCKED Chest: " + this.NAME + ", in: " + this.LOCATION
-        : "UNLOCKED Chest: " + this.NAME + ", in: " + this.LOCATION;
+  public int compareTo(String location) {
+    return this.getLocation().compareTo(location);
   }
 
   @Override
-  public int compareTo(String location) {
-    return this.getLocation().compareTo(location);
+  public String toString() {
+    return (super.useKeyBehavior.get_isLocked() != null && super.useKeyBehavior.get_isLocked())
+            ? "LOCKED Chest: " + this.NAME + ", in: " + this.LOCATION
+            : "UNLOCKED Chest: " + this.NAME + ", in: " + this.LOCATION;
   }
 }

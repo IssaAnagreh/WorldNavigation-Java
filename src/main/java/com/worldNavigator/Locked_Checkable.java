@@ -32,12 +32,12 @@ public class Locked_Checkable extends Checkable implements CheckBehavior {
     return content;
   }
 
+  public int compareTo(String location) {
+    return super.LOCATION.compareTo(location);
+  }
+
   @Override
   public String toString() {
     return "Locked_Checkable";
-  }
-
-  public int compareTo(String location) {
-    return super.LOCATION.compareTo(location);
   }
 }

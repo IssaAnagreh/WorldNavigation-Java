@@ -51,12 +51,12 @@ public class Door extends Item implements NextGoing {
   }
 
   @Override
-  public String toString() {
-    return "Door: " + this.NAME + ", in " + this.LOCATION;
+  public int compareTo(String location) {
+    return this.getLocation().compareTo(location);
   }
 
   @Override
-  public int compareTo(String location) {
-    return this.getLocation().compareTo(location);
+  public String toString() {
+    return "Door: " + this.NAME + ", in " + this.LOCATION;
   }
 }

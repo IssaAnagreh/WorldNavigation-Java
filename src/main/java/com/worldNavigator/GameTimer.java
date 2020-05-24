@@ -3,7 +3,7 @@ package com.worldNavigator;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GameTimer extends PlayerController {
+public final class GameTimer extends PlayerController {
   Timer timer;
   private int time = 0;
   public final int SECONDS;

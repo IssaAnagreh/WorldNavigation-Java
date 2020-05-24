@@ -15,12 +15,12 @@ public class Key implements KeyChecker {
     return compareTo(openable.getKey()) == 0;
   }
 
+  public int compareTo(String key) {
+    return this.NAME.compareTo(key);
+  }
+
   @Override
   public String toString() {
     return this.getName();
-  }
-
-  public int compareTo(String key) {
-    return this.NAME.compareTo(key);
   }
 }
