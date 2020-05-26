@@ -1,33 +1,23 @@
 
-’
-java:S1319"pThe type of the "contents" object should be an interface such as "Map" rather than the implementation "HashMap".(õÜÜ„ûÿÿÿÿ8öğòô£.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-o	java:S116"SRename this field "end_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÌè8ß¹ğÎ¢.
-x	java:S116"WRename this field "room_counter" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠåÆåüÿÿÿÿ8ß¹ğÎ¢.
-v
-java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ8ß¹ğÎ¢.
-E
-java:S1148)"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¹ğÎ¢.
-L
-java:S3740"/Provide the parametrized type for this generic.(áá¿8ß¹ğÎ¢.
-E
-java:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¹ğÎ¢.
-n
-java:S1104"QMake rooms a static final constant or non-public and provide accessors if needed.(áá¿8ß¹ğÎ¢.
-q
-java:S1104"TMake end_time a static final constant or non-public and provide accessors if needed.(àÌè8ß¹ğÎ¢.
-f
-java:S2147,"DCombine this catch with the one at line 40, which has the same body.(âÃƒŠıÿÿÿÿ8ß¹ğÎ¢.
-r	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™ùöüÿÿÿÿ8™õô£.
-E
-java:S1148-"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¹ğÎ¢.
 r
-java:S1104"UMake roomIndex a static final constant or non-public and provide accessors if needed.(àÜÒâ8ß¹ğÎ¢.
-Q
-java:S3740"/Provide the parametrized type for this generic.(õÜÜ„ûÿÿÿÿ8öğòô£.
-v
-java:S1104"TMake contents a static final constant or non-public and provide accessors if needed.(õÜÜ„ûÿÿÿÿ8öğòô£.
-a
-java:S2147*"DCombine this catch with the one at line 40, which has the same body.(ï­£Ä8ß¹ğÎ¢.
+java:S1104"UMake roomIndex a static final constant or non-public and provide accessors if needed.(àÜÒâ8ß¹ğÎ¢.
+E
+java:S1148*"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¹ğÎ¢.
+s
+java:S1104"QMake rooms a static final constant or non-public and provide accessors if needed.(¦†æ´ıÿÿÿÿ8ß¹ğÎ¢.
 t
-java:S1104"WMake orientation a static final constant or non-public and provide accessors if needed.(ÓÜç²8ß¹ğÎ¢.
+java:S1104"WMake orientation a static final constant or non-public and provide accessors if needed.(ÓÜç²8ß¹ğÎ¢.
+f
+java:S2147-"DCombine this catch with the one at line 41, which has the same body.(âÃƒŠıÿÿÿÿ8ß¹ğÎ¢.
+v
+java:S1104"TMake contents a static final constant or non-public and provide accessors if needed.(ÓÎÔøÿÿÿÿ8öğòô£.
+a
+java:S2147+"DCombine this catch with the one at line 41, which has the same body.(ï­£Ä8ß¹ğÎ¢.
+v
+java:S1104"TMake location a static final constant or non-public and provide accessors if needed.(û³Ş¿şÿÿÿÿ8ß¹ğÎ¢.
+E
+java:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¹ğÎ¢.
+E
+java:S1148,"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¹ğÎ¢.
+p
+java:S1104"SMake endTime a static final constant or non-public and provide accessors if needed.(åø¥²8£Ä˜¤.

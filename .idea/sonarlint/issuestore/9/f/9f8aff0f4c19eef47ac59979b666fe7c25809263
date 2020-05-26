@@ -1,37 +1,33 @@
 
+Q
+java:S3740x"/Provide the parametrized type for this generic.(†ÁÒ±ıÿÿÿÿ8¿ ìî¤.
 q
-java:S1104"TMake contents a static final constant or non-public and provide accessors if needed.(Ó¬Ö…8¬™óÎ¢.
-o	java:S116"SRename this field "LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷´ñ±8¬™óÎ¢.
-Q
-java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ş¤´8¬™óÎ¢.
-o	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¼¨Üüÿÿÿÿ8¬™óÎ¢.
+java:S1104"TMake contents a static final constant or non-public and provide accessors if needed.(Ó¬Ö…8¬™óÎ¢.
 L
-java:S3740,"/Provide the parametrized type for this generic.(©ıÒ™8¬™óÎ¢.
-q
-java:S1104"TMake LOCATION a static final constant or non-public and provide accessors if needed.(÷´ñ±8¬™óÎ¢.
+java:S3740z"/Provide the parametrized type for this generic.(©ıÒ™8Ë½êî¤.
+Q
+java:S3740%"/Provide the parametrized type for this generic.(‘Ì¿Šúÿÿÿÿ8Šù‰¤.
+Q
+java:S3740O"/Provide the parametrized type for this generic.(ûğ‘–ÿÿÿÿÿ8Ûòï¤.
+Q
+java:S3740:"/Provide the parametrized type for this generic.(°¹›Ÿùÿÿÿÿ8«€‡ï¤.
+K
+java:S3740;"/Provide the parametrized type for this generic.(ÃÃ¢b8¾Ÿï¤.
+Q
+java:S1172%"/Remove this unused method parameter "location".(‘Ì¿Šúÿÿÿÿ8¬™óÎ¢.
 L
-java:S3740,"/Provide the parametrized type for this generic.(©ıÒ™8¬™óÎ¢.
-p	java:S116"ORename this field "NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤úÁôøÿÿÿÿ8¬™óÎ¢.
-o
-java:S3776("RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(Áì¼š8¬™óÎ¢.
-Š
-java:S1319("mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Áì¼š8¬™óÎ¢.
+java:S3740z"/Provide the parametrized type for this generic.(©ıÒ™8Ë½êî¤.
+t
+java:S37769"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(Üä¢‹ÿÿÿÿÿ8Ûòï¤.
 Q
-java:S1172$"/Remove this unused method parameter "location".(Á¼¨Üüÿÿÿÿ8¬™óÎ¢.
+java:S3740)"/Provide the parametrized type for this generic.(Ìû¹½øÿÿÿÿ8“®•ï¤.
 Q
-java:S3740)"/Provide the parametrized type for this generic.(ÊŒå§øÿÿÿÿ8¬™óÎ¢.
-Q
-java:S3740$"/Provide the parametrized type for this generic.(Á¼¨Üüÿÿÿÿ8¬™óÎ¢.
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊÂÒ±8¬™óÎ¢.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-
-java:S1319$"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Á¼¨Üüÿÿÿÿ8¬™óÎ¢.
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ş¤´8¬™óÎ¢.
 V
-java:S2864J"4Iterate over the "entrySet" instead of the "keySet".(ò²æèÿÿÿÿÿ8¬™óÎ¢.
-C
-java:S1170"!Make this final field static too.(¤úÁôøÿÿÿÿ8¬™óÎ¢.
-L
-java:S3740("/Provide the parametrized type for this generic.(Áì¼š8¬™óÎ¢.
-r	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ£º£ıÿÿÿÿ8¬™óÎ¢.
+java:S2864T"4Iterate over the "entrySet" instead of the "keySet".(ò²æèÿÿÿÿÿ8Ûòï¤.
 Q
-java:S3740H"/Provide the parametrized type for this generic.(ûğ‘–ÿÿÿÿÿ8¬™óÎ¢.
+java:S37409"/Provide the parametrized type for this generic.(Üä¢‹ÿÿÿÿÿ8Õú€ï¤.
+L
+java:S3740-"/Provide the parametrized type for this generic.( ©‰Å8“®•ï¤.
+L
+java:S3740d"/Provide the parametrized type for this generic.(˜ï¥®8­Úüî¤.

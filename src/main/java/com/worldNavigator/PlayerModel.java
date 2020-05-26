@@ -220,13 +220,17 @@ public class PlayerModel extends Observable {
         notify_player("Choose an existed item's index");
         seller_buy(seller);
       } else {
-        notify_player("bought " + bought);
+        notify_player("Bought " + bought);
         this.contents.put(
-            "golds", ((int) this.contents.get("golds")) + ((int) bought.get("golds")));
+            "golds", bought.get("golds"));
         switch (kind) {
           case "keys":
-            this.contents.put("keys", ((List) this.contents.get("keys")).add(bought.get("item")));
-            break;
+            {
+              List<Key> list = (List<Key>) this.contents.get("keys");
+              list.add((Key) bought.get("item"));
+              this.contents.put("keys", list);
+              break;
+            }
           case "flashLights":
             this.contents.put("flashLights", ((int) this.contents.get("flashLights")) + 1);
             break;
@@ -234,7 +238,6 @@ public class PlayerModel extends Observable {
             notify_player("Kind is not standard");
             break;
         }
-        notify_player("Item successfully bought");
         notify_player("Your Items: ");
         myItems();
         seller_buy(seller);

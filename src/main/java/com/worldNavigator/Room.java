@@ -12,7 +12,7 @@ public class Room {
   public final int ROOM_NUMBER;
 
   public Room(JSONObject room, int room_counter) {
-    this.ROOM_NAME = room.get("name") != null ? (String) room.get("name") : "room_"+(room_counter+1);
+    this.ROOM_NAME = room.get("name") == null ? "room_"+(room_counter+1) : (String) room.get("name");
     this.ROOM_NUMBER = room_counter;
     generateRoom(room);
   }

@@ -48,7 +48,9 @@ public class MapFactory {
   }
 
   private void parseMapObject(JSONObject map) {
-    if (map != null) {
+    if (map == null) {
+      throw new IllegalArgumentException();
+    } else {
       // Get map object within list
       name = (String) map.get("name");
       endTime = (long) map.get("end_time");
@@ -58,32 +60,36 @@ public class MapFactory {
       contentManager.managePlayer(player_details);
       this.contents = contentManager.getContents();
       this.location =
-          (player_details).get("location") != null
-              ? (player_details).get("location").toString()
-              : "c3";
+              (player_details).get("location") != null
+                      ? (player_details).get("location").toString()
+                      : "c3";
       this.orientation =
-          (player_details).get("orientation") != null
-              ? (player_details).get("orientation").toString()
-              : "n";
+              (player_details).get("orientation") != null
+                      ? (player_details).get("orientation").toString()
+                      : "n";
       this.roomIndex =
-          (player_details).get("roomIndex") != null
-              ? Integer.parseInt((player_details).get("roomIndex").toString())
-              : 0;
+              (player_details).get("roomIndex") != null
+                      ? Integer.parseInt((player_details).get("roomIndex").toString())
+                      : 0;
 
       JSONArray jsonRooms = (JSONArray) map.get("rooms");
       jsonRooms.forEach(room -> parseRoomObject((JSONObject) room));
-    } else {
-      throw new IllegalArgumentException();
     }
   }
 
   private void parseRoomObject(JSONObject room) {
     // Get room object within list
     JSONObject roomObject = null;
-    if (room != null) roomObject = (JSONObject) room.get("room");
+    if (room != null) {
+      roomObject = (JSONObject) room.get("room");
+    } else {
+      throw new IllegalArgumentException();
+    }
     if (roomObject != null) {
       rooms.add(new Room(roomObject, room_counter));
       this.room_counter++;
+    } else {
+      throw new IllegalArgumentException();
     }
   }
 

@@ -1,27 +1,18 @@
 
 L
-java:S5411("*Use the primitive boolean expression here.(ö«¹ÿÿÿÿÿ8ûÌòÎ¢.
-u	java:S116	"TRename this field "ROOM_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆøŞÿÿÿÿÿ8ûÌòÎ¢.
-n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¨¥;
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôú ä8ûÌòÎ¢.
-L
-java:S54113"*Use the primitive boolean expression here.(Ö‘µÅşÿÿÿÿ8ûÌòÎ¢.
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·¡µÕùÿÿÿÿ8ûÌòÎ¢.
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê€Øà8ûÌòÎ¢.
-l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÁ¬F8ûÌòÎ¢.
-q	java:S116"VRename this field "ROOM_NUMBER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—Ùò
-8ûÌòÎ¢.
+java:S5411&"*Use the primitive boolean expression here.(ÜÿË¦øÿÿÿÿ8ûÌòÎ¢.
+s
+java:S1104"QMake walls a static final constant or non-public and provide accessors if needed.(²äÇ°üÿÿÿÿ8ûÌòÎ¢.
+t
+java:S1104"WMake lightSwitch a static final constant or non-public and provide accessors if needed.(ö´¸—8ûÌòÎ¢.
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(²äÇ°üÿÿÿÿ8ûÌòÎ¢.
 s
 java:S1104
 "QMake isLit a static final constant or non-public and provide accessors if needed.(Í¸ÒÂıÿÿÿÿ8ûÌòÎ¢.
 L
-java:S5411&"*Use the primitive boolean expression here.(ÜÿË¦øÿÿÿÿ8ûÌòÎ¢.
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(²äÇ°üÿÿÿÿ8ûÌòÎ¢.
-t
-java:S1104"WMake lightSwitch a static final constant or non-public and provide accessors if needed.(ö´¸—8ûÌòÎ¢.
+java:S5411("*Use the primitive boolean expression here.(ö«¹ÿÿÿÿÿ8ûÌòÎ¢.
 
 java:S1319"mThe type of the "walls" object should be an interface such as "Map" rather than the implementation "HashMap".(²äÇ°üÿÿÿÿ8ûÌòÎ¢.
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ƒÚ¾ùÿÿÿÿ8ûÌòÎ¢.
-s
-java:S1104"QMake walls a static final constant or non-public and provide accessors if needed.(²äÇ°üÿÿÿÿ8ûÌòÎ¢.
+L
+java:S54113"*Use the primitive boolean expression here.(Ö‘µÅşÿÿÿÿ8ûÌòÎ¢.
