@@ -52,6 +52,10 @@ public class PlayerModel extends Observable {
     return this.contents.get(contentType);
   }
 
+  public Map getContents() {
+    return this.contents;
+  }
+
   public String getRoom() {
     drawRoom();
     return room.toString();
@@ -209,7 +213,6 @@ public class PlayerModel extends Observable {
     Seller seller = (Seller) this.wall.items.get("seller");
 
     if (seller != null) {
-      notify_player("This seller has: " + seller.check_content());
       notify_player("You can use buy, sell, list or finish commands");
       Scanner sc = new Scanner(System.in);
       String command = sc.nextLine();
@@ -224,6 +227,8 @@ public class PlayerModel extends Observable {
           seller_list(seller);
           break;
         case "finish":
+          this.notify_player("Your items:");
+          this.myItems();
           break;
         default:
           trade();
@@ -236,6 +241,7 @@ public class PlayerModel extends Observable {
 
   public void seller_list(Seller seller) {
     notify_player(seller.contents.getContents().toString());
+    this.trade();
   }
 
   public void seller_buy(Seller seller) {

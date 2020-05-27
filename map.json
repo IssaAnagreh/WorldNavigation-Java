@@ -6,9 +6,9 @@
     "player": {
       "golds": 13,
       "flashLights": 0,
-      "orientation": "w",
-      "location": "c3",
-      "roomIndex": 0
+      "orientation": "e",
+      "location": "e4",
+      "roomIndex": 1
     },
     "rooms": [
       {

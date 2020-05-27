@@ -47,11 +47,11 @@ public class Seller extends Item {
 
   private void buyingCommands(int gold) {
     this.playerModel.notify_player("Type the number of the item you want to buy");
-    this.categories = this.buyingList(this.playerModel);
+    this.categories = this.buyingList();
     Scanner sc = new Scanner(System.in);
     int index = sc.nextInt();
     if (index == -1) {
-      this.quitBuying(this.playerModel);
+      this.playerModel.trade();
     } else {
       this.completeBuying(gold, index);
     }
@@ -94,6 +94,7 @@ public class Seller extends Item {
           this.playerModel.notify_player("Bought " + item.get("name"));
           this.playerModel.addToContents(
               "golds", gold - Integer.parseInt(item.get("cost").toString()));
+          this.playerModel.trade();
         } else {
           this.playerModel.notify_player("Return when you have enough gold");
         }
@@ -101,11 +102,7 @@ public class Seller extends Item {
     }
   }
 
-  private void quitBuying(PlayerModel playerModel) {
-    playerModel.notify_player("You quited trading");
-  }
-
-  private List buyingList(PlayerModel playerModel) {
+  private List buyingList() {
     int counter = 0;
     List categories = new ArrayList();
     playerModel.notify_player(-1 + ": " + "quit");
@@ -124,37 +121,52 @@ public class Seller extends Item {
     this.playerModel = playerModel;
 
     this.playerModel.notify_player("Items and values this seller is willing to buy: ");
-    this.playerModel.notify_player(this.selling.toString());
+    for (String content: this.selling.keySet()) {
+      this.playerModel.notify_player(content + " can be sold by: " + this.selling.get(content) + " golds");
+    }
 
-    this.playerModel.notify_player(
-        "Enter the type of the item you want to sell: "
-            + this.selling.keySet()
-            + " or type quit to cancel");
-    Scanner sc1 = new Scanner(System.in);
-    String type = sc1.next();
-    this.sellingCommands(type);
+    this.sellingCommands();
   }
 
-  private void sellingCommands(String type) {
-    if (this.selling.get(type) == null) {
-      playerModel.notify_player("This item is not in the list");
-      this.sell(playerModel);
-    } else {
-      if (type.equals("quit")) {
-        return;
-      } else {
-        this.checkSellingType(type);
+  private List sellingList() {
+    this.playerModel.notify_player("Type the number of the item you want to sell");
+    int counter = 0;
+    List categories = new ArrayList();
+    playerModel.notify_player(-1 + ": " + "quit");
+    for (Object category : playerModel.getContents().keySet()) {
+      if (!category.toString().equals("golds")) {
+        playerModel.notify_player(counter + ": " + category);
+        categories.add(category);
+        counter++;
       }
+    }
+    return categories;
+  }
+
+  private void sellingCommands() {
+    this.categories = this.sellingList();
+
+    Scanner sc1 = new Scanner(System.in);
+    int type = sc1.nextInt();
+    if (type == -1) {
+      this.playerModel.trade();
+      return;
+    }
+    if (type < this.categories.size()) {
+      this.checkSellingType(this.categories.get(type).toString());
+    } else {
+      this.playerModel.notify_player("This item is not in the list");
+      this.sellingCommands();
     }
   }
 
   private void checkSellingType(String type) {
     if (type.equals("keys")) {
-      this.sellingKeys(type);
+      this.sellingKeys();
     } else {
       if (this.playerModel.getContent(type) == null) {
         this.playerModel.notify_player("Choose a correct type");
-        this.sell(playerModel);
+        this.sellingCommands();
       } else {
         if (((int) this.playerModel.getContent(type)) > 0) {
           this.playerModel.addToContents(type, ((int) this.playerModel.getContent(type)) - 1);
@@ -163,38 +175,55 @@ public class Seller extends Item {
               (Integer.parseInt(this.playerModel.getContent("golds").toString()))
                   + this.selling.get(type));
           this.playerModel.notify_player("Done!");
-          this.playerModel.notify_player("Your Items: ");
-          this.playerModel.myItems();
+          this.playerModel.trade();
         } else {
           this.playerModel.notify_player("You dont have " + type + " to sell");
-          this.sell(playerModel);
+          this.sellingCommands();
         }
       }
     }
   }
 
-  private void sellingKeys(String type) {
+  private void sellingKeys() {
     if (((List<KeyChecker>) this.playerModel.getContent("keys")).isEmpty()) {
       this.playerModel.notify_player("You dont have keys to sell");
-      this.sell(playerModel);
+      this.sellingCommands();
     } else {
-      this.playerModel.notify_player(
-          "Enter the name of the item you want to sell: " + this.playerModel.getContent("keys"));
+      this.playerModel.notify_player("Enter the number of the key you want to sell: ");
+
+      this.keysNotifier();
+
       Scanner sc2 = new Scanner(System.in);
-      String item = sc2.next();
-      for (KeyChecker key : ((List<KeyChecker>) this.playerModel.getContent("keys"))) {
-        if (key.toString().equals(item)) {
-          ((List<KeyChecker>) this.playerModel.getContent("keys")).remove(key);
-          this.playerModel.addToContents(
+      int item = sc2.nextInt();
+      this.completeKeysSelling(item);
+    }
+  }
+
+  private void keysNotifier() {
+    int counter = 0;
+    playerModel.notify_player(-1 + ": " + "quit");
+    for (KeyChecker key : ((List<KeyChecker>) this.playerModel.getContent("keys"))) {
+      playerModel.notify_player(counter + ": " + key);
+      counter++;
+    }
+  }
+
+  private void completeKeysSelling(int item) {
+    if (item < 0) {
+      this.sell(this.playerModel);
+      return;
+    }
+    List<KeyChecker> keysList = (List<KeyChecker>) this.playerModel.getContent("keys");
+    if (item < keysList.size()) {
+      keysList.remove(item);
+      this.playerModel.addToContents(
               "golds",
               (Integer.parseInt(this.playerModel.getContent("golds").toString()))
-                  + this.selling.get(type));
-          this.playerModel.notify_player("Done!");
-          this.playerModel.notify_player("Your Items: ");
-          this.playerModel.myItems();
-          return;
-        }
-      }
+                      + this.selling.get("keys"));
+      this.playerModel.notify_player("Done!");
+      this.playerModel.trade();
+    } else {
+      this.sellingKeys();
     }
   }
 
