@@ -107,7 +107,7 @@ public class ItemsFactory {
         return item;
       }
     }
-    return null;
+    return new Space();
   }
 
   @Override
