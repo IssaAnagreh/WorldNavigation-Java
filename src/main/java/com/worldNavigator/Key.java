@@ -12,7 +12,7 @@ public class Key implements KeyChecker {
   }
 
   public Boolean unlock(Openable openable) {
-    return compareTo(openable.getKey()) == 0;
+    return this.compareTo(openable.getKey()) == 0;
   }
 
   public int compareTo(String key) {

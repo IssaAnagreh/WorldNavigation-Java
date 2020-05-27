@@ -53,7 +53,12 @@ public class PlayerModel extends Observable {
   }
 
   public String getRoom() {
+    drawRoom();
     return room.toString();
+  }
+
+  public void drawRoom() {
+    new RoomDrawer(location, this.room);
   }
 
   public void wall() {
