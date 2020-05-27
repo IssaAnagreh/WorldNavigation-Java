@@ -13,6 +13,8 @@ public class Seller extends Item {
   public final String NAME = "Seller";
   HashMap<String, Integer> selling = new HashMap<>();
   public ContentManager contents;
+  private List categories;
+  private PlayerModel playerModel;
 
   public Seller(JSONObject seller) {
     this.LOCATION = (String) seller.get("location");
@@ -34,93 +36,79 @@ public class Seller extends Item {
     return this.LOCATION;
   }
 
-  public Map check_content(String location) {
+  public Map check_content() {
     return this.contents.getContents();
   }
 
-  public Map buy(int gold, PlayerModel playerModel) {
-    return buyingCommands(gold, playerModel);
+  public void buy(int gold, PlayerModel playerModel) {
+    this.playerModel = playerModel;
+    buyingCommands(gold);
   }
 
-  public Map buyingCommands(int gold, PlayerModel playerModel) {
-    playerModel.notify_player("Type the number of the item you want to buy");
-    this.buyingList(playerModel);
+  private void buyingCommands(int gold) {
+    this.playerModel.notify_player("Type the number of the item you want to buy");
+    this.categories = this.buyingList(this.playerModel);
     Scanner sc = new Scanner(System.in);
     int index = sc.nextInt();
     if (index == -1) {
-      return this.quitBuying(playerModel);
+      this.quitBuying(this.playerModel);
     } else {
-      return this.completeBuying(gold, playerModel, index);
+      this.completeBuying(gold, index);
     }
   }
 
-  private Map completeBuying(int gold, PlayerModel playerModel, int index) {
-    Map output = new HashMap<>();
-    List categories = this.buyingList(playerModel);
-
-    if (categories.isEmpty()) {
-      playerModel.notify_player("Seller has nothing to sell");
-      return new HashMap<>();
+  private void completeBuying(int gold, int index) {
+    if (this.categories.isEmpty()) {
+      this.playerModel.notify_player("Seller has nothing to sell");
     } else {
       String category_name;
-      if (categories.size() > (index * 2) && index >= 0) {
-        category_name = categories.get(index * 2).toString();
-        output.put("kind", category_name);
+      if (this.categories.size() > (index * 2) && index >= 0) {
+        category_name = this.categories.get(index * 2).toString();
       } else {
-        output.put("kind", "out of bounds");
-        return output;
+        this.playerModel.notify_player("Choose an existed item's index");
+        this.buy(gold, this.playerModel);
+        return;
       }
+      controlPlayerContents(category_name, index, gold);
+    }
+  }
 
-      Object category = this.contents.getContents().get(category_name);
-      if (category == null) {
-        playerModel.notify_player("This category is not available");
-        return new HashMap<>();
+  private void controlPlayerContents(String category_name, int index, int gold) {
+    Object category = this.contents.getContents().get(category_name);
+    if (category == null) {
+      this.playerModel.notify_player("This category is not available");
+    } else {
+      HashMap item = (HashMap) this.categories.get((index * 2) + 1);
+      if (item == null) {
+        this.playerModel.notify_player("This index is not available");
       } else {
-        HashMap item = (HashMap) categories.get((index * 2) + 1);
-        if (item == null) {
-          playerModel.notify_player("This index is not available");
-          return new HashMap<>();
-        } else {
-          for (Object item_name : item.keySet()) {
-            output.put("item", item.get("name"));
-            if (gold - Integer.parseInt(item.get(item_name).toString()) >= 0) {
-              output.put("golds", gold - Integer.parseInt(item.get(item_name).toString()));
-              return output;
-            } else {
-              playerModel.notify_player("Return when you have enough gold");
-              return new HashMap<>();
-            }
+        if (gold - Integer.parseInt(item.get("cost").toString()) >= 0) {
+          if ("keys".equals(category_name)) {
+            List<Key> list = (List<Key>) this.playerModel.getContent("keys");
+            list.add((Key) item.get("name"));
+            this.playerModel.addToContents("keys", list);
+          } else {
+            this.playerModel.addToContents(
+                category_name, ((int) this.playerModel.getContent(category_name)) + 1);
           }
+          this.playerModel.notify_player("Bought " + item.get("name"));
+          this.playerModel.addToContents(
+              "golds", gold - Integer.parseInt(item.get("cost").toString()));
+        } else {
+          this.playerModel.notify_player("Return when you have enough gold");
         }
       }
     }
-    return output;
   }
 
-  private Map quitBuying(PlayerModel playerModel) {
+  private void quitBuying(PlayerModel playerModel) {
     playerModel.notify_player("You quited trading");
-    return new HashMap<>();
   }
 
-  public int sell(int golds, String type, PlayerModel playerModel) {
-    int output = golds;
-    if (this.selling.get(type) == null) {
-      playerModel.notify_player("This item is not in the list");
-    } else {
-      output = golds + this.selling.get(type);
-    }
-
-    return output;
-  }
-
-  public void sellingList(PlayerModel playerModel) {
-    playerModel.notify_player(this.selling.toString());
-  }
-
-  public List buyingList(PlayerModel playerModel) {
+  private List buyingList(PlayerModel playerModel) {
     int counter = 0;
     List categories = new ArrayList();
-    playerModel.notify_player(-1 + ": " + "Quit");
+    playerModel.notify_player(-1 + ": " + "quit");
     for (Object category : this.contents.getContents().keySet()) {
       for (Object item : ((List) this.contents.getContents().get(category))) {
         playerModel.notify_player(counter + ": " + category + " " + item);
@@ -130,6 +118,84 @@ public class Seller extends Item {
       }
     }
     return categories;
+  }
+
+  public void sell(PlayerModel playerModel) {
+    this.playerModel = playerModel;
+
+    this.playerModel.notify_player("Items and values this seller is willing to buy: ");
+    this.playerModel.notify_player(this.selling.toString());
+
+    this.playerModel.notify_player(
+        "Enter the type of the item you want to sell: "
+            + this.selling.keySet()
+            + " or type quit to cancel");
+    Scanner sc1 = new Scanner(System.in);
+    String type = sc1.next();
+    this.sellingCommands(type);
+  }
+
+  private void sellingCommands(String type) {
+    if (this.selling.get(type) == null) {
+      playerModel.notify_player("This item is not in the list");
+      this.sell(playerModel);
+    } else {
+      if (type.equals("quit")) {
+        return;
+      } else {
+        this.checkSellingType(type);
+      }
+    }
+  }
+
+  private void checkSellingType(String type) {
+    if (type.equals("keys")) {
+      this.sellingKeys(type);
+    } else {
+      if (this.playerModel.getContent(type) == null) {
+        this.playerModel.notify_player("Choose a correct type");
+        this.sell(playerModel);
+      } else {
+        if (((int) this.playerModel.getContent(type)) > 0) {
+          this.playerModel.addToContents(type, ((int) this.playerModel.getContent(type)) - 1);
+          this.playerModel.addToContents(
+              "golds",
+              (Integer.parseInt(this.playerModel.getContent("golds").toString()))
+                  + this.selling.get(type));
+          this.playerModel.notify_player("Done!");
+          this.playerModel.notify_player("Your Items: ");
+          this.playerModel.myItems();
+        } else {
+          this.playerModel.notify_player("You dont have " + type + " to sell");
+          this.sell(playerModel);
+        }
+      }
+    }
+  }
+
+  private void sellingKeys(String type) {
+    if (((List<KeyChecker>) this.playerModel.getContent("keys")).isEmpty()) {
+      this.playerModel.notify_player("You dont have keys to sell");
+      this.sell(playerModel);
+    } else {
+      this.playerModel.notify_player(
+          "Enter the name of the item you want to sell: " + this.playerModel.getContent("keys"));
+      Scanner sc2 = new Scanner(System.in);
+      String item = sc2.next();
+      for (KeyChecker key : ((List<KeyChecker>) this.playerModel.getContent("keys"))) {
+        if (key.toString().equals(item)) {
+          ((List<KeyChecker>) this.playerModel.getContent("keys")).remove(key);
+          this.playerModel.addToContents(
+              "golds",
+              (Integer.parseInt(this.playerModel.getContent("golds").toString()))
+                  + this.selling.get(type));
+          this.playerModel.notify_player("Done!");
+          this.playerModel.notify_player("Your Items: ");
+          this.playerModel.myItems();
+          return;
+        }
+      }
+    }
   }
 
   @Override

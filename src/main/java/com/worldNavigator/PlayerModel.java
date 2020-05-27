@@ -7,17 +7,16 @@ import java.util.*;
 public class PlayerModel extends Observable {
   private final MapFactory map;
   private List<Room> rooms;
-  public Room room;
+  private Room room;
   private Wall wall;
   private int roomIndex;
-  public String orientation;
-  public String location;
-  static BufferedReader br;
+  private Map<String, Object> contents;
+  private String orientation;
+  private String location;
   public GameTimer timer;
   public Menu menu;
-  public boolean playing;
-  public Map<String, Item> items = new HashMap();
-  public Map<String, Object> contents;
+  private boolean playing;
+  static BufferedReader br;
 
   public PlayerModel(MapFactory map, Menu menu) {
     this.map = map;
@@ -38,25 +37,44 @@ public class PlayerModel extends Observable {
 
   public void startGame() {
     this.playing = true;
-    long end_time = this.map.endTime;
 
-    // start game timer
-    long start = System.currentTimeMillis();
-    long end = start + (1000 * end_time);
-    GameTimer gameTimer = new GameTimer((int) end_time, this);
+    GameTimer gameTimer = new GameTimer((int) this.map.endTime, this);
     this.timer = gameTimer;
 
     this.br = new BufferedReader(new InputStreamReader(System.in));
   }
 
+  public void addToContents(String contentType, Object newContent) {
+    this.contents.put(contentType, newContent);
+  }
+
+  public Object getContent(String contentType) {
+    return this.contents.get(contentType);
+  }
+
+  public String getRoom() {
+    return room.toString();
+  }
+
   public void wall() {
     if (this.room.isLit) {
       this.wall = this.room.walls.get(this.orientation);
-      this.items = this.wall.items;
       notify_player(wall.toString());
     } else {
       notify_player("Dark");
     }
+  }
+
+  public String getOrientation() {
+    return this.orientation;
+  }
+
+  public String getLocation() {
+    return location;
+  }
+
+  public boolean isPlaying() {
+    return playing;
   }
 
   public void myItems() {
@@ -109,7 +127,7 @@ public class PlayerModel extends Observable {
 
   public void acquire_items() {
     Item item = this.wall.itemsFactory.getItem(this.location);
-    if (item != null) {
+    if (!item.toString().equals("Space")) {
       item.applyAcquire(this.location, this);
     }
   }
@@ -120,7 +138,10 @@ public class PlayerModel extends Observable {
       print = "You have no keys";
     } else {
       Item item = this.wall.itemsFactory.getItem(this.location);
-      print = item != null ? item.applyUseKey((ArrayList<KeyChecker>) this.contents.get("keys")) : "Opening nothing";
+      print =
+          item.toString().equals("Space")
+              ? "Opening nothing"
+              : item.applyUseKey((ArrayList<KeyChecker>) this.contents.get("keys"));
     }
     notify_player(print);
   }
@@ -132,7 +153,8 @@ public class PlayerModel extends Observable {
     if (((int) this.contents.get(masterKeysString)) > 0) {
       masterKeysList.add(new MasterKey());
       Item item = this.wall.itemsFactory.getItem(this.location);
-      print = item != null ? item.applyUseKey(masterKeysList) : "Opening nothing";
+      print =
+          item.toString().equals("Space") ? "Opening nothing" : item.applyUseKey(masterKeysList);
       this.contents.put(masterKeysString, (int) this.contents.get(masterKeysString) - 1);
     } else {
       print = "You have no master keys";
@@ -182,7 +204,7 @@ public class PlayerModel extends Observable {
     Seller seller = (Seller) this.wall.items.get("seller");
 
     if (seller != null) {
-      notify_player("This seller has: " + seller.check_content(this.location));
+      notify_player("This seller has: " + seller.check_content());
       notify_player("You can use buy, sell, list or finish commands");
       Scanner sc = new Scanner(System.in);
       String command = sc.nextLine();
@@ -197,7 +219,6 @@ public class PlayerModel extends Observable {
           seller_list(seller);
           break;
         case "finish":
-          notify_player("You quited trading");
           break;
         default:
           trade();
@@ -213,83 +234,11 @@ public class PlayerModel extends Observable {
   }
 
   public void seller_buy(Seller seller) {
-    Map bought = seller.buy((int) this.contents.get("golds"), this);
-    if (bought.size() > 0) {
-      String kind = bought.get("kind").toString();
-      if (kind.equals("out of bounds")) {
-        notify_player("Choose an existed item's index");
-        seller_buy(seller);
-      } else {
-        notify_player("Bought " + bought);
-        this.contents.put(
-            "golds", bought.get("golds"));
-        switch (kind) {
-          case "keys":
-            {
-              List<Key> list = (List<Key>) this.contents.get("keys");
-              list.add((Key) bought.get("item"));
-              this.contents.put("keys", list);
-              break;
-            }
-          case "flashLights":
-            this.contents.put("flashLights", ((int) this.contents.get("flashLights")) + 1);
-            break;
-          default:
-            notify_player("Kind is not standard");
-            break;
-        }
-        notify_player("Your Items: ");
-        myItems();
-        seller_buy(seller);
-      }
-    } else {
-    }
+    seller.buy((int) this.contents.get("golds"), this);
   }
 
   public void seller_sell(Seller seller) {
-    notify_player("Items and values this seller is willing to buy: ");
-    notify_player(seller.selling.toString());
-    notify_player(
-        "Enter the type of the item you want to sell: "
-            + seller.selling.keySet()
-            + " or type quit to cancel");
-    Scanner sc1 = new Scanner(System.in);
-    String type = sc1.next();
-    if (type.equals("quit")) {
-      trade();
-    } else {
-      if (type.equals("keys")) {
-        if (((List<KeyChecker>) this.contents.get("keys")).isEmpty()) {
-          notify_player("You dont have keys to sell");
-          seller_sell(seller);
-        } else {
-          notify_player(
-              "Enter the name of the item you want to sell: " + this.contents.get("keys"));
-          Scanner sc2 = new Scanner(System.in);
-          String item = sc2.next();
-          for (KeyChecker key : ((List<KeyChecker>) this.contents.get("keys"))) {
-            if (key.toString().equals(item)) {
-              ((List<KeyChecker>) this.contents.get("keys")).remove(key);
-              break;
-            }
-          }
-          this.contents.put("golds", seller.sell((int) this.contents.get("golds"), type, this));
-        }
-      } else if (type.equals("flashLights")) {
-        if (((int) this.contents.get("flashLights")) > 0) {
-          this.contents.put("flashLights", ((int) this.contents.get("flashLights")) - 1);
-          this.contents.put("golds", seller.sell((int) this.contents.get("golds"), type, this));
-          notify_player("Your Items: ");
-          myItems();
-        } else {
-          notify_player("You dont have flashLights to sell");
-          seller_sell(seller);
-        }
-      } else {
-        notify_player("Choose a correct type");
-        seller_sell(seller);
-      }
-    }
+    seller.sell(this);
   }
 
   public void switchLights() {
