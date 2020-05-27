@@ -28,28 +28,17 @@ public class Transition {
   private void forward(String location, String orientation) {
     switch (orientation) {
       case "n":
-        {
-          int number = change_number(location);
-          this.new_location =
-              number > 1
-                  ? (location.charAt(0)) + "" + (number - 1)
-                  : (location.charAt(0)) + "" + number;
-          break;
-        }
+        this.new_location = this.prevNumber(this.findNumberIndex(location), location);
+        break;
       case "e":
-        this.new_location = nextChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
+        this.new_location = this.nextChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
         break;
       case "s":
-        {
-          int number = change_number(location);
-          this.new_location =
-              number < 5
-                  ? (location.charAt(0)) + "" + (number + 1)
-                  : (location.charAt(0)) + "" + number;
-          break;
-        }
+        this.new_location = this.nextNumber(this.findNumberIndex(location), location);
+        break;
+
       default:
-        this.new_location = prevChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
+        this.new_location = this.prevChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
         break;
     }
   }
@@ -57,28 +46,16 @@ public class Transition {
   private void backward(String location, String orientation) {
     switch (orientation) {
       case "n":
-        {
-          int number = change_number(location);
-          this.new_location =
-              number < 5
-                  ? (location.charAt(0)) + "" + (number + 1)
-                  : (location.charAt(0)) + "" + number;
-          break;
-        }
+        this.new_location = this.nextNumber(this.findNumberIndex(location), location);
+        break;
       case "e":
-        this.new_location = prevChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
+        this.new_location = this.prevChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
         break;
       case "s":
-        {
-          int number = change_number(location);
-          this.new_location =
-              number > 1
-                  ? (location.charAt(0)) + "" + (number - 1)
-                  : (location.charAt(0)) + "" + number;
-          break;
-        }
+        this.new_location = this.nextNumber(this.findNumberIndex(location), location);
+        break;
       default:
-        this.new_location = nextChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
+        this.new_location = this.nextChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
         break;
     }
   }
@@ -87,7 +64,7 @@ public class Transition {
     switch (orientation) {
       case "n":
         {
-          int number = change_number(location);
+          int number = this.findNumberIndex(location);
           this.new_location =
               number > 1 ? (location.charAt(0)) + "" + (number - 1) : (location.charAt(0)) + "" + 5;
           break;
@@ -98,7 +75,7 @@ public class Transition {
         break;
       case "s":
         {
-          int number = change_number(location);
+          int number = this.findNumberIndex(location);
           this.new_location =
               number < 5 ? (location.charAt(0)) + "" + (number + 1) : (location.charAt(0)) + "" + 1;
           break;
@@ -136,6 +113,18 @@ public class Transition {
     }
   }
 
+  private String nextNumber(int number, String location) {
+    return number < 5
+        ? (location.charAt(0)) + "" + (number + 1)
+        : (location.charAt(0)) + "" + number;
+  }
+
+  private String prevNumber(int number, String location) {
+    return number > 1
+        ? (location.charAt(0)) + "" + (number - 1)
+        : (location.charAt(0)) + "" + number;
+  }
+
   private String nextChar_nextRoom(String c) {
     switch (c) {
       case "a":
@@ -166,7 +155,7 @@ public class Transition {
     }
   }
 
-  private int change_number(String location) {
+  private int findNumberIndex(String location) {
     return Integer.parseInt(location.substring(location.length() - 1));
   }
 
