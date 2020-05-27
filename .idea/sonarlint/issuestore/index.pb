@@ -80,3 +80,7 @@ _
 /src/main/java/com/worldNavigator/MasterKey.java,d/7/d706885dd964d4f23c939de6dbb52b479df963f1
 _
 /src/main/java/com/worldNavigator/Checkable.java,6/f/6f432c8e250e90c81c7a1d1fb1af8cd28c2aec33
+[
++src/main/java/com/worldNavigator/Space.java,6/3/6302f5d49a3b7ab50b37e054e121f8e08e6cadb5
+c
+3src/main/java/com/worldNavigator/ContentsTypes.java,b/9/b9cfb74fef0cc81b59ade61734ed2b4af59fb6c1

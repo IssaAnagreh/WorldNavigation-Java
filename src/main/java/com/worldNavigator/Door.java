@@ -55,6 +55,18 @@ public class Door extends Item implements NextGoing {
     return this.getLocation().compareTo(location);
   }
 
+  public boolean equals(Door door) {
+    if (door != null) {
+      return door.NAME.equals(this.NAME) && door.LOCATION.equals(this.LOCATION);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.NAME.hashCode() + this.LOCATION.hashCode();
+  }
+
   @Override
   public String toString() {
     return "Door: " + this.NAME + ", in " + this.LOCATION;

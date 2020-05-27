@@ -1,6 +1,4 @@
 
-L
-java:S5411&"*Use the primitive boolean expression here.(ÜÿË¦øÿÿÿÿ8ûÌòÎ¢.
 s
 java:S1104"QMake walls a static final constant or non-public and provide accessors if needed.(²äÇ°üÿÿÿÿ8ûÌòÎ¢.
 t
@@ -10,9 +8,11 @@ java:S2293"YReplace the type specification in this constructor call with the d
 s
 java:S1104
 "QMake isLit a static final constant or non-public and provide accessors if needed.(Í¸ÒÂıÿÿÿÿ8ûÌòÎ¢.
-L
-java:S5411("*Use the primitive boolean expression here.(ö«¹ÿÿÿÿÿ8ûÌòÎ¢.
 
 java:S1319"mThe type of the "walls" object should be an interface such as "Map" rather than the implementation "HashMap".(²äÇ°üÿÿÿÿ8ûÌòÎ¢.
+L
+java:S5411&"*Use the primitive boolean expression here.(ÜÿË¦øÿÿÿÿ8ûÌòÎ¢.
+L
+java:S5411("*Use the primitive boolean expression here.(ö«¹ÿÿÿÿÿ8ûÌòÎ¢.
 L
 java:S54113"*Use the primitive boolean expression here.(Ö‘µÅşÿÿÿÿ8ûÌòÎ¢.

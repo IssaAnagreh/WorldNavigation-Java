@@ -24,6 +24,18 @@ public class Wall {
     return this.items.isEmpty() ? "Nothing to look at" : this.items.values().toString();
   }
 
+  public boolean equals(Wall wall) {
+    if (wall != null) {
+      return this.NAME.equals(wall.NAME) && this.items.equals(wall.items);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.NAME.hashCode() + this.items.hashCode();
+  }
+
   @Override
   public String toString() {
     return "Wall name: " + this.NAME + ", items: " + checkItems();

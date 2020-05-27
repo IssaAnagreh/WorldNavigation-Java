@@ -5,14 +5,15 @@ import org.json.simple.JSONObject;
 import java.util.HashMap;
 
 public class Room {
-  public HashMap<String, Wall> walls = new HashMap<String, Wall>();
+  public HashMap<String, Wall> walls = new HashMap<>();
   public final String ROOM_NAME;
   public Boolean isLit;
   public Boolean lightSwitch;
-  public final int ROOM_NUMBER;
+  public final Integer ROOM_NUMBER;
 
   public Room(JSONObject room, int room_counter) {
-    this.ROOM_NAME = room.get("name") == null ? "room_"+(room_counter+1) : (String) room.get("name");
+    this.ROOM_NAME =
+        room.get("name") == null ? "room_" + (room_counter + 1) : (String) room.get("name");
     this.ROOM_NUMBER = room_counter;
     generateRoom(room);
   }
@@ -48,13 +49,25 @@ public class Room {
   }
 
   public int useFlashLight(int flashLights, PlayerModel playerModel) {
-    if (!this.isLit) {
+    if (this.isLit) {
+      return flashLights;
+    } else {
       this.isLit = true;
       playerModel.notify_player("Room is lit now");
       return --flashLights;
-    } else {
-      return flashLights;
     }
+  }
+
+  public boolean equals(Room room) {
+    if (room != null) {
+      return room.ROOM_NAME.equals(this.ROOM_NAME) && (room.ROOM_NUMBER == this.ROOM_NUMBER);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.ROOM_NAME.hashCode() + this.ROOM_NUMBER.hashCode();
   }
 
   @Override

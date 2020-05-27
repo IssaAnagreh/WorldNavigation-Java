@@ -41,6 +41,18 @@ public class Chest extends Item {
     return this.getLocation().compareTo(location);
   }
 
+  public boolean equals(Chest chest) {
+    if (chest != null) {
+      return chest.NAME.equals(this.NAME) && chest.LOCATION.equals(this.LOCATION);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.NAME.hashCode() + this.LOCATION.hashCode();
+  }
+
   @Override
   public String toString() {
     return (super.useKeyBehavior.get_isLocked() != null && super.useKeyBehavior.get_isLocked())

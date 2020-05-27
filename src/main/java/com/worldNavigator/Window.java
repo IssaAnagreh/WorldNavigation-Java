@@ -33,6 +33,18 @@ public class Window extends Item {
         return this.getLocation().compareTo(location);
     }
 
+    public boolean equals(Window window) {
+        if (window != null) {
+            return window.LOCATION.equals(this.LOCATION);
+        } else {
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        return this.LOCATION.hashCode();
+    }
+
     @Override
     public String toString() {
         return "Window: " + this.NAME + ", in " + this.LOCATION;

@@ -1,33 +1,23 @@
 
-Q
-java:S3740x"/Provide the parametrized type for this generic.(†ÁÒ±ıÿÿÿÿ8¿ ìî¤.
+h
+java:S1192`"FDefine a constant instead of duplicating this literal "golds" 5 times.(îüÅÿÿÿÿÿ8»ˆÓ•¥.
 q
 java:S1104"TMake contents a static final constant or non-public and provide accessors if needed.(Ó¬Ö…8¬™óÎ¢.
+Q
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ş¤´8¬™óÎ¢.
 L
-java:S3740z"/Provide the parametrized type for this generic.(©ıÒ™8Ë½êî¤.
-Q
-java:S3740%"/Provide the parametrized type for this generic.(‘Ì¿Šúÿÿÿÿ8Šù‰¤.
-Q
-java:S3740O"/Provide the parametrized type for this generic.(ûğ‘–ÿÿÿÿÿ8Ûòï¤.
-Q
-java:S3740:"/Provide the parametrized type for this generic.(°¹›Ÿùÿÿÿÿ8«€‡ï¤.
-K
-java:S3740;"/Provide the parametrized type for this generic.(ÃÃ¢b8¾Ÿï¤.
-Q
-java:S1172%"/Remove this unused method parameter "location".(‘Ì¿Šúÿÿÿÿ8¬™óÎ¢.
+java:S3740l"/Provide the parametrized type for this generic.(„íøá8†˜ •¥.
 L
-java:S3740z"/Provide the parametrized type for this generic.(©ıÒ™8Ë½êî¤.
-t
-java:S37769"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(Üä¢‹ÿÿÿÿÿ8Ûòï¤.
+java:S3740n"/Provide the parametrized type for this generic.(©ıÒ™8†˜ •¥.
 Q
-java:S3740)"/Provide the parametrized type for this generic.(Ìû¹½øÿÿÿÿ8“®•ï¤.
-Q
-java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ş¤´8¬™óÎ¢.
-V
-java:S2864T"4Iterate over the "entrySet" instead of the "keySet".(ò²æèÿÿÿÿÿ8Ûòï¤.
-Q
-java:S37409"/Provide the parametrized type for this generic.(Üä¢‹ÿÿÿÿÿ8Õú€ï¤.
+java:S3740"/Provide the parametrized type for this generic.(‡Öú¦úÿÿÿÿ8Í¾×’¥.
+[
+java:S1117n">Rename "categories" which hides the field declared at line 16.(©ıÒ™8†˜ •¥.
 L
-java:S3740-"/Provide the parametrized type for this generic.( ©‰Å8“®•ï¤.
+java:S3740Q"/Provide the parametrized type for this generic.(¨ŠÕ¥8—êÓ“¥.
+9
+java:S3626"Remove this redundant jump.(ûÁİ…8ß£î•¥.
 L
-java:S3740d"/Provide the parametrized type for this generic.(˜ï¥®8­Úüî¤.
+java:S3740n"/Provide the parametrized type for this generic.(©ıÒ™8†˜ •¥.
+Q
+java:S3740'"/Provide the parametrized type for this generic.(ÌÖ‚•ÿÿÿÿÿ8Šù‰¤.

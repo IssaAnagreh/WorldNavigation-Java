@@ -31,6 +31,18 @@ public class Painting extends Item {
     return this.getLocation().compareTo(location);
   }
 
+  public boolean equals(Painting painting) {
+    if (painting != null) {
+      return painting.LOCATION.equals(this.LOCATION);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.LOCATION.hashCode();
+  }
+
   @Override
   public String toString() {
     return "Painting: " + this.NAME + ", in: " + this.LOCATION;

@@ -212,6 +212,18 @@ public class Seller extends Item {
     return this.getLocation().compareTo(location);
   }
 
+  public boolean equals(Seller seller) {
+    if (seller != null) {
+      return seller.LOCATION.equals(this.LOCATION);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.LOCATION.hashCode();
+  }
+
   @Override
   public String toString() {
     return "Seller: " + this.NAME + " in: " + this.LOCATION;

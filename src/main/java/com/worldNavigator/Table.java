@@ -31,6 +31,18 @@ public class Table extends Item {
         return this.getLocation().compareTo(location);
     }
 
+    public boolean equals(Table table) {
+        if (table != null) {
+            return table.LOCATION.equals(this.LOCATION);
+        } else {
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        return this.LOCATION.hashCode();
+    }
+
     @Override
     public String toString() {
         return "Table: " + this.NAME + " in: " + this.LOCATION;

@@ -31,6 +31,18 @@ public class Mirror extends Item {
     return this.getLocation().compareTo(location);
   }
 
+  public boolean equals(Mirror mirror) {
+    if (mirror != null) {
+      return mirror.LOCATION.equals(this.LOCATION);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.LOCATION.hashCode();
+  }
+
   @Override
   public String toString() {
     return "Mirror: " + this.NAME + " in: " + this.LOCATION;

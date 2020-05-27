@@ -41,10 +41,22 @@ public class Safe extends Item {
     return this.getLocation().compareTo(location);
   }
 
+  public boolean equals(Safe safe) {
+    if (safe != null) {
+      return safe.NAME.equals(this.NAME) && safe.LOCATION.equals(this.LOCATION);
+    } else {
+      return false;
+    }
+  }
+
+  public int hashCode() {
+    return this.NAME.hashCode() + this.LOCATION.hashCode();
+  }
+
   @Override
   public String toString() {
     return (super.useKeyBehavior.get_isLocked() != null && super.useKeyBehavior.get_isLocked())
-            ? "LOCKED Safe: " + this.NAME + ", in: " + this.LOCATION
-            : "UNLOCKED Safe: " + this.NAME + ", in: " + this.LOCATION;
+        ? "LOCKED Safe: " + this.NAME + ", in: " + this.LOCATION
+        : "UNLOCKED Safe: " + this.NAME + ", in: " + this.LOCATION;
   }
 }
