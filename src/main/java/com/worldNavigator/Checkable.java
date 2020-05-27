@@ -25,32 +25,20 @@ public abstract class Checkable implements CheckBehavior {
   public void acquireContents(String location, PlayerModel playerModel) {
     Map<String, Object> acquiredContents = this.checkContent(location, playerModel);
     if (!acquiredContents.isEmpty()) {
-      if (acquiredContents.get("keys") != null) {
-        ((List<?>) acquiredContents.get("keys"))
-            .forEach(((List) playerModel.contents.get("keys"))::add);
-      }
-
-      String goldsString = "golds";
-      if (acquiredContents.get(goldsString) != null) {
-        playerModel.contents.put(
-            goldsString,
-            ((int) playerModel.contents.get(goldsString)) + ((int) acquiredContents.get(goldsString)));
-      }
-
-      String flashLightString = "flashLights";
-      if (acquiredContents.get(flashLightString) != null) {
-        playerModel.contents.put(
-            flashLightString,
-            ((int) playerModel.contents.get(flashLightString))
-                + ((int) acquiredContents.get(flashLightString)));
-      }
-
-      String masterKeyString = "masterKeys";
-      if (acquiredContents.get(masterKeyString) != null) {
-        playerModel.contents.put(
-            masterKeyString,
-            ((int) playerModel.contents.get(masterKeyString))
-                + ((int) acquiredContents.get(masterKeyString)));
+      for (ContentsTypes contentType : ContentsTypes.values()) {
+        if (acquiredContents.get(contentType.toString()) != null) {
+          if (contentType.toString().equals("keys")) {
+            ((List<?>) acquiredContents.get("keys"))
+                .forEach(((List) playerModel.getContent("keys"))::add);
+          } else {
+            playerModel.addToContents(
+                contentType.toString(),
+                (playerModel.getContent(contentType.toString()) == null
+                        ? 0
+                        : (int) playerModel.getContent(contentType.toString()))
+                    + ((int) acquiredContents.get(contentType.toString())));
+          }
+        }
       }
 
       playerModel.notify_player("Contents acquired " + acquiredContents);
