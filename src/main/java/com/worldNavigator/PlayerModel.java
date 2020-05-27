@@ -176,31 +176,35 @@ public class PlayerModel extends Observable {
     if (item instanceof NextGoing) {
       NextGoing openable = (NextGoing) item;
       if (item.getLocation().equals(this.location)) {
-        boolean isOpened = false;
-        String nextRoom = openable.getNextRoom();
-        if (nextRoom.contentEquals("golden")) {
-          notify_player("CONGRATULATIONS! YOU WON THE GAME");
-          System.exit(1);
-        }
-        for (Room room_candidate : this.rooms) {
-          if (room_candidate.ROOM_NAME.equals(nextRoom)) {
-            this.roomIndex = this.rooms.indexOf(room_candidate);
-            this.nextRoom_move();
-            isOpened = true;
-          }
-        }
-        if (nextRoom.equals("")) {
-          notify_player("This " + openable.getName() + " opens to nothing");
-          return;
-        }
-        if (!isOpened && nextRoom.equals("locked")) {
-          notify_player("The " + openable.getName() + " door is locked");
-        }
+        this.checkNextRoom(openable);
       } else {
         notify_player("Nothing to be opened");
       }
     } else {
       notify_player("Nothing to be opened");
+    }
+  }
+
+  private void checkNextRoom(NextGoing openable) {
+    boolean isOpened = false;
+    String nextRoom = openable.getNextRoom();
+    if (nextRoom.contentEquals("golden")) {
+      notify_player("CONGRATULATIONS! YOU WON THE GAME");
+      System.exit(1);
+    }
+    if (nextRoom.equals("")) {
+      notify_player("This " + openable.getName() + " opens to nothing");
+      return;
+    }
+    for (Room room_candidate : this.rooms) {
+      if (room_candidate.ROOM_NAME.equals(nextRoom)) {
+        this.roomIndex = this.rooms.indexOf(room_candidate);
+        this.nextRoom_move();
+        isOpened = true;
+      }
+    }
+    if (!isOpened && nextRoom.equals("locked")) {
+      notify_player("The " + openable.getName() + " door is locked");
     }
   }
 
