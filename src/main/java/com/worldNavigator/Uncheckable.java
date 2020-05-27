@@ -11,7 +11,7 @@ public class Uncheckable implements CheckBehavior {
 
   @Override
   public void acquireContents(String location, PlayerModel playerModel) {
-    // this method is meaningless in Uncheckable items
+    // this method is unuseful in Uncheckable items
   }
 
   @Override

@@ -58,23 +58,43 @@ Project: World Navigator\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \f2\b0\fs28 \cf0 	- Each map needs its own .json file.\
-	- \'93name\'94, \'93file\'94, \'93end_time\'94 must be added.\
+	- \'93name\'94, \'93file\'94, \'93end_time\'94 
+\f0\b must
+\f2\b0  be added.\
 	- Player details are optional.\
-	- Rooms must at least have 1 room.\
+	- Rooms 
+\f0\b must
+\f2\b0  at least have 1 room.\
 	- Rooms can be named by default.\
 	- Rooms are lit by default.\
 	- Rooms do not have a light switch by default (false value).\
-	- 4 walls are must be added to each room with the names of (n_wall, e_wall, s_wall, and w_wall).\
+	- 4 walls are 
+\f0\b must
+\f2\b0  be added to each room with the names of (n_wall, e_wall, s_wall, and w_wall).\
 	- Walls can have nothing.\
-	- Wall items' names are not changeable such as (door, chest, mirror, painting, and seller).\
-	- Items\'92 existed is a must with values of (true, false).\
-	- Items\'92 name is not optional.\
-	- Items\'92 key is optional but can only be added to doors and chests, which refers to an item\'92s opening key.\
-	- Items\'92 location is a must with a format of \'93letter between a to e + number between 1 to 5\'94, and double-check the location with figure-1.\
-	- Items\'92 content map is optional.\
-	- The content map can have keys, flashlights, or golds all optionally but with strictly named (keys, flashLights, golds).\
-	- The content map can not be meaningful if added to the doors.\
-	- Sellers can have content that can be bought by the player, and a selling map of items can be sold by the player with their prices such as (\'93keys\'94: 7) which means a player can sell a key by 7 golds, but with strictly named of (keys, flashLights).\
+	- Wall items' names are
+\f0\b  not changeable
+\f2\b0  such as (door, chest, mirror, painting, and seller).\
+	- Items\'92 existed key 
+\f0\b must
+\f2\b0  be filled with values of (true, false).\
+	- Items\'92 name is 
+\f0\b not optional
+\f2\b0 .\
+	- Items\'92 key is 
+\f0\b optional
+\f2\b0  but can only be added to doors and chests, which refers to an item\'92s opening key.\
+	- Items\'92 location is a 
+\f0\b must
+\f2\b0  with a format of \'93letter between a to e + number between 1 to 5\'94, and double-check the location with figure-1.\
+	- Items\'92 content map is 
+\f0\b optional
+\f2\b0 .\
+	- The contents can have keys, flashlights, or golds all optionally but with 
+\f0\b strictly
+\f2\b0  named (keys, flashLights, golds).\
+	- The contents can not be meaningful if added to the doors.\
+	- Sellers can have content that can be bought by the player, and a selling map of content can be sold by the player with their prices such as (\'93keys\'94: 7) which means a player can sell a key by 7 golds, but with strictly named of (keys, flashLights).\
 
 \f0\b \
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
@@ -293,20 +313,6 @@ Project: World Navigator\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 		{{\NeXTGraphic Screen Shot 2020-05-23 at 2.18.09 AM.png \width4660 \height5980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
 }¬}\
-
-\fs28 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 		- Adding few new lines in ContentManager constructor:\
-			- addItem method:\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\fs24 \cf0 			{{\NeXTGraphic Screen Shot 2020-05-23 at 2.19.00 AM.png \width13100 \height3000 \appleattachmentpadding0 \appleembedtype0 \appleaqc
-}¬}\
-
-\fs28 			- addPlayer method:\
-
-\fs24 			{{\NeXTGraphic Screen Shot 2020-05-23 at 2.19.40 AM.png \width14500 \height2180 \appleattachmentpadding0 \appleembedtype0 \appleaqc
-}¬}\
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -316,16 +322,20 @@ Project: World Navigator\
 \fs24 \cf0 		{{\NeXTGraphic Screen Shot 2020-05-23 at 2.33.29 AM.png \width9760 \height7380 \appleattachmentpadding0 \appleembedtype0 \appleaqc
 }¬}\
 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\fs28 		- A use_mastherKey method is needed in PlayerModel:\
+\fs28 \cf0 		- A use_mastherKey method is needed in PlayerModel:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f3\fs24 		{{\NeXTGraphic Screen Shot 2020-05-23 at 2.36.03 AM.png \width13180 \height6060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+\f3\fs24 \cf0 		{{\NeXTGraphic Screen Shot 2020-05-23 at 2.36.03 AM.png \width13180 \height6060 \appleattachmentpadding0 \appleembedtype0 \appleaqc
 }¬}\
 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f2\fs28 		- Let\'92s assign a master key command to playerController:\
+\f2\fs28 \cf0 		- Let\'92s assign a master key command to playerController:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f3\fs24 		 {{\NeXTGraphic Screen Shot 2020-05-23 at 2.37.01 AM.png \width16220 \height9320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+\f3\fs24 \cf0 		 {{\NeXTGraphic Screen Shot 2020-05-23 at 2.37.01 AM.png \width16220 \height9320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
 }¬}\
 		
 \f0\b\fs32 \

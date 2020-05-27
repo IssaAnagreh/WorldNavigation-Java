@@ -35,10 +35,10 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
   public void startGame() throws IOException {
     this.playerModel.startGame();
     // commands entering method
-    while (this.playerModel.playing) {
+    while (this.playerModel.isPlaying()) {
       this.playerModel.notify_player("Enter your next command: ");
       String command = this.playerModel.br.readLine();
-      if (this.playerModel.playing) use_method(command.trim().toLowerCase());
+      if (this.playerModel.isPlaying()) use_method(command.trim().toLowerCase());
     }
   }
 
@@ -149,11 +149,11 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
   }
 
   public void myLocation() {
-    this.playerModel.notify_player(this.playerModel.location);
+    this.playerModel.notify_player(this.playerModel.getLocation());
   }
 
   public void myOrientation() {
-    this.playerModel.notify_player(this.playerModel.orientation);
+    this.playerModel.notify_player(this.playerModel.getOrientation());
   }
 
   public enum MoveParam {
@@ -174,7 +174,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
   }
 
   public void room() {
-    this.playerModel.notify_player(this.playerModel.room.toString());
+    this.playerModel.notify_player(this.playerModel.getRoom());
   }
 
   public void check() {
