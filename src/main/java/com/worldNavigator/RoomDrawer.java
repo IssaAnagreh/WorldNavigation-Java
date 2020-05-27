@@ -29,7 +29,7 @@ public class RoomDrawer {
   private void loop(int num) {
     for (int i = 0; i < 5; ++i) {
       if (this.location.equals(mapStrings.get(i) + num)) {
-        System.out.print("░░ ");
+        System.out.print("\u29EF\u29EF ");
       } else {
         boolean item = false;
         for (Wall wall : this.room.walls.values()) {
