@@ -40,8 +40,9 @@ public abstract class Checkable implements CheckBehavior {
           }
         }
       }
-
       playerModel.notify_player("Contents acquired " + acquiredContents);
+    } else {
+      playerModel.notify_player("Nothing to acquire");
     }
   }
 }
