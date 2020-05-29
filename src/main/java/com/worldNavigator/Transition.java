@@ -8,19 +8,18 @@ public class Transition {
     this.playerModel = playerModel;
   }
 
-  public void move(String location, String orientation, PlayerControllerMaster.MoveParam move) {
-    if (move == PlayerControllerMaster.MoveParam.forward) {
+  public void move(String location, String orientation, MoveTypes move) {
+    if (move == MoveTypes.forward) {
       forward(location, orientation);
-    } else if (move == PlayerControllerMaster.MoveParam.backward) {
+    } else if (move == MoveTypes.backward) {
       backward(location, orientation);
     } else {
       this.playerModel.notify_player("wrong movement input, user 'forward' or 'backward'");
     }
   }
 
-  public void openNextRoom(
-      String location, String orientation, PlayerControllerMaster.MoveParam move) {
-    if (move == PlayerControllerMaster.MoveParam.forward) {
+  public void openNextRoom(String location, String orientation, MoveTypes move) {
+    if (move == MoveTypes.forward) {
       forward_nextRoom(location, orientation);
     }
   }

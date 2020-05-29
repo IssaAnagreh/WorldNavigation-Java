@@ -37,10 +37,7 @@ public class PlayerModel extends Observable {
 
   public void startGame() {
     this.playing = true;
-
-    GameTimer gameTimer = new GameTimer((int) this.map.endTime, this);
-    this.timer = gameTimer;
-
+    this.timer = new GameTimer((int) this.map.endTime, this);
     this.br = new BufferedReader(new InputStreamReader(System.in));
   }
 
@@ -66,7 +63,7 @@ public class PlayerModel extends Observable {
   }
 
   public void wall() {
-    if (this.room.getIsLit()) {
+    if (this.room.getIsLit() != null && this.room.getIsLit()) {
       this.wall = this.room.walls.get(this.orientation);
       notify_player(wall.toString());
     } else {
@@ -90,7 +87,7 @@ public class PlayerModel extends Observable {
     notify_player(this.contents.toString());
   }
 
-  public void move(PlayerController.MoveParam move) {
+  public void move(MoveTypes move) {
     Transition new_location = new Transition(this);
     new_location.move(this.location, this.orientation, move);
     this.location = new_location.toString();
@@ -99,7 +96,7 @@ public class PlayerModel extends Observable {
 
   public void nextRoom_move() {
     Transition new_location = new Transition(this);
-    new_location.openNextRoom(this.location, this.orientation, PlayerController.MoveParam.forward);
+    new_location.openNextRoom(this.location, this.orientation, MoveTypes.forward);
     int index = this.roomIndex + 1;
     notify_player("You are in: " + new_location.toString() + " in room number: " + index);
     this.location = new_location.toString();
@@ -118,7 +115,7 @@ public class PlayerModel extends Observable {
   }
 
   public void look() {
-    if (this.room.getIsLit()) {
+    if (this.room.getIsLit() != null && this.room.getIsLit()) {
       Wall opposite_wall = this.room.walls.get(this.orientation);
       notify_player(opposite_wall.checkItems());
     } else {
@@ -261,7 +258,7 @@ public class PlayerModel extends Observable {
   }
 
   public void flashLight() {
-    if (this.room.getIsLit()) {
+    if (this.room.getIsLit() != null && this.room.getIsLit()) {
       notify_player("You don't need to light a lit room");
       return;
     }

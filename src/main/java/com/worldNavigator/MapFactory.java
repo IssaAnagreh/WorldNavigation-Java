@@ -60,17 +60,17 @@ public class MapFactory {
       contentManager.managePlayer(player_details);
       this.contents = contentManager.getContents();
       this.location =
-              (player_details).get("location") != null
-                      ? (player_details).get("location").toString()
-                      : "c3";
+          (player_details).get("location") != null
+              ? (player_details).get("location").toString()
+              : "c3";
       this.orientation =
-              (player_details).get("orientation") != null
-                      ? (player_details).get("orientation").toString()
-                      : "n";
+          (player_details).get("orientation") != null
+              ? (player_details).get("orientation").toString()
+              : "n";
       this.roomIndex =
-              (player_details).get("roomIndex") != null
-                      ? Integer.parseInt((player_details).get("roomIndex").toString())
-                      : 0;
+          (player_details).get("roomIndex") != null
+              ? Integer.parseInt((player_details).get("roomIndex").toString())
+              : 0;
 
       JSONArray jsonRooms = (JSONArray) map.get("rooms");
       jsonRooms.forEach(room -> parseRoomObject((JSONObject) room));

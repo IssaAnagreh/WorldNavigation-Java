@@ -51,14 +51,16 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         playerController -> {
           this.myOrientation();
           if (this.hint)
-            this.playerModel.notify_player("You can use <o> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <o> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "location",
         playerController -> {
           this.myLocation();
           if (this.hint)
-            this.playerModel.notify_player("You can use <loc> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <loc> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put("wall", PlayerControllerInterface::wall);
     c.put("look", PlayerControllerInterface::look);
@@ -67,28 +69,32 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         playerController -> {
           this.rotateLeft();
           if (this.hint)
-            this.playerModel.notify_player("You can use <l> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <l> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "right",
         playerController -> {
           this.rotateRight();
           if (this.hint)
-            this.playerModel.notify_player("You can use <r> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <r> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "forward",
         playerController -> {
-          move(PlayerControllerMaster.MoveParam.forward);
+          move(MoveTypes.forward);
           if (this.hint)
-            this.playerModel.notify_player("You can use <f> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <f> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "backward",
         playerController -> {
-          move(PlayerControllerMaster.MoveParam.backward);
+          move(MoveTypes.backward);
           if (this.hint)
-            this.playerModel.notify_player("You can use <b> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <b> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "check",
@@ -96,21 +102,24 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
           this.check();
           this.acquire_items();
           if (this.hint)
-            this.playerModel.notify_player("You can use <c> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <c> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "myItems",
         playerController -> {
           this.myItems();
           if (this.hint)
-            this.playerModel.notify_player("You can use <items> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <items> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "useKey",
         playerController -> {
           this.use_key();
           if (this.hint)
-            this.playerModel.notify_player("You can use <key> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <key> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put("open", PlayerControllerInterface::open);
     c.put("trade", PlayerControllerInterface::trade);
@@ -119,14 +128,16 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         playerController -> {
           this.switchLights();
           if (this.hint)
-            this.playerModel.notify_player("You can use <light> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <light> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put(
         "flashLight",
         playerController -> {
           this.flashLight();
           if (this.hint)
-            this.playerModel.notify_player("You can use <flash> as a shortcut command" + this.HINT_SENTENCE);
+            this.playerModel.notify_player(
+                "You can use <flash> as a shortcut command" + this.HINT_SENTENCE);
         });
     c.put("commands", PlayerControllerInterface::commands);
     c.put("time", PlayerControllerInterface::time);
@@ -156,12 +167,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     this.playerModel.notify_player(this.playerModel.getOrientation());
   }
 
-  public enum MoveParam {
-    forward,
-    backward;
-  }
-
-  public void move(PlayerControllerMaster.MoveParam move) {
+  public void move(MoveTypes move) {
     this.playerModel.move(move);
   }
 

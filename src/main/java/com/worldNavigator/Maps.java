@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Maps {
-  public List<MapFactory> maps = new ArrayList();
+  public List<MapFactory> maps = new ArrayList<>();
 
   public MapFactory generate(String json) {
     return new MapFactory(json);

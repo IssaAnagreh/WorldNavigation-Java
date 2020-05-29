@@ -8,8 +8,8 @@ public class PlayerController extends PlayerControllerMaster {
     super.commandsMap.put("loc", PlayerControllerInterface::myLocation);
     super.commandsMap.put("l", PlayerControllerInterface::rotateLeft);
     super.commandsMap.put("r", PlayerControllerInterface::rotateRight);
-    super.commandsMap.put("f", playerController -> move(PlayerControllerMaster.MoveParam.forward));
-    super.commandsMap.put("b", playerController -> move(PlayerControllerMaster.MoveParam.backward));
+    super.commandsMap.put("f", playerController -> move(MoveTypes.forward));
+    super.commandsMap.put("b", playerController -> move(MoveTypes.backward));
     super.commandsMap.put(
         "c",
         playerController -> {

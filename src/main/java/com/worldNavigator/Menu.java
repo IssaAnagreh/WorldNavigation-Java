@@ -29,7 +29,7 @@ public class Menu {
   public void preparePlayer(MapFactory map) {
     this.playerModel = new PlayerModel(map, this);
     this.player = new PlayerController(playerModel);
-    PlayerViewer playerViewer = new PlayerViewer(this.player, "Isa");
+    new PlayerViewer(this.player, "Isa");
   }
 
   public void start() throws IOException {

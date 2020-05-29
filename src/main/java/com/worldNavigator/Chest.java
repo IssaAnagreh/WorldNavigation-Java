@@ -59,7 +59,7 @@ public class Chest extends Item {
   @Override
   public String toString() {
     return (super.useKeyBehavior.get_isLocked() != null && super.useKeyBehavior.get_isLocked())
-            ? "LOCKED Chest: " + this.NAME + ", in: " + this.LOCATION
-            : "UNLOCKED Chest: " + this.NAME + ", in: " + this.LOCATION;
+        ? "LOCKED Chest: " + this.NAME + ", in: " + this.LOCATION
+        : "UNLOCKED Chest: " + this.NAME + ", in: " + this.LOCATION;
   }
 }

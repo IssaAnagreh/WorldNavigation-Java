@@ -17,12 +17,7 @@ public interface PlayerControllerInterface {
 
   void myOrientation();
 
-  enum MoveParam {
-    forward,
-    backward;
-  }
-
-  void move(PlayerControllerMaster.MoveParam move);
+  void move(MoveTypes move);
 
   void wall();
 
