@@ -41,14 +41,17 @@ public class Safe extends Item {
     return this.getLocation().compareTo(location);
   }
 
-  public boolean equals(Safe safe) {
-    if (safe != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Safe) {
+      Safe safe = (Safe) o;
       return safe.NAME.equals(this.NAME) && safe.LOCATION.equals(this.LOCATION);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.NAME.hashCode() + this.LOCATION.hashCode();
   }

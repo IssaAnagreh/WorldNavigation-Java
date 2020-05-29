@@ -241,14 +241,17 @@ public class Seller extends Item {
     return this.getLocation().compareTo(location);
   }
 
-  public boolean equals(Seller seller) {
-    if (seller != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Seller) {
+      Seller seller = (Seller) o;
       return seller.LOCATION.equals(this.LOCATION);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.LOCATION.hashCode();
   }

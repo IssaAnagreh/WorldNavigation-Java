@@ -31,14 +31,17 @@ public class Painting extends Item {
     return this.getLocation().compareTo(location);
   }
 
-  public boolean equals(Painting painting) {
-    if (painting != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Painting) {
+      Painting painting = (Painting) o;
       return painting.LOCATION.equals(this.LOCATION);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.LOCATION.hashCode();
   }

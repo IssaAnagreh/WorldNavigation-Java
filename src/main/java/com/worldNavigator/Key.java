@@ -19,14 +19,17 @@ public class Key implements KeyChecker {
     return this.NAME.compareTo(key);
   }
 
-  public boolean equals(Key key) {
-    if (key != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Key) {
+      Key key = (Key) o;
       return key.NAME.equals(this.NAME);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.NAME.hashCode();
   }

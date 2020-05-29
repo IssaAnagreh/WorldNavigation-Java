@@ -56,14 +56,17 @@ public class Gate extends Item implements NextGoing {
     return this.getLocation().compareTo(location);
   }
 
-  public boolean equals(Gate gate) {
-    if (gate != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Gate) {
+      Gate gate = (Gate) o;
       return gate.NAME.equals(this.NAME) && gate.LOCATION.equals(this.LOCATION);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.NAME.hashCode() + this.LOCATION.hashCode();
   }

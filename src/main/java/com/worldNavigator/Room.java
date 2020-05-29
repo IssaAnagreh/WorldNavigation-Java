@@ -62,14 +62,17 @@ public class Room {
     return isLit;
   }
 
-  public boolean equals(Room room) {
-    if (room != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Room) {
+      Room room = (Room) o;
       return room.ROOM_NAME.equals(this.ROOM_NAME) && (room.ROOM_NUMBER == this.ROOM_NUMBER);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.ROOM_NAME.hashCode() + this.ROOM_NUMBER.hashCode();
   }

@@ -24,14 +24,17 @@ public class Wall {
     return this.items.isEmpty() ? "Nothing to look at" : this.items.values().toString();
   }
 
-  public boolean equals(Wall wall) {
-    if (wall != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Wall) {
+      Wall wall = (Wall) o;
       return this.NAME.equals(wall.NAME) && this.items.equals(wall.items);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.NAME.hashCode() + this.items.hashCode();
   }

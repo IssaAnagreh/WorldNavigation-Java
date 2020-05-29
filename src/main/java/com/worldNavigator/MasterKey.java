@@ -18,16 +18,24 @@ public class MasterKey extends Key implements KeyChecker {
     return true;
   }
 
+  @Override
   public int compareTo(String masterKey) {
     return this.NAME.compareTo(masterKey);
   }
 
-  public boolean equals(MasterKey masterKey) {
-    if (masterKey != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof MasterKey) {
+      MasterKey masterKey = (MasterKey) o;
       return masterKey.NAME.equals(this.NAME);
     } else {
       return false;
     }
+  }
+
+  @Override
+  public int hashCode() {
+    return this.NAME.hashCode();
   }
 
   @Override

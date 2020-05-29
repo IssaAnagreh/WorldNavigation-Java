@@ -27,14 +27,17 @@ public class Space extends Item {
     return this.getLocation().compareTo(location);
   }
 
-  public boolean equals(Space space) {
-    if (space != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Space) {
+      Space space = (Space) o;
       return space.NAME.equals(this.NAME);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.NAME.hashCode();
   }

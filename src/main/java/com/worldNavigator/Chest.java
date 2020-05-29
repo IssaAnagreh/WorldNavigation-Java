@@ -41,14 +41,17 @@ public class Chest extends Item {
     return this.getLocation().compareTo(location);
   }
 
-  public boolean equals(Chest chest) {
-    if (chest != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Chest) {
+      Chest chest = (Chest) o;
       return chest.NAME.equals(this.NAME) && chest.LOCATION.equals(this.LOCATION);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.NAME.hashCode() + this.LOCATION.hashCode();
   }

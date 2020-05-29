@@ -31,14 +31,17 @@ public class Mirror extends Item {
     return this.getLocation().compareTo(location);
   }
 
-  public boolean equals(Mirror mirror) {
-    if (mirror != null) {
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof Mirror) {
+      Mirror mirror = (Mirror) o;
       return mirror.LOCATION.equals(this.LOCATION);
     } else {
       return false;
     }
   }
 
+  @Override
   public int hashCode() {
     return this.LOCATION.hashCode();
   }

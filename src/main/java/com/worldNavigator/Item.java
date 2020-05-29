@@ -31,5 +31,11 @@ public abstract class Item {
   public abstract int compareTo(String location);
 
   @Override
+  public abstract boolean equals(Object o);
+
+  @Override
+  public abstract int hashCode();
+
+  @Override
   public abstract String toString();
 }
