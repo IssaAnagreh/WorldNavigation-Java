@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Room {
   public HashMap<String, Wall> walls = new HashMap<>();
   public final String ROOM_NAME;
-  public Boolean isLit;
+  private Boolean isLit;
   public Boolean lightSwitch;
   public final Integer ROOM_NUMBER;
 
@@ -56,6 +56,10 @@ public class Room {
       playerModel.notify_player("Room is lit now");
       return --flashLights;
     }
+  }
+
+  public Boolean getIsLit() {
+    return isLit;
   }
 
   public boolean equals(Room room) {

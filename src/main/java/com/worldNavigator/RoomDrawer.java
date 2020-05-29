@@ -8,7 +8,7 @@ public class RoomDrawer {
   private Room room;
 
   public RoomDrawer(String location, Room room) {
-    if (room.isLit) {
+    if (room.getIsLit()) {
       this.mapStrings.put(0, "a");
       this.mapStrings.put(1, "b");
       this.mapStrings.put(2, "c");
@@ -18,15 +18,15 @@ public class RoomDrawer {
       this.location = location;
       this.room = room;
 
-      loop(1);
-      loop(2);
-      loop(3);
-      loop(4);
-      loop(5);
+      raw(1);
+      raw(2);
+      raw(3);
+      raw(4);
+      raw(5);
     }
   }
 
-  private void loop(int num) {
+  private void raw(int num) {
     for (int i = 0; i < 5; ++i) {
       if (this.location.equals(mapStrings.get(i) + num)) {
         System.out.print("\u29EF\u29EF ");

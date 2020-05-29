@@ -52,7 +52,7 @@ public class PlayerModel extends Observable {
     return this.contents.get(contentType);
   }
 
-  public Map getContents() {
+  public Map<String, Object> getContents() {
     return this.contents;
   }
 
@@ -66,7 +66,7 @@ public class PlayerModel extends Observable {
   }
 
   public void wall() {
-    if (this.room.isLit) {
+    if (this.room.getIsLit()) {
       this.wall = this.room.walls.get(this.orientation);
       notify_player(wall.toString());
     } else {
@@ -118,7 +118,7 @@ public class PlayerModel extends Observable {
   }
 
   public void look() {
-    if (room.isLit) {
+    if (this.room.getIsLit()) {
       Wall opposite_wall = this.room.walls.get(this.orientation);
       notify_player(opposite_wall.checkItems());
     } else {
@@ -261,7 +261,7 @@ public class PlayerModel extends Observable {
   }
 
   public void flashLight() {
-    if (this.room.isLit) {
+    if (this.room.getIsLit()) {
       notify_player("You don't need to light a lit room");
       return;
     }
