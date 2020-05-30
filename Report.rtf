@@ -28,44 +28,45 @@ Project: World Navigator\
 
 \fs28 \cf0 	- Naming:
 \f2\b0 \
-	- Constants were refactored to be all uppercase.\
-	- Some methods naming were forced to be used to match the requirements naming.\
+	- Constants were refactored to be all uppercase. They can be found in the classes in many places such as Chest.\
+	- Some methods naming were forced to be used to match the requirements naming. This can be found as an example in the PlayerModel with the check method.\
 	- No abbreviations were added to the project to achieve the highest understanding.\
 	- IDE spelling check.\
 	- The naming of methods were almost as recommended by starting with a verb then a noun.\
-	- Boolean variable naming always starts with is; if variable it\'92s isValue, and if final value IS_VALUE.\
+	- Boolean variable naming always starts with is; if variable it\'92s isValue, and if final value IS_VALUE. Can find an example of this in Locked_Checkable class which has isTaken boolean value.\
 	\
 
 \f0\b 	- Constructors:\
 
 \f2\b0 	- Multi constructors chains are being used for multiple reasons:\
-		- Classes are made to separate responsibilities but are never to be instantiated unless a previous constructor is called.\
-		- Some classes have a private generating method which is called in the constructor to restrict the generating process.\
+		- Classes are made to separate responsibilities but are never to be instantiated unless a previous constructor is called. Example: MapFactory to Room to Wall to ItemsFactory to (multi-items).\
+		- Some classes have a private generating method which is called in the constructor to restrict the generating process. Class Room is an example of this.\
 \
 
 \f0\b 	- Methods:\
 	
 \f2\b0 - Nulls are never returned.\
-	- Special codes are used as parameters in some methods such in trading; let me talk about an example  -it is found in the Seller class-, I have methods that expect an integer to choose from a list that has enumerated ID\'92s, but users might want to exit the list without choosing so I made a decision of using -1 which is an impossible ID.\
+	- Special codes are used as parameters in some methods such in trading; let me talk about an example  -it is found in the Seller class with the name of sellingCommands-, I have methods that expect an integer to choose from a list that has enumerated ID\'92s, but users might want to exit the list without choosing so I made a decision of using -1 which is an impossible ID.\
 	- The maximum number of parameters used is 3.\
 	- Flag arguments are used once; it\'92s restricted by the 
 \f0\b requirements
-\f2\b0  that one command can switch the lights of the room on or off, so I saw that to have a method for one requirement is better than having two.\
-	- Methods were strictly sized less than 20 lines of code. Except once, when preparing the commands to put them in one hashmap so using them will be in O(1).\
+\f2\b0  that one command can switch the lights of the room on or off, so I saw that to have a method for one requirement is better than having two. Room has this method in the switchLights.\
+	- Methods were mostly sized less than +20 lines of code. Except once, when preparing the commands to put them in one hashmap so using them will be in O(1).\
+	- USING THIRD-PARTY CODE: this is a key topic from uncle bob\'92s book to fix my code with; actually my code had many ugly casting which looked really ugly inside of the code repetitively so swapped with special methods that returns the casted object, then keep using this method all the way in the class if the casting is needed. An example can be found in PlayerModel in castToInt method.\
 	\
 	
 \f0\b - Values:\
 
-\f2\b0 	- Magic numbers are never used, constants have been used in the GameTimer to convert milliseconds to seconds.\
+\f2\b0 	- Magic numbers are never used, constants have been used in the GameTimer Class to convert milliseconds to seconds.\
 	- Booleans are named depending on the usage, so no !isCorrect ever used.\
 \
 
 \f0\b 	- Failures and Exception handling:
 \f2\b0 \
-	- Exceptions are made in the places that a client likes to change or add, which is the map json file, so if any change or addition violates the rules that are explained in the readme file an exception will appear.
+	- Exceptions are made in the places that a client likes to change or add, which is the map json file, so if any change or addition violates the rules that are explained in the readme file an exception will appear. Class MapFactory has this in the parseRoomObject method.
 \f0\b \
 
-\f2\b0 	- Made my best to not implement any failure and not to use try and catch inside of the game while playing, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game -it will be annoying-, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did.\
+\f2\b0 	- Made my best to not implement any failure and not to use try and catch inside of the game while playing, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game -it will be annoying-, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did. This is found in the PlayerModel in trade method that will repeat the method if player inputs incorrect command.\
 	- Returning is fast as possible, but unfortunately, some if-else\'92s are added to achieve the previous point and avoid many user\'92s mistakes, plus they give many hints. Ex: When trading with a Seller class; we use a list of items that the player can choose one of them to buy, so if the player inputs an out of bound index a message will appear to tell 
 \f3\fs26 \cf2 \'93Choose an existed item's index\'94
 \f2\fs28 \cf0 , and no illegal exception appears.\
@@ -73,31 +74,51 @@ Project: World Navigator\
 
 \f0\b 	- SOLID:\
 
-\f2\b0 	- SRP:\
-		- Maps factory and its next classes (rooms, walls, \'85etc.) have a good example of the single responsibility principle.\
-		- I tried to be as creative as possible; imagined Maps factory class, Game Menu class, Game MVC classes; PlayerModel that has all player\'92s details, PlayerController that allows user to control his player, PlayerViewer that can be the GUI once), Key class, GameTimer class, ContentsManager (this prepares items such as keys, flashlights and golds and so on), Room class, Wall class, Items classes (such as Painting class, Mirror class, Seller class, Door class, and Chest class), and the ItemsFactory class.\
-		- PlayerController and PlayerModel are the most challenging classes; Player model is the model of the most engaging part of the game which is the player which interacts with mostly everything in the application -except some parts such as menus and maps factory-, so what I have seen is that splitting any part of this Class can increase the complexity as the model class must achieve its existence purpose which is to have all the information of the player. The Player controller class is a bit weird, usually, controllers are customizable so what I did is to make a Player controller master then extended to a custom player controller (PlayerController class). More of deeply digging inside of some classes are to be discussed later\
-		- Coupling: unfortunately coupling frequently appears in the project, let\'92s discuss, I have a MapFactory which prepares a map including its rooms, then each room prepares its walls, then each wall prepares its items (Door, Chest, Mirror, Painting or Seller). I made my best thinking of this chain but I lastly found that this is a normal correct chain, where there is no map without a room at least, and a room without 4 walls as the requirements said, and walls may have items then these items are generated via ItemsFactory class that can be updated if any new item is to be added later.\
+\f2\b0 	- Single Responsibility Principle (SRP):\
+		- 
+\f0\b MapsFactory
+\f2\b0  and its next classes (rooms, walls, \'85etc.) have a good example of the single responsibility principle.\
+		- I tried to be as creative as possible; imagined Maps factory class, Game Menu class, Game MVC classes; 
+\f0\b PlayerModel
+\f2\b0  that has all player\'92s details, 
+\f0\b PlayerController
+\f2\b0  that allows user to control his player, PlayerViewer that can be the GUI once), Key class, GameTimer class, ContentsManager (this prepares items such as keys, flashlights and golds and so on), Room class, Wall class, Items classes (such as Painting class, Mirror class, Seller class, Door class, and Chest class), and the ItemsFactory class.\
+		- 
+\f0\b PlayerController
+\f2\b0  and 
+\f0\b PlayerModel
+\f2\b0  are the most challenging classes; Player model is the model of the most engaging part of the game which is the player which interacts with mostly everything in the application -except some parts such as menus and maps factory-, so what I have seen is that splitting any part of this Class can increase the complexity as the model class must achieve its existence purpose which is to have all the information of the player. The Player controller class is a bit weird, usually, controllers are customizable so what I did is to make a Player controller master then extended to a custom player controller (PlayerController class). More of deeply digging inside of some classes are to be discussed later\
+		- Coupling: unfortunately coupling frequently appears in the project, let\'92s discuss, I have a 
+\f0\b MapFactory
+\f2\b0  which prepares a map including its rooms, then each room prepares its walls, then each wall prepares its items (Door, Chest, Mirror, Painting or Seller). I made my best thinking of this chain but I lastly found that this is a normal correct chain, where there is no map without a room at least, and a room without 4 walls as the requirements said, and walls may have items then these items are generated via ItemsFactory class that can be updated if any new item is to be added later.\
 	\
-	- OCP:\
-		- New items (doors, chests, paintings, mirrors, and sellers) and contents (golds, flashLights, and keys) are possibly can be added to the game, contents and items are changeable too. So I implemented ItemsFactory and Content Manager that help to achieve OCP principle to add new items as simple as possible with changing only one or two classes.\
-		- Customized player controllers class is also extended from a master that has some certain controlling commands and methods that must not be changed but can be over-ridden or added to.\
+	- Open Closed Principle (OCP):\
+		- New items (doors, chests, paintings, mirrors, and sellers) and contents (golds, flashLights, and keys) are possibly can be added to the game, contents and items are changeable too. So I implemented 
+\f0\b ItemsFactory
+\f2\b0  and 
+\f0\b ContentManager
+\f2\b0  that help to achieve OCP principle to add new items as simple as possible with changing only one or two classes.\
+		- Customized player controllers class (
+\f0\b PlayerController
+\f2\b0 ) is also extended from a master that has some certain controlling commands and methods that must not be changed but can be over-ridden or added to.\
 \
-	- LSP:\
+	- Liskuv Substitution Principle (LSP):\
 		- Honestly, this principle was the most helpful which used in my implementation of this project in one of the main scenarios; when having an Item class that is extended to all items such as door, chest, seller \'85etc. but still, each one has it\'92s own specific fundamentals so doors are openable but not checkable, but the chest is openable and checkable, and the mirror is checkable but not openable. So having this principle to implement this critical scenario was helpful by making Item, Locked_Checkable, Unlocked_Checkable, Uncheckable, Openable, CheckBehavior interface, and UseKeyBehavior interface, to deal with all possible scenarios with all the items and any future added items.\
 \
-	- ISP:\
-		- No unused implemented methods and no unused forced implemented methods in the classes, except once in Uncheckable class that has acquireContents, checkContent and getContents which do nothing in this class; why do we have them organically? Because Items are implementing a  
+	- Interface Segregation Principle (ISP):\
+		- No unused implemented methods and no unused forced implemented methods in the classes, except once in Uncheckable class that has acquireContents, checkContent and getContents which do nothing in this class; why do we have them organically? Because Items are implementing a 
 \f0\b Strategy Design Pattern 
 \f2\b0 that enforces the item to have a checkable behavior and so some items are not checkable, simply they behave uncheckable.\
 \
-	- DIP:\
-		- Items are of the most changeable parts in the whole project so it needed to be extremely isolated, that was the inspiration of implementing of DIP by adding the ItemsFactory so it only gives the chance to deal with it to invoke a certain method or to read a certain attribute from a certain item such as Door, Chest, Paintings \'85etc.\
+	- Dependency Inversion Principle (DIP):\
+		- Items are of the most changeable parts in the whole project so it needed to be extremely isolated, that was the inspiration of implementing of DIP by adding the 
+\f0\b ItemsFactory
+\f2\b0  so it only gives the chance to deal with it to invoke a certain method or to read a certain attribute from a certain item such as Door, Chest, Paintings \'85etc.\
 \
 
 \f0\b 	- Comments:\
 	
-\f2\b0 - Comments were used very minimumly; two examples: the first usage was for a while loop that will take the commands all time as long as the game is on, while\'92s argument is player.isPlaying, the argument is clear enough but still I thought it may need more clarification, the second usage was about telling the developer about the timer starting method while its class\'92s name is GameTimer and the run of the timer in its constructor. An other usage where added later to tell about an empty acquireContents function -previously discussed- in the Uncheckable class.\
+\f2\b0 - Comments were used very minimally; two examples: the first usage was for a while loop that will take the commands all time as long as the game is on, while\'92s argument is player.isPlaying, the argument is clear enough but still I thought it may need more clarification, the second usage was about telling the developer about the timer starting method while its class\'92s name is GameTimer and the run of the timer in its constructor. An other usage where added later to tell about an empty acquireContents function -previously discussed- in the Uncheckable class.\
 \
 	- 
 \f0\b Style conventions:\
