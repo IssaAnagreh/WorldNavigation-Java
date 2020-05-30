@@ -18,56 +18,26 @@
           "switch": "true",
           "n_wall": {
             "door": {
-              "existed": "true",
               "name": "room_1-door_1",
               "key": "key-room_1-door_1",
               "is_locked": "true",
               "to": "room_2",
               "golden": "false",
               "location": "b1"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "e_wall": {
             "door": {
-              "existed": "true",
               "name": "room_1-door_2",
               "key": "key-room_1-door_2",
               "is_locked": "true",
               "to": "room_3",
               "golden": "false",
               "location": "e3"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "s_wall": {
-            "door": {
-              "existed": "false"
-            },
             "chest": {
-              "existed": "true",
               "name": "room_1-chest_1",
               "is_locked": "true",
               "key": "key-room_1-chest_1",
@@ -81,7 +51,6 @@
               "location": "d5"
             },
             "safe": {
-              "existed": "true",
               "name": "room_1-safe_1",
               "is_locked": "true",
               "key": "key-room_1-safe_1",
@@ -89,23 +58,10 @@
                 "golds": 10
               },
               "location": "c5"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "w_wall": {
-            "door": {
-              "existed": "false"
-            },
             "chest": {
-              "existed": "true",
               "name": "room_1-chest_2",
               "is_locked": "false",
               "key": "",
@@ -120,15 +76,6 @@
                 "masterKeys": 1
               },
               "location": "a4"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           }
         }
@@ -139,11 +86,7 @@
           "lit": "true",
           "switch": "false",
           "n_wall": {
-            "door": {
-              "existed": "false"
-            },
             "chest": {
-              "existed": "true",
               "name": "room_2-chest_1",
               "is_locked": "true",
               "key": "",
@@ -153,33 +96,16 @@
               "location": "c1"
             },
             "table": {
-              "existed": "true",
               "name": "room_2-table_1",
               "is_locked": "false",
               "content": {
                 "golds": 1
               },
               "location": "d1"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "e_wall": {
-            "door": {
-              "existed": "false"
-            },
-            "chest": {
-              "existed": "false"
-            },
             "mirror": {
-              "existed": "true",
               "content": {
                 "keys": [
                   "key-room_2-door_1"
@@ -188,11 +114,7 @@
               },
               "location": "e2"
             },
-            "painting": {
-              "existed": "false"
-            },
             "seller": {
-              "existed": "true",
               "name": "room_2-seller",
               "location": "e4",
               "content": {
@@ -221,48 +143,22 @@
           },
           "s_wall": {
             "door": {
-              "existed": "true",
               "name": "room_2-door_2",
               "key": "",
               "is_locked": "false",
               "to": "room_1",
               "golden": "false",
               "location": "b5"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "w_wall": {
             "door": {
-              "existed": "true",
               "name": "room_2-door_1",
               "key": "key-room_2-door_1",
               "is_locked": "true",
               "to": "",
               "golden": "false",
               "location": "a3"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           }
         }
@@ -273,17 +169,7 @@
           "lit": "true",
           "switch": "true",
           "n_wall": {
-            "door": {
-              "existed": "false"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
             "painting": {
-              "existed": "true",
               "content": {
                 "keys": [
                   "key-room_3-door_2"
@@ -291,81 +177,38 @@
               },
               "location": "c1"
             },
-            "seller": {
-              "existed": "false"
-            },
             "window": {
-              "existed": "true",
               "location": "d1"
             }
           },
           "e_wall": {
             "door": {
-              "existed": "true",
               "name": "room_3-door_1",
               "key": "",
               "is_locked": "false",
               "to": "room_4",
               "golden": "false",
               "location": "e3"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "s_wall": {
             "door": {
-              "existed": "true",
               "name": "room_3-door_2",
               "key": "key-room_3-door_2",
               "is_locked": "true",
               "to": "room_5",
               "golden": "false",
               "location": "d5"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "w_wall": {
             "door": {
-              "existed": "true",
               "name": "room_3-door_3",
               "key": "",
               "is_locked": "false",
               "to": "room_1",
               "golden": "false",
               "location": "a3"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           }
         }
@@ -377,54 +220,26 @@
           "switch": "false",
           "n_wall": {
             "door": {
-              "existed": "true",
               "name": "room_4-door_1",
               "key": "key-room_4-door_1",
               "is_locked": "true",
               "to": "",
               "golden": "true",
               "location": "d1"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "e_wall": {
-            "door": {
-              "existed": "false"
-            },
-            "chest": {
-              "existed": "false"
-            },
             "mirror": {
-              "existed": "true",
               "content": {},
               "location": "e3"
             },
             "painting": {
-              "existed": "true",
               "content": {},
               "location": "e4"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "s_wall": {
-            "door": {
-              "existed": "false"
-            },
             "chest": {
-              "existed": "true",
               "name": "room_4-chest_1",
               "is_locked": "false",
               "key": "",
@@ -435,38 +250,16 @@
                 "golds": 15
               },
               "location": "b5"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "w_wall": {
             "door": {
-              "existed": "true",
               "name": "room_4-door_2",
               "key": "",
               "is_locked": "false",
               "to": "room_3",
               "golden": "false",
               "location": "a3"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           }
         }
@@ -474,54 +267,22 @@
       {
         "room": {
           "name": "room_5",
-          "lit": "false",
+          "lit": "true",
           "switch": "false",
           "n_wall": {
             "door": {
-              "existed": "true",
               "name": "room_5-door_1",
               "key": "key-room_5-door_1",
               "is_locked": "true",
               "to": "room_3",
               "golden": "false",
               "location": "d1"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           },
           "e_wall": {
-            "door": {
-              "existed": "false"
-            },
-            "chest": {
-              "existed": "false"
-            },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
-            }
           },
           "s_wall": {
-            "door": {
-              "existed": "false"
-            },
             "chest": {
-              "existed": "true",
               "name": "room_5-chest_1",
               "is_locked": "true",
               "key": "key-room_5-chest_1",
@@ -532,17 +293,7 @@
               },
               "location": "b5"
             },
-            "mirror": {
-              "existed": "false"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
-            },
             "gate": {
-              "existed": "true",
               "name": "room_5-gate_1",
               "is_locked": "false",
               "to": "room_2",
@@ -551,14 +302,7 @@
             }
           },
           "w_wall": {
-            "door": {
-              "existed": "false"
-            },
-            "chest": {
-              "existed": "false"
-            },
             "mirror": {
-              "existed": "true",
               "name": "room_5-mirror_1",
               "content": {
                 "keys": [
@@ -566,12 +310,6 @@
                 ]
               },
               "location": "a3"
-            },
-            "painting": {
-              "existed": "false"
-            },
-            "seller": {
-              "existed": "false"
             }
           }
         }

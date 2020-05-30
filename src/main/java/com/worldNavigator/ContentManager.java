@@ -13,7 +13,7 @@ public class ContentManager {
 
   public void manageItem(JSONObject item) {
     JSONObject content = (JSONObject) item.get("content");
-    if (item.get("existed").equals("true")) {
+    if (content != null) {
       for (ContentsTypes contentType : ContentsTypes.values()) {
         if (content.get(contentType.toString()) != null) {
           if (contentType.toString().equals("keys")) {
@@ -33,8 +33,8 @@ public class ContentManager {
   }
 
   public void manageSellerItem(JSONObject seller) {
-    if (seller.get("existed").equals("true")) {
-      this.contents = (HashMap) seller.get("content");
+    this.contents = (HashMap) seller.get("content");
+    if (this.contents != null) {
       for (String contentKey : contents.keySet()) {
         if (contentKey.equals("keys")) {
           JSONArray temp = (JSONArray) contents.get(contentKey);

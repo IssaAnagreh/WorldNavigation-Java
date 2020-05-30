@@ -38,8 +38,8 @@ public class Menu {
   }
 
   public void restart() throws IOException {
-    String map_name = this.maps.maps.get(this.map_index).mapName;
-    MapFactory new_map = this.maps.generate(map_name);
+    String mapName = this.maps.maps.get(this.map_index).mapName;
+    MapFactory new_map = this.maps.generate(mapName);
     this.maps.replace(new_map, this.map_index);
 
     preparePlayer(this.maps.maps.get(0));

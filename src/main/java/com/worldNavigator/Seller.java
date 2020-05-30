@@ -18,11 +18,9 @@ public class Seller extends Item {
 
   public Seller(JSONObject seller) {
     this.LOCATION = (String) seller.get("location");
-    if (seller.get("existed").equals("true")) {
-      super.setCheckBehavior(new Uncheckable());
-      this.contents = new ContentManager();
-      this.contents.manageSellerItem(seller);
-    }
+    super.setCheckBehavior(new Uncheckable());
+    this.contents = new ContentManager();
+    this.contents.manageSellerItem(seller);
     if (seller.get("selling") != null) {
       JSONObject temp_selling = (JSONObject) seller.get("selling");
       for (Object item_name : temp_selling.keySet()) {
@@ -121,8 +119,9 @@ public class Seller extends Item {
     this.playerModel = playerModel;
 
     this.playerModel.notify_player("Items and values this seller is willing to buy: ");
-    for (String content: this.selling.keySet()) {
-      this.playerModel.notify_player(content + " can be sold by: " + this.selling.get(content) + " golds");
+    for (String content : this.selling.keySet()) {
+      this.playerModel.notify_player(
+          content + " can be sold by: " + this.selling.get(content) + " golds");
     }
 
     this.sellingCommands();
@@ -217,9 +216,9 @@ public class Seller extends Item {
     if (item < keysList.size()) {
       keysList.remove(item);
       this.playerModel.addToContents(
-              "golds",
-              (Integer.parseInt(this.playerModel.getContent("golds").toString()))
-                      + this.selling.get("keys"));
+          "golds",
+          (Integer.parseInt(this.playerModel.getContent("golds").toString()))
+              + this.selling.get("keys"));
       this.playerModel.notify_player("Done!");
       this.playerModel.trade();
     } else {

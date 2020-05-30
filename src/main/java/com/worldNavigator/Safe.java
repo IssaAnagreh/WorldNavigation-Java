@@ -12,13 +12,9 @@ public class Safe extends Item {
 
     if (safe.get("key") != null) {
       super.setUseKeyBehavior(new Openable(safe, "Safe"));
-      if (safe.get("existed").equals("true")) {
-        super.setCheckBehavior(new Locked_Checkable(safe, this.LOCATION, super.useKeyBehavior));
-      }
+      super.setCheckBehavior(new Locked_Checkable(safe, this.LOCATION, super.useKeyBehavior));
     } else {
-      if (safe.get("existed").equals("true")) {
-        super.setCheckBehavior(new Unlocked_Checkable(safe, this.LOCATION));
-      }
+      super.setCheckBehavior(new Unlocked_Checkable(safe, this.LOCATION));
     }
   }
 

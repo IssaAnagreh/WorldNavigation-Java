@@ -11,14 +11,10 @@ public class Chest extends Item {
     this.LOCATION = (String) chest.get("location");
 
     if (chest.get("key") == null) {
-      if (chest.get("existed").equals("true")) {
-        super.setCheckBehavior(new Unlocked_Checkable(chest, this.LOCATION));
-      }
+      super.setCheckBehavior(new Unlocked_Checkable(chest, this.LOCATION));
     } else {
       super.setUseKeyBehavior(new Openable(chest, "Chest"));
-      if (chest.get("existed").equals("true")) {
-        super.setCheckBehavior(new Locked_Checkable(chest, this.LOCATION, super.useKeyBehavior));
-      }
+      super.setCheckBehavior(new Locked_Checkable(chest, this.LOCATION, super.useKeyBehavior));
     }
   }
 

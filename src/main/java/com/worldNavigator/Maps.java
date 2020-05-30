@@ -11,7 +11,7 @@ public class Maps {
   }
 
   public void addMap(String json) {
-    maps.add(generate(json));
+    maps.add(this.generate(json));
   }
 
   public void removeMap(MapFactory map) {

@@ -23,6 +23,7 @@ public class MapFactory {
   public String location;
   public String orientation;
   public int roomIndex;
+  public JSONArray jsonRooms;
 
   @SuppressWarnings("unchecked")
   public MapFactory(String mapName) {
@@ -72,8 +73,8 @@ public class MapFactory {
               ? Integer.parseInt((player_details).get("roomIndex").toString())
               : 0;
 
-      JSONArray jsonRooms = (JSONArray) map.get("rooms");
-      jsonRooms.forEach(room -> parseRoomObject((JSONObject) room));
+      this.jsonRooms = (JSONArray) map.get("rooms");
+      this.jsonRooms.forEach(room -> parseRoomObject((JSONObject) room));
     }
   }
 
@@ -86,7 +87,7 @@ public class MapFactory {
       throw new IllegalArgumentException();
     }
     if (roomObject != null) {
-      rooms.add(new Room(roomObject, room_counter));
+      this.rooms.add(new Room(roomObject, room_counter));
       this.room_counter++;
     } else {
       throw new IllegalArgumentException();

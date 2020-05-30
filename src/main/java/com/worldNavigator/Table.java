@@ -8,9 +8,7 @@ public class Table extends Item {
 
   public Table(JSONObject table) {
     this.LOCATION = (String) table.get("location");
-    if (table.get("existed").equals("true")) {
-      super.setCheckBehavior(new Unlocked_Checkable(table, this.LOCATION));
-    }
+    super.setCheckBehavior(new Unlocked_Checkable(table, this.LOCATION));
   }
 
   public String getLocation() {
