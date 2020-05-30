@@ -9,12 +9,10 @@ public class Uncheckable implements CheckBehavior {
     return new HashMap();
   }
 
-  @Override
   public void acquireContents(String location, PlayerModel playerModel) {
     // this method is unuseful in Uncheckable items
   }
 
-  @Override
   public ContentManager getContents() {
     return new ContentManager();
   }

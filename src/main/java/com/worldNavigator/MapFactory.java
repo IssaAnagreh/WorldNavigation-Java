@@ -80,18 +80,14 @@ public class MapFactory {
 
   private void parseRoomObject(JSONObject room) {
     // Get room object within list
-    JSONObject roomObject = null;
-    if (room != null) {
+    JSONObject roomObject;
+    try {
       roomObject = (JSONObject) room.get("room");
-    } else {
-      throw new IllegalArgumentException();
+    } catch (Exception e) {
+      throw new NullPointerException();
     }
-    if (roomObject != null) {
-      this.rooms.add(new Room(roomObject, room_counter));
-      this.room_counter++;
-    } else {
-      throw new IllegalArgumentException();
-    }
+    this.rooms.add(new Room(roomObject, room_counter));
+    this.room_counter++;
   }
 
   @Override
