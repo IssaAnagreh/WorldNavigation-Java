@@ -18,7 +18,7 @@ public abstract class Checkable implements CheckBehavior {
     this.contents.manageItem(item);
   }
 
-  protected ContentManager getContents() {
+  public ContentManager getContents() {
     return contents;
   }
 

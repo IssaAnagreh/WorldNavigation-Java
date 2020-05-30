@@ -15,6 +15,11 @@ public class Uncheckable implements CheckBehavior {
   }
 
   @Override
+  public ContentManager getContents() {
+    return new ContentManager();
+  }
+
+  @Override
   public String toString() {
     return "Uncheckable";
   }
