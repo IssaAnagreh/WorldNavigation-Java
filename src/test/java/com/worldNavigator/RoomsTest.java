@@ -1,24 +1,25 @@
 package com.worldNavigator;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-public class TestRooms {
+public class RoomsTest {
   MapFactory map;
   List<Room> rooms;
 
-  public TestRooms() {
+  public RoomsTest() {
     Maps maps = new Maps();
     this.map = maps.generate("map.json");
     this.rooms = this.map.rooms;
   }
 
   @Test
-  public void testWalls() {
+  public void roomsWallsExistenceTest() {
     for (Room room : this.rooms) {
       assertFalse(room.walls.isEmpty());
     }
