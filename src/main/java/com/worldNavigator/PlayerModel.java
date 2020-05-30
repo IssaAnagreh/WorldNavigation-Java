@@ -140,14 +140,18 @@ public class PlayerModel extends Observable {
 
   public void use_key() {
     String print = "";
-    if (((ArrayList<KeyChecker>) this.contents.get("keys")).isEmpty()) {
-      print = "You have no keys";
+    if (this.contents.get("keys") != null) {
+      if (((ArrayList<KeyChecker>) this.contents.get("keys")).isEmpty()) {
+        print = "You have no keys";
+      } else {
+        Item item = this.wall.itemsFactory.getItem(this.location);
+        print =
+            item.toString().equals("Space")
+                ? "Opening nothing"
+                : item.applyUseKey((ArrayList<KeyChecker>) this.contents.get("keys"));
+      }
     } else {
-      Item item = this.wall.itemsFactory.getItem(this.location);
-      print =
-          item.toString().equals("Space")
-              ? "Opening nothing"
-              : item.applyUseKey((ArrayList<KeyChecker>) this.contents.get("keys"));
+      print = "You have no keys";
     }
     notify_player(print);
   }
