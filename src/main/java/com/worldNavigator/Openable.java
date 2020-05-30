@@ -10,7 +10,7 @@ public class Openable implements UseKeyBehavior {
   private final String NAME;
 
   public Openable(JSONObject item, String name) {
-    this.setKey(new Key((String) item.get("key")));
+    this.setKey(new Key(item.get("key").toString()));
     this.init_isLocked(item.get("is_locked").equals("true"));
     this.NAME = name;
   }

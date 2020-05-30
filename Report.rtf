@@ -7,8 +7,11 @@
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid101\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid201\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
 {\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid301\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
-{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid401\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid401\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid501\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid601\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}
+{\list\listtemplateid8\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{diamond\}}{\leveltext\leveltemplateid701\'01\uc0\u9670 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid8}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}{\listoverride\listid8\listoverridecount0\ls8}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww16140\viewh12880\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\qc\partightenfactor0
 
@@ -57,12 +60,15 @@ Project: World Navigator\
 	- Booleans are named depending on the usage, so no !isCorrect ever used.\
 \
 
-\f0\b 	- Failures and Exception handling:\
+\f0\b 	- Failures and Exception handling:
+\f2\b0 \
+	- Exceptions are made in the places that a client likes to change or add, which is the map json file, so if any change or addition violates the rules that are explained in the readme file an exception will appear.
+\f0\b \
 
-\f2\b0 	- Made my best to not implement any failure and not to use try and catch, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did.\
+\f2\b0 	- Made my best to not implement any failure and not to use try and catch inside of the game while playing, why; I assumed the client is the gamer of the game who doesn\'92t like to see a crash or an error of the game -it will be annoying-, so what I have done is making notations when anything illegal or non-sensible, so the user can go on with the game all the way and redo any mistake they did.\
 	- Returning is fast as possible, but unfortunately, some if-else\'92s are added to achieve the previous point and avoid many user\'92s mistakes, plus they give many hints. Ex: When trading with a Seller class; we use a list of items that the player can choose one of them to buy, so if the player inputs an out of bound index a message will appear to tell 
 \f3\fs26 \cf2 \'93Choose an existed item's index\'94
-\f2\fs28 \cf0 .\
+\f2\fs28 \cf0 , and no illegal exception appears.\
 \
 
 \f0\b 	- SOLID:\
@@ -71,17 +77,19 @@ Project: World Navigator\
 		- Maps factory and its next classes (rooms, walls, \'85etc.) have a good example of the single responsibility principle.\
 		- I tried to be as creative as possible; imagined Maps factory class, Game Menu class, Game MVC classes; PlayerModel that has all player\'92s details, PlayerController that allows user to control his player, PlayerViewer that can be the GUI once), Key class, GameTimer class, ContentsManager (this prepares items such as keys, flashlights and golds and so on), Room class, Wall class, Items classes (such as Painting class, Mirror class, Seller class, Door class, and Chest class), and the ItemsFactory class.\
 		- PlayerController and PlayerModel are the most challenging classes; Player model is the model of the most engaging part of the game which is the player which interacts with mostly everything in the application -except some parts such as menus and maps factory-, so what I have seen is that splitting any part of this Class can increase the complexity as the model class must achieve its existence purpose which is to have all the information of the player. The Player controller class is a bit weird, usually, controllers are customizable so what I did is to make a Player controller master then extended to a custom player controller (PlayerController class). More of deeply digging inside of some classes are to be discussed later\
-		- Coupling: unfortunately coupling frequently appears in the project, let\'92s discuss, I have a MapFactory which prepares a map including its rooms, then each room prepares its walls, then each wall prepares its items (Door, Chest, Mirror, Painting or Seller). I made my best thinking of this chain but I lastly found that this is a normal correct chain, where there is no map without a room at least, and room without 4 walls as the requirements said, and no wall without items then these items are generated via ItemsFactory class that can be updated if any new item was to be added later.\
+		- Coupling: unfortunately coupling frequently appears in the project, let\'92s discuss, I have a MapFactory which prepares a map including its rooms, then each room prepares its walls, then each wall prepares its items (Door, Chest, Mirror, Painting or Seller). I made my best thinking of this chain but I lastly found that this is a normal correct chain, where there is no map without a room at least, and a room without 4 walls as the requirements said, and walls may have items then these items are generated via ItemsFactory class that can be updated if any new item is to be added later.\
 	\
 	- OCP:\
-		- New items (doors, chests, paintings, mirrors, and sellers) and contents (golds, flashLights, and keys) are possibly can be added to the game, contents and items are changeable too. So I implemented ItemsFactory and Content Manager that helps to achieve OCP principle to add new items as simple as possible with changing only these classes.\
-		- Customized player controllers class is also extended from a master that has some certain controlling commands and methods that must not be changed can be over-ridden or added to.\
+		- New items (doors, chests, paintings, mirrors, and sellers) and contents (golds, flashLights, and keys) are possibly can be added to the game, contents and items are changeable too. So I implemented ItemsFactory and Content Manager that help to achieve OCP principle to add new items as simple as possible with changing only one or two classes.\
+		- Customized player controllers class is also extended from a master that has some certain controlling commands and methods that must not be changed but can be over-ridden or added to.\
 \
 	- LSP:\
 		- Honestly, this principle was the most helpful which used in my implementation of this project in one of the main scenarios; when having an Item class that is extended to all items such as door, chest, seller \'85etc. but still, each one has it\'92s own specific fundamentals so doors are openable but not checkable, but the chest is openable and checkable, and the mirror is checkable but not openable. So having this principle to implement this critical scenario was helpful by making Item, Locked_Checkable, Unlocked_Checkable, Uncheckable, Openable, CheckBehavior interface, and UseKeyBehavior interface, to deal with all possible scenarios with all the items and any future added items.\
 \
 	- ISP:\
-		- No unused implemented methods and no unused forced implemented methods in the classes, except once in Uncheckable class that has acquireContents which acquires nothing in this class.\
+		- No unused implemented methods and no unused forced implemented methods in the classes, except once in Uncheckable class that has acquireContents, checkContent and getContents which do nothing in this class; why do we have them organically? Because Items are implementing a  
+\f0\b Strategy Design Pattern 
+\f2\b0 that enforces the item to have a checkable behavior and so some items are not checkable, simply they behave uncheckable.\
 \
 	- DIP:\
 		- Items are of the most changeable parts in the whole project so it needed to be extremely isolated, that was the inspiration of implementing of DIP by adding the ItemsFactory so it only gives the chance to deal with it to invoke a certain method or to read a certain attribute from a certain item such as Door, Chest, Paintings \'85etc.\
@@ -89,7 +97,7 @@ Project: World Navigator\
 
 \f0\b 	- Comments:\
 	
-\f2\b0 - Comments were used very minimumly; two examples: the first usage was for a while loop that will take the commands all time as long as the game is on, while\'92s argument is player.isPlaying, the argument is clear enough but still I thought it may need more clarification, the second usage was about telling the developer about the timer starting method while its class\'92s name is GameTimer and the run of the timer in its constructor.\
+\f2\b0 - Comments were used very minimumly; two examples: the first usage was for a while loop that will take the commands all time as long as the game is on, while\'92s argument is player.isPlaying, the argument is clear enough but still I thought it may need more clarification, the second usage was about telling the developer about the timer starting method while its class\'92s name is GameTimer and the run of the timer in its constructor. An other usage where added later to tell about an empty acquireContents function -previously discussed- in the Uncheckable class.\
 \
 	- 
 \f0\b Style conventions:\
@@ -105,12 +113,12 @@ Project: World Navigator\
 \f2\b0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
-\fs28 \cf0 	This game project has many related classes and so it needed many design patterns to achieve this principle, starting with the keys usage that is working for chests and doors, but chests are checkable (can acquire items from) but doors are not, mirrors and paintings are checkable but not openable with keys, and many other applications. \
+\fs28 \cf0 	This game project has many related classes and so it needed many design patterns to achieve this principle, starting with the keys usage that is working for chests and doors, but chests are checkable (can acquire items from) and doors are not, mirrors and paintings are checkable but not openable with keys, and many other applications.\
 \
 	- Maps: originally maps are .json files that must be read and converted into java classes and objects somehow; \'93hide creation logic\'94 is the decision of mine to be implemented here, depending on this, 
 \f0\b Factory Method Pattern
 \f2\b0  was the best for this application, but actually I made a different implementation, no interfaces were made as it\'92s not actually needed in my case because map items have different methods content and there is no need for a special interface for them in this part of the designation -they have a special interface but in different scope-. \
-Let us dig deeper here, .json files needed a special library installed that can convert the .json file to jsonOBJECTS, jsonARRAYS, and jsonVALUES, and these files must be refactored to be some java\'92s classes and objects which are complicated to go through every time a developer wants to implement a new item -let us say a developer wants to add tables in the rooms-. So, MapFactory is to parse all the .json map to java map, even if a developer wants to add a new item -a table as an example- can add it in a simple way depending on the readme file and changing the ItemsFactory class -this will be discussed later-. However, the only reason to get into the MapFactory class is if the developer wants to add a new object to contents such as golds, flashLights \'85etc, -a hummer as an example new content object-.\
+Let us dig deeper here, .json files needed a special library installed that can convert the .json file to jsonOBJECTS, jsonARRAYS, and jsonVALUES, and these values and objects must be refactored to be some java\'92s classes and objects which are complicated to go through every time a developer wants to implement a new item -let us say a developer wants to add tables in the rooms-. So, MapFactory is to parse all the .json map to java map, even if a developer wants to add a new item -a table as an example- can add it in a simple way depending on the readme file and changing the ItemsFactory class -this will be discussed later-.\
 \
 	- Items: items are such as paintings, mirrors, doors, sellers \'85etc. The implementation here mainly was about having multiple shared behaviors, but multiple other different behaviors are also there, so \'93Separate what varies from what remains the same\'94 was the decision-maker of mine, depending on this, 
 \f0\b Strategy Design Pattern
@@ -125,18 +133,18 @@ Moreover, Some items are openable such as doors and chests, so they need a UseKe
 	- Player model: this can be debatable actually but from my point of view is that my PlayerModel class is implementing the 
 \f0\b Facade Pattern
 \f2\b0 ; this class has access on every playing class in the software, and what I mean by playing classes is that about classes which have a direct link with the player and the player\'92s interactive objects such as doors, chest, sellers, rotation, move \'85etc.\
-However, the player model class does not have access to Menu class as an example, but still, my point is valid; how, the menu is a high part of the game that has nothing related to the player (the virtual creation which seeks the golden door), as menu decides the map or restarting and quitting the game.\
+However, the player model class does not have access to Menu class as an example, but still, my point is valid; how, the menu is a high part of the game that has nothing related to the player (the virtual creation which seeks the golden door), as menu decides the map or restarts and quits the game.\
 \
 	- Player controller master: PlayerControllerMaster is a class that I believe is one of the most that has a chance to be changed as each user might want to change the commands he uses, \'93forward\'94 command is a long command actually when I tried my software it made me really bored, so I made up an extended PlayerController which is extended from the master implementing the 
 \f0\b Decorator Pattern
 \f2\b0  and added \'93f\'94 as a command to move forward with my virtual player in the game -by the way, I made an improvement to the game that the map has more of real 2D rooms the user can really move in, look at the readme-.\
 \
-	- Commands: as simple as this decision was to take this 
+	- Commands: as simple as this decision was to take, the 
 \f0\b Command Design Pattern
 \f2\b0  was the latest taken, why; because this pattern fills the command inside of a hash map with some more simple details, and the problem was with how to put a value as a method, thankfully this pattern helped me by making a command class in each key\'92s value of the commands Hashmap.\
 Switch statement was a valid choice here, but it was really long to be acceptable, and this was the main reason for taking this pattern implementation.\
 \
-	- Keys: this is the most complex decision has been taken, keys must be a special class that can open doors or chests but, in the future, more kind of keys or content items such as keys can open object items such as chests, so the decision of implementing 
+	- Keys: this is the most complex decision has been taken, keys must be a special class that can open doors or chests but, in the future, more kind of keys or content items, as keys can open object items such as chests, so the decision of implementing 
 \f0\b Visitor Pattern
 \f2\b0  was a must for me.\
 It gives me a wide number of choices when it comes to how to open things this is the main idea, plus this pattern can simplify the using key process even if having another item that can open objects is not possible.\
@@ -175,11 +183,45 @@ It gives me a wide number of choices when it comes to how to open things this is
 \f0 	}Some Special Classes for Items and Contents:
 \f2\b0\fs28 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
-\ls5\ilvl0\cf0 	- Checkable class: is class that is extended from previously mentioned Unlocked_Checkable, Locked_Checkable, and Uncheckable.\
-	- ContentManager class: items are different kinds such as keys (Key class), flashLights (int), and so on, so preparing them is not an easy job to do, a special class to do this is a good idea for me to implement this.\
-	- ItemsFactory: Each item has a special class so implementing them is a tricky job, so ItemsFactory\'92s job is not simple.
+\ls5\ilvl0\cf0 	- Checkable class: is a class that is extended from previously mentioned Unlocked_Checkable, Locked_Checkable, and Uncheckable, to implement the common setContents, getContents and acquireContents methods.\
+	- ContentManager class: contents are
+\f0\b  different kinds
+\f2\b0  such as keys (Key class), flashLights (int), and so on, so preparing them is not an easy job to do, a special class to do this is a good idea for me to implement this.\
+	- ItemsFactory: Each item has a special class so implementing them is a tricky job, so ItemsFactory\'92s job is not simple, so it prepares all of them and each one with its own special class such as Door, Chest, etc.
 \fs32 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
 
 \fs28 \cf0 \
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\sl360\slmult1\pardirnatural\partightenfactor0
+\ls6\ilvl0
+\f0\b\fs32 \cf0 {\listtext	
+\f1 \uc0\u9670 
+\f0 	}Testing:
+\f2\b0\fs28 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\ls7\ilvl0\cf0 	- JSONMapTest class: is a class that test the .json maps files, so if a new map is implemented it can be easily tested by this test class; it mainly tests:\
+		- endTime.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\cf0 		- mapName.\
+		- roomsList.\
+		- wallsNames.\
+		- itemsNames.\
+		- itemsLocations.\
+		- itemsLocationsNaming.\
+		- contentsNaming.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\ls8\ilvl0\cf0 	- RoomsTest class: is a class that test the Room class, it mainly tests:\
+		- roomsWallsExistence.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl360\slmult1\pardirnatural\partightenfactor0
+\cf0 		- roomsIsLit.\
+		- roomsLightSwitch.\
+\
+\
+\
+\
+\
+\
+\
+\
+\
 }

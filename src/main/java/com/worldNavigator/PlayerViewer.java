@@ -17,7 +17,11 @@ public class PlayerViewer implements Observer {
   public void update(Observable o, Object arg) {
     PlayerModel playerModel = (PlayerModel) o;
     String msg = (String) arg;
-    System.out.println(msg);
+    if (playerModel.isInline) {
+      System.out.print(msg);
+    } else {
+      System.out.println(msg);
+    }
   }
 
   public String getName() {

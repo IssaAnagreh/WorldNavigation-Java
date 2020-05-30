@@ -14,10 +14,6 @@ public class Maps {
     maps.add(this.generate(json));
   }
 
-  public void removeMap(MapFactory map) {
-    maps.remove(map);
-  }
-
   public void replace(MapFactory map, int index) {
     this.maps.set(index, map);
   }

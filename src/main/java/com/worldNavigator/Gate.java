@@ -9,10 +9,10 @@ public class Gate extends Item implements NextGoing {
   private final String LOCATION;
 
   public Gate(JSONObject gate) {
-    this.NAME = (String) gate.get("name");
-    this.LOCATION = (String) gate.get("location");
+    this.NAME = gate.get("name").toString();
+    this.LOCATION = gate.get("location").toString();
     this.IS_GOLDEN = gate.get("golden").equals("true");
-    this.NEXT_ROOM = (String) gate.get("to");
+    this.NEXT_ROOM = gate.get("to").toString();
 
     if (gate.get("key") != null) {
       super.setUseKeyBehavior(new Openable(gate, "Gate"));

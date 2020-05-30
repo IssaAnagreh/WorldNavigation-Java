@@ -13,17 +13,21 @@ public class Room {
 
   public Room(JSONObject room, int room_counter) {
     this.ROOM_NAME =
-        room.get("name") == null ? "room_" + (room_counter + 1) : (String) room.get("name");
+        room.get("name") == null ? "room_" + (room_counter + 1) : room.get("name").toString();
     this.ROOM_NUMBER = room_counter;
     generateRoom(room);
   }
 
+  private JSONObject castToJSONObject(Object o) {
+    return (JSONObject) o;
+  }
+
   private void generateRoom(JSONObject room) {
     try {
-      Wall north_wall = new Wall("north_wall", (JSONObject) room.get("n_wall"));
-      Wall east_wall = new Wall("east_wall", (JSONObject) room.get("e_wall"));
-      Wall south_wall = new Wall("south_wall", (JSONObject) room.get("s_wall"));
-      Wall west_wall = new Wall("west_wall", (JSONObject) room.get("w_wall"));
+      Wall north_wall = new Wall("north_wall", castToJSONObject(room.get("n_wall")));
+      Wall east_wall = new Wall("east_wall", castToJSONObject(room.get("e_wall")));
+      Wall south_wall = new Wall("south_wall", castToJSONObject(room.get("s_wall")));
+      Wall west_wall = new Wall("west_wall", castToJSONObject(room.get("w_wall")));
 
       walls.put("n", north_wall);
       walls.put("e", east_wall);

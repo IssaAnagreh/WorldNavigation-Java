@@ -7,7 +7,7 @@ public class Painting extends Item {
   public final String NAME = "Painting";
 
   public Painting(JSONObject painting) {
-    this.LOCATION = (String) painting.get("location");
+    this.LOCATION = painting.get("location").toString();
     super.setCheckBehavior(new Unlocked_Checkable(painting, this.LOCATION));
   }
 

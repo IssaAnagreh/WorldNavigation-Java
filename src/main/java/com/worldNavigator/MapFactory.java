@@ -16,7 +16,7 @@ import org.json.simple.parser.ParseException;
 public class MapFactory {
   private String name;
   public List<Room> rooms = new ArrayList<>();
-  public long endTime;
+  public int endTime;
   private int room_counter = 0;
   public final String mapName;
   public Map<String, Object> contents;
@@ -24,6 +24,14 @@ public class MapFactory {
   public String orientation;
   public int roomIndex;
   public JSONArray jsonRooms;
+
+  private JSONObject castToJSONObject(Object o) {
+    return (JSONObject) o;
+  }
+
+  private JSONArray castToJSONArray(Object o) {
+    return (JSONArray) o;
+  }
 
   @SuppressWarnings("unchecked")
   public MapFactory(String mapName) {
@@ -36,8 +44,8 @@ public class MapFactory {
       // Read JSON file
       Object obj = jsonParser.parse(reader);
 
-      JSONArray maps = (JSONArray) obj;
-      maps.forEach(map -> parseMapObject((JSONObject) map));
+      JSONArray maps = castToJSONArray(obj);
+      maps.forEach(map -> parseMapObject(castToJSONObject(map)));
 
     } catch (FileNotFoundException e) {
       e.printStackTrace();
@@ -54,7 +62,7 @@ public class MapFactory {
     } else {
       // Get map object within list
       name = (String) map.get("name");
-      endTime = (long) map.get("end_time");
+      endTime = Integer.parseInt(map.get("end_time").toString());
       ContentManager contentManager = new ContentManager();
       String player_string = "player";
       HashMap<String, Object> player_details = (HashMap) map.get(player_string);
@@ -73,8 +81,8 @@ public class MapFactory {
               ? Integer.parseInt((player_details).get("roomIndex").toString())
               : 0;
 
-      this.jsonRooms = (JSONArray) map.get("rooms");
-      this.jsonRooms.forEach(room -> parseRoomObject((JSONObject) room));
+      this.jsonRooms = castToJSONArray(map.get("rooms"));
+      this.jsonRooms.forEach(room -> parseRoomObject(castToJSONObject(room)));
     }
   }
 
@@ -82,7 +90,7 @@ public class MapFactory {
     // Get room object within list
     JSONObject roomObject;
     try {
-      roomObject = (JSONObject) room.get("room");
+      roomObject = castToJSONObject(room.get("room"));
     } catch (Exception e) {
       throw new NullPointerException();
     }

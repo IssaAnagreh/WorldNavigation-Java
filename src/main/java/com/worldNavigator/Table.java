@@ -7,7 +7,7 @@ public class Table extends Item {
   private final String NAME = "Table";
 
   public Table(JSONObject table) {
-    this.LOCATION = (String) table.get("location");
+    this.LOCATION = table.get("location").toString();
     super.setCheckBehavior(new Unlocked_Checkable(table, this.LOCATION));
   }
 

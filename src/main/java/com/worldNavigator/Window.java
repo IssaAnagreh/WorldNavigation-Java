@@ -8,7 +8,7 @@ public class Window extends Item {
 
   public Window(JSONObject door) {
     this.NAME = "Window";
-    this.LOCATION = (String) door.get("location");
+    this.LOCATION = door.get("location").toString();
 
     super.setCheckBehavior(new Uncheckable());
   }

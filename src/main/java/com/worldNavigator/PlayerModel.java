@@ -17,6 +17,7 @@ public class PlayerModel extends Observable {
   public Menu menu;
   private boolean playing;
   static BufferedReader br;
+  public Boolean isInline = false;
 
   public PlayerModel(MapFactory map, Menu menu) {
     this.map = map;
@@ -35,9 +36,20 @@ public class PlayerModel extends Observable {
     notifyObservers(msg);
   }
 
+  public void inLine_notify_player(String msg) {
+    this.isInline = true;
+    this.setChanged();
+    notifyObservers(msg);
+    this.isInline = false;
+  }
+
+  private int castToInt(Object o) {
+    return (int) o;
+  }
+
   public void startGame() {
     this.playing = true;
-    this.timer = new GameTimer((int) this.map.endTime, this);
+    this.timer = new GameTimer(this.map.endTime, this);
     this.br = new BufferedReader(new InputStreamReader(System.in));
   }
 
@@ -59,7 +71,7 @@ public class PlayerModel extends Observable {
   }
 
   public void drawRoom() {
-    new RoomDrawer(location, this.room);
+    new RoomDrawer(location, this.room, this);
   }
 
   public void wall() {
@@ -138,17 +150,21 @@ public class PlayerModel extends Observable {
     }
   }
 
+  private ArrayList<KeyChecker> castToKeyCheckerArrayList(Object o) {
+    return (ArrayList<KeyChecker>) o;
+  }
+
   public void use_key() {
     String print = "";
     if (this.contents.get("keys") != null) {
-      if (((ArrayList<KeyChecker>) this.contents.get("keys")).isEmpty()) {
+      if ((castToKeyCheckerArrayList(this.contents.get("keys"))).isEmpty()) {
         print = "You have no keys";
       } else {
         Item item = this.wall.itemsFactory.getItem(this.location);
         print =
             item.toString().equals("Space")
                 ? "Opening nothing"
-                : item.applyUseKey((ArrayList<KeyChecker>) this.contents.get("keys"));
+                : item.applyUseKey(castToKeyCheckerArrayList(this.contents.get("keys")));
       }
     } else {
       print = "You have no keys";
@@ -160,12 +176,12 @@ public class PlayerModel extends Observable {
     String print = "";
     List<KeyChecker> masterKeysList = new ArrayList<>();
     String masterKeysString = "masterKeys";
-    if (((int) this.contents.get(masterKeysString)) > 0) {
+    if ((castToInt(this.contents.get(masterKeysString))) > 0) {
       masterKeysList.add(new MasterKey());
       Item item = this.wall.itemsFactory.getItem(this.location);
       print =
           item.toString().equals("Space") ? "Opening nothing" : item.applyUseKey(masterKeysList);
-      this.contents.put(masterKeysString, (int) this.contents.get(masterKeysString) - 1);
+      this.contents.put(masterKeysString, castToInt(this.contents.get(masterKeysString)) - 1);
     } else {
       print = "You have no master keys";
     }
@@ -250,7 +266,7 @@ public class PlayerModel extends Observable {
   }
 
   public void seller_buy(Seller seller) {
-    seller.buy((int) this.contents.get("golds"), this);
+    seller.buy(castToInt(this.contents.get("golds")), this);
   }
 
   public void seller_sell(Seller seller) {
@@ -266,9 +282,9 @@ public class PlayerModel extends Observable {
       notify_player("You don't need to light a lit room");
       return;
     }
-    if ((int) this.contents.get("flashLights") > 0) {
+    if (castToInt(this.contents.get("flashLights")) > 0) {
       this.contents.put(
-          "flashLights", this.room.useFlashLight((int) this.contents.get("flashLights"), this));
+          "flashLights", this.room.useFlashLight(castToInt(this.contents.get("flashLights")), this));
     } else {
       notify_player("You have no flashLights");
     }

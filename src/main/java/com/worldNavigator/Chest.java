@@ -7,8 +7,8 @@ public class Chest extends Item {
   private final String LOCATION;
 
   public Chest(JSONObject chest) {
-    this.NAME = (String) chest.get("name");
-    this.LOCATION = (String) chest.get("location");
+    this.NAME = chest.get("name").toString();
+    this.LOCATION = chest.get("location").toString();
 
     if (chest.get("key") == null) {
       super.setCheckBehavior(new Unlocked_Checkable(chest, this.LOCATION));

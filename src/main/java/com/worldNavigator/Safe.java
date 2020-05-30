@@ -7,8 +7,8 @@ public class Safe extends Item {
   private final String LOCATION;
 
   public Safe(JSONObject safe) {
-    this.NAME = (String) safe.get("name");
-    this.LOCATION = (String) safe.get("location");
+    this.NAME = safe.get("name").toString();
+    this.LOCATION = safe.get("location").toString();
 
     if (safe.get("key") != null) {
       super.setUseKeyBehavior(new Openable(safe, "Safe"));

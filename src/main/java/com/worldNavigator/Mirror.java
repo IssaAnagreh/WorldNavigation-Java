@@ -7,7 +7,7 @@ public class Mirror extends Item {
   private final String NAME = "Mirror";
 
   public Mirror(JSONObject mirror) {
-    this.LOCATION = (String) mirror.get("location");
+    this.LOCATION = mirror.get("location").toString();
     super.setCheckBehavior(new Unlocked_Checkable(mirror, this.LOCATION));
   }
 

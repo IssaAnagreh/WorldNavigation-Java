@@ -9,10 +9,10 @@ public class Door extends Item implements NextGoing {
   private final String LOCATION;
 
   public Door(JSONObject door) {
-    this.NAME = (String) door.get("name");
-    this.LOCATION = (String) door.get("location");
+    this.NAME = door.get("name").toString();
+    this.LOCATION = door.get("location").toString();
     this.IS_GOLDEN = door.get("golden").equals("true");
-    this.NEXT_ROOM = (String) door.get("to");
+    this.NEXT_ROOM = door.get("to").toString();
 
     if (door.get("key") != null) {
       super.setUseKeyBehavior(new Openable(door, "Door"));

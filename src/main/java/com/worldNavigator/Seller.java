@@ -17,7 +17,7 @@ public class Seller extends Item {
   private PlayerModel playerModel;
 
   public Seller(JSONObject seller) {
-    this.LOCATION = (String) seller.get("location");
+    this.LOCATION = seller.get("location").toString();
     super.setCheckBehavior(new Uncheckable());
     this.contents = new ContentManager();
     this.contents.manageSellerItem(seller);

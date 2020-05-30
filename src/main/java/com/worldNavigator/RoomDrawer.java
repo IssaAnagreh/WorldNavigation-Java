@@ -6,8 +6,10 @@ public class RoomDrawer {
   private HashMap<Integer, String> mapStrings = new HashMap<>();
   private String location;
   private Room room;
+  private PlayerModel playerModel;
 
-  public RoomDrawer(String location, Room room) {
+  public RoomDrawer(String location, Room room, PlayerModel playerModel) {
+    this.playerModel = playerModel;
     if (room.getIsLit()) {
       this.mapStrings.put(0, "a");
       this.mapStrings.put(1, "b");
@@ -29,7 +31,7 @@ public class RoomDrawer {
   private void raw(int num) {
     for (int i = 0; i < 5; ++i) {
       if (this.location.equals(mapStrings.get(i) + num)) {
-        System.out.print("\u29EF\u29EF ");
+        playerModel.inLine_notify_player("\u29EF\u29EF ");
       } else {
         boolean item = false;
         for (Wall wall : this.room.walls.values()) {
@@ -40,9 +42,9 @@ public class RoomDrawer {
                     .equals("Nothing in this location");
           }
         }
-        System.out.print(!item ? mapStrings.get(i) + num + " " : "■■ ");
+        playerModel.inLine_notify_player(!item ? mapStrings.get(i) + num + " " : "■■ ");
       }
     }
-    System.out.println();
+    playerModel.notify_player("");
   }
 }
