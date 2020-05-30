@@ -21,7 +21,21 @@ public class RoomsTest {
   @Test
   public void roomsWallsExistenceTest() {
     for (Room room : this.rooms) {
-      assertFalse(room.walls.isEmpty());
+      assertTrue(room.walls.size() > 1);
+    }
+  }
+
+  @Test
+  public void roomsIsLitTest() {
+    for (Room room : this.rooms) {
+      assertNotNull(room.getIsLit());
+    }
+  }
+
+  @Test
+  public void roomsLightSwitchTest() {
+    for (Room room : this.rooms) {
+      assertNotNull(room.lightSwitch);
     }
   }
 }

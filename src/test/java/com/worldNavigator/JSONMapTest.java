@@ -124,7 +124,7 @@ public class JSONMapTest {
   }
 
   @Test
-  public void itemsTest() {
+  public void contentsNamingTest() {
     for (Room room : this.rooms) {
       Wall n_wall = room.walls.get("n");
       Wall e_wall = room.walls.get("e");
