@@ -84,3 +84,13 @@ _
 +src/main/java/com/worldNavigator/Space.java,6/3/6302f5d49a3b7ab50b37e054e121f8e08e6cadb5
 c
 3src/main/java/com/worldNavigator/ContentsTypes.java,b/9/b9cfb74fef0cc81b59ade61734ed2b4af59fb6c1
+_
+/src/main/java/com/worldNavigator/MoveTypes.java,b/5/b5b9cd8986a0a18fd4b4dcf9714ed32d65c3a8a7
+^
+.src/test/java/com/worldNavigator/MainTest.java,d/2/d237f5e4838901edb98ea1ee2b95a9f944176018
+a
+1src/test/java/com/worldNavigator/JSONMapTest.java,7/4/743d74ae33b0c5946effa815924b374eb6c679d1
+_
+/src/test/java/com/worldNavigator/RoomsTest.java,8/0/80a02efcb4e41cfeb69a7a86f9574914b3986a85
+`
+0src/main/java/com/worldNavigator/RoomDrawer.java,a/e/aea205c922d05c14d720f56207bf75ba0291cb44

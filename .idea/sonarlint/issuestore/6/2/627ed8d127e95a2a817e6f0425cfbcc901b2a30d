@@ -1,8 +1,4 @@
 
-]
-java:S1854 "@Remove this useless assignment to local variable "playerViewer".(¡ÔÒ˜8¬áğÎ¢.
 w
 java:S1450
 "ZRemove the "playerModel" field and declare it as a local variable in the relevant methods.(ÒúÇ8¬áğÎ¢.
-N
-java:S1481 "1Remove this unused "playerViewer" local variable.(¡ÔÒ˜8¬áğÎ¢.

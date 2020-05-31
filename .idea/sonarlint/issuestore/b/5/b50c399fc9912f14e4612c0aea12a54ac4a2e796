@@ -1,9 +1,5 @@
 
-E
-java:S1874"0Remove this use of "Observer"; it is deprecated.(ÄµêR
 T
 java:S1874"2Remove this use of "Observable"; it is deprecated.(‹›Àüÿÿÿÿ8Š¸òÎ¢.
-a
-java:S1854"?Remove this useless assignment to local variable "playerModel".(’å²€øÿÿÿÿ8Š¸òÎ¢.
-R
-java:S1481"0Remove this unused "playerModel" local variable.(’å²€øÿÿÿÿ8Š¸òÎ¢.
+E
+java:S1874"0Remove this use of "Observer"; it is deprecated.(ÄµêR
