@@ -26,13 +26,13 @@ public class Transition {
 
   private void forward(String location, String orientation) {
     switch (orientation) {
-      case "n":
+      case "north":
         this.new_location = this.prevNumber(this.findNumberIndex(location), location);
         break;
-      case "e":
+      case "east":
         this.new_location = this.nextChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
         break;
-      case "s":
+      case "south":
         this.new_location = this.nextNumber(this.findNumberIndex(location), location);
         break;
 
@@ -44,13 +44,13 @@ public class Transition {
 
   private void backward(String location, String orientation) {
     switch (orientation) {
-      case "n":
+      case "north":
         this.new_location = this.nextNumber(this.findNumberIndex(location), location);
         break;
-      case "e":
+      case "east":
         this.new_location = this.prevChar(location.charAt(0) + "") + ((location.charAt(1)) + "");
         break;
-      case "s":
+      case "south":
         this.new_location = this.nextNumber(this.findNumberIndex(location), location);
         break;
       default:
@@ -61,18 +61,18 @@ public class Transition {
 
   private void forward_nextRoom(String location, String orientation) {
     switch (orientation) {
-      case "n":
+      case "north":
         {
           int number = this.findNumberIndex(location);
           this.new_location =
               number > 1 ? (location.charAt(0)) + "" + (number - 1) : (location.charAt(0)) + "" + 5;
           break;
         }
-      case "e":
+      case "east":
         this.new_location =
             nextChar_nextRoom(location.charAt(0) + "") + ((location.charAt(1)) + "");
         break;
-      case "s":
+      case "south":
         {
           int number = this.findNumberIndex(location);
           this.new_location =

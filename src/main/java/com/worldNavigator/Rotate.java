@@ -3,6 +3,10 @@ package com.worldNavigator;
 public class Rotate {
   String ORIENTATION;
   PlayerModel playerModel;
+  private final String NORTH = "north";
+  private final String EAST = "east";
+  private final String SOUTH = "south";
+  private final String WEST = "west";
 
   public Rotate(String orientation, PlayerModel playerModel) {
     this.ORIENTATION = orientation;
@@ -11,17 +15,17 @@ public class Rotate {
 
   public String left() {
     switch (this.ORIENTATION) {
-      case "n":
-        this.ORIENTATION = "w";
+      case "north":
+        this.ORIENTATION = this.WEST;
         break;
-      case "e":
-        this.ORIENTATION = "n";
+      case "east":
+        this.ORIENTATION = this.NORTH;
         break;
-      case "s":
-        this.ORIENTATION = "e";
+      case "south":
+        this.ORIENTATION = this.EAST;
         break;
-      case "w":
-        this.ORIENTATION = "s";
+      case "west":
+        this.ORIENTATION = this.SOUTH;
         break;
       default:
         this.playerModel.notify_player("Semething went wrong while rotating");
@@ -33,20 +37,20 @@ public class Rotate {
 
   public String right() {
     switch (this.ORIENTATION) {
-      case "n":
-        this.ORIENTATION = "e";
+      case "north":
+        this.ORIENTATION = this.EAST;
         break;
-      case "e":
-        this.ORIENTATION = "s";
+      case "east":
+        this.ORIENTATION = this.SOUTH;
         break;
-      case "s":
-        this.ORIENTATION = "w";
+      case "south":
+        this.ORIENTATION = this.WEST;
         break;
-      case "w":
-        this.ORIENTATION = "n";
+      case "west":
+        this.ORIENTATION = this.NORTH;
         break;
       default:
-        this.playerModel.notify_player("Semething went wrong while rotating");
+        this.playerModel.notify_player("Something went wrong while rotating");
         break;
     }
     this.playerModel.notify_player(this.ORIENTATION);

@@ -75,7 +75,7 @@ public class MapFactory {
       this.orientation =
           (player_details).get("orientation") != null
               ? (player_details).get("orientation").toString()
-              : "n";
+              : "north";
       this.roomIndex =
           (player_details).get("roomIndex") != null
               ? Integer.parseInt((player_details).get("roomIndex").toString())

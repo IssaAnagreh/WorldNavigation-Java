@@ -6,7 +6,7 @@
     "player": {
       "golds": 3,
       "flashLights": 0,
-      "orientation": "e",
+      "orientation": "east",
       "location": "c3",
       "roomIndex": 0
     },
