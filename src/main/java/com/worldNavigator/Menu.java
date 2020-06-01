@@ -15,7 +15,7 @@ public class Menu {
   }
 
   public void map_chooser() {
-    System.out.println("Maps: ");
+    System.out.println("Choose one of the available maps: ");
     int counter = 0;
     while (counter != this.maps.maps.size()) {
       System.out.println(counter + ": " + this.maps.maps.get(counter));

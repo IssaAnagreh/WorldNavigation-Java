@@ -38,7 +38,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
     while (this.playerModel.isPlaying()) {
       this.playerModel.notify_player("Enter your next command: ");
       String command = this.playerModel.br.readLine();
-      if (this.playerModel.isPlaying()) use_method(command.trim().toLowerCase());
+      if (this.playerModel.isPlaying()) use_method(command.trim());
     }
   }
 
