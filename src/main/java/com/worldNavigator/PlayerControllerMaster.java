@@ -10,8 +10,9 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
   private final List<String> MIRROR_COMMANDS = new ArrayList<>();
   private final List<String> PAINTING_COMMANDS = new ArrayList<>();
   private final List<String> SELLER_COMMANDS = new ArrayList<>();
-  public boolean hint = true;
-  public Map<String, Command> commandsMap;
+  private boolean hint = true;
+  protected Map<String, Command> commandsMap;
+  protected Map<String, Command> shortCommandsMap = new HashMap<>();
   public final String HINT_SENTENCE = ", use <hints> command to stop these hints";
 
   public PlayerControllerMaster() {
@@ -224,6 +225,7 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
   }
 
   public void commands() {
+    this.playerModel.notify_player("Available commands:");
     String type = this.getType();
     switch (type + "") {
       case "door":
@@ -242,7 +244,10 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
         this.playerModel.notify_player(this.CHEST_COMMANDS.toString());
         break;
       default:
-        this.playerModel.notify_player(this.commandsMap.keySet().toString());
+        ArrayList<String> keys = new ArrayList<>();
+        keys.addAll(this.commandsMap.keySet());
+        Collections.sort(keys);
+        this.playerModel.notify_player(keys.toString());
     }
   }
 
@@ -266,7 +271,11 @@ public class PlayerControllerMaster implements PlayerControllerInterface {
   public void use_method(String command) {
     Command c = this.commandsMap.get(command);
     if (c == null) {
+      c = this.shortCommandsMap.get(command);
+    }
+    if (c == null) {
       this.playerModel.notify_player("Use a valid command");
+      this.commands();
     } else {
       c.applyCommand(this);
     }

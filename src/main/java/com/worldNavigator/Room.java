@@ -29,10 +29,10 @@ public class Room {
       Wall south_wall = new Wall("south_wall", castToJSONObject(room.get("s_wall")));
       Wall west_wall = new Wall("west_wall", castToJSONObject(room.get("w_wall")));
 
-      walls.put("n", north_wall);
-      walls.put("e", east_wall);
-      walls.put("s", south_wall);
-      walls.put("w", west_wall);
+      walls.put("north", north_wall);
+      walls.put("east", east_wall);
+      walls.put("south", south_wall);
+      walls.put("west", west_wall);
     } catch (Exception e) {
       throw new IllegalArgumentException(e);
     }

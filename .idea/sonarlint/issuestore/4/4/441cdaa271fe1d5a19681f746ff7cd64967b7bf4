@@ -1,5 +1,9 @@
 
-O
-java:S1199L"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8—ß’¥.
+c
+java:S1192#"FDefine a constant instead of duplicating this literal "south" 3 times.(•µè‚8¬êˆ§.
+h
+java:S1192"FDefine a constant instead of duplicating this literal "north" 3 times.(ŞİÑ†ıÿÿÿÿ8¬êˆ§.
 O
 java:S1199A"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂªóÎ¢.
+O
+java:S1199L"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8—ß’¥.

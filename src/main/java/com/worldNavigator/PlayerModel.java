@@ -18,6 +18,7 @@ public class PlayerModel extends Observable {
   private boolean playing;
   static BufferedReader br;
   public Boolean isInline = false;
+  public ConsoleColors consoleColor;
 
   public PlayerModel(MapFactory map, Menu menu) {
     this.map = map;
@@ -34,6 +35,13 @@ public class PlayerModel extends Observable {
   public void notify_player(String msg) {
     this.setChanged();
     notifyObservers(msg);
+  }
+
+  public void notify_player(String msg, ConsoleColors color) {
+    this.consoleColor = color;
+    this.setChanged();
+    notifyObservers(msg);
+    this.consoleColor = null;
   }
 
   public void inLine_notify_player(String msg) {
@@ -79,7 +87,7 @@ public class PlayerModel extends Observable {
       this.wall = this.room.walls.get(this.orientation);
       notify_player(wall.toString());
     } else {
-      notify_player("Dark");
+      notify_player("Dark", ConsoleColors.red);
     }
   }
 
@@ -103,14 +111,14 @@ public class PlayerModel extends Observable {
     Transition new_location = new Transition(this);
     new_location.move(this.location, this.orientation, move);
     this.location = new_location.toString();
-    notify_player(this.location);
+    notify_player(new_location.printOut(), ConsoleColors.blue);
   }
 
   public void nextRoom_move() {
     Transition new_location = new Transition(this);
     new_location.openNextRoom(this.location, this.orientation, MoveTypes.forward);
     int index = this.roomIndex + 1;
-    notify_player("You are in: " + new_location.toString() + " in room number: " + index);
+    notify_player("You are in: " + new_location.toString() + " in room number: " + index, ConsoleColors.blue);
     this.location = new_location.toString();
     this.room = this.rooms.get(this.roomIndex);
     this.wall = this.room.walls.get(this.orientation);
@@ -195,10 +203,10 @@ public class PlayerModel extends Observable {
       if (item.getLocation().equals(this.location)) {
         this.checkNextRoom(openable);
       } else {
-        notify_player("Nothing to be opened");
+        notify_player("Nothing to be opened", ConsoleColors.red);
       }
     } else {
-      notify_player("Nothing to be opened");
+      notify_player("Nothing to be opened", ConsoleColors.red);
     }
   }
 
@@ -210,7 +218,7 @@ public class PlayerModel extends Observable {
       System.exit(1);
     }
     if (nextRoom.equals("")) {
-      notify_player("This " + openable.getName() + " opens to nothing");
+      notify_player("This " + openable.getName() + " opens to nothing", ConsoleColors.red);
       return;
     }
     for (Room room_candidate : this.rooms) {
@@ -221,7 +229,7 @@ public class PlayerModel extends Observable {
       }
     }
     if (!isOpened && nextRoom.equals("locked")) {
-      notify_player("The " + openable.getName() + " door is locked");
+      notify_player("The " + openable.getName() + " is locked", ConsoleColors.red);
     }
   }
 
@@ -256,7 +264,7 @@ public class PlayerModel extends Observable {
           break;
       }
     } else {
-      notify_player("No sellers in this orientation");
+      notify_player("No sellers in this orientation", ConsoleColors.red);
     }
   }
 
@@ -286,7 +294,7 @@ public class PlayerModel extends Observable {
       this.contents.put(
           "flashLights", this.room.useFlashLight(castToInt(this.contents.get("flashLights")), this));
     } else {
-      notify_player("You have no flashLights");
+      notify_player("You have no flashLights", ConsoleColors.red);
     }
   }
 

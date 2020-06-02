@@ -1,17 +1,17 @@
 
-W
-java:S22095"5Change this instance-reference to a static reference.(ÍÎ‰¯øÿÿÿÿ8’¡†±¦.
-d
-java:S1192”"FDefine a constant instead of duplicating this literal "Space" 3 times.(øû‹8†çº”¥.
-s
-java:S1104"QMake timer a static final constant or non-public and provide accessors if needed.(ØÄ×¤ûÿÿÿÿ8˜öÑ¦.
-T
-java:S1874"2Remove this use of "Observable"; it is deprecated.(ÀŠ¡ùÿÿÿÿ8’¡†±¦.
-m
-java:S1104"PMake menu a static final constant or non-public and provide accessors if needed.(İ‘‰ì8†çº”¥.
 j
 java:S1192"LDefine a constant instead of duplicating this literal "flashLights" 3 times.(âË¸¦8¬ÛŠ¯¦.
+s
+java:S1104"QMake timer a static final constant or non-public and provide accessors if needed.(ØÄ×¤ûÿÿÿÿ8˜öÑ¦.
+W
+java:S22095"5Change this instance-reference to a static reference.(ÍÎ‰¯øÿÿÿÿ8’¡†±¦.
 X
 java:S26965"6Make the enclosing method "static" or remove this set.(ÍÎ‰¯øÿÿÿÿ8’¡†±¦.
+m
+java:S1104"PMake menu a static final constant or non-public and provide accessors if needed.(İ‘‰ì8†çº”¥.
+d
+java:S1192”"FDefine a constant instead of duplicating this literal "Space" 3 times.(øû‹8†çº”¥.
+T
+java:S1874"2Remove this use of "Observable"; it is deprecated.(ÀŠ¡ùÿÿÿÿ8’¡†±¦.
 v
-java:S1104"TMake isInline a static final constant or non-public and provide accessors if needed.(Á¢ÅÀıÿÿÿÿ8’¡†±¦.
+java:S1104"TMake isInline a static final constant or non-public and provide accessors if needed.(Á¢ÅÀıÿÿÿÿ8¨œ³Š§.

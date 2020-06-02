@@ -158,6 +158,9 @@ public class Transition {
     return Integer.parseInt(location.substring(location.length() - 1));
   }
 
+  public String printOut() {
+    return "You are in: " + new_location;
+  }
   @Override
   public String toString() {
     return new_location;

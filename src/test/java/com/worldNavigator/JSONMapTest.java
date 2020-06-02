@@ -79,10 +79,10 @@ public class JSONMapTest {
   @Test
   public void itemsLocationsTest() {
     for (Room room : this.rooms) {
-      Wall n_wall = room.walls.get("n");
-      Wall e_wall = room.walls.get("e");
-      Wall s_wall = room.walls.get("s");
-      Wall w_wall = room.walls.get("w");
+      Wall n_wall = room.walls.get("north");
+      Wall e_wall = room.walls.get("east");
+      Wall s_wall = room.walls.get("south");
+      Wall w_wall = room.walls.get("west");
 
       for (Item item : n_wall.items.values()) {
         assertNotNull(item.getLocation());
@@ -103,10 +103,10 @@ public class JSONMapTest {
   public void itemsLocationsNamingTest() {
     String pattern = "[a-e][1-5]";
     for (Room room : this.rooms) {
-      Wall n_wall = room.walls.get("n");
-      Wall e_wall = room.walls.get("e");
-      Wall s_wall = room.walls.get("s");
-      Wall w_wall = room.walls.get("w");
+      Wall n_wall = room.walls.get("north");
+      Wall e_wall = room.walls.get("east");
+      Wall s_wall = room.walls.get("south");
+      Wall w_wall = room.walls.get("west");
 
       for (Item item : n_wall.items.values()) {
         assertTrue(item.getLocation().matches(pattern));
@@ -126,10 +126,10 @@ public class JSONMapTest {
   @Test
   public void contentsNamingTest() {
     for (Room room : this.rooms) {
-      Wall n_wall = room.walls.get("n");
-      Wall e_wall = room.walls.get("e");
-      Wall s_wall = room.walls.get("s");
-      Wall w_wall = room.walls.get("w");
+      Wall n_wall = room.walls.get("north");
+      Wall e_wall = room.walls.get("east");
+      Wall s_wall = room.walls.get("south");
+      Wall w_wall = room.walls.get("west");
 
       for (Item item : n_wall.items.values()) {
           for (String contentName : item.checkBehavior.getContents().getContents().keySet()) {

@@ -57,7 +57,7 @@ public class Seller extends Item {
 
   private void completeBuying(int gold, int index) {
     if (this.categories.isEmpty()) {
-      this.playerModel.notify_player("Seller has nothing to sell");
+      this.playerModel.notify_player("Seller has nothing to sell", ConsoleColors.red);
     } else {
       String category_name;
       if (this.categories.size() > (index * 2) && index >= 0) {
@@ -74,11 +74,11 @@ public class Seller extends Item {
   private void controlPlayerContents(String category_name, int index, int gold) {
     Object category = this.contents.getContents().get(category_name);
     if (category == null) {
-      this.playerModel.notify_player("This category is not available");
+      this.playerModel.notify_player("This category is not available", ConsoleColors.red);
     } else {
       HashMap item = (HashMap) this.categories.get((index * 2) + 1);
       if (item == null) {
-        this.playerModel.notify_player("This index is not available");
+        this.playerModel.notify_player("This index is not available", ConsoleColors.red);
       } else {
         if (gold - Integer.parseInt(item.get("cost").toString()) >= 0) {
           if ("keys".equals(category_name)) {
@@ -94,7 +94,7 @@ public class Seller extends Item {
               "golds", gold - Integer.parseInt(item.get("cost").toString()));
           this.playerModel.trade();
         } else {
-          this.playerModel.notify_player("Return when you have enough gold");
+          this.playerModel.notify_player("Return when you have enough gold", ConsoleColors.red);
         }
       }
     }
@@ -154,7 +154,7 @@ public class Seller extends Item {
     if (type < this.categories.size()) {
       this.checkSellingType(this.categories.get(type).toString());
     } else {
-      this.playerModel.notify_player("This item is not in the list");
+      this.playerModel.notify_player("This item is not in the list", ConsoleColors.red);
       this.sellingCommands();
     }
   }
@@ -164,7 +164,7 @@ public class Seller extends Item {
       this.sellingKeys();
     } else {
       if (this.playerModel.getContent(type) == null) {
-        this.playerModel.notify_player("Choose a correct type");
+        this.playerModel.notify_player("Choose a correct type", ConsoleColors.red);
         this.sellingCommands();
       } else {
         if (((int) this.playerModel.getContent(type)) > 0) {
@@ -173,7 +173,7 @@ public class Seller extends Item {
               "golds",
               (Integer.parseInt(this.playerModel.getContent("golds").toString()))
                   + this.selling.get(type));
-          this.playerModel.notify_player("Done!");
+          this.playerModel.notify_player("Done!", ConsoleColors.green);
           this.playerModel.trade();
         } else {
           this.playerModel.notify_player("You dont have " + type + " to sell");
@@ -185,7 +185,7 @@ public class Seller extends Item {
 
   private void sellingKeys() {
     if (((List<KeyChecker>) this.playerModel.getContent("keys")).isEmpty()) {
-      this.playerModel.notify_player("You dont have keys to sell");
+      this.playerModel.notify_player("You dont have keys to sell", ConsoleColors.red);
       this.sellingCommands();
     } else {
       this.playerModel.notify_player("Enter the number of the key you want to sell: ");
@@ -219,7 +219,7 @@ public class Seller extends Item {
           "golds",
           (Integer.parseInt(this.playerModel.getContent("golds").toString()))
               + this.selling.get("keys"));
-      this.playerModel.notify_player("Done!");
+      this.playerModel.notify_player("Done!", ConsoleColors.green);
       this.playerModel.trade();
     } else {
       this.sellingKeys();

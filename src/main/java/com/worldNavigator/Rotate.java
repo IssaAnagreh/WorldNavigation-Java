@@ -28,10 +28,10 @@ public class Rotate {
         this.ORIENTATION = this.SOUTH;
         break;
       default:
-        this.playerModel.notify_player("Semething went wrong while rotating");
+        this.playerModel.notify_player("Semething went wrong while rotating", ConsoleColors.red);
         break;
     }
-    this.playerModel.notify_player(this.ORIENTATION);
+    this.playerModel.notify_player(this.ORIENTATION, ConsoleColors.blue);
     return this.ORIENTATION;
   }
 
@@ -50,10 +50,10 @@ public class Rotate {
         this.ORIENTATION = this.NORTH;
         break;
       default:
-        this.playerModel.notify_player("Something went wrong while rotating");
+        this.playerModel.notify_player("Something went wrong while rotating", ConsoleColors.red);
         break;
     }
-    this.playerModel.notify_player(this.ORIENTATION);
+    this.playerModel.notify_player(this.ORIENTATION, ConsoleColors.blue);
     return this.ORIENTATION;
   }
 
