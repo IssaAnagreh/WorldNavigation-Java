@@ -8,11 +8,37 @@
         <groupId>org.Isa</groupId>
         <artifactId>worldNavigator</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>worldNavigator1</artifactId>
+    <artifactId>worldNavigator</artifactId>
     <packaging>war</packaging>
-    <name>worldNavigator1</name>
-    <description>worldNavigator1.</description>
+    <name>worldNavigator</name>
+    <description>worldNavigator.</description>
 
+    <build>
+        <finalName>${project.artifactId}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
