@@ -63,9 +63,6 @@ h
 8src/main/java/com/worldNavigator/Unlocked_Checkable.java,d/b/dbcac9b9735c0a47470e4be416417d936997ed7e
 ]
 -src/main/java/com/worldNavigator/Command.java,2/e/2e8c76e40cced4e56250f3bab9be5bef7b75cdd4
-:
-
-Report.rtf,2/0/20732d482724592a12615db8b8837e9c2df66f52
 Z
 *src/main/java/com/worldNavigator/Safe.java,b/6/b692779fc1fb0a5fd66b15932b6163c24f0e50ad
 \
@@ -94,3 +91,7 @@ _
 /src/test/java/com/worldNavigator/RoomsTest.java,8/0/80a02efcb4e41cfeb69a7a86f9574914b3986a85
 `
 0src/main/java/com/worldNavigator/RoomDrawer.java,a/e/aea205c922d05c14d720f56207bf75ba0291cb44
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+c
+3src/main/java/com/worldNavigator/ConsoleColors.java,b/1/b1845a486ca9bffe77c0f1e6ced339b921bd92c0

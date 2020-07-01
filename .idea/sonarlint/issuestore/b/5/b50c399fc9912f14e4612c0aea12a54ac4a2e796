@@ -1,5 +1,11 @@
 
-T
-java:S1874"2Remove this use of "Observable"; it is deprecated.(‹›Àüÿÿÿÿ8Š¸òÎ¢.
+L
+java:S5411"*Use the primitive boolean expression here.(ºÁÏÌúÿÿÿÿ8ÖĞÄ…¯.
 E
 java:S1874"0Remove this use of "Observer"; it is deprecated.(ÄµêR
+T
+java:S1874"2Remove this use of "Observable"; it is deprecated.(‹›Àüÿÿÿÿ8Š¸òÎ¢.
+L
+java:S5411>"*Use the primitive boolean expression here.(ºÁÏÌúÿÿÿÿ8ÖĞÄ…¯.
+T
+java:S1874"2Remove this use of "Observable"; it is deprecated.(ëÕ†Éøÿÿÿÿ8ÖĞÄ…¯.

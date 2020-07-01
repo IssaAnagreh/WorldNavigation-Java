@@ -1,13 +1,13 @@
 
+Š
+java:S1319"mThe type of the "walls" object should be an interface such as "Map" rather than the implementation "HashMap".(İ¦Å‰8ûÌòÎ¢.
 n
 java:S1104"QMake walls a static final constant or non-public and provide accessors if needed.(İ¦Å‰8ûÌòÎ¢.
-t
-java:S1104"WMake lightSwitch a static final constant or non-public and provide accessors if needed.(ö´¸—8ûÌòÎ¢.
 L
 java:S5411."*Use the primitive boolean expression here.(ÜÿË¦øÿÿÿÿ8ûÌòÎ¢.
 L
-java:S54110"*Use the primitive boolean expression here.(ö«¹ÿÿÿÿÿ8ûÌòÎ¢.
-L
 java:S5411;"*Use the primitive boolean expression here.(ö«¹ÿÿÿÿÿ8ûÌòÎ¢.
-Š
-java:S1319"mThe type of the "walls" object should be an interface such as "Map" rather than the implementation "HashMap".(İ¦Å‰8ûÌòÎ¢.
+L
+java:S54110"*Use the primitive boolean expression here.(ö«¹ÿÿÿÿÿ8ûÌòÎ¢.
+t
+java:S1104"WMake lightSwitch a static final constant or non-public and provide accessors if needed.(ö´¸—8ûÌòÎ¢.
