@@ -7,7 +7,6 @@
     <groupId>org.Isa</groupId>
     <artifactId>worldNavigator</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
     <build>
         <plugins>
             <plugin>
@@ -16,12 +15,6 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
 
